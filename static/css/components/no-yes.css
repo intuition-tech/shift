@@ -331,6 +331,6 @@
   &.under {
     margin-top: -0.6em;
     margin-bottom: 1.2em;
-    color: #0b0bc1;
+    color: var(--shift__billet-under);
   }
 }

@@ -1,0 +1,328 @@
+---
+title: Сохраняем печатные макеты — Shift
+titleEn: Saving printed layouts — Shift
+description: "Мы в Додо используем четыре формата носителей: мелкие, средние, форматы для наружной рекламы и билборды. Рассказываем, как подготовить макеты к печати и правильно сохранить."
+tags: guide
+---
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Сохраняем печатные макеты{% else %}Saving printed layouts{% endif %}</h1>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="preparing" label="{% if lang == 'ru' %}Подготовка к сохранению макетов на печать{% else %}Preparing to save layouts for printing{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Подготовка к сохранению макетов на печать{% else %}Preparing to save layouts for printing{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Прежде чем сохранять макет, редактируем лигалы и ценники, устанавливаем пресеты и определяем формат макета.{% else %}Before saving a layout, we edit legal information and price tags, set presets and indicate the layout format.{% endif %}
+    </p>
+    <div class="ids__space S"></div>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Скачиваем макет для редактирования</strong></p>
+        <p>В Базе знаний это кнопка For Editing. Она ведет на папку с макетом в формате .ai.</p>
+        {% else %}
+        <p><strong>Download a layout for editing</strong></p>
+        <p>You will find it under the “For Editing” button in the Knowledge base. It brings you to the folder with the layout in .ai format.</p>
+        {% endif %}
+        <div class="ids__media-group S shadow">
+          <figure><img src="/images/saving-printed-layouts/1.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Открываем макет в Adobe Illustrator</strong></p>
+        <p>Если программа выдает ошибки, связанные со шрифтами, скачиваем шрифты еще раз и переустанавливаем. Такое может произойти, если до этого мы обновили шрифт, но в программе осталась предыдущая версия. Скачать шрифты можно в <a href="https://brandbook.dodopizza.info/#!design/typeface" target="_blank">Брендбуке</a>.</p>
+        {% else %}
+        <p><strong>Open the layout in Adobe Illustrator</strong></p>
+        <p>If Adobe software indicates errors related to fonts, download the fonts again and reinstall them. This can happen if we have updated the font before, but the program still contains the previous version. You can download fonts from the <a href="https://brandbook.dodopizza.info/#!design/typeface" target="_blank">Brand book</a>.</p>
+        {% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Редактируем макет</strong></p>
+        <p>Если нам нужно отредактировать юридическую информацию, выбрать ценовую группу или навигацию в макете, следуем инструкциям из гайдов:</p>
+        <ul>
+          <li><a href="/editing-the-ligal-in-the-layout/" target="_blank">Редактируем лигал в макетах</a>,</li>
+          <li><a href="/selecting-a-price-group-in-the-layout/" target="_blank">Выбираем ценовую группу в макете</a>,</li>
+          <li><a href="/editing-navigation-in-outdoor-advertising-layouts/" target="_blank">Редактируем навигацию в макетах для наружной рекламы</a>.</li>
+        </ul>
+        <p>Когда все изменения внесены, переходим к следующему пункту.</p>
+        {% else %}
+        <p><strong>Editing the layout</strong></p>
+        <p>If you need to edit legal information, select a price group or navigation in the layout, follow the instructions from the guides below:</p>
+        <ul>
+          <li><a href="/en/editing-the-ligal-in-the-layout/" target="_blank">Edit legal information in the layout</a>,</li>
+          <li><a href="/en/selecting-a-price-group-in-the-layout/" target="_blank">Select a price group in the layout</a>,</li>
+          <li><a href="/en/editing-navigation-in-outdoor-advertising-layouts/" target="_blank">Edit navigation in outdoor advertising layouts</a>.</li>
+        </ul>
+        <p>When you are done with all the changes, move on to the next point.</p>
+        {% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Устанавливаем пресет с настройками PDF</strong></p>
+        <p>Скачиваем его <a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH" target="_blank">из папки PDF Profile.</a> Пресет упростит сохранение мелких и средних печатных форматов. Для установки файл с пресетом открываем в Adobe Illustrator через правую кнопку мыши «Открыть с помощью». После этого ничего не произойдет, но пресет будет установлен.</p>
+        <p>Если установить не получится, настраиваем его вручную.</p>
+        {% else %}
+        <p><strong>Install the preset with PDF settings</strong></p>
+        <p>Download it from <a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH" target="_blank">the PDF Profile folder</a>. The preset will make it easier to save small and medium-sized print formats. To install it, open the file with the preset in Adobe Illustrator using the right mouse button "Open with". You won’t notice any visible changes, but the preset will be installed after the click.</p>
+        <p>If the preset cannot be installed, set it up manually.</p>
+        {% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Определяем формат макета</strong></p>
+        <p>Способы сохранения на печать отличаются для разных носителей. Всего их четыре:</p>
+        <ul>
+          <li>Мелкие печатные носители: все форматы от А7 до А2 — листовки, тейбл-тенты, кассовые постеры, объявления.</li>
+          <li>Средние печатные носители: лайтбоксы А1 и А0.</li>
+          <li>Наружная реклама: сити-форматы и пиллары.</li>
+          <li>Билборды. Формально это тоже наружная реклама, но их надо сохранять с другим разрешением.</li>
+        </ul>
+        {% else %}
+        <p><strong>Figure out the layout format</strong></p>
+        <p>Depending on the media you choose, the algorithm of saving the layout varies. There are four formats in total:</p>
+        <ul>
+          <li>Small print media, which are all formats from A7 to A2: leaflets, table tents, checkout posters, adverts.</li>
+          <li>Medium print media: A1 and A0 light boxes.</li>
+          <li>Outdoor advertising: city formats and pillars.</li>
+          <li>Billboards. Technically, they are also outdoor advertising, but they should be saved with a different resolution.</li>
+        </ul>
+        {% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="small-formats" label="{% if lang == 'ru' %}Сохраняем макет для мелких печатных форматов{% else %}Saving the layout for small print media{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Сохраняем макет для мелких печатных форматов{% else %}Saving the layout for small print media{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Инструкция подходит для всех носителей формата от А7 до А2. В основном это листовки, тейбл-тенты, кассовые постеры и объявления.{% else %}The instructions are suitable for all media from A7 to A2, which are mostly leaflets, table tents, checkout posters and adverts.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Выделяем все объекты на макете</strong></p>
+        <p>Используем курсор или сочетание клавиш Cmnd+A.</p>
+        {% else %}
+        <p><strong>Select all objects on the layout</strong></p>
+        <p>Use the cursor or the keyboard shortcut Cmnd+A.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/2.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Растрируем выделенные объекты с разрешением 300 ppi</strong></p>
+        <p>Для объединения макета в одну картинку (растрирования) открываем меню в верхней части окна программы. Нажимаем Object, а затем выбираем Rasterize в выпадающем окне. После этого появится диалоговое окно с настройками растрирования. Выбираем настройки, как на скриншоте. Теперь макет объединен в одну картинку, и мы не потеряем элементы при печати.</p>
+        {% else %}
+        <p><strong>Rasterise the selected objects with 300 ppi resolution</strong></p>
+        <p>To merge the layout into one image (this is called rasterisation), open the menu at the top of the Adobe Illustrator window. Click “Object” and then select “Rasterize” in the drop-down menu. After that a dialogue window with rasterisation settings will appear. Choose the settings as shown on the screenshot. Now the layout is merged into one image, and we won't lose any elements when printing.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/3.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Сохраняем копию макета в формат PDF</strong></p>
+        <p>Находим пункт File в меню программы. В выпадающем меню выбираем Save As. Меняем названием файла с Edit на Print, чтобы избежать путаницы. В выпадающем меню Format выбираем Adobe PDF (pdf) и нажимаем кнопку Save.</p>
+        {% else %}
+        <p><strong>Save a copy of the layout in PDF format</strong></p>
+        <p>Find the “File” item in Adobe Illustrator menu. Select “Save As” in the drop-down menu. Change the file name from “Edit” to “Print” to avoid confusion. Select “Adobe PDF” (pdf) in the “Format” drop-down menu and then click “Save”.</p>
+        {% endif %}
+        <div class="ids__media-group XL shadow">
+          <figure><img src="/images/saving-printed-layouts/4.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Выбираем настройки для сохранения PDF</strong></p>
+        <p>После нажатия кнопки Save (предыдущий пункт), появится диалоговое окно настройки Adobe PDF. В этом окне, в правой части, находим выпадающее меню Adobe PDF Preset и выбираем Fogra_39_Print. После выбора нужной предустановки, нажимаем кнопку Save PDF.</p>
+        {% else %}
+        <p><strong>Select the settings to save the PDF</strong></p>
+        <p>After clicking “Save” (see previous item), the Adobe PDF settings dialogue box will appear. In this window, on the right side, find the “Adobe PDF Preset” drop-down menu and select “Fogra_39_Print”. After selecting the necessary preset, click the “Save PDF” button.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/5.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Готово</strong></p>
+        <p>Макет сохранен и готов к отправке в типографию. В нем уже назначено нужное цветовое пространство, разрешение, припуски на обрезку и другие технические нюансы, важные для печати.</p>
+        {% else %}
+        <p><strong>Done</strong></p>
+        <p>The layout is saved and ready to be sent to the printing house. It already contains the required colour space, resolution, trimming allowances and other technical nuances important for printing.</p>
+        {% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="medium-formats" label="{% if lang == 'ru' %}Сохраняем макет для средних печатных форматов{% else %}Saving the layout for medium print formats{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Сохраняем макет для средних печатных форматов{% else %}Saving the layout for medium print formats{% endif %}</h2>
+    <p>{% if lang == 'ru' %}Инструкция подходит для лайтбоксов формата А1 и А0.{% else %}The instructions are suitable for A1 and A0 size light boxes.{% endif %}</p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Выделяем все объекты на макете</strong></p>
+        <p>Используем курсор или сочетание клавиш Cmnd+A.</p>
+        {% else %}
+        <p><strong>Select all objects on the layout</strong></p>
+        <p>Use the cursor or the keyboard shortcut Cmnd+A.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/6.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Растрируем выделенные объекты с разрешением 150 ppi</strong></p>
+        <p>Для объединения макета в одну картинку (растрирования) открываем меню в верхней части окна программы. Нажимаем Object, а затем выбираем Rasterize в выпадающем окне.</p>
+        <p>После этого появится диалоговое окно с настройками растрирования. Выбираем настройки, как на скриншоте. Теперь макет объединен в одну картинку, и мы не потеряем элементы при печати.</p>
+        {% else %}
+        <p><strong>Rasterise selected objects with 150 ppi resolution</strong></p>
+        <p>To merge the layout into one image (i.e. rasterise it), open the menu at the top of the software window. Click “Object” and then select “Rasterise” in the drop-down menu.</p>
+        <p>After that a dialogue window with rasterisation settings will appear. Choose the settings as shown on the screenshot. Now the layout is merged into one image, and we won't lose any elements when printing.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/7.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Сохраняем копию макета в формат PDF</strong></p>
+        <p>Находим пункт File в меню программы. В выпадающем меню выбираем Save As. Меняем названием файла с Edit на Print, чтобы избежать путаницы. В выпадающем меню Format выбираем Adobe PDF (pdf) и нажимаем кнопку Save.</p>
+        {% else %}
+        <p><strong>Save a copy of the layout in PDF format</strong></p>
+        <p>Find the “File” item in the Adobe Illustrator menu. Select “Save As” in the drop-down menu. Change the file name from “Edit” to “Print” to avoid confusion. In the “Format” drop-down menu select “Adobe PDF” (pdf) and click “Save”.</p>
+        {% endif %}
+        <div class="ids__media-group XL shadow">
+          <figure><img src="/images/saving-printed-layouts/8.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Выбираем настройки для сохранения PDF</strong></p>
+        <p>После нажатия кнопки Save (предыдущий пункт), появится диалоговое окно настройки Adobe PDF. В этом окне, в правой части, находим выпадающее меню Adobe PDF Preset и выбираем Fogra_39_Print. После выбора нужной предустановки, нажимаем кнопку Save PDF.</p>
+        {% else %}
+        <p><strong>Select settings for saving PDF</strong></p>
+        <p>After clicking the “Save” button (see previous item), the Adobe PDF settings dialogue box will appear. Find the “Adobe PDF Preset” drop-down menu in this window, on the right side and select “Fogra_39_Print”. After selecting the desired preset, click the “Save PDF” button.</p>
+        {% endif %}
+        <div class="ids__media-group L shadow">
+          <figure><img src="/images/saving-printed-layouts/9.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Готово</strong></p>
+        <p>Макет сохранен и готов к отправке в типографию. В нем уже назначено нужное цветовое пространство, разрешение, припуски на обрезку и другие технические нюансы, важные для печати.</p>
+        {% else %}
+        <p><strong>Done</strong></p>
+        <p>The layout is saved and ready to be sent to the printing house. It already has the required colour space, resolution, trimming allowances and other technical nuances important for printing.</p>
+        {% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="outdoor" label="{% if lang == 'ru' %}Сохраняем макет для наружной рекламы{% else %}Saving the layout for outdoor advertising{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Сохраняем макет для наружной рекламы{% else %}Saving the layout for outdoor advertising{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Инструкция подходит для сити-форматов и пилларов. Билборд мы сохраняем по-другому из-за особенностей макета. Об этом в следующем разделе.{% else %}The instructions are suitable for city formats and billboards. We save a billboard differently because of the nuances of the layout. We will talk about it in the next section.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Экспортируем макет в формат TIFF</strong></p>
+        <p>Открываем меню в верхней части окна программы и находим пункт File. В выпадающем меню выберите Export, а затем Export As.</p>
+        <p>В окне Export As меняем имя файла с Edit на Print, чтобы избежать путаницы.</p>
+        <p>В выпадающем меню Format выбираем TIFF (tif) и нажимаем кнопку Export. Проверяем, что опция Use Artboards выключена (без галочки), чтобы сохранить макет с припусками на обрезку.</p>
+        {% else %}
+        <p><strong>Export the layout to TIFF format</strong></p>
+        <p>Open the menu at the top of the Adobe Illustrator window and find the “File” item. Select “Export” and then “Export As” in the drop-down menu.</p>
+        <p>In the “Export As” window, change the file name from “Edit” to “Print” to avoid confusion.</p>
+        <p>In the drop-down menu “Format” select “TIFF” (tif) and click the “Export” button. Make sure that the “Use Artboards” option is off (unchecked) to save the layout with trimming allowances.</p>
+        {% endif %}
+        <div class="ids__media-group XL shadow">
+          <figure><img src="/images/saving-printed-layouts/10.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Назначаем настройки для сохранения TIFF</strong></p>
+        <p>Выбираем такие же параметры, как на скриншоте и нажимаем «ок».</p>
+        {% else %}
+        <p><strong>Assign settings for saving TIFF</strong></p>
+        <p>Select the same settings as in the screenshot and click "ok".</p>
+        {% endif %}
+        <div class="ids__media-group M shadow">
+          <figure><img src="/images/saving-printed-layouts/11.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Готово</strong></p>
+        <p>Макет сохранен и готов к отправке в типографию.</p>
+        {% else %}
+        <p><strong>Done</strong></p>
+        <p>The layout is saved and ready to be sent to the printing house.</p>
+        {% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="billboard" label="{% if lang == 'ru' %}Сохраняем макет билборда{% else %}Saving the billboard layout{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Сохраняем макет билборда{% else %}Saving the billboard layout{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Макет для билборда мы собираем в пропорции 1:10, так как предыдущие версии Adobe Illustrator не поддерживают размер больше 5 метров.{% else %}We assemble the billboard layout in the ratio of 1:10, as previous versions of Adobe Illustrator do not support sizes larger than 5 metres.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Это никак не сказывается на качестве печати. Главное — сохранить макет с правильными настройками и перед печатью увеличить его в 10 раз.{% else %}This does not affect the quality of printing. The key thing is to save the layout with the correct settings and enlarge it 10 times before printing.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Экспортируем макет в формат TIFF</strong></p>
+        <p>Открываем меню в верхней части окна программы и находим пункт File. В выпадающем меню выберите Export, а затем Export As. В окне Export As меняем имя файла с Edit на Print, чтобы избежать путаницы.</p>
+        <p>В выпадающем меню Format выбираем TIFF (tif) и нажимаем кнопку Export. Проверяем, что опция Use Artboards выключена (без галочки), чтобы сохранить макет с припусками на обрезку.</p>
+        {% else %}
+        <p><strong>Export the layout to TIFF format</strong></p>
+        <p>Open the menu at the top of the Adobe Illustrator window and find the “File” item. Select “Export” and then “Export As” in the drop-down menu. In the “Export As” window, change the file name from Edit to Print to avoid confusion.</p>
+        <p>In the “Format” drop-down menu, select “TIFF” (tif) and click “Export”. Make sure that the “Use Artboards” option is off (unchecked) to save the layout with allowances.</p>
+        {% endif %}
+        <div class="ids__media-group XL shadow">
+          <figure><img src="/images/saving-printed-layouts/12.gif" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Назначаем настройки для сохранения TIFF</strong></p>
+        <p>Выбираем такие же параметры, как на скриншоте и нажимаем «ок».</p>
+        {% else %}
+        <p><strong>Assign settings for saving TIFF</strong></p>
+        <p>Select the same settings as in the screenshot and click "ok".</p>
+        {% endif %}
+        <div class="ids__media-group M shadow">
+          <figure><img src="/images/saving-printed-layouts/13.png" alt="" /></figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}
+        <p><strong>Готово</strong></p>
+        <p>Макет сохранен и готов к отправке в типографию.</p>
+        {% else %}
+        <p><strong>Done</strong></p>
+        <p>The layout is saved and ready to be sent to the printer.</p>
+        {% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

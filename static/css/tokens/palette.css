@@ -1,29 +1,34 @@
-/* Палитра — сырые значения цвета, не зависящие от темы.
-   Это источник правды для цвета: семантические токены в colors.css
-   ссылаются сюда и нигде не используют rgb()-значения напрямую. */
+/* Палитра — сырые, статичные значения цвета, не зависящие от темы.
+   Это базовый слой и источник правды для цвета: семантические токены
+   (colors.css, shift.css) ссылаются сюда и нигде не пишут rgb() напрямую.
+   Имена — по оттенку и весу, без смысла «для чего». */
 
 :root {
   --ids__color-white: rgb(255, 255, 255);
 
-  --ids__color-gray-100: rgb(238, 240, 242);
+  /* Серо-синие — текст и поверхности Shift */
+  --ids__color-navy-900: rgb(20, 30, 50);
+  --ids__color-gray-100: rgb(234, 235, 236);
+  --ids__color-gray-300: rgb(212, 214, 215);
+  --ids__color-gray-500: rgb(133, 144, 148);
+  --ids__color-lavender-100: rgb(243, 242, 247);
+
+  /* Акценты */
+  --ids__color-orange-500: rgb(255, 80, 0);
+  --ids__color-orange-450: rgb(255, 105, 0);
+  --ids__color-green-400: rgb(105, 231, 134);
+  --ids__color-green-500: rgb(84, 180, 140);
+  --ids__color-red-500: rgb(240, 84, 95);
+  --ids__color-yellow-300: rgb(255, 235, 83);
+  --ids__color-brown-700: rgb(100, 80, 80);
+  --ids__color-blue-800: rgb(11, 11, 193);
+
+  /* Нейтрали для тёмной темы (из ванильной IDS) */
   --ids__color-gray-200: rgb(220, 221, 223);
   --ids__color-gray-400: rgb(153, 156, 160);
-  --ids__color-gray-500: rgb(115, 120, 125);
-  --ids__color-gray-600: rgb(85, 88, 92);
-  --ids__color-gray-700: rgb(55, 58, 62);
   --ids__color-gray-800: rgb(32, 33, 36);
   --ids__color-gray-900: rgb(18, 18, 20);
-  --ids__color-gray-950: rgb(5, 5, 5);
-
-  --ids__color-blue-450: rgb(60, 130, 250);
-  --ids__color-blue-500: rgb(0, 100, 240);
-
   --ids__color-green-450: rgb(40, 215, 40);
-  --ids__color-green-500: rgb(0, 200, 0);
-  --ids__color-green-600: rgb(30, 170, 60);
-
   --ids__color-red-450: rgb(255, 70, 95);
-  --ids__color-red-500: rgb(253, 47, 75);
-
   --ids__color-yellow-500: rgb(255, 225, 0);
 }

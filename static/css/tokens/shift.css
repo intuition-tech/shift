@@ -1,11 +1,12 @@
-/* Брендовые токены Shift — то, что не входит в семантику IDS. */
+/* Семантические токены Shift — то, что не входит в семантику IDS.
+   Тот же слой, что colors.css: цвета берутся из палитры. */
 
 :root {
-  --shift__dodo-orange: rgb(255, 105, 0);
-  --shift__gray-caption: rgb(133, 144, 148);
-
-  --shift__aside-background: #f3f2f7;
-  --shift__shadow-color: rgb(212, 214, 215);
+  --shift__dodo-orange: var(--ids__color-orange-450);
+  --shift__gray-caption: var(--ids__color-gray-500);
+  --shift__aside-background: var(--ids__color-lavender-100);
+  --shift__shadow-color: var(--ids__color-gray-300);
+  --shift__billet-under: var(--ids__color-blue-800);
 
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
   --shift__arrow-font: "Arrow";

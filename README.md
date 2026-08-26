@@ -29,11 +29,12 @@ site/                # результат сборки (в гитигноре)
 
 Что изменено и добавлено относительно ванильной IDS:
 
-- `tokens/colors.css` — семантические цвета заданы прямыми значениями старого сайта;
-- `tokens/shift.css` — брендовые токены (`--shift__dodo-orange`, `--shift__gray-caption`, `--shift__aside-background`, `--shift__shadow-color`, `--shift__description-font`);
+- `tokens/palette.css` — базовый слой: статичные значения цвета старого сайта, названные по оттенку и весу (`--ids__color-navy-900`, `--ids__color-orange-500`…); в компонентах напрямую не используются;
+- `tokens/colors.css` — семантические цвета IDS, только ссылки на палитру;
+- `tokens/shift.css` — семантические токены, специфичные для Shift (`--shift__dodo-orange`, `--shift__gray-caption`, `--shift__aside-background`, `--shift__shadow-color`, `--shift__billet-under`, `--shift__description-font`) — тот же слой, что colors.css;
 - `settings.css` — @font-face старых шрифтов и рампа со старыми числами;
 - `components/ids.css` — типографика по старым кеглям (h1 3.23em/650, h2 2.5em/570, `h2.h3`, `h2.special`, списки, таблицы, `aside`, `figcaption`, `.lead`, `.ids__description`, `.ids__table-wrapper`);
-- новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/video.css` (`.ids__video`), `components/style-guide.css` (витрина);
+- новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/note.css` (`.ids__with-note`, `.ids__note` — сноска на полях), `components/video.css` (`.ids__video`), `components/style-guide.css` (витрина);
 - `components/navbar.css` — `ids-navbar` перестилен под оглавление публикации (sticky слева, скрыт < 768px);
 - стрелки «НЕТ/ДА» — `static/images/no-yes/`.
 
@@ -49,11 +50,11 @@ site/                # результат сборки (в гитигноре)
 
 Каждый гайд — один файл `src/pages/<slug>.html` с фронтматтером (`title`/`titleEn`, `description`/`descriptionEn`, `tags: guide`) и инлайновым переключением языка `{% if lang == 'ru' %}…{% else %}…{% endif %}`. URL плоские: `/<slug>/` и `/en/<slug>/`. Разделы оборачиваются в `<ids-nav-item id="слаг" label="…">` — из них строится оглавление. Картинки — в `static/images/<slug>/`. Главная — неоформленный список по коллекции `guide`.
 
-Контент переносится со старого сайта `/Users/arutyunov/dbdt` (Pug, миксины `+ru`/`+en`). Список публикаций и их статусы — CSV «Shift — All Guides». Перенесено 5 из 35 актуальных гайдов.
+Контент переносится со старого сайта `/Users/arutyunov/dbdt` (Pug, миксины `+ru`/`+en`). Список публикаций и их статусы — CSV «Shift — All Guides». Перенесено 10 из 35 актуальных гайдов.
 
-## Витрина /style
+## Дизайн-система /design-system
 
-`/style/` — перечень компонентов и токенов (по образцу ponedelnik.ru/style): токены дампятся из живого CSS скриптом `static/js/tokens-dump.js` (слоты `data-tokens-prefix` / `data-tokens-render`), компоненты показаны живыми образцами. В навигацию не выводится, доступна по прямой ссылке.
+`/design-system/` — витрина (по образцу ponedelnik.ru/style): палитра и семантические токены дампятся из живого CSS скриптом `static/js/tokens-dump.js` (слоты `data-tokens-prefix` / `data-tokens-render`); типографика — таблицей «элемент / образец / токены»; компоненты — блоками «табличка название+токены → образец на всю ширину → спейсер». Новые компоненты сразу добавляются сюда. В навигацию не выводится, доступна по прямой ссылке.
 
 ## Двуязычность
 

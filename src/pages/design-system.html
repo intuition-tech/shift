@@ -1,0 +1,339 @@
+---
+title: Дизайн-система — Shift
+titleEn: Design system — Shift
+description: Дизайн-система Shift — палитра, семантические токены, типографика и компоненты живыми образцами.
+tags: ''
+---
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Дизайн-система{% else %}Design system{% endif %}</h1>
+  <p class="ids__description">
+    Токены собираются из живого CSS скриптом — витрина не может разойтись с кодом. Типографика и компоненты показаны живыми образцами с продовыми классами.
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="tokens" label="Токены">
+    <h2>Токены</h2>
+
+    <h3>Палитра</h3>
+    <p>Базовый слой: статичные значения цвета, названные по оттенку и весу. Сами по себе в компонентах не используются — только через семантику. Клик по значению копирует <code>var(…)</code>.</p>
+    <div data-tokens-prefix="color" data-tokens-render="swatch"></div>
+
+    <div class="ids__space M"></div>
+    <h3>Семантические роли</h3>
+    <p>Для чего цвет используется — так и называется. Значения — только ссылки на палитру. Токены с префиксом <code>--shift__</code> — та же семантика, но специфичная для Shift, не входящая в базовую IDS.</p>
+    <div
+      data-tokens-prefix=""
+      data-tokens-exclude="color-,spacer-,gap-,radius,border-width-,duration-,easing-,density,border"
+      data-tokens-render="swatch"
+    ></div>
+    <div data-tokens-namespace="--shift__" data-tokens-prefix="" data-tokens-exclude="description-font,arrow-font" data-tokens-render="swatch"></div>
+
+    <div class="ids__space M"></div>
+    <h3>Спейсеры</h3>
+    <div data-tokens-prefix="spacer" data-tokens-render="space"></div>
+
+    <h3>Гэпы</h3>
+    <div data-tokens-prefix="gap" data-tokens-render="gap"></div>
+
+    <h3>Радиусы</h3>
+    <div data-tokens-prefix="radius" data-tokens-render="radius"></div>
+
+    <h3>Границы</h3>
+    <div data-tokens-prefix="border-width" data-tokens-render="border-width"></div>
+
+    <h3>Движение</h3>
+    <div data-tokens-prefix="duration" data-tokens-render="motion"></div>
+    <div data-tokens-prefix="easing" data-tokens-render="motion"></div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+  <ids-nav-item id="typography" label="Типографика">
+    <h2>Типографика</h2>
+    <p>
+      Основной шрифт — Pragmatica (вариативный), вес текста 500. Лид публикации — Elma Trio Slanted. Корневой кегль флюидный: 13→23&thinsp;px на десктопе, 17→26&thinsp;px на мобильных. Кегли элементов — в em от корневого.
+    </p>
+
+    <div class="guide-tokens__rows">
+      <div class="guide-tokens__row guide-tokens__row--header">
+        <span>Элемент</span><span>Образец</span><span>Токены</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Заголовок публикации<br /><code>h1</code></span>
+        <div class="guide-tokens__sample"><h1>Заголовок h1</h1></div>
+        <span class="guide-tokens__row-value">3.23em / 650<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Заголовок второго уровня<br /><code>h2</code></span>
+        <div class="guide-tokens__sample"><h2>Заголовок h2</h2></div>
+        <span class="guide-tokens__row-value">2.5em / 570<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Раздел публикации<br /><code>h2.h3</code></span>
+        <div class="guide-tokens__sample"><h2 class="h3">Заголовок h2.h3</h2></div>
+        <span class="guide-tokens__row-value">1.4em / 570<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Подраздел<br /><code>h3</code></span>
+        <div class="guide-tokens__sample"><h3>Заголовок h3</h3></div>
+        <span class="guide-tokens__row-value">1.4em / 570<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Мелкий заголовок<br /><code>h4</code></span>
+        <div class="guide-tokens__sample"><h4>Заголовок h4</h4></div>
+        <span class="guide-tokens__row-value">1.01em / 600<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Серый капс<br /><code>h2.special</code></span>
+        <div class="guide-tokens__sample"><h2 class="special">Заголовок h2.special</h2></div>
+        <span class="guide-tokens__row-value">.85em / caps / ls .13em<br />--shift__gray-caption</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Бейдж<br /><code>.ids__billet</code><br /><code>.under</code></span>
+        <div class="guide-tokens__sample"><div class="ids__billet">Функция</div></div>
+        <span class="guide-tokens__row-value">.75em / 570 / caps<br />--shift__gray-caption<br />--shift__billet-under</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Лид публикации<br /><code>p.ids__description</code></span>
+        <div class="guide-tokens__sample"><p class="ids__description">Лид публикации — Elma Trio Slanted, вес 200.</p></div>
+        <span class="guide-tokens__row-value">--shift__description-font</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Абзац<br /><code>p</code></span>
+        <div class="guide-tokens__sample">
+          <p>Обычный абзац со <a href="#typography">ссылкой</a>, <strong>жирным</strong>, <em>курсивом</em>, <mark>маркером</mark> и <code>кодом</code>.</p>
+        </div>
+        <span class="guide-tokens__row-value">1em / 500<br />--ids__text<br />--ids__link<br />--ids__hover<br />--ids__mark<br />--ids__code</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Выноска<br /><code>p.lead</code></span>
+        <div class="guide-tokens__sample"><p class="lead">Крупная выноска — используется и как цитата.</p></div>
+        <span class="guide-tokens__row-value">--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Приглушённый текст<br /><code>p.subdued</code></span>
+        <div class="guide-tokens__sample"><p class="subdued">Второстепенный текст — серым.</p></div>
+        <span class="guide-tokens__row-value">--ids__text-caption</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Маркированный список<br /><code>ul</code></span>
+        <div class="guide-tokens__sample">
+          <ul>
+            <li>Маркированный список;</li>
+            <li>буллеты рисуются псевдоэлементом.</li>
+          </ul>
+        </div>
+        <span class="guide-tokens__row-value">--ids__text (50%)</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Нумерованный список<br /><code>ol</code></span>
+        <div class="guide-tokens__sample">
+          <ol>
+            <li>Нумерованный список;</li>
+            <li>номера — счётчиком.</li>
+          </ol>
+        </div>
+        <span class="guide-tokens__row-value">--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label">Подпись к картинке<br /><code>figcaption</code></span>
+        <div class="guide-tokens__sample">
+          <figure style="margin: 0"><figcaption>Подпись к картинке</figcaption></figure>
+        </div>
+        <span class="guide-tokens__row-value">.7em<br />--shift__gray-caption</span>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+  <ids-nav-item id="components" label="Компоненты">
+    <h2>Компоненты</h2>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Врезка<br /><code>aside</code></span>
+        <span class="guide-tokens__row-value">--shift__aside-background</span>
+      </div>
+      <div class="guide-component__sample">
+        <aside>
+          <p><strong>Врезка.</strong> Плашка для ссылок, оговорок и справок. Растягивается на всю ширину колонки.</p>
+        </aside>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Компактная врезка<br /><code>aside.tight</code></span>
+        <span class="guide-tokens__row-value">--shift__aside-background</span>
+      </div>
+      <div class="guide-component__sample">
+        <aside class="tight">
+          <p>Компактная, по содержимому.</p>
+        </aside>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Сноска на полях<br /><code>.ids__with-note</code><br /><code>.ids__note</code></span>
+        <span class="guide-tokens__row-value">--ids__link</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__with-note">
+          <p>Название — это уникальное, осмысленное и запоминающееся слово или словосочетание, которое закреплено за продуктом. Сноска встаёт справа от абзаца, в свободной колонке; на мобильных — под ним.</p>
+          <div class="ids__note">
+            <p><a href="#components">Словарь названий из меню</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Картинка<br /><code>figure.ids__media</code><br /><code>.XXS .XS .S .M .L</code><br /><code>.shadow</code></span>
+        <span class="guide-tokens__row-value">--shift__shadow-color</span>
+      </div>
+      <div class="guide-component__sample">
+        <figure class="ids__media S shadow">
+          <img src="/images/order-in-projects/2.png" alt="" />
+          <figcaption>Одиночная картинка с ограничением ширины, здесь .S и .shadow</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Группа картинок<br /><code>.ids__media-group</code><br /><code>.S .M .L .XL</code><br /><code>.shadow .border</code></span>
+        <span class="guide-tokens__row-value">--shift__shadow-color<br />--ids__border-width-s</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__media-group L shadow" style="margin-top: 0">
+          <figure>
+            <img src="/images/order-in-projects/1.png" alt="" />
+            <figcaption>Картинки по центру колонки, размер задаёт ширину фигур</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Сиквенс<br /><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.ids__sequence-item</code></span>
+        <span class="guide-tokens__row-value">--ids__gap-m<br />--ids__gap-l</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__sequence XL gap-M">
+          <div class="ids__sequence-item"><figure class="border"><img src="/images/order-in-projects/2.png" alt="" /></figure></div>
+          <div class="ids__sequence-item"><figure class="border"><img src="/images/order-in-projects/3.png" alt="" /></figure></div>
+        </div>
+        <figure class="ids__media-caption">
+          <figcaption>Общая подпись к паре — figure.ids__media-caption</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Таблица<br /><code>.ids__table-wrapper</code><br /><code>table</code></span>
+        <span class="guide-tokens__row-value">.8em<br />--ids__text (15%)</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__table-wrapper">
+          <table>
+            <thead>
+              <tr><th></th><th>Нет</th><th>Да</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Валюта — знаком</th><td>200 рублей</td><td>200 ₽</td></tr>
+              <tr><th>Тире в интервалах</th><td>16-18 сентября</td><td>16–18 сентября</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">НЕТ / ДА<br /><code>.ids__no-yes</code><br /><code>.right .wide .full</code><br /><code>.ids__no-yes--arrow---curve-L</code></span>
+        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__dodo-orange<br />--shift__shadow-color</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__no-yes">
+          <div class="ids__no-yes--wrap">
+            <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-L" style="--top: 6.8em">НЕТ</div>
+            <img class="ids__no-yes--img" src="/images/sms/14.jpg" alt="" />
+          </div>
+        </div><!--
+        --><div class="ids__no-yes right">
+          <div class="ids__no-yes--wrap">
+            <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-R" style="--top: 2.8em">ДА</div>
+            <img class="ids__no-yes--img" src="/images/sms/13.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Видео<br /><code>.ids__video</code><br /><code>.vertical</code></span>
+        <span class="guide-tokens__row-value">aspect-ratio 16/9</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__video">
+          <iframe src="https://www.youtube.com/embed/lgG-pGej_Fk" title="Видео" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Переключалка языка<br /><code>.switcher</code></span>
+        <span class="guide-tokens__row-value">--ids__text<br />--ids__background</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="switcher" style="margin-top: 0">
+          <a href="#components" data-locale="">EN</a><span>RU</span>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Оглавление<br /><code>ids-navbar</code><br /><code>ids-nav-item</code></span>
+        <span class="guide-tokens__row-value">--ids__text<br />--ids__hover</span>
+      </div>
+      <div class="guide-component__sample">
+        <p>Строится автоматически из <code>&lt;ids-nav-item id label&gt;</code> на странице — образец слева от этого текста. Sticky, скрыто на мобильных.</p>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>
+<script src="/js/tokens-dump.js"></script>

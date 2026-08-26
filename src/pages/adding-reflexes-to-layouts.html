@@ -1,0 +1,151 @@
+---
+title: Добавляем рефлексы в макеты — Shift
+titleEn: Adding reflexes to layouts — Shift
+description: Инструкция по добавлению рефлексов на макеты в Adobe Photoshop.
+descriptionEn: Instructions for adding reflexes to layouts in Adobe Photoshop.
+tags: guide
+---
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Добавляем рефлексы в макеты{% else %}Adding reflexes to layouts{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Живые фото еды пробуждают аппетит и привлекают внимание клиентов. Если у нас нет возможности отснять продукты под конкретный креатив, мы конструируем макет из «каталожных» фотографий, снятых на белом фоне, а потом добавляем рефлексы. Рефлексы придают картинке объем и глубину, помогают естественно вписать ее в рекламный макет.{% else %}Vivid food photos whet the appetite and capture the customers’ attention. If we don’t have the opportunity to take a food photo for a specific design, we create a layout with catalog photos, taken on a white background, and then add reflexes. Reflexes give the picture volume and depth, helping it to fit naturally into promotional materials.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="what-is-reflex" label="{% if lang == 'ru' %}Что такое рефлекс{% else %}What is reflex{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Что такое рефлекс{% else %}What is reflex{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Рефлекс — это оптический эффект, который возникает, когда свет взаимодействует с окружающей средой и объектами на снимке. Рефлексы появляются при попадании световых лучей на поверхность или преломлении света через различные среды.{% else %}a reflex is an optical effect that occurs when light interacts with the environment and objects in a photograph. Reflexes appear when light rays hit a surface or light refracts through a different environment.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Представим, что вы фотографируете чашку с горячим кофе на столе. Когда свет от источника (окна или светильника) падает на поверхность стола, он отражается и создает рефлекс на фотографии. В результате на фото появляется светлая область — это и есть рефлекс. В нашем примере с кофе рефлекс может создать эффект блеска на жидкости или на самой чашке.{% else %}Let's imagine you are shooting a cup of hot coffee on a table. When light from some source (a window or a lamp) falls on the surface of the table, it is reflected and creates a reflex in the photo. the result is a bright area in the picture – this is the reflex. In our example with coffee, the reflex can create a sparkling spot on the liquid or on the cup itself.{% endif %}
+    </p>
+    <figure>
+      <img src="/images/adding-reflexes-to-layouts/{% if lang == 'ru' %}1.png{% else %}1.2.png{% endif %}" alt="" />
+    </figure>
+    <p>
+      {% if lang == 'ru' %}Рефлексы имеют различные формы и размеры в зависимости от формы и текстуры поверхности, а также угла падения света. Например, если стол гладкий — рефлекс будет ярким и блестящим; если поверхность шершавая или матовая — рефлекс будет более тусклым и размытым.{% else %}Reflexes have different shapes and sizes depending on the shape and texture of the surface and the angle of incidence of light. For example, if the table is smooth, the reflex will be bright and shiny; if the surface is rough or matte, the reflex will be duller and blurred.{% endif %}
+    </p>
+    <aside>
+      <p>
+        {% if lang == 'ru' %}Рефлексы появляются не только на объектах от поверхности, но и на поверхности от объектов. Например, блестящий нож может отражать свет, падающий на него, и создавать рефлекс на столе или тарелке.{% else %}It’s not only the surface that puts a reflex on the object, but an object itself can illuminate the surface with a reflex. For example, a shiny knife can reflect light falling on it and create a reflex on a table or a plate.{% endif %}
+      </p>
+    </aside>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="why" label="{% if lang == 'ru' %}Зачем добавлять рефлексы на фото{% else %}Why add reflexes to a photo{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Зачем добавлять рефлексы на фото{% else %}Why add reflexes to a photo{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Рефлексы добавят привлекательности и реализма макету, собранному из «каталожных» снимков. Они создают иллюзию пространства, делают изображение более трехмерным, придают ему глубину и объем, подчеркивают текстуру. Так продукты выглядят более живыми и аппетитными.{% else %}Reflexes add appeal and realism to a layout assembled from catalog photos. They create an illusion of space, make the image more three-dimensional, give it depth and volume, and outline texture. This makes food look more alive and appetizing.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Еду для каталога на сайте мы снимаем на белом фоне. Свет направляем прямо на объект, так он практически не создает отражений — в результате получается чистый и однородный фон. Рефлексы здесь, по сути, не нужны.{% else %}We shoot food for the website catalog on a white background. the light is directed straight at the object, so it creates almost no reflections – we can see a clean and homogeneous background as a result. Essentially, reflexes are unnecessary here.{% endif %}
+    </p>
+    <figure>
+      <img src="/images/adding-reflexes-to-layouts/2.png" alt="" />
+      <figcaption>
+        {% if lang == 'ru' %}Продукт «в вакууме»: нет цветного фона, нет других объектов рядом, нет контекста. Рефлексы не нужны{% else %}the product is "in a vacuum": no coloured background, no other objects nearby, no context. Reflexes are not needed{% endif %}
+      </figcaption>
+    </figure>
+    <p>
+      {% if lang == 'ru' %}Если вставить такое «каталожное» фото в макет с синим или фиолетовым фоном, будет заметно, что объект вписан в макет небрежно, он не интегрирован в контекст. Еда будет выглядеть искусственной. Такую еду не хочется есть.{% else %}If you insert such a “catalog” photo into a layout with a blue or purple background, it will be obvious that the object is placed into the layout too roughly, it does not appear integrated into the context. the food will look artificial. You don't want to eat such food.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="how" label="{% if lang == 'ru' %}Как рисовать рефлексы{% else %}How to draw reflexes{% endif %}">
+    <h2 class="h3">{% if lang == 'ru' %}Как рисовать рефлексы{% else %}How to draw reflexes{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}Чтобы нарисовать рефлексы, используем кисть Soft Round и разные режимы наложений в Photoshop. Вот пошаговая инструкция:{% else %}To draw reflexes, use the Soft Round brush and different blending modes in Photoshop. Here is step-by-step instruction on how to do this:{% endif %}
+    </p>
+    <ol>
+      <li>
+        <p>
+          {% if lang == 'ru' %}<strong>Открываем файл с нужным изображением в Adobe Photoshop</strong>. Делаем маску по контуру объекта, на который нужно добавить цветные рефлексы.{% else %}<strong>Open the file with the target image in Adobe Photoshop</strong>. Make a mask on the contour of the object to which you want to add reflexes.{% endif %}
+        </p>
+        <figure>
+          <img src="/images/adding-reflexes-to-layouts/3.png" alt="" />
+          <figcaption>
+            {% if lang == 'ru' %}Отдельно выделяем черную поверхность стаканчика, белую часть снизу и белую часть сверху (дно и верхний ободок){% else %}Select the black surface of the glass separately, the white part from the bottom and the white part from the top (bottom and top rim).{% endif %}
+          </figcaption>
+        </figure>
+        <aside>
+          <p>
+            {% if lang == 'ru' %}Фотографии из папки проекта дизайнеры используют для разных задач. Поэтому мы всегда копируем общий файл — и работаем с копией отдельно. Это помогает избежать нежелательных изменений в других макетах.{% else %}the photos from the project folder are used by designers for different tasks. That's why we always copy the shared file – and work with the copy individually. This helps to avoid unwanted changes in other layouts.{% endif %}
+          </p>
+          <p>
+            {% if lang == 'ru' %}Новый файл сохраняем в папке проекта, чтобы команда могла использовать наработки.{% else %}We save the new file in the project folder so that the team can use the developments.{% endif %}
+          </p>
+        </aside>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}<strong>Смотрим на цвет фона</strong>. Продукты, размещенные на ярком фоне, не могут иметь чисто белые рефлексы. Фон всегда влияет на цвет продуктов: все рефлексы должны быть подобных оттенков — сверху, снизу и с боков. Если у макета фиолетовый фон, добавляем на изображение цветные области фиолетовых оттенков.{% else %}<strong>Evaluate the colour of the background</strong>. Products placed on a bright background cannot have pure-white reflexes. the background always affects the colour of the products: all the reflexes should be of similar shades – top, bottom and sides. If the layout has a purple background, add coloured areas of purple shades to the image.{% endif %}
+        </p>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}<strong>Выбираем кисть Soft Round</strong>. Размер кисти подбираем, отталкиваясь от размера объекта. Чем больше кисть, тем лучше — так получается более мягкий край и плавный переход.{% else %}<strong>Select the Soft Round brush</strong>. Select the size of the brush according to the size of the object. the bigger the brush, the better: you get a softer edge and a smooth transition.{% endif %}
+        </p>
+        <div class="ids__video">
+          <iframe src="https://www.youtube.com/embed/lR1LsTXA6Zc" title="Soft Round 500" allowfullscreen></iframe>
+        </div>
+        <figure>
+          <figcaption>
+            {% if lang == 'ru' %}Рисуем на стаканчике краем большой кисти (Soft Round 500) — получаем нужный эффект отражения{% else %}Draw on the cup with the edge of a large brush (Soft Round 500) – we get the required effect of reflection{% endif %}
+          </figcaption>
+        </figure>
+        <div class="ids__video">
+          <iframe src="https://www.youtube.com/embed/4KmXQy23nuw" title="Small brush" allowfullscreen></iframe>
+        </div>
+        <figure>
+          <figcaption>
+            {% if lang == 'ru' %}Маленькая кисть рисует слишком резкие и активные линии{% else %}Small brush leaves too sharp and active lines{% endif %}
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}<strong>Добавляем наложения</strong>. Для этой задачи используем режимы Overlay, Multiply, Color Burn или Soft Light. Универсального совета нет — подбираем подходящий вариант под конкретный макет; смотрим, какое из наложений подходит больше. Если рефлекс получается слишком активным по цвету, играем с прозрачностью наложений.{% else %}<strong>Add overlays</strong>. For this task we use Overlay, Multiply, Color Burn or Soft Light modes. There is no unified advice – we choose the most fitting option for each single layout and see which of the overlays is more suitable. If the reflex turns out to be too active in colour, fix it with the transparency of overlays.{% endif %}
+        </p>
+        <p>
+          {% if lang == 'ru' %}Overlay и Soft Light хорошо работают на светлых поверхностях, но иногда приходится дублировать слои, потому что на чистом белом эти наложения не видны. Если продублировать Overlay несколько раз, оттенок появится.{% else %}Overlay and Soft Light work well on light surfaces, but sometimes you have to duplicate layers, because these overlays are not visible on pure white. If you duplicate Overlay several times, the tint will appear.{% endif %}
+        </p>
+        <p>
+          {% if lang == 'ru' %}Для черных объектов используем Multiply или Color Burn — они перебивают белые оттенки.{% else %}For black objects, use Multiply or Color Burn – they cover the white tints.{% endif %}
+        </p>
+        <figure>
+          <img src="/images/adding-reflexes-to-layouts/6.png" alt="" />
+          <figcaption>
+            {% if lang == 'ru' %}Все линии сделали утрированно одним наложением, чтобы показать разницу. В работе отталкиваемся от задачи, чаще всего делаем разные линии разным наложением{% else %}All lines are made exaggeratedly with one overlay to show the difference. Doing the job, we need to mind the task; most often we make different lines by different overlay{% endif %}
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}<strong>Прорабатываем реалистичность</strong>. Если сроки позволяют, прорисовываем детали. Если заказчик торопит, делаем «достаточно хорошо»: добавляем рефлексы сверху, снизу и с боков.{% else %}<strong>Work out the realism</strong>. If the timing allows, draw details. If the customer hurries, we do "good enough": add reflexes on top, bottom and sides.{% endif %}
+        </p>
+        <div class="ids__sequence XL gap-M">
+          <div class="ids__sequence-item">
+            <figure><img src="/images/adding-reflexes-to-layouts/7.png" alt="" /></figure>
+          </div>
+          <div class="ids__sequence-item">
+            <figure><img src="/images/adding-reflexes-to-layouts/8.png" alt="" /></figure>
+          </div>
+        </div>
+        <figure class="ids__media-caption">
+          <figcaption>
+            {% if lang == 'ru' %}На первом примере стакан не вписывается в цветной фон. На втором — учли все цвета, добавили рефлексы и дымок{% else %}In the first example, the glass does not fit into the coloured background. In the second example, we took into account all the colours, added reflexes and some haze{% endif %}
+          </figcaption>
+        </figure>
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

@@ -1,0 +1,35 @@
+/* Сноска на полях: ссылка или короткая справка справа от абзаца,
+   в свободной правой колонке публикации (бывш. .with-note / .note).
+
+   <div class="ids__with-note">
+     <p>Абзац…</p>
+     <div class="ids__note"><p><a href="…">Словарь названий</a></p></div>
+   </div>
+
+   На мобильных сноска встаёт в поток под абзацем. */
+
+.ids .ids__with-note {
+  position: relative;
+}
+
+.ids .ids__note {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 30%;
+  padding-left: 1em;
+  padding-top: 0.14em;
+  font-size: 0.9em;
+  color: var(--ids__link);
+
+  & p {
+    margin-bottom: calc(var(--ids__density) * 0.4em);
+  }
+
+  @media (width < 768px) {
+    position: static;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: calc(var(--ids__density) * 0.6em);
+  }
+}

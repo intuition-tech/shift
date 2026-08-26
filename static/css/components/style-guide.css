@@ -1,4 +1,4 @@
-/* Стили витрины дизайн-системы (/style): сетки свотчей и таблицы токенов.
+/* Стили витрины дизайн-системы (/design-system): сетки свотчей и таблицы токенов.
    Перенесены из pndlnk-site. Работают в паре с /js/tokens-dump.js. */
 
 .style-color-grid {
@@ -207,5 +207,30 @@
 
   &.is-active {
     width: 100%;
+  }
+}
+
+/* Компонент на витрине: маленькая табличка «название / токены»,
+   под ней образец на всю ширину колонки */
+.guide-component__meta {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1em;
+  align-items: start;
+  padding: 0.45em 0 0.8em;
+  border-bottom: 1px solid color-mix(in srgb, var(--ids__text) 12%, transparent);
+  margin-bottom: 1.5em;
+
+  @media (width < 768px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.3em;
+  }
+}
+
+.guide-component__sample {
+  min-width: 0;
+
+  & > :is(h1, h2, h3, p, ul, ol, div, figure, table, aside):last-child {
+    margin-bottom: 0;
   }
 }
