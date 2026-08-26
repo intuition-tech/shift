@@ -4,8 +4,10 @@
 .ids__navbar {
   display: block;
   position: sticky;
-  top: 15%;
-  padding: 0.4em 1.2em 0 0;
+  /* отступ прилипания = высота фиксированного хедера */
+  top: 4rem;
+  /* выравнивание первой строки по верху h1 (кап-высота крупного кегля) */
+  padding: 0 1.2em 0 0;
   font-size: 0.8em;
 
   @media (width < 768px) {

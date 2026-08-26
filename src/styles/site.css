@@ -62,13 +62,15 @@ header {
 /* Переключалка языка */
 
 .switcher {
+  display: flex;
+  align-items: center;
   font-size: 0.8em;
   font-weight: 550;
   margin-top: 0.65em;
 
   & span {
+    --ids__radius: 0.7em;
     border: var(--ids__border-width-s) solid var(--ids__text);
-    border-radius: 0.7em;
     padding: 0.2em 0.3em;
     background-color: var(--ids__text);
     color: var(--ids__background);
@@ -82,7 +84,8 @@ header {
 
 /* Публикация: текстовая колонка по центру (та же расчётная ширина,
    что у старого трёхколоночного флексбокса: 60% контейнера),
-   оглавление — в поле слева от неё */
+   оглавление — в поле слева от неё. Слот оглавления начинается
+   с верха статьи (= верх h1), внутри него ids-navbar sticky. */
 
 .guide {
   width: 60%;
@@ -104,6 +107,7 @@ header {
 /* Футер */
 
 footer {
+  margin-top: 13rem;
   padding: 0.5em 0;
   width: 50%;
 }
