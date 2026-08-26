@@ -239,7 +239,7 @@ tags: ''
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Сиквенс<br /><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.ids__sequence-item</code></span>
+        <span class="guide-tokens__row-label">Сиквенс<br /><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.no-wrap .tight .labels</code><br /><code>.ids__sequence-item</code></span>
         <span class="guide-tokens__row-value">--ids__gap-m<br />--ids__gap-l</span>
       </div>
       <div class="guide-component__sample">
@@ -305,6 +305,169 @@ tags: ''
       <div class="guide-component__sample">
         <div class="ids__video">
           <iframe src="https://www.youtube.com/embed/lgG-pGej_Fk" title="Видео" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Сравнение картинок<br /><code>.ids__compare</code></span>
+        <span class="guide-tokens__row-value">--ratio<br />--ids__duration-base</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__compare" style="--ratio: 1920 / 1235; max-width: 24em">
+          <img src="/images/slow-and-fast-zones-qsr/2.3-o-on.png" alt="" /><img src="/images/slow-and-fast-zones-qsr/2.2-o-off.png" alt="" />
+        </div>
+        <p class="subdued">Наведите: верхняя картинка гаснет (на тач-экранах — по тапу).</p>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Галерея<br /><code>ids-gallery</code></span>
+        <span class="guide-tokens__row-value">превью 8em, зазор 3em</span>
+      </div>
+      <div class="guide-component__sample">
+        <ids-gallery>
+          <figure><a href="/images/order-in-projects/1.png" target="_blank"><img src="/images/order-in-projects/1.png" alt="" /></a><figcaption>Подпись в лайтбоксе</figcaption></figure>
+          <figure><a href="/images/order-in-projects/2.png" target="_blank"><img src="/images/order-in-projects/2.png" alt="" /></a></figure>
+          <figure><a href="/images/order-in-projects/3.png" target="_blank"><img src="/images/order-in-projects/3.png" alt="" /></a></figure>
+        </ids-gallery>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Шапка отчёта<br /><code>.ids__report-header</code><br /><code>.ids__portraits</code><br /><code>.ids__portrait</code></span>
+        <span class="guide-tokens__row-value">--ids__background<br />--shift__gray-caption</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__report-header" style="margin-top: 0">
+          <h2>S01E01</h2>
+          <figure>
+            <div class="ids__portraits">
+              <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-01_zupsyz.jpg" alt="" /></div>
+              <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-02_swlldl.jpg" alt="" /></div>
+              <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-03_k4oiuv.jpg" alt="" /></div>
+            </div>
+            <figcaption>22.05.2023, Женя Арутюнов, Кира Зыкина, Женя Хайидова</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Палитра бренда<br /><code>.ids__color-palette</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
+        <span class="guide-tokens__row-value">--color (инлайн)<br />--ids__color-white<br />--ids__text</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__color-palette">
+          <div class="ids__color-plate">
+            <div class="ids__color-sample" style="--color: rgb(255, 78, 0)">
+              <div class="ids__color-sample-text">
+                <p>Orange</p>
+                <button class="ids__copy" data-copy="RGB 255, 78, 0">RGB 255, 78, 0</button>
+                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(249, 241, 230)">
+              <div class="ids__color-sample-text">
+                <p>Beige</p>
+                <button class="ids__copy" data-copy="RGB 249, 241, 230">RGB 249, 241, 230</button>
+                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample" style="--color: rgb(148, 149, 152)">
+              <div class="ids__color-sample-text">
+                <p>Gray</p>
+                <button class="ids__copy" data-copy="RGB 148, 149, 152">RGB 148, 149, 152</button>
+                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Набор иконок<br /><code>.ids__icon-set</code><br /><code>.ids__icon-copy</code></span>
+        <span class="guide-tokens__row-value">--ids__text (5%)</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__icon-set">
+          <button class="ids__icon-copy"><img src="/images/dodo-pizza-dubai-brandbook/s_heart.svg" alt="heart" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+          <button class="ids__icon-copy"><img src="/images/dodo-pizza-dubai-brandbook/s_fire.svg" alt="fire" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+          <button class="ids__icon-copy"><img src="/images/dodo-pizza-dubai-brandbook/s_pepper.svg" alt="pepper" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Чеклист<br /><code>.ids__checklist</code><br /><code>.ids__check</code></span>
+        <span class="guide-tokens__row-value">--ids__hover<br />--ids__border-width-s</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__checklist">
+          <label class="ids__check"><input type="checkbox" /><span>Пропорции картинки верные.</span></label>
+          <label class="ids__check"><input type="checkbox" checked /><span>Белый текст хорошо видно на фоне плашки.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Слайд<br /><code>.ids__slide</code> <code>.flip .two-images</code><br /><code>.ids__slide-image</code> <code>.with-padding</code><br /><code>.ids__slide-text</code><br /><code>.ids__slide-pair</code></span>
+        <span class="guide-tokens__row-value">--ids__surface (50%)</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__slide flip">
+          <div class="ids__slide-image"><img src="/images/dubai-dodo-pizza-mena-2025/2/image_1.png" alt="" /></div>
+          <div class="ids__slide-text">
+            <ol>
+              <li>Додо пицца растет в регионе.</li>
+              <li>Мультикультурный и конкурентный рынок.</li>
+              <li>Нужен простой и понятный бренд месседж.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Скачивание логотипа<br /><code>.ids__download</code><br /><code>.ids__download-item</code><br /><code>.ids__download-plate</code><br /><code>.ids__download-menu</code></span>
+        <span class="guide-tokens__row-value">--ids__surface<br />--shift__dodo-orange</span>
+      </div>
+      <div class="guide-component__sample">
+        <div class="ids__download" style="margin: 0">
+          <div class="ids__download-item">
+            <figure>
+              <div class="ids__download-plate">
+                <img src="/images/dodo-pizza-dubai-brandbook/EN.png" alt="" />
+                <span class="ids__download-caption">Скачать</span>
+              </div>
+              <figcaption>Английский</figcaption>
+            </figure>
+            <div class="ids__download-menu">
+              <p><a href="#components">Для экрана<span> ⋅ RGB ⋅ EN ⋅ PNG, SVG</span></a></p>
+              <p><a href="#components">Для печати<span> ⋅ CMYK ⋅ EN ⋅ EPS, PDF</span></a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

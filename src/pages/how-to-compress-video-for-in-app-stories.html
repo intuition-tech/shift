@@ -1,0 +1,42 @@
+---
+title: Сжимаем видео для InAppStory — Shift
+titleEn: How to compress video for InAppStory — Shift
+description: Готовим статичный контент, анимации и видео для загрузки в сторис в приложении.
+descriptionEn: Prepare static content, animations and videos to upload on in-app stories.
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <h1>{% if lang == 'ru' %}Сжимаем видео для InAppStory{% else %}How to compress video for InAppStory{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Готовим статичный контент, анимации и видео для загрузки в сторис в приложении.{% else %}Prepare static content, animations and videos to upload on in-app stories.{% endif %}
+  </p>
+
+  <p>
+    {% if lang == 'ru' %}Если загружать видео без сжатия, оно сжимается автоматически — появляются пиксели, картинка сыпется. Полностью избежать этого не получится, но мы придумали способ сделать так, чтобы видео в сторис отображалось лучше.{% else %}If you upload an uncompressed video, it gets compressed automatically, so pixels will appear and the picture will fall apart. We can't avoid this completely, but we've come up with a way to make your video appear finer in your stories.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Простой визуал.</strong> Избегаем сложных градиентов и шумов; по возможности используем плоские однотонные фоны, векторные изображения и фотографии, которые не будут двигаться.{% else %}<strong>Simple visuals.</strong> Avoid complex gradients or visual noise; if possible, use flat monochrome backgrounds, vector images and photos that don't move.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Контрастный текст.</strong> Поможет выделить сообщение на визуале и сделать сторис более читаемыми даже при низком качестве видео.{% else %}<strong>Contrasting text.</strong> It helps to highlight the message on the visuals and make stories easier to read even at low video quality.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Простая анимация.</strong> Если хотим добавить анимацию, делаем несложные движения объектов. Так пиксели будут менее заметны.{% else %}<strong>Simple animation.</strong> If you want to add animation, create basic movements of objects. This way pixels will be less obvious.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Нет «зерна».</strong> Отказываемся от «зерна» на макетах, так как при низких битрейтах оно сразу бросается в глаза и портит картинку.{% else %}<strong>No “grain”.</strong> We reject any grain on layouts, because at low bitrates it strikes the eye instantly and spoils the picture.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Битрейт 1000 Кбит/с.</strong> Методом подбора определили, что проблема в битрейтах. При загрузке оптимизатор снижал наш ролик до 1000 Кбит/с. После того как мы отрендерили видео с битрейтом 1000 Кбит/с, картинка стала лучше. Но все еще не идеальной.{% else %}<strong>Bitrate 1000 Kbps.</strong> By selection method we determined that the problem is in bitrates. When loading, the in-built optimizer compresses our clip to 1000 Kbps. After we render the video with a bitrate of 1000 Kbps, the picture becomes better. But still not perfect.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<strong>Размер файла до 5 Мб.</strong> Такое требование заявлено в приложении. Тест показал, что изменение размера само по себе не решает проблему, но финальный результат будет лучше, если соблюдать это условие вместе с остальными из списка.{% else %}<strong>The file size is up to 5 MB.</strong> This parameter is stated in the application. The testing shows that changing the size alone does not solve the problem, but the final result is better if you maintain this condition together with the rest from the list above.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Но даже по всем правилам сжатое видео не будет выглядеть так же хорошо в сторис, как статичный визуал — поэтому мы стараемся обходиться без анимаций.{% else %}But even with all the rules, a compressed video will not look as good in stories as a static visual - that's why we tend to do it without any animations.{% endif %}
+  </p>
+
+  <div class="ids__space L"></div>
+</article>

@@ -1,0 +1,179 @@
+/* Палитра цветов бренда: плашки с кнопками «скопировать».
+   Цвет плашки задаётся инлайн-переменной --color. Работает в паре с /js/copy.js.
+
+   <div class="ids__color-palette">
+     <div class="ids__color-plate [big] [wide] [main]">
+       <div class="ids__color-sample [light]" style="--color: rgb(255, 78, 0)">
+         <div class="ids__color-sample-text">
+           <p>Orange</p>
+           <button class="ids__copy" data-copy="RGB 255, 78, 0">RGB 255, 78, 0</button>
+           <span class="ids__copy-hint">Copy colour</span>
+           <span class="ids__copy-done">Colour copied</span>
+         </div>
+       </div>
+     </div>
+   </div> */
+
+.ids .ids__color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: calc(var(--ids__density) * 0.6em);
+}
+
+.ids .ids__color-plate {
+  position: relative;
+  width: 8.7em;
+  overflow: hidden;
+
+  @media (width < 768px) {
+    width: 6.3em;
+  }
+
+  &.big {
+    width: 26.1em;
+
+    @media (width < 768px) {
+      width: 12.6em;
+    }
+  }
+
+  &.wide {
+    width: 13.8em;
+
+    @media (width < 768px) {
+      width: 100%;
+    }
+  }
+
+  &.main {
+    width: 100%;
+  }
+
+  &.half {
+    width: 50%;
+  }
+}
+
+.ids .ids__color-sample {
+  position: relative;
+  aspect-ratio: 1;
+  background-color: var(--color);
+  color: var(--ids__color-white);
+
+  &.light {
+    color: var(--ids__text);
+  }
+
+  .ids__color-plate.big &,
+  .ids__color-plate.wide & {
+    aspect-ratio: auto;
+    height: 8.7em;
+
+    @media (width < 768px) {
+      height: 6.3em;
+    }
+  }
+
+  .ids__color-plate.main & {
+    aspect-ratio: auto;
+    height: 6em;
+  }
+}
+
+.ids .ids__color-sample-text {
+  position: absolute;
+  inset: 0.4em 1em 0.4em 0.4em;
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    font-size: 0.6em;
+    margin: 0 0 0.3em;
+    color: inherit;
+  }
+}
+
+/* Кнопка копирования — в плашке белая рамка */
+.ids .ids__copy {
+  appearance: none;
+  background: none;
+  font: inherit;
+  font-size: 0.6em;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.3em;
+  border: 2px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 0.3em;
+  padding: 0.2em 0.3em;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    border-color: color-mix(in srgb, currentColor 80%, transparent);
+  }
+
+  @media (width < 768px) {
+    font-size: 0.46em;
+  }
+}
+
+.ids .ids__copy-hint,
+.ids .ids__copy-done {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.6em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+/* Набор иконок: клик копирует SVG-код файла.
+
+   <div class="ids__icon-set">
+     <button class="ids__icon-copy"><img src="/images/…/s_heart.svg" alt="heart">
+       <span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span>
+     </button>
+   </div> */
+
+.ids .ids__icon-set {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.5em, 1fr));
+  gap: 0.6em;
+  margin-bottom: calc(var(--ids__density) * 0.6em);
+}
+
+.ids .ids__icon-copy {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8em 0.6em 1.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background var(--ids__duration-base);
+
+  &:hover {
+    background: color-mix(in srgb, var(--ids__text) 5%, transparent);
+    transition: background 0s;
+  }
+
+  & img {
+    width: 2.5em;
+    height: 2.5em;
+    display: block;
+  }
+
+  & .ids__copy-hint,
+  & .ids__copy-done {
+    bottom: 0.2em;
+    transition: opacity 0s;
+  }
+}

@@ -34,7 +34,7 @@ site/                # результат сборки (в гитигноре)
 - `tokens/shift.css` — семантические токены, специфичные для Shift (`--shift__dodo-orange`, `--shift__gray-caption`, `--shift__aside-background`, `--shift__shadow-color`, `--shift__billet-under`, `--shift__description-font`) — тот же слой, что colors.css;
 - `settings.css` — @font-face старых шрифтов и рампа со старыми числами;
 - `components/ids.css` — типографика по старым кеглям (h1 3.23em/650, h2 2.5em/570, `h2.h3`, `h2.special`, списки, таблицы, `aside`, `figcaption`, `.lead`, `.ids__description`, `.ids__table-wrapper`);
-- новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/note.css` (`.ids__with-note`, `.ids__note` — сноска на полях), `components/video.css` (`.ids__video`), `components/style-guide.css` (витрина);
+- новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/note.css` (`.ids__with-note`, `.ids__note` — сноска на полях), `components/video.css` (`.ids__video`, iframe или `<video>`), `components/report.css` (`.ids__report-header`, `.ids__portraits` — отчёты Meme Park), `components/color-palette.css` (`.ids__color-palette`, `.ids__copy`, `.ids__icon-set` — копирование цвета/SVG, JS в `js/copy.js`), `components/checklist.css` (`.ids__checklist`), `components/slide.css` (`.ids__slide`, `.ids__slide-pair`), `components/download.css` (`.ids__download`, JS в `js/download.js`), `components/compare.css` (`.ids__compare`, JS в `js/compare.js`), `components/style-guide.css` (витрина); модификаторы `.ids__sequence` — `.no-wrap`, `.tight`, `.labels` в `page-composition/layout.css`; `gallery.css` — превью 8em как в старых отчётах;
 - `components/navbar.css` — `ids-navbar` перестилен под оглавление публикации (sticky слева, скрыт < 768px);
 - стрелки «НЕТ/ДА» — `static/images/no-yes/`.
 
@@ -50,7 +50,14 @@ site/                # результат сборки (в гитигноре)
 
 Каждый гайд — один файл `src/pages/<slug>.html` с фронтматтером (`title`/`titleEn`, `description`/`descriptionEn`, `tags: guide`) и инлайновым переключением языка `{% if lang == 'ru' %}…{% else %}…{% endif %}`. URL плоские: `/<slug>/` и `/en/<slug>/`. Разделы оборачиваются в `<ids-nav-item id="слаг" label="…">` — из них строится оглавление. Картинки — в `static/images/<slug>/`. Главная — неоформленный список по коллекции `guide`.
 
-Контент переносится со старого сайта `/Users/arutyunov/dbdt` (Pug, миксины `+ru`/`+en`). Список публикаций и их статусы — CSV «Shift — All Guides». Перенесено 10 из 35 актуальных гайдов.
+Контент переносится со старого сайта `/Users/arutyunov/dbdt` (Pug, миксины `+ru`/`+en`). Список публикаций и их статусы — CSV «Shift — All Guides». Перенесены 33 из 35 актуальных гайдов.
+
+Не перенесены:
+
+- «Визуальный стиль Додо Пиццы» (`/graphic-design/brandbook-dodo-pizza` → исходник `graphic-design/visual-style-dodo-pizza.pug`, 2117 строк и 185 МБ картинок) — отложен;
+- «Процессы и инструменты команды Stories In App» — это внешняя ссылка на buildin.ai, отдельной страницы сайта нет.
+
+Ссылки на неактуальные гайды (`/how-to-name-files/`, `/editing-the-ligal-in-the-layout/`, `/selecting-a-price-group-in-the-layout/`, `/editing-navigation-in-outdoor-advertising-layouts/`) пока ведут в 404 — эти публикации в CSV не помечены «Актуально».
 
 ## Дизайн-система /design-system
 

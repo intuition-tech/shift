@@ -1,0 +1,59 @@
+---
+title: Экспорт макетов для сторис в приложении — Shift
+titleEn: Exporting layouts for in-app stories — Shift
+description: Инструкция по экспорту сторис из Фигмы.
+descriptionEn: Instructions for exporting stories from Figma.
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Экспорт макетов для сторис{% else %}Exporting layouts for <nobr>in-app</nobr> stories{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Как сохранить сторис из фигмы и правильно назвать файлы с макетами.{% else %}How to save stories in Figma and properly name layout files.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="figma" label="Figma">
+    <h2>Figma</h2>
+    <ol>
+      <li>{% if lang == 'ru' %}Переходим в меню экспорта. Оно находится справа, в нижней части панели инструментов.{% else %}Go to the export menu. It is on the right, at the bottom of the toolbar.{% endif %}</li>
+      <li>{% if lang == 'ru' %}Выбираем качество 0.75х и формат Jpg.{% else %}Select 0.75x quality and Jpg format.{% endif %}</li>
+      <li>
+        {% if lang == 'ru' %}Нажимаем кнопку Export и указываем нужный путь файла.{% else %}Click the "Export" button and specify the necessary file path.{% endif %}
+        <div class="ids__media-group XL shadow">
+          <figure><img src="/images/exporting-layouts-for-in-app-stories/4.png" alt="" /></figure>
+        </div>
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="file-naming" label="{% if lang == 'ru' %}Как называть файлы{% else %}How to name files{% endif %}">
+    <h2>{% if lang == 'ru' %}Как называть файлы{% else %}How to name files{% endif %}</h2>
+    <p>{% if lang == 'ru' %}Пользуемся следующей схемой:{% else %}Use the following scheme:{% endif %}</p>
+    <div class="ids__sequence XL gap-M">
+      <div class="ids__sequence-item">
+        <p>{% if lang == 'ru' %}<strong>Макет с обложкой </strong>{% else %}<strong>Layout with cover</strong>{% endif %}</p>
+        <ul>
+          <li>RU — Irkutsk — Bear Pizza — Cover</li>
+          <li>{% if lang == 'ru' %}Страна — Город — Название акции / активности — Тип макета (обложка или сторис) — Макеты в сторис.{% else %}Country - City - Name of the campaign/activity - Layout type (cover or stories) - Layouts in stories.{% endif %}</li>
+        </ul>
+      </div>
+      <div class="ids__sequence-item">
+        <p>{% if lang == 'ru' %}<strong>Макет со сторис</strong>{% else %}<strong>Layout with stories</strong>{% endif %}</p>
+        <ul>
+          <li>RU — Irkutsk — Bear Pizza — Story — 1</li>
+          <li>{% if lang == 'ru' %}Страна — Город — Название акции / активности — Тип макета (обложка или сторис) — Порядковый номер сторис.{% else %}Country - City - Name of the action / activity - Layout type (cover or stories) - Ordinal number of stories.{% endif %}</li>
+        </ul>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Обязательно проверяем порядковые номера макетов, чтобы не перепутать последовательность и загрузить сторис в приложение в нужном порядке.{% else %}Make sure to check the ordinal numbers of layouts, so that you don't mix up the sequence and upload stories to the application in the right order.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

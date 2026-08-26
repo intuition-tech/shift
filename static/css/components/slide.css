@@ -1,0 +1,133 @@
+/* Слайд: картинка 2/3 + текстовая плашка 1/3 (бывш. .dubai-slide).
+   Модификаторы: .flip — текст слева; .two-images — две картинки пополам,
+   .with-padding у картинки — вписать в центр без обрезки.
+
+   <div class="ids__slide [flip] [two-images]">
+     <div class="ids__slide-image"><img …></div>
+     <div class="ids__slide-text"><ol>…</ol></div>
+   </div>
+
+   .ids__slide-pair — две картинки в ряд с зазором (бывш. .dubai-slide-brand). */
+
+.ids .ids__slide {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 2em;
+
+  @media (width < 768px) {
+    flex-direction: column;
+  }
+
+  &.flip {
+    flex-direction: row-reverse;
+
+    @media (width < 768px) {
+      flex-direction: column;
+    }
+  }
+
+  /* Одиночная картинка или видео прямо в слайде — на всю ширину */
+  & > img,
+  & > video,
+  & > .ids__video {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  & video {
+    display: block;
+    width: 100%;
+  }
+}
+
+.ids .ids__slide-image {
+  width: calc(100% / 3 * 2);
+
+  @media (width < 768px) {
+    width: 100%;
+  }
+
+  & img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 10 / 9;
+    border-radius: 0;
+
+    @media (width < 768px) {
+      aspect-ratio: 7 / 5;
+    }
+  }
+}
+
+.ids .ids__slide-text {
+  width: calc(100% / 3);
+  background-color: color-mix(in srgb, var(--ids__surface) 50%, transparent);
+  padding: 1em;
+
+  @media (width < 768px) {
+    width: 100%;
+    aspect-ratio: 7 / 5;
+  }
+
+  & ol,
+  & ul,
+  & p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ids .ids__slide.two-images .ids__slide-image {
+  width: 50%;
+
+  @media (width < 768px) {
+    width: 100%;
+  }
+
+  & img {
+    aspect-ratio: 1;
+
+    @media (width < 768px) {
+      aspect-ratio: auto;
+    }
+  }
+
+  &.with-padding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 60%;
+      aspect-ratio: auto;
+
+      @media (width < 768px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ids .ids__slide-pair {
+  display: flex;
+  overflow: hidden;
+  gap: calc(var(--ids__density) * 1em / 3);
+  margin-bottom: calc(var(--ids__density) * 1em / 3);
+
+  @media (width < 768px) {
+    flex-direction: column;
+  }
+
+  & .ids__slide-image {
+    width: 50%;
+
+    @media (width < 768px) {
+      width: 100%;
+    }
+
+    & img {
+      aspect-ratio: auto;
+    }
+  }
+}

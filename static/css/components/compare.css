@@ -1,0 +1,26 @@
+/* Сравнение двух состояний картинки: верхняя гаснет при наведении
+   (бывш. .image-processor). Обе картинки одного размера.
+
+   <div class="ids__compare" style="--ratio: 1920 / 1235">
+     <img src="on.png" alt=""><img src="off.png" alt="">
+   </div> */
+
+.ids .ids__compare {
+  position: relative;
+  aspect-ratio: var(--ratio, 1920 / 1235);
+  margin-bottom: calc(var(--ids__density) * 0.5em);
+  cursor: pointer;
+
+  & img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity var(--ids__duration-base) ease;
+  }
+
+  &:hover img:first-child,
+  &.toggled img:first-child {
+    opacity: 0;
+  }
+}

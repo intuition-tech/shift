@@ -99,6 +99,45 @@
     }
   }
 
+  /* Модификаторы Shift */
+
+  /* На мобильных не переносить колонки (бывш. .no-wrap-mobile-grid) */
+  &.no-wrap .ids__sequence-item {
+    @media (width < 768px) {
+      --columns: var(--desktop-columns, 2);
+    }
+  }
+  &.no-wrap.XL .ids__sequence-item { --desktop-columns: 2; }
+  &.no-wrap.L .ids__sequence-item { --desktop-columns: 3; }
+
+  /* Без нижнего отступа (бывш. .no-bottom-space-grid) */
+  &.tight {
+    margin-bottom: 0;
+
+    .ids__sequence-item > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Колонки «Додо / Не Додо»: первый абзац ячейки — серый капс,
+     в первой ячейке — оранжевый (бывш. .dodo-not-dodo) */
+  &.labels .ids__sequence-item > p:first-of-type {
+    font-size: 0.75em;
+    font-weight: 570;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--shift__gray-caption);
+  }
+  &.labels .ids__sequence-item:first-of-type > p:first-of-type {
+    color: var(--shift__dodo-orange);
+  }
+  &.labels.yes-green .ids__sequence-item:first-of-type > p:first-of-type {
+    color: var(--shift__gray-caption);
+  }
+  &.labels.yes-green .ids__sequence-item:nth-of-type(2) > p:first-of-type {
+    color: var(--ids__success);
+  }
+
   &.L {
     .ids__sequence-item {
       --columns: 3;

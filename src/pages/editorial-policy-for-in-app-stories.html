@@ -1,0 +1,143 @@
+---
+title: Текст для сторис в приложении и на сайте — Shift
+titleEn: In-app and website stories texts — Shift
+description: "Памятка для дизайнеров и копирайтеров: принципы сторителлинга и правила оформления текста в сторис в приложении."
+descriptionEn: "A memo for designers and copywriters: the principles of storytelling and the rules of text design for in-app stories."
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Текст для сторис в приложении и на сайте{% else %}In-app and website stories texts{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Памятка для копирайтеров и дизайнеров: принципы сторителлинга и правила оформления текста в сторис в приложении.{% else %}A memo for copywriters and designers: the principles of storytelling and the rules of text design for in-app stories.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <p>
+    {% if lang == 'ru' %}Это канал коммуникации, который информирует клиентов, помогает с выбором и делает наши продукты заметнее.{% else %}It's a communication channel that informs customers, helps with choices and makes our products stand out.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Условно сторис можно разделить на продуктовые, имиджевые и информационные. В первой и второй категории можно вовлекать аудиторию через виджеты, креативные заходы, сторителлинг. В информационных мы говорим коротко и понятно, «в лоб», на 1–2 слайда.{% else %}Stories can be somewhat divided into product, image and informational types. With the first and second categories, you can engage the audience through widgets, creative approaches, and storytelling. With the informational ones we speak shortly and clearly, straightforward, in 1-2 slides.{% endif %}
+  </p>
+
+  <div class="ids__no-yes">
+    <div class="ids__no-yes--text">
+      <div class="ids__no-yes--subhead">{% if lang == 'ru' %}НЕТ{% else %}NO{% endif %}</div>
+      <p>{% if lang == 'ru' %}Не кричим о наших преимуществах{% else %}We do not shout out about our advantages{% endif %}</p>
+    </div>
+    <div class="ids__no-yes--wrap">
+      <div class="ids__no-yes--arrow ids__no-yes--arrow---with-text ids__no-yes--arrow---bottom-L" style="--top: 9.4em">
+        {%- if lang == 'ru' %}НЕТ{% else %}NO{% endif -%}
+      </div>
+      <img class="ids__no-yes--img" src="/images/tov-dodo-pizza/32.jpg" alt="" />
+    </div>
+  </div><!--
+  --><div class="ids__no-yes right">
+    <div class="ids__no-yes--text">
+      <div class="ids__no-yes--subhead right">{% if lang == 'ru' %}ДА{% else %}YES{% endif %}</div>
+      <p>{% if lang == 'ru' %}Действуем более тонко и аккуратно{% else %}We act more subtly and neatly{% endif %}</p>
+    </div>
+    <div class="ids__no-yes--wrap">
+      <div class="ids__no-yes--arrow ids__no-yes--arrow---with-text ids__no-yes--arrow---bottom-R" style="--top: 9.4em">
+        {%- if lang == 'ru' %}ДА{% else %}YES{% endif -%}
+      </div>
+      <img class="ids__no-yes--img" src="/images/tov-dodo-pizza/12-2.jpg" alt="" />
+    </div>
+  </div>
+
+  <p>
+    {% if lang == 'ru' %}Чтобы сторис в приложении были понятными, логичными и удобными для восприятия, мы сформулировали несколько правил. Они помогают поддерживать единообразие макетов и качество текстов.{% else %}To ensure that the stories for the app are created to be clear, coherent and easy to read, we have drawn up a few rules. They help to maintain layout uniformity and overall quality of the texts.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="storytelling" label="{% if lang == 'ru' %}Принципы сторителлинга{% else %}The principles of storytelling{% endif %}">
+    <h2>{% if lang == 'ru' %}Принципы сторителлинга{% else %}The principles of storytelling{% endif %}</h2>
+
+    <p>
+      {% if lang == 'ru' %}<strong>Цепляющая обложка.</strong> Привлекаем внимание пользователя с помощью информативной и интересной для него обложки. Для вовлекающей или игровой механики используем вопросы и интригу, для анонсов продуктов или информационных сторис — прямой, понятный посыл.{% else %}<strong>A catchy cover.</strong> Grab the user's attention with a descriptive and fascinating cover. For engaging or game mechanics we use questions and create intrigue, and for product announcements or informational stories we go for a straightforward, clear message.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}При выборе названия учитываем, что в одну строку помещается до 10 знаков. Общее ограничение по знакам: до 30 символов, включая пробелы.{% else %}When choosing a heading, please remember that one line can only contain up to 10 characters. Total limit is up to 30 characters, including spaces.{% endif %}
+    </p>
+
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/1.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/2.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/3.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/4.jpg" alt="" /></figure>
+      </div>
+    </div>
+
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Вступление на первом слайде.</strong> Пользователь может перейти в сторис двумя способами: через обложку или после просмотра предыдущих сторис. Чтобы поддержать сторителлинг, выносим на первый слайд небольшое вступление, в котором обозначаем главную мысль.{% else %}<strong>The introduction is on the first slide.</strong> The user has two chances to see the stories: through the cover or after viewing the previous stories. To maintain storytelling, we put down a small introduction on the first slide, where we highlight the main idea.{% endif %}
+    </p>
+
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/5.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/6.jpg" alt="" /></figure>
+      </div>
+    </div>
+
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Один слайд — одна мысль.</strong> Соблюдаем сторителлинг, но не растягиваем одну мысль на несколько слайдов. После каждого слайда пользователь должен запоминать одну главную мысль — выносим её в заголовок, а в абзацах раскрываем подробней.{% else %}<strong>One slide - one idea.</strong> We stick to the storytelling principle, but we do not spread one single idea over multiple slides. After each slide, the user should keep in memory one key item, so we introduce it on the heading, and then reveal it in more detail in the following paragraphs.{% endif %}
+    </p>
+
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/7.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/8.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/9.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/editorial-policy-for-in-app-stories/10.jpg" alt="" /></figure>
+      </div>
+    </div>
+
+    <p>
+      {% if lang == 'ru' %}<strong>Ясный текст.</strong> Пишем грамотно, понятно и емко: следим за знаками препинания, избегаем канцеляризмов, используем живой язык и простые формулировки. Если информации много, разбиваем ее на несколько слайдов.{% else %}<strong>Clear text.</strong> Write accurately, clearly and meaningfully: watch out for punctuation, avoid clericalisms, use lively language and simple wording. If you have too much information to share, spread it into several slides.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Цельное повествование.</strong> Следим за единством текста: соблюдаем логику и последовательно развиваем основную идею. Подборки объединяем общей темой, обозначаем ее в начале и/или в конце серии сторис.{% else %}<strong>Coherent narrative.</strong> Ensure the unity of the text: follow the logic and develop the main idea consistently. Selections are collected within a common theme, so we mark it at the beginning and/or end of a series of stories.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="sources" label="{% if lang == 'ru' %}Источники и сервис{% else %}Sources and services{% endif %}">
+    <aside>
+      <p>{% if lang == 'ru' %}<strong>Источники и сервис</strong>{% else %}<strong>Sources and services</strong>{% endif %}</p>
+      <p>
+        {% if lang == 'ru' %}<a href="https://drive.google.com/file/d/1MKFRxEWT8uvSbPhcdc4y2b5s1_KjE_45/view" target="_blank">Коммуникационный гайд</a> — как мы говорим о продуктах, клиентах, сервисе и выгоде. Какие партнёрства выбираем, в каких мероприятиях участвуем.{% else %}<a href="https://drive.google.com/file/d/1MKFRxEWT8uvSbPhcdc4y2b5s1_KjE_45/view" target="_blank">Communication Guide</a> — how we talk about products, clients, service and benefits. What partnerships we choose, what events we participate in.{% endif %}
+      </p>
+      <p>
+        {% if lang == 'ru' %}<a href="https://www.notion.so/47d168bdddde4f62ab0950f6a602ee41?pvs=4" target="_blank">Глоссарий</a> — словарь терминов, который мы используем. Если есть сомнения, сверяемся с ним.{% else %}<a href="https://www.notion.so/47d168bdddde4f62ab0950f6a602ee41?pvs=4" target="_blank">Glossary</a> — dictionary of terms that we use. If there are doubts, we look it up.{% endif %}
+      </p>
+      <p>
+        {% if lang == 'ru' %}<a href="https://glvrd.ru/" target="_blank">Главред</a> — сервис, который помогает очистить текст от словесного мусора, проверяет на соответствие информационному стилю.{% else %}<a href="https://glvrd.ru/" target="_blank">Glavred</a> — service that helps to clear the text of verbal garbage, checks for compliance with the information style.{% endif %}
+      </p>
+      <p>
+        {% if lang == 'ru' %}<a href="https://involta.ru/tools/length-chars/" target="_blank">Инвольта</a> — сервис для подсчета количества символов.{% else %}<a href="https://involta.ru/tools/length-chars/" target="_blank">Involta</a> — service for counting the number of characters.{% endif %}
+      </p>
+    </aside>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

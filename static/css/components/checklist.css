@@ -1,0 +1,46 @@
+/* Чеклист с настоящими чекбоксами (галочка — svg).
+
+   <div class="ids__checklist">
+     <label class="ids__check"><input type="checkbox"><span>Пункт</span></label>
+   </div> */
+
+.ids .ids__checklist {
+  margin-bottom: calc(var(--ids__density) * 0.6em);
+}
+
+.ids .ids__check {
+  display: block;
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: 0.6em;
+  cursor: pointer;
+  user-select: none;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.25em;
+    height: 1.25em;
+    background-size: cover;
+    border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 30%, transparent);
+    border-radius: 0.2em;
+  }
+
+  &:hover::before {
+    border-color: var(--ids__text);
+  }
+
+  &:has(input:checked)::before {
+    background-image: url("/images/ids/check.svg");
+    border-color: var(--ids__hover);
+  }
+}

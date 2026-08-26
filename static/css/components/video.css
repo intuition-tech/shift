@@ -1,4 +1,4 @@
-/* Встроенное видео (YouTube-iframe). Бывший Plyr-плеер старого сайта. */
+/* Встроенное видео: YouTube-iframe или локальный <video>. Бывший Plyr-плеер старого сайта. */
 
 .ids .ids__video {
   aspect-ratio: 16 / 9;
@@ -9,11 +9,21 @@
     max-width: 20em;
   }
 
-  & iframe {
+  & iframe,
+  & video {
     display: block;
     width: 100%;
     height: 100%;
     border: 0;
     border-radius: 0.45em;
+  }
+}
+
+/* Видео без фиксированной пропорции — под размер файла */
+.ids .ids__video.auto {
+  aspect-ratio: auto;
+
+  & video {
+    height: auto;
   }
 }

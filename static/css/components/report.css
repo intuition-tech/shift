@@ -1,0 +1,61 @@
+/* Отчёты Meme Park: шапка эпизода с портретами участников.
+
+   <div class="ids__report-header">
+     <h2>S01E01</h2>
+     <figure>
+       <div class="ids__portraits">
+         <div class="ids__portrait"><img src="…" alt=""></div>
+         …
+       </div>
+       <figcaption>22.05.2023, Женя Арутюнов, …</figcaption>
+     </figure>
+   </div> */
+
+.ids .ids__report-header {
+  margin-top: 3em;
+  padding-top: 0.5em;
+
+  & h2 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 0.1em;
+  }
+
+  & figcaption {
+    width: 70%;
+
+    @media (width < 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.ids .ids__portraits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding-right: 0.5em;
+  padding-bottom: 0.7em;
+}
+
+.ids .ids__portrait {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: -0.7em;
+  margin-bottom: -0.7em;
+  border: 2px solid var(--ids__background);
+
+  & img {
+    display: block;
+    width: 3.5em;
+    height: 3.5em;
+    object-fit: cover;
+    filter: contrast(90%) brightness(105%);
+
+    @media (width < 768px) {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+}

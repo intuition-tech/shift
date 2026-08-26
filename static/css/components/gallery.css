@@ -1,14 +1,25 @@
 @import '../lib/photoswipe.css';
 
+/* Превью 8em с зазором 3em — как в старом .pswp-gallery отчётов Meme Park */
 ids-gallery, .ids__gallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 5em;
+    gap: 3em;
+    margin-bottom: 4em;
 
+    @media (width < 768px) {
+        gap: 1em;
+        margin: 2em 0;
+    }
 
     figure {
-        flex: 0 0 5em;
+        flex: 0 0 8em;
+        margin: 0;
+
+        @media (width < 768px) {
+            flex-basis: 4em;
+        }
 
         &:focus-within:has(a:focus-visible) {
             outline: var(--ids__border-width-m) solid var(--ids__link);

@@ -1,0 +1,223 @@
+---
+title: Виджеты и механики геймификации — Shift
+titleEn: Widgets and gamification mechanics — Shift
+description: Примеры виджетов и механик геймификации, а также инструкция по их добавлению в сторис.
+descriptionEn: Widgets and gamification mechanics with examples, and instructions on how to add them to stories.
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Виджеты и механики геймификации{% else %}Widgets and gamification mechanics{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Примеры виджетов и механик геймификации, а также инструкция по их добавлению в сторис.{% else %}Widgets and gamification mechanics with examples, and instructions on how to add them to stories.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Используем виджеты, когда хотим геймифицировать контент, получить обратную связь от клиентов и увеличить вовлеченность.{% else %}We enable widgets when we want to gamify content, get feedback from customers and increase their engagement.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Если во время разработки сторис пришла идея добавить виджет:{% else %}If you come up with the idea to add a widget while developing stories:{% endif %}
+  </p>
+  <ul>
+    <li>
+      {% if lang == 'ru' %}описываем его механику в комментариях к слайду;{% else %}describe its mechanics in the comments to the slide;{% endif %}
+    </li>
+    <li>
+      {% if lang == 'ru' %}не перегружаем сторис текстом, чтобы хватило места для виджета.{% else %}do not overload the stories with text information, to save enough space for the widget.{% endif %}
+    </li>
+  </ul>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="types-and-functions" label="{% if lang == 'ru' %}Виды и функции виджетов{% else %}Types and functions of widgets{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Виды и функции виджетов{% else %}Types and functions of widgets{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}<strong>Тест с выбором правильного ответа.</strong> Используем для квизов и тестов, когда хотим вовлечь пользователей и сохранить интригу. Если вопросы сложные, можно добавить подсказки прямо в виджет.{% else %}<strong>A quiz with multiple choice answers.</strong> We use it when we want to engage users and create an intriguing narrative. If the questions are tricky, you can add clues directly into the widget.{% endif %}
+    </p>
+    <div class="ids__media-group S shadow">
+      <figure>
+        <img src="/images/widgets-for-in-app-stories/1.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Окно для ответа.</strong> Собираем обратную связь или вопросы клиентов.{% else %}<strong>Response box.</strong> Used to collect feedback or questions from customers.{% endif %}
+    </p>
+    <div class="ids__media-group S shadow cut-the-edges">
+      <figure>
+        <img src="/images/widgets-for-in-app-stories/2.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Вопрос с выбором из двух вариантов.</strong> Спрашиваем мнение пользователей, проводим несложную игру.{% else %}<strong>A question with a choice of two options.</strong> Used to ask for users' opinion, run a simple game.{% endif %}
+    </p>
+    <div class="ids__media-group S shadow">
+      <figure>
+        <img src="/images/widgets-for-in-app-stories/3.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>«Тянучка» с выбором реакции-эмодзи.</strong> Предлагаем пользователям поделиться впечатлениями.{% else %}<strong>‘Stretch’ with a selection of emoji reactions.</strong> We call in our users to share their impressions.{% endif %}
+    </p>
+    <div class="ids__media-group S shadow cut-the-edges">
+      <figure>
+        <img src="/images/widgets-for-in-app-stories/4.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Голосование.</strong> Выбираем фаворитов, узнаём мнение аудитории.{% else %}<strong>Vote.</strong> Choose favorites, find out what the audience thinks.{% endif %}
+    </p>
+    <div class="ids__media-group S shadow">
+      <figure>
+        <img src="/images/widgets-for-in-app-stories/5.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Оценка.</strong> Просим поставить оценку вкусу или новой продуктовой идее. Например, попросить проголосовать за вкус новой пиццы.{% else %}<strong>Rating.</strong> Ask to rate a flavor or a new product idea. For example, ask to vote for a new pizza flavor.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Обратный отсчет.</strong> Таймер, который поможет анонсировать событие или выход новинки.{% else %}<strong>Countdown.</strong> A timer to announce an event or release of a new product.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Кнопка со ссылкой.</strong> Оставь пользователям прямую ссылку на продукт, промокод или лендинг и не забудь добавить call to action. Кнопки существуют двух видов, смотри примеры ниже.{% else %}<strong>Link button.</strong> Provides the users with a direct link to a product, promo code or lending. Don't forget to add a call to action. There are two types of buttons: see examples below.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M no-wrap">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/8.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/9.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item"></div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}<strong>Нотификация.</strong> Не является виджетом, но ее почти всегда можно добавить. Это сообщение, которое увидит пользователь после взаимодействия с виджетом. Если нужно о чем-то напомнить и сделать это интересно, используем ее.{% else %}<strong>Notification.</strong> Not a widget, but it can almost always be applied. It is a message that the user will see after interacting with the widget. If you need to remind the users about something and make it interesting, go for it.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Более детально ознакомиться с виджетами и примерами их использования можно на сайте <a href="https://inappstory.ru" target="_blank">innappstory.com</a>. Для этого получите доступ у оунера сторис <a href="https://t.me/vinvz" target="_blank">Айназа</a> и зайдите на сайт в раздел Ресурсы — Использование виджетов.{% else %}To learn more about widgets and examples of how to use them, visit <a href="https://inappstory.ru" target="_blank">innappstory.com</a>. To do this, get access from <a href="https://t.me/vinvz" target="_blank">Ainaz’s</a> story owner and go to the Resources - Using Widgets section of the site.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="gamification-mechanics" label="{% if lang == 'ru' %}Механики геймификации{% else %}Gamification mechanics{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Механики геймификации{% else %}Gamification mechanics{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}<strong>«Открытки».</strong> Позволяет поднять узнаваемость бренда и придать виральность отдельным инфоповодам. Пользователь может выбрать одно из заранее подготовленных изображений. Добавить к нему свой текст и поделиться получившейся открыткой в соцсетях или мессенджерах.{% else %}<strong>Postcards.</strong> Allow to raise brand awareness and push the selected info promotions to go viral. The user can pick one of the image templates, add their own capture to it and share the resulting postcard on social networks or messengers.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M no-wrap">
+      <div class="ids__sequence-item">
+        <figure class="ids__media XS">
+          <img src="/images/widgets-for-in-app-stories/10.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/11.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/12.jpg" alt="" />
+        </figure>
+      </div>
+    </div>
+    <div class="ids__sequence L gap-M no-wrap">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/13.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/14.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/15.jpg" alt="" />
+        </figure>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}<strong>«Колесо фортуны».</strong> Позволяет проводить быстрые розыгрыши небольших призов среди клиентов приложения. Игровой процесс очень прост: пользователь запускает колесо, оно крутится и постепенно останавливается на одном из секторов. Если на секторе размещен приз, откроется дополнительная страница с его описанием и способом получения. Если сектор пустой, то и приз отсутствует.{% else %}<strong>Wheel of fortune.</strong> Allows for quick draw of small prizes among the application users. The mechanics is very simple: the user turns the wheel, it spins and gradually stops on one of the sections. If there is a prize section, a new page will open with its description and the way to get it. If the section is empty, there is no prize.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>«Пятнашки».</strong> Рассчитана на быстрый розыгрыш какого-то одного приза — например, промокода. Это логическая игра: пользователь должен собрать картинку, перемещая ее части. Количество частей, на которые делится изображение, опционально. Можно ограничить время на игру или количество ходов. В игре можно либо выиграть, либо проиграть. Повторные попытки на прохождение не предусмотрены.{% else %}<strong>Spots.</strong> It is designed for a quick draw of a single prize, for example, a promo code. This is a logical game: the user must assemble a picture by moving its parts. The number of parts into which the image is divided is optional. You can limit the time for the game or the number of moves. The game can either be won or lost. There is no second attempt given.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M no-wrap tight">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/16.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/17.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item"></div>
+    </div>
+    <div class="ids__sequence L gap-M no-wrap">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/18.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/19.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item"></div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}<strong>«Мемориз».</strong> Рассчитана на быстрый розыгрыш какого-то одного приза — например, промокода. Это игра на запоминание: пользователь должен запомнить расположение карточек и собрать все пары повторяющихся картинок (во время игры карточки находятся рубашками вверх). Количество пар можно выбрать в настройках, их может быть 8 или 10. Помимо этого, можно ограничить время на игру или количество ходов. В игре можно либо выиграть, либо проиграть. Регулярность выдачи бесплатных повторных попыток на прохождение можно настроить.{% else %}<strong>Memories.</strong> It is designed for a quick draw of a single prize, for example, a promo code. This is a memorisation game: the user must remember the location of the cards and collect all pairs of repeating pictures (during the game the cards are face down). The number of pairs can be selected in the settings, 8 or 10. In addition, you can limit the time for the game or the number of moves. In the game you can either win or lose. The regularity of free retries can be customized.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M no-wrap tight">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/20.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/21.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item"></div>
+    </div>
+    <div class="ids__sequence L gap-M no-wrap">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/22.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/widgets-for-in-app-stories/23.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item"></div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

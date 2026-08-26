@@ -1,0 +1,383 @@
+---
+title: Визуальный стиль сторис в приложении — Shift
+titleEn: Visual style of in-app stories — Shift
+description: Общие правила и рекомендации по созданию визуалов для сторис.
+descriptionEn: "General principles, colors, font and typography, layout sizes and grid, buttons, illustrations and graphic elements, photo style, and covers for stories."
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Визуальный стиль сторис в приложении{% else %}Visual style of in-app stories{% endif %}</h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Общие принципы, цвета, шрифт и типографика, размеры макета и сетка, кнопки, иллюстрации и графические элементы, фотостиль, обложки для сторис.{% else %}General principles, colors, font and typography, layout sizes and grid, buttons, illustrations and graphic elements, photo style, and covers for stories.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Команда приложения разработала <a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1247-160&t=Q7n9WbGS9JJSHNdT-1" target="_blank">пространство для разработки сторис в Фигме</a>. Это инструмент, в котором собраны стили типографики, правила использования цветов, основных элементов, кнопок, шаблонов и примеры уже готовых сторис. Текст ниже — это конспект главных правил и принципов.{% else %}The app team has created <a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1247-160&t=Q7n9WbGS9JJSHNdT-1" target="_blank">a space for developing stories in Figma</a>. It's a tool that collects typography styles, rules for using colors, basic elements, buttons, and stories templates and examples. The text below is an outline of the main rules and principles.{% endif %}
+  </p>
+
+  <aside>
+    {% if lang == 'ru' %}Перед тем, как использовать пространство в Фигме, скопируйте его себе <a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1247-49&node-type=canvas&t=XMpT5UygJfzFdP86-0" target="_blank">по этой инструкции</a>.{% else %}Before you use the Figma space, copy it on your computer following <a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1247-49&node-type=canvas&t=XMpT5UygJfzFdP86-0" target="_blank">these instructions</a>.{% endif %}
+  </aside>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="general-principles" label="{% if lang == 'ru' %}Общие принципы{% else %}General principles{% endif %}">
+    <h2>{% if lang == 'ru' %}Общие принципы{% else %}General principles{% endif %}</h2>
+    <p>
+      {% if lang == 'ru' %}<strong>Консистентный дизайн.</strong> Стили типографики, цвета и базовые элементы соответствуют стилям приложения.{% else %}<strong>Consistent design.</strong> Typography styles, colors, and basic elements are aligned with application styles.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Единый визуал.</strong> Используем фирменную типографику, цвета, графические элементы.{% else %}<strong>Unified visuals.</strong> We use branded typography, colors, and graphic elements.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Понятные сторис.</strong> Поддерживаем текст визуалом: тщательно подбираем изображения под тему, размещаем простые иконки и символы.{% else %}<strong>Comprehensible stories.</strong> Support the text with visuals: carefully selected images should match the theme, icons and symbols – represent simplicity.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Сторис легко и быстро считываются.</strong> Умеренно используем плашки и иллюстрации, избегаем перегруженности в макетах.{% else %}<strong>Stories are easily and quickly read.</strong> We use plates and illustrations moderately, and avoid overload of visuals in layouts.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="colors" label="{% if lang == 'ru' %}Цвета{% else %}Colors{% endif %}">
+    <h2>{% if lang == 'ru' %}Цвета{% else %}Colors{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Палитра включает основные, дополнительные цвета и градиенты. Градиент состоит из основного цвета и его более светлого оттенка. Посмотреть правила использования цветов и скопировать значения можно в Фигме.{% else %}The palette includes primary colors, secondary colors, and gradients. A gradient consists of a primary color and its lighter shade. You can look into the rules for using colors and copy the figures in Figma.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=827-3943&node-type=section&t=y5CUgmSgUGtEeem8-0" target="_blank">Правила использования цветов</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=827-3943&node-type=section&t=y5CUgmSgUGtEeem8-0" target="_blank">Rules for using colors</a>{% endif %}
+        </p>
+      </div>
+    </div>
+
+    <div class="ids__space S"></div>
+<!--PALETTE-->
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="font-and-typography" label="{% if lang == 'ru' %}Шрифт и типографика{% else %}Font and typography{% endif %}">
+    <h2>{% if lang == 'ru' %}Шрифт и типографика{% else %}Font and typography{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}В сторис используется толко два шрифта. Для заголовков — Rooftop, для наборного текста — Inter.{% else %}Only two fonts are used for stories. Rooftop for headlines and Inter for typesetting.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}Скачать шрифты <a href="https://drive.google.com/drive/folders/1qFmGttu576PD0RaA0R-OzttXqGwHRm6v" target="_blank">Rooftop</a> и <a href="https://fonts.google.com/specimen/Inter" target="_blank">Inter</a>{% else %}Download <a href="https://drive.google.com/drive/folders/1qFmGttu576PD0RaA0R-OzttXqGwHRm6v" target="_blank">Rooftop</a> and <a href="https://fonts.google.com/specimen/Inter" target="_blank">Inter</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <figure>
+      <img src="/images/in-app-stories-visual-style/4.png" alt="" />
+    </figure>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Другие шрифты не используем. В редких случаях можно добавить леттеринг, разработанный для промо-макетов.{% else %}Other fonts are not put to use. In some rare cases, you can add lettering designed for promotional layouts.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=818-3396&node-type=section&t=B1tlzxq0NKBdlwyJ-0" target="_blank">Стили и допустимые размеры шрифтов</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=818-3396&node-type=section&t=B1tlzxq0NKBdlwyJ-0" target="_blank">Styles and permitted font sizes</a>{% endif %}
+        </p>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="layout-dimensions-and-grid" label="{% if lang == 'ru' %}Размеры макета и сетка{% else %}Layout dimensions and grid{% endif %}">
+    <h2>{% if lang == 'ru' %}Размеры макета и сетка{% else %}Layout dimensions and grid{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Размер макета сторис составляет 1350 px на 2085 px.{% else %}Stories layout size is 1350 x 2085 px.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=818-3576&node-type=section&t=oRvfSo0QBN5SKsaF-0" target="_blank">Фреймы с настроенными направляющими</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=818-3576&node-type=section&t=oRvfSo0QBN5SKsaF-0" target="_blank">Frames with customized guides</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Также в сторис есть 4 зоны.{% else %}There are also 4 zones in the stories layout.{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Основная рабочая зона. В ней находится главная информация на макете, текст не должен выходить за ее границы.{% else %}The main working area. It contains the key information on the layout, the text should not go beyond its borders.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Видимая зона. В ней находятся только графические элементы.{% else %}Visible zone. It contains only graphic elements.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Зона, которая обрезается на мобильных устройствах. Ее видно только при просмотре сторис с компьютера.{% else %}The zone that is invisible on mobile devices. It can be seen only when viewing stories on a computer.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Зона кнопки.{% else %}Button zone.{% endif %}
+      </li>
+    </ul>
+    <figure>
+      <img src="/images/in-app-stories-visual-style/5.png" alt="" />
+    </figure>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="buttons" label="{% if lang == 'ru' %}Кнопки{% else %}Buttons{% endif %}">
+    <h2>{% if lang == 'ru' %}Кнопки{% else %}Buttons{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Для того, что пользователи могли совершить целевое действие, в сторис есть кнопки. Кнопки делятся на два вида.{% else %}In order for users to take a targeted action, there are buttons in the stories. Buttons are divided into two types.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=824-3840&node-type=frame&t=JoVXjpG82LPSOR1B-0" target="_blank">Правила использования</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=824-3840&node-type=frame&t=JoVXjpG82LPSOR1B-0" target="_blank">Rules of use</a>{% endif %}
+        </p>
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1133-838&node-type=section" target="_blank">Шаблоны</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1133-838&node-type=section" target="_blank">Templates</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}<strong>Статичные кнопки.</strong> Они всегда располагаются в зоне кнопки. Сверху — кнопка без инонки, Снизу — с иконкой.{% else %}<strong>Static buttons.</strong> They are always located in the button area. A button without an icon is on the top, with an icon - on the bottom.{% endif %}
+    </p>
+    <div class="ids__media-group M">
+      <figure>
+        <img src="/images/in-app-stories-visual-style/6.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__media-group M">
+      <figure>
+        <img src="/images/in-app-stories-visual-style/9.png" alt="" />
+      </figure>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__sequence L gap-M">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/7.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/8.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/10.png" alt="" />
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}<strong>Динамичные кнопки.</strong> Нужны для заказа продукта, их можно перемещать по макету. В сторис можно использовать несколько кнопок, но не более трех.{% else %}<strong>Dynamic buttons.</strong> Their function is ordering a product; they can be moved around the layout. In stories you can use several buttons, but no more than three.{% endif %}
+    </p>
+    <figure>
+      <img src="/images/in-app-stories-visual-style/11.png" alt="" />
+    </figure>
+    <div class="ids__sequence L gap-M">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/12.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/13.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/14.png" alt="" />
+        </figure>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="illustrations-and-graphic-elements" label="{% if lang == 'ru' %}Иллюстрации и графические элементы{% else %}Illustrations and graphic elements{% endif %}">
+    <h2>{% if lang == 'ru' %}Иллюстрации и графические элементы{% else %}Illustrations and graphic elements{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Мы используем в сторис 3D-изображения, которые разрабатываем сами в команде Приложения.{% else %}We use 3D images in stories that we develop ourselves with the help of our application team.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1044-107" target="_blank">Банк 3D-изображений и правила их использования </a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1044-107" target="_blank">3D image bank and rules for their use</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="ids__space S"></div>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/15.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/16.png" alt="" />
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space M"></div>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Ещё мы используем графические элементы: шейпы и стрелки.{% else %}We also use graphic elements: shapes and arrows.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1017-4168" target="_blank">Графические элементы</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=1017-4168" target="_blank">Graphic elements</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/17.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/18.png" alt="" />
+        </figure>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Мы не используем иллюстрации со стоков и не рисуем их самостоятельно.{% else %}We do not take stock illustrations or draw them ourselves.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="photostyle" label="{% if lang == 'ru' %}Фотостиль{% else %}Photostyle{% endif %}">
+    <h2>{% if lang == 'ru' %}Фотостиль{% else %}Photostyle{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}В сторис мы используем разные фотографии: продукты в лайф-среде и из каталога, люди.{% else %}For our stories we may choose various different photos: products in the life environment and from the catalog, or people.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8" target="_blank">Фотостиль</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8" target="_blank">Photostyle</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Например, фотографии продуктов.{% else %}For example, photos of products.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/19.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/20.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/21.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/22.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/23.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/24.jpg" alt="" />
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}Фотографии людей.{% else %}Photos of people.{% endif %}
+    </p>
+    <div class="ids__sequence L gap-M">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/25.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/26.jpg" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/27.jpg" alt="" />
+        </figure>
+      </div>
+    </div>
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}Фотографии продуктов из каталога.{% else %}Photos of products from the catalog.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/28.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/30.png" alt="" />
+        </figure>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="covers" label="{% if lang == 'ru' %}Обложки{% else %}Covers{% endif %}">
+    <h2>{% if lang == 'ru' %}Обложки{% else %}Covers{% endif %}</h2>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Обложки сторис расположены на самом верху главной страницы приложения, поэтому они требуют особенного внимания при разработке. Избегаем мелких деталей, обилия графических элементов и цветового разнообразия.{% else %}Stories covers are located at the very top of the main page of the app, so they require special attention in development. Avoid small details, abundance of graphic elements and excessive color choices.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=952-2435&node-type=section" target="_blank">Создание обложек</a>{% else %}<a href="https://www.figma.com/design/XALMCySgNM9VDNiH6eLHVA/%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C-%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%81-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8?node-id=952-2435&node-type=section" target="_blank">Creating covers</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Например, фотографии продуктов.{% else %}For example, product photos.{% endif %}
+    </p>
+    <div class="ids__sequence gap-S tight">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/32.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/33.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/34.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/35.png" alt="" />
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/in-app-stories-visual-style/36.png" alt="" />
+        </figure>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

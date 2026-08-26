@@ -1,0 +1,66 @@
+---
+title: Как настроить пресет для сохранения PDF — Shift
+titleEn: How to configure a preset for saving to PDF — Shift
+description: Пресет для сохранения в PDF поможет один раз выставить нужные настройки и не назначать их вручную при каждом сохранении.
+descriptionEn: A preset for saving to PDF will help you set your preferences once and not to assign them manually every time you save.
+tags: guide
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper guide">
+  <h1>{% if lang == 'ru' %}Как настроить пресет для сохранения PDF{% else %}How to configure a preset for saving to PDF{% endif %}</h1>
+
+  <p>
+    {% if lang == 'ru' %}<a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH?usp=sharing">Пресет для сохранения PDF</a> поможет быстро сохранять макеты мелких печатных носителей.{% else %}We need <a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH?usp=sharing">a preset</a> so that we won't have to configure the PDF settings manually when saving it.{% endif %}
+  </p>
+  <ol>
+    <li>
+      {% if lang == 'ru' %}<strong>Устанавливаем пресет.</strong> Открываем в Adobe Illustrator через правую кнопку мыши «Открыть с помощью». Пресет появится в списке при сохранении макета через «Save As… → Adobe PDF». При сохранении достаточно выбрать его и нажать кнопку «Save PDF».{% else %}<strong>Make a preset.</strong> Open in Adobe Illustrator with the right mouse button and "Open with". The preset will appear on the list when you save the layout through "Save As... → Adobe PDF". When saving, just select it and click the "Save PDF" button.{% endif %}
+      <div class="ids__space S"></div>
+      <p>
+        {% if lang == 'ru' %}Иногда пресет не срабатывает автоматически — тогда его нужно один раз настроить вручную и сохранить.{% else %}Sometimes a preset does not work automatically, in which case you will have to save it manually.{% endif %}
+      </p>
+    </li>
+    <li>
+      {% if lang == 'ru' %}<strong>Настраиваем автоматически.</strong> В окне параметров сохранения выставляем настройки, как на скриншотах ниже.{% else %}<strong>Set it manually.</strong> Make the settings in the window of saving options as shown below on the screenshots.{% endif %}
+      <div class="ids__media-group XL shadow">
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/1.jpeg" alt="" />
+          <figcaption>General</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/2.jpeg" alt="" />
+          <figcaption>Compression</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/3.jpeg" alt="" />
+          <figcaption>Output</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/4.jpeg" alt="" />
+          <figcaption>Advanced</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/5.jpeg" alt="" />
+          <figcaption>Marks and Bleeds</figcaption>
+        </figure>
+      </div>
+      <p>
+        {% if lang == 'ru' %}С окном «Marks and Bleeds» есть нюанс — при выборе «Use Document Bleed Setting» используются припуски, указанные в настройках документа. Посмотреть их можно в «File → Document Setup…».{% else %}There is a little trick with the window "Marks and Bleeds": when you choose "Use Document Bleed Setting", the allowances you set in the document settings are used. You can see them in "File → Document Setup...".{% endif %}
+      </p>
+      <p>
+        {% if lang == 'ru' %}Если в документе изначально не выставлены припуски на обрезку — ничего не получится. В этом случае используем <a href="https://www.notion.so/PDF-a0243ddec7d3497da8c657e50a31ed7b?pvs=4">шаблоны</a> — в них уже заданы нужные припуски на обрезку.{% else %}If the document does not initially have the bleeds set, it just won’t work. In this case, you can use <a href="https://drive.google.com/drive/folders/1K7UD9wIAI8ZDGHd6HgfXkj75ONh61H1e?usp=sharing">templates</a> that already have the necessary settings.{% endif %}
+      </p>
+    </li>
+    <li>
+      {% if lang == 'ru' %}<strong>Сохраняем пресет.</strong> Справа сверху кнопка для сохранения пресета. Нажмите её, задайте любое название. Мы используем «Fogra_39_print» в честь цветового профиля, который назначается при сохранении. Он подходит для большинства типографий в Евразии. В других регионах лучше уточнить профиль в типографии.{% else %}<strong>Save the preset.</strong> The button to save a preset is on the top right. Press it and give it any name you want. We use "Fogra_39_print" after the color profile you assign when saving. It is suitable for most printers in Eurasia. It is better to specify the profile at the printing house.{% endif %}
+      <div class="ids__media-group XL shadow">
+        <figure>
+          <img src="/images/how-to-configure-a-preset-for-saving-to-pdf/6.jpeg" alt="" />
+          <figcaption>{% if lang == 'ru' %}Сохранение макета{% else %}Saving the layout{% endif %}</figcaption>
+        </figure>
+      </div>
+    </li>
+  </ol>
+
+  <div class="ids__space L"></div>
+</article>
