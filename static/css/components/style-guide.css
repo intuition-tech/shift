@@ -1,0 +1,211 @@
+/* Стили витрины дизайн-системы (/style): сетки свотчей и таблицы токенов.
+   Перенесены из pndlnk-site. Работают в паре с /js/tokens-dump.js. */
+
+.style-color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+
+  @media (width < 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.guide-color-plate {
+  position: relative;
+  min-height: 6.4em;
+  padding: 0.45em 0.5em;
+  line-height: 1.2;
+
+  & > * {
+    margin-bottom: 0.25em;
+  }
+
+  & .guide-color-plate__name {
+    margin: 0;
+    font-size: 0.65em;
+    line-height: 1.15;
+  }
+
+  & .guide-color-plate__value {
+    margin-top: auto;
+  }
+}
+
+.guide-color-plate__value {
+  display: inline-block;
+  font: inherit;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.62em;
+  color: inherit;
+  opacity: 0.7;
+  background: none;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  padding: 0.15em 0.35em;
+  border-radius: var(--ids__radius-s);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    border-color: currentColor;
+    transition-duration: var(--ids__duration-instant);
+  }
+}
+
+@keyframes guide-color-copy-flash {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.guide-color-plate__flash {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: guide-color-copy-flash 0.4s ease-out forwards;
+}
+
+.guide-color-plate--outlined {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ids__text) 15%, transparent);
+}
+
+.style-typography-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.style-typography-item {
+  background-color: color-mix(in srgb, var(--ids__surface) 40%, transparent);
+  padding: 0.9em;
+  border-radius: var(--ids__radius-m);
+
+  & p:last-child,
+  & ul:last-child,
+  & ol:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.guide-tokens__rows {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+/* Ширина крайних колонок — в rem: у таблиц в узком и широком враппере
+   первая и последняя колонки совпадают по ширине */
+.guide-tokens__row {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr) 8rem;
+  gap: 1em;
+  align-items: start;
+  padding: 0.45em 0 1.1em;
+  border-bottom: 1px solid color-mix(in srgb, var(--ids__text) 12%, transparent);
+
+  @media (width < 768px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    & .guide-tokens__row-value {
+      display: none;
+    }
+  }
+
+  &.guide-tokens__row--header {
+    font-size: 0.62em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.6;
+    padding-bottom: 0.45em;
+  }
+}
+
+.guide-tokens__row-label code {
+  font-size: 0.72em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  &:hover {
+    color: var(--ids__hover);
+  }
+}
+
+.guide-tokens__row-value {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.62em;
+  opacity: 0.7;
+}
+
+.guide-tokens__sample {
+  min-width: 0;
+
+  /* Образцы в таблице не добавляют собственный вертикальный ритм */
+  & > :is(h1, h2, h3, p, ul, div, figure):last-child {
+    margin-bottom: 0;
+  }
+
+  & :is(h1, h2, h3) {
+    margin-bottom: 0;
+  }
+}
+
+/* Крупные образцы не выползают на колонку значений */
+.guide-tokens__row .guide-tokens__sample {
+  overflow-x: clip;
+}
+
+.guide-tokens__space-bar {
+  background-color: color-mix(in srgb, var(--ids__accent) 45%, transparent);
+  width: 100%;
+
+  &.guide-tokens__space-bar--gap {
+    width: auto;
+    height: 0.8em;
+  }
+}
+
+.guide-tokens__radius-sample {
+  width: 3.4em;
+  height: 3.4em;
+  background-color: color-mix(in srgb, var(--ids__surface) 90%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ids__text) 25%, transparent);
+}
+
+.guide-tokens__border-line {
+  background-color: var(--ids__text);
+  width: 100%;
+}
+
+.guide-tokens__bar-track {
+  width: 100%;
+  height: 0.8em;
+  background-color: color-mix(in srgb, var(--ids__surface) 60%, transparent);
+  overflow: hidden;
+}
+
+.guide-tokens__bar-fill {
+  width: 0%;
+  height: 100%;
+  background-color: var(--ids__accent);
+  transition-property: width;
+
+  &.is-active {
+    width: 100%;
+  }
+}

@@ -1,0 +1,113 @@
+/* Композиция сайта и его хром (хедер, футер) поверх IDS.
+   Значения — со старого сайта Shift. */
+
+body.ids {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Хедер: фиксированный, с градиентом-подложкой */
+
+header {
+  position: fixed;
+  max-width: 1600px;
+  width: 100%;
+  z-index: 12;
+  padding: 0.8em 0.5em 0.5em;
+  background: linear-gradient(
+    180deg,
+    var(--ids__background) 71%,
+    color-mix(in srgb, var(--ids__background) 50%, transparent) 83%,
+    color-mix(in srgb, var(--ids__background) 1%, transparent) 92%
+  );
+
+  @media (width < 768px) {
+    padding: 0.8em 0.8em;
+  }
+
+  & .nav {
+    display: flex;
+    justify-content: space-between;
+
+    & .nav-item {
+      display: flex;
+    }
+  }
+
+  & .logo {
+    text-decoration: none;
+
+    & svg {
+      width: 7.55em;
+      height: 1.8em;
+
+      & path {
+        fill: var(--ids__text);
+        transition: fill var(--ids__duration-base) var(--ids__easing-base);
+      }
+
+      @media (width < 768px) {
+        width: 6.7em;
+        height: 1.76em;
+      }
+    }
+
+    &:hover svg path {
+      fill: var(--ids__hover);
+      transition: fill 0s ease;
+    }
+  }
+}
+
+/* Переключалка языка */
+
+.switcher {
+  font-size: 0.8em;
+  font-weight: 550;
+  margin-top: 0.65em;
+
+  & span {
+    border: var(--ids__border-width-s) solid var(--ids__text);
+    border-radius: 0.7em;
+    padding: 0.2em 0.3em;
+    background-color: var(--ids__text);
+    color: var(--ids__background);
+  }
+
+  & a {
+    margin: 0 0.4em;
+    text-decoration: none;
+  }
+}
+
+/* Публикация: текстовая колонка по центру (та же расчётная ширина,
+   что у старого трёхколоночного флексбокса: 60% контейнера),
+   оглавление — в поле слева от неё */
+
+.guide {
+  width: 60%;
+  position: relative;
+}
+
+.guide__nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -33.4%;
+  width: 33.4%;
+
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+/* Футер */
+
+footer {
+  padding: 0.5em 0;
+  width: 50%;
+}
+
+.footer-caption {
+  font-size: 0.75em;
+}

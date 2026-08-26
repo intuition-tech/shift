@@ -1,0 +1,336 @@
+/* Фирменный компонент «НЕТ / ДА»: два блока-примера со стрелками на полях.
+   Портирован со старого сайта (mixin--no-yes) под конвенции IDS.
+
+   Разметка (блоки ставить вплотную, без пробелов между ними — они inline-block):
+   <div class="ids__no-yes [right] [wide] [full]">
+     <div class="ids__no-yes--wrap">
+       <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-L" style="--top: 6.8em">НЕТ</div>
+       <img class="ids__no-yes--img" src="…" alt="">
+     </div>
+   </div>
+
+   Нативный CSS-нестинг не умеет саспоподобную конкатенацию `&---mod`,
+   поэтому модификаторы записаны полными селекторами. */
+
+.ids .ids__no-yes {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(50% - 0.5em);
+  margin-bottom: 2.5em;
+
+  @media (width < 768px) {
+    width: 100%;
+  }
+
+  &.right {
+    @media (width >= 768px) {
+      margin-left: 1em;
+    }
+  }
+
+  &.wide {
+    display: block;
+
+    @media (width >= 768px) {
+      width: 31em;
+    }
+
+    &.right {
+      margin-left: auto;
+    }
+  }
+
+  &.full {
+    width: 100%;
+    display: block;
+    margin-left: 0;
+  }
+}
+
+.ids .ids__no-yes--empty {
+  @media (width < 768px) {
+    display: none;
+  }
+
+  & .ids__no-yes--empty--txt {
+    position: absolute;
+    top: 9em;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+    color: color-mix(in srgb, var(--ids__text) 20%, transparent);
+
+    & p {
+      white-space: nowrap;
+    }
+  }
+}
+
+.ids .ids__no-yes--text {
+  padding-right: 0.5em;
+  position: relative;
+}
+
+.ids .ids__no-yes--subhead {
+  font-size: 0.75em;
+  font-weight: 570;
+  letter-spacing: 0.13em;
+  color: var(--shift__gray-caption);
+  margin-bottom: 0.6em;
+
+  @media (width >= 768px) {
+    display: none;
+  }
+
+  &.right {
+    color: var(--shift__dodo-orange);
+  }
+}
+
+.ids .ids__no-yes--wrap {
+  position: relative;
+}
+
+/* Стрелка с подписью НЕТ/ДА */
+
+.ids .ids__no-yes--arrow {
+  position: absolute;
+  top: var(--top);
+  z-index: 1;
+  font-size: 0.75em;
+  font-weight: 570;
+  letter-spacing: 0.13em;
+  display: flex;
+  flex-direction: column;
+
+  @media (width < 768px) {
+    top: 0;
+    flex-direction: row;
+  }
+
+  &::after {
+    content: "";
+    background-image: url("/images/no-yes/arrow-straight.svg");
+    width: 7.2em;
+    aspect-ratio: 200 / 100;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    left: -2em;
+    top: -0.6em;
+
+    @media (width < 768px) {
+      width: 3.2em;
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---with-text {
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+.ids .ids__no-yes--arrow---bottom-L {
+  left: -4.2em;
+  color: var(--shift__gray-caption);
+
+  @media (width < 768px) {
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    filter: saturate(0);
+    left: 2.8em;
+    transform: scaleX(-1);
+
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---bottom-R {
+  color: var(--shift__dodo-orange);
+  right: -3.7em;
+  align-items: flex-end;
+
+  @media (width < 768px) {
+    right: unset;
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---top-L {
+  left: -4.2em;
+  color: var(--shift__gray-caption);
+
+  @media (width < 768px) {
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    filter: saturate(0);
+    left: 2.8em;
+    transform: scale(-1, -1);
+    top: -4.1em;
+
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---top-R {
+  color: var(--shift__dodo-orange);
+  right: -3.7em;
+  align-items: flex-end;
+
+  @media (width < 768px) {
+    right: unset;
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    transform: scale(1, -1);
+    top: -4.1em;
+
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---curve-L {
+  left: -4.2em;
+  color: var(--shift__gray-caption);
+
+  @media (width < 768px) {
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    background-image: url("/images/no-yes/arrow-curve.svg");
+    top: 0.1em;
+    filter: saturate(0);
+    left: 1.8em;
+    transform: scaleX(-1);
+
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---curve-R {
+  color: var(--shift__dodo-orange);
+  right: -3.7em;
+  align-items: flex-end;
+
+  @media (width < 768px) {
+    right: unset;
+    left: 0;
+    position: relative;
+  }
+
+  &::after {
+    background-image: url("/images/no-yes/arrow-curve.svg");
+    top: 0.1em;
+    left: -1.2em;
+
+    @media (width < 768px) {
+      left: 0;
+      top: 0.6em;
+      transform: scale(-1, -1) rotate(45deg);
+    }
+  }
+}
+
+.ids .ids__no-yes--arrow---custom-text-R {
+  width: 6em;
+  letter-spacing: normal;
+  right: -7.7em;
+
+  @media (width < 768px) {
+    display: none;
+  }
+
+  &::after {
+    left: -6.2em;
+  }
+}
+
+.ids .ids__no-yes--arrow---custom-text-L {
+  width: 6em;
+  letter-spacing: normal;
+  left: -7.7em;
+
+  @media (width < 768px) {
+    display: none;
+  }
+
+  &::after {
+    left: 6.2em;
+  }
+}
+
+/* Картинка примера */
+
+.ids .ids__no-yes--img {
+  filter: drop-shadow(0px 7px 12px var(--shift__shadow-color));
+  border-radius: 0.45em;
+
+  @media (width < 768px) {
+    max-width: 20em;
+    margin: 0 auto;
+  }
+}
+
+.ids .ids__no-yes--img---full {
+  @media (width < 768px) {
+    max-width: 100%;
+  }
+}
+
+.ids .ids__no-yes--img---noShadow {
+  filter: none;
+}
+
+/* Серый CAPS-бейдж над блоком («Функция», «Принцип 1») */
+.ids .ids__billet {
+  font-size: 0.75em;
+  font-weight: 570;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--shift__gray-caption);
+
+  /* бейдж, прижатый к следующему за ним блоку */
+  &.under {
+    margin-top: -0.6em;
+    margin-bottom: 1.2em;
+    color: #0b0bc1;
+  }
+}

@@ -1,0 +1,20 @@
+<header>
+  <div class="nav">
+    <div class="nav-item">
+      <a class="logo" href="{{ '/en/' if lang == 'en' else '/' }}">
+        <span class="logo-icon">{% include "logo.svg" %}</span>
+      </a>
+    </div>
+    <div class="nav-item">
+      {%- if lang == 'ru' %}
+      <div class="switcher">
+        <a href="{{ otherLangUrl }}" data-locale="en_US">EN</a><span>RU</span>
+      </div>
+      {%- else %}
+      <div class="switcher">
+        <span>EN</span><a href="{{ otherLangUrl }}" data-locale="ru_RU">RU</a>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</header>

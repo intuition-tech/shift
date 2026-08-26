@@ -1,0 +1,50 @@
+/* Оглавление публикации: ids-navbar в колонке слева от текста.
+   Вид — со старого сайта (.guide-nav): sticky, мелкий кегль, без подчёркиваний. */
+
+.ids__navbar {
+  display: block;
+  position: sticky;
+  top: 15%;
+  padding: 0.4em 1.2em 0 0;
+  font-size: 0.8em;
+
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+.ids__navbar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ids__navbar ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &::before {
+    content: "";
+  }
+
+  & a {
+    display: block;
+    font-size: 0.9em;
+    color: color-mix(in srgb, var(--ids__text) 80%, transparent);
+    text-decoration: none;
+    margin-bottom: 0.9em;
+
+    &:hover {
+      color: var(--ids__hover);
+    }
+  }
+}
+
+.ids__navbar .current a {
+  color: var(--ids__text);
+}
+
+.ids__nav-item {
+  display: block;
+  scroll-margin-top: 5em;
+}

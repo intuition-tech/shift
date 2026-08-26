@@ -1,0 +1,23 @@
+---
+title: Shift
+---
+<div class="ids__space L"></div>
+<div class="ids__wrapper">
+  <h1>Shift</h1>
+  <ul>
+    {%- for guide in collections.guide %}
+    {%- if guide.data.lang == lang %}
+    <li>
+      <a href="{{ guide.url }}">
+        {%- if lang == 'en' and guide.data.titleEn -%}
+        {{ guide.data.titleEn | replace(" — Shift", "") }}
+        {%- else -%}
+        {{ guide.data.title | replace(" — Shift", "") }}
+        {%- endif -%}
+      </a>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+  <div class="ids__space XL"></div>
+</div>

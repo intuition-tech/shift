@@ -1,0 +1,12 @@
+/* Брендовые токены Shift — то, что не входит в семантику IDS. */
+
+:root {
+  --shift__dodo-orange: rgb(255, 105, 0);
+  --shift__gray-caption: rgb(133, 144, 148);
+
+  --shift__aside-background: #f3f2f7;
+  --shift__shadow-color: rgb(212, 214, 215);
+
+  --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
+  --shift__arrow-font: "Arrow";
+}

@@ -1,0 +1,155 @@
+---
+title: Как поддерживать порядок в проектах — Shift
+titleEn: How to keep order in projects — Shift
+description: С единой структурой в папках, названиях файлов и в слоях проще ориентироваться в проектах и передавать макеты.
+descriptionEn: With a unified structure in folders, file names, and layers, it's easier to navigate projects and pass layouts on.
+tags: guide
+---
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>
+    {% if lang == 'ru' %}Как поддерживать порядок в проектах{% else %}How to keep order in projects{% endif %}
+  </h1>
+
+  <p class="ids__description">
+    {% if lang == 'ru' %}Ссылка на шаблон папки проекта, инструкция о том, как им пользоваться, особенности названий проектов и слоев.{% else %}Link to the project folder template, instructions on how to use it, project and layer naming features.{% endif %}
+  </p>
+
+  <p>
+    {% if lang == 'ru' %}Единая структура в папках, названиях файлов и в слоях помогает проще ориентироваться в проекте, передавать макеты внутри команды и партнёрам.{% else %}A unified structure in folders, file names, and layers makes it easier to navigate projects, pass the layouts on among the team and partners.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="project-folder-template" label="{% if lang == 'ru' %}Шаблон папки проекта{% else %}Project folder template{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Шаблон папки проекта{% else %}Project folder template{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Чтобы сэкономить время и не создавать папки вручную, используйте <a href="https://drive.google.com/drive/folders/1K7UD9wIAI8ZDGHd6HgfXkj75ONh61H1e" target="_blank">шаблон папки проекта</a>. В нём уже есть папки для всех носителей. Надо только скачать его и удалить лишние.{% else %}To save some time and not create folders manually, use <a href="https://drive.google.com/drive/folders/1KqOVziNcc6XltlsPLj6HG3qG6kqEgXj4" target="_blank">project folder template</a>. It already contains folders for all media. All you have to do is download it and delete the extra ones.{% endif %}
+    </p>
+
+    <div class="ids__media-group XL shadow">
+      <figure>
+        <img src="/images/order-in-projects/1.png" alt="Folder example" />
+        <figcaption>
+          {% if lang == 'ru' %}Шаблон папки проекта{% else %}Project folder template{% endif %}
+        </figcaption>
+      </figure>
+    </div>
+
+    <p>
+      {% if lang == 'ru' %}Вот как пользоваться шаблоном.{% else %}Here's how to use the template.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}Скачайте шаблон и удалите папки с носителями, которые не используются в вашем проекте.{% else %}Download your template and delete the media folders that are not used in the project.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В папке [Sketch] работайте над скетчем, добавляйте туда любой контент. Возможно, ваши наработки пригодятся в других проектах.{% else %}Use the [Sketch] folder to work on your sketch. You can put anything you want into it. Perhaps your developments can be of some use for other projects.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В папку [Master Layout] положите мастер-макет и используйте его при тиражировании.{% else %}Put the master layout into the [Master Layout] folder and use it for replication.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В папку [Links] добавляйте все объекты, которые линкуются к мастер-макету и в дальнейшем ко всем Process-файлам при тираже.{% else %}Add all the objects, which are linked to the master-layout and, further to all the Process-files at replication, to the [Links] folder.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Внутри папок с носителями есть папки [Process]. В них лежат шаблоны носителей с заданными размерами, припусками на обрез, футерами и направляющими. Используйте их для тиражирования.{% else %}There are [Process] folders inside the media folders. They contain media templates with specified sizes, trim allowances, liners and guides. Use them for replication.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Заполненную папку загрузите на гугл-диск.{% else %}Upload the filled folder to the Google Drive.{% endif %}
+      </li>
+    </ol>
+
+    <p>
+      {% if lang == 'ru' %}Вот примеры реальных проектов. Посмотрите их, чтобы лучше понять как работают папки.{% else %}Here are the examples of real projects. Take a look at them to see how the folders work.{% endif %}
+    </p>
+    <ul>
+      <li>
+        <a href="https://drive.google.com/drive/folders/1y7gh9C0WSzlUC4cGDzKnW59AYI33AW0K?usp=sharing" target="_blank">
+          {%- if lang == 'ru' %}Деревенская пицца,{% else %}Country pizza,{% endif -%}
+        </a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/drive/folders/1B4Xvn2XkGVPPZp1e9qmPPjXDQocrxvxn?usp=sharing" target="_blank">
+          {%- if lang == 'ru' %}Буженина с клюквенным соусом,{% else %}Baked ham with cranberry sauce,{% endif -%}
+        </a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/drive/folders/1XXv1q8aEqG_e-c8i6ceCmb_y6Z472SKO?usp=sharing" target="_blank">
+          {%- if lang == 'ru' %}Дэнвичи.{% else %}Danviches.{% endif -%}
+        </a>
+      </li>
+    </ul>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="file-names" label="{% if lang == 'ru' %}Название файла{% else %}File names{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Название файла{% else %}File names{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Называем файлы на английском по такой структуре:{% else %}We give names to files in English and according to this structure:{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Страна — Категория проекта — Название проекта — Носитель — Размер в пикселях — Номер стороны — Вид макета{% else %}Country - Project Category - Project Name - Media - Size in pixels - Side Number - Layout Type.{% endif %}
+    </p>
+
+    <p>{% if lang == 'ru' %}Например:{% else %}For example:{% endif %}</p>
+    <ul>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Process,</li>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Edit,</li>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Publish.</li>
+    </ul>
+
+    <p>
+      {% if lang == 'ru' %}Подробней о названиях файлов в <a href="/how-to-name-files/" target="_blank">статье</a>.{% else %}More on file names in the <a href="/how-to-name-files/" target="_blank">article</a>.{% endif %}
+    </p>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="layer-names" label="{% if lang == 'ru' %}Названия слоёв{% else %}Layouts names{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Названия слоёв{% else %}Layouts names{% endif %}
+    </h2>
+
+    <p>
+      {% if lang == 'ru' %}Мы оставляем названия слоёв в шаблонах без изменений. Когда тиражирование будет автоматизировано, это поможет <a href="https://dodobrands.notion.site/a6be2f6e6cb64d1da32a1dc47b340094" target="_blank">скриптам</a> и <a href="https://dodobrands.notion.site/2a8dbb67dae146a4820187d78bb7c543">роботам</a> понимать, что где лежит, и делать за нас рутинную работу.{% else %}We leave the names of the layers in the templates unchanged. When replication becomes automatized, it will help scripts and robots understand what is where and do our routine tasks.{% endif %}
+    </p>
+
+    <p>
+      {% if lang == 'ru' %}Название слоя зависит от того, что в нём находится.{% else %}The name of the layer depends on what's in it.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Guidelines</strong> — сетки и направляющие.{% else %}<strong>Guidelines</strong> — grids and guides.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Preview</strong> — элементы интерфейса, окружающего макет. Отличаются для разных носителей.{% else %}<strong>Preview</strong> — interface elements surrounding the layout. They are different for each type of media.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Text</strong> — текст, плашки, ценники, леттеринг.{% else %}<strong>Text</strong> — text, bars, price tags, lettering.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Footer</strong> — футеры с логотипами, навигацией.{% else %}<strong>Footer</strong> — footers with logos and navigation.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Background</strong> — для фона, фотографий продуктов, графики и всяких графических элементов, которые не текст.{% else %}<strong>Background</strong> — background, product photos, graphic elements that are not a text.{% endif %}
+    </p>
+
+    <div class="ids__media-group M shadow">
+      <figure>
+        <img src="/images/order-in-projects/2.png" alt="Layers preview" />
+      </figure>
+      <figure>
+        <img src="/images/order-in-projects/3.png" alt="Layers preview" />
+        <figcaption>
+          {% if lang == 'ru' %}Примеры названий слоёв{% else %}Layouts name{% endif %}
+        </figcaption>
+      </figure>
+    </div>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

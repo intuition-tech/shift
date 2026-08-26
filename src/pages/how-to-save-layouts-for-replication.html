@@ -1,0 +1,303 @@
+---
+title: Как сохранять макеты при тиражировании — Shift
+titleEn: How to save layouts for replication — Shift
+description: Мы сохраняем макеты в нескольких видах — для редактирования, публикации, превью и для печати. Внутри инструкция к каждому виду и разница между ними.
+descriptionEn: We save layouts in several forms - for editing, publication, preview, and printing. Here are instructions for each form and what the difference is.
+tags: guide
+---
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>
+    {% if lang == 'ru' %}Как сохранять макеты при тиражировании{% else %}How to save layouts for replication{% endif %}
+  </h1>
+  <p>
+    {% if lang == 'ru' %}Мы делим макеты на пять видов: Process, Edit, Print, Publish и Preview. У каждого вида свои задачи и настройки.{% else %}We save layouts in several forms: for editing, publishing, preview, printing, and for partners. Here are video tutorials and an outline.{% endif %}
+  </p>
+
+  <ul>
+    <li>Process {% if lang == 'ru' %}— это копия мастер-макета, в нём всё редактируется.{% else %}is a copy of the master layout where everything can be edited.{% endif %}</li>
+    <li>Edit {% if lang == 'ru' %}— макет, где партнёры редактируют отдельные элементы.{% else %}- the layout where partners edit some elements.{% endif %}</li>
+    <li>Publish {% if lang == 'ru' %}— макет для публикации в диджитал рекламе, соцсетях и на экранах в ресторане.{% else %}- the layout for publishing in digital advertising, social networks and on restaurant screens.{% endif %}</li>
+    <li>Preview {% if lang == 'ru' %}— для предпросмотра печатных форматов.{% else %}- for previewing printing formats.{% endif %}</li>
+    <li>Print {% if lang == 'ru' %}— для печати.{% else %}- for printing.{% endif %}</li>
+  </ul>
+
+  <div class="ids__space S"></div>
+
+  <p>
+    {% if lang == 'ru' %}Диджитал макеты сохраняем в Process, Edit, Publish.{% else %}We save digital layouts in Process, Edit, Publish.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}Печатные макеты — в Process, Edit, Print и Preview.{% else %}Printing layouts - in Process, Edit, Print and Preview.{% endif %}
+  </p>
+  <p>
+    {% if lang == 'ru' %}<a href="https://www.youtube.com/playlist?list=PLpkpCyVEh2w_BOTjNi2UkHs4UIC8IznjH">В видео</a> показываем, как сохранять в них макеты. Ниже — подробный конспект.{% else %}<a href="https://www.youtube.com/playlist?list=PLpkpCyVEh2w_BOTjNi2UkHs4UIC8IznjH">From this video</a> you will know how to save them. A detailed outline is below.{% endif %}
+  </p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="how-to-save-process" label="{% if lang == 'ru' %}Как сохранить Process{% else %}How to save Process{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Как сохранить Process{% else %}How to save Process{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Process — это копия мастер-макета. В нём всё редактируется. Фото залинковано psd-файлом. Шрифты оставляем шрифтами, тени, градиенты, плашки — не сводим.{% else %}Process is a copy of the master layout. Everything is editable in it. The photos are linked by a PSD file. Fonts are left as fonts, shadows, gradients, fades are not reduced.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}Копируем содержимое мастер-макета в шаблон для ресайза.{% else %}Copy the contents of the master layout to resize the template.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Оставляем все ссылки и объекты редактируемыми.{% else %}Leave all the links and objects editable.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Сохраняем макет в последней версии «Иллюстратора».{% else %}Save the layout in the latest Adobe Illustrator version.{% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="how-to-save-edit" label="{% if lang == 'ru' %}Как сохранить Edit{% else %}How to save Edit{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Как сохранить Edit{% else %}How to save Edit{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Edit — макет для партнёров, в котором они могут редактировать отдельные элементы. От Process отличается тем, что фон отрастрирован и встроен внутри обтравочной маски. Так партнеры смогут открыть и отредактировать макет, не скачивая линки.{% else %}Edit is a layout for partners: they can edit individual elements here. The difference with the Process is that the background is rendered and embedded within the clipping mask. Thus, partners can open and edit the layout without downloading any links.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}Открываем макет Process.{% else %}Open the Process layout.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Плашки с ценниками, шрифты, тени, градиенты оставляем редактируемыми.{% else %}Leave the price tags, fonts, shadows and gradients editable.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Додо-шрифты не переводим в кривые, оставляем редактируемыми.{% else %}Dodo-fonts are not converted to curves: they are editable.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Если шрифт не наш и текст не нужно редактировать — переводим шрифт в кривые. Так мы не нарушим лицензию на его использование, а партнёрам не придётся покупать его. Пример: заголовок, название акции или продукта.{% else %}If we’re not the font owners and there is no need to edit the text, we convert it into curves. Thus we will not violate the copyright, and our partners won’t have to buy it. Examples: headline, campaign or product name.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Если шрифт не наш и текст нужно редактировать — добавляем ссылку на скачивание шрифта в папку Edit. Пусть лежит рядом с макетом для редактирования. Можно сделать это с помощью текстового файла «Read Me». Выбираем шрифты с открытой лицензией, чтобы партнёрам не пришлось покупать шрифт.{% else %}If we’re not the font owners and the text should be edited, add a download link for the font to the Edit folder. Keep it right next to the layout for editing. You can do this with the help of the "Read Me" text file. Choose fonts with an open license, so that the partners won’t have to buy them.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Растрируем фон внутри обтравочной маски через «Object → Rasterize…». Макеты для разных носителей растрируем так:{% else %}Rasterize the background inside the clipping mask through "Object → Rasterize...". We rasterize the layouts for different media as follows:{% endif %}
+        <ul>
+          <li>
+            {% if lang == 'ru' %}Диджитал макеты — 150 ppi. Это чтобы фон можно было увеличить и изображение на стало хуже.{% else %}Digital layouts - 150 ppi. In this case the background can be enlarged, but the image won’t lose the quality.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Лайтбоксы — 150 ppi.{% else %}Lightboxes - 150 ppi.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Мелкие печатные носители — 300 ppi. Например, листовки, тейблтенты, кассовые постеры, объявления А3.{% else %}Small print media - 300 ppi. For example, flyers, table tents, checkout posters, A3 ads.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Билборд — 300 ppi. В шаблоне он в 10 раз меньше и при печати макет увеличивается — и получаются нужные 30 ppi.{% else %}Billboard - 300 ppi. It’s ten times less in the template and when printed, the layout is enlarged to the required 30 ppi.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Наружка — 72 ppi. Например, сити-форматы и пиллары.{% else %}Outdoor - 72 ppi. For example, city-formats and billboards.{% endif %}
+          </li>
+        </ul>
+      </li>
+      <li>
+        {% if lang == 'ru' %}Сохраните копию макета через «File → Save a Copy…» в последней версии «Иллюстратора».{% else %}Save a copy of the layout through "File → Save a Copy..." in the latest version of Illustrator.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В названии меняем «Process» на «Edit».{% else %}Change "Process" to "Edit" in the file name.{% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="how-to-save-publish" label="{% if lang == 'ru' %}Как сохранить Publish{% else %}How to save Publish{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Как сохранить Publish{% else %}How to save Publish{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Publish — макет для публикации в диджитал рекламе, соцсетях и на экранах в ресторане.{% else %}Publish is a layout for publishing in digital ads, social networks and on restaurant screens.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}Открываем макет Edit.{% else %}Open the Edit layout.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Экспортируем его в JPEG через «File → Export → Save for Web (Legacy)…».{% else %}Export it to JPEG through "File → Export → Save for Web (Legacy)...".{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Выбираем настройки, как на скрине.{% else %}Select settings as shown on the screenshot.{% endif %}
+        <div class="ids__media-group M shadow">
+          <figure>
+            <img src="/images/how-to-save-layouts-for-replication/1.png" alt="Layers preview" />
+            <figcaption>
+              {% if lang == 'ru' %}Масштаб 100% для диджитал макетов{% else %}100% scale for digital layouts{% endif %}
+            </figcaption>
+          </figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}Держим вес файла в пределах 500-900 КБ. В базе знаний есть ограничение по весу превьюшек в 1 мб. Так Publish быстрее загружается в интернете и его можно использовать вместо Preview для загрузки в базу знаний.{% else %}Keep the file size within 500-900 KB. The size limit for previews in the Knowledge Base is 1 Mb. It allows to make Publish online uploads faster and you can use it instead of Preview to upload to the Knowledge Base.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В названии меняем «Edit» на «Publish».{% else %}Change "Edit" to "Publish" in the file name.{% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="how-to-save-preview" label="{% if lang == 'ru' %}Как сохранить Preview{% else %}How to save Preview{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Как сохранить Preview{% else %}How to save Preview{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Preview — превью для предпросмотра печатных форматов.{% else %}Preview is a file type used for previewing printing formats.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}Открываем макет Edit.{% else %}Open the Edit layout.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Экспортируем его в JPEG через «File → Export → Save for Web (Legacy)…».{% else %}Export it to JPEG through "File → Export → Save for Web (Legacy)...".{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Выбираем настройки, как на скрине.{% else %}Choose the settings as shown on the screenshot.{% endif %}
+        <div class="ids__media-group M shadow">
+          <figure>
+            <img src="/images/how-to-save-layouts-for-replication/2.png" alt="Layers preview" />
+            <figcaption>
+              {% if lang == 'ru' %}Масштаб 300% или любой, при котором размеры будут адекватными{% else %}Change "Edit" and "Preview" in the file name.{% endif %}
+            </figcaption>
+          </figure>
+        </div>
+      </li>
+      <li>
+        {% if lang == 'ru' %}Держим вес файла в пределах 500-900 КБ. В базе знаний есть ограничение по весу превьюшек в 1 мб.{% else %}Keep the file size within 500-900 KB. There is a 1 Mb size limit for previews in the Knowledge Base.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В названии меняем «Edit» и «Preview».{% else %}Change "Edit" and "Preview" in the file name.{% endif %}
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space M"></div>
+  <ids-nav-item id="how-to-save-print" label="{% if lang == 'ru' %}Как сохранить Print{% else %}How to save Print{% endif %}">
+    <h2 class="h3">
+      {% if lang == 'ru' %}Как сохранить Print{% else %}How to save Print{% endif %}
+    </h2>
+    <p>
+      {% if lang == 'ru' %}Print — макет для печати. Мы не сохраняем Print, если в макете что-то поменяется. Перед печатью всё сначала вносим в макет для редактирования Edit, а потом сохраняем его в Print.{% else %}Print is a layout for printing. We don't save Print if something is to be changed. We put everything into the Edit file first before printing, and save it into Print after that.{% endif %}
+    </p>
+
+    <div class="ids__sequence XL gap-L">
+      <div class="ids__sequence-item">
+        <div class="ids__media-group shadow">
+          <figure>
+            <img src="/images/how-to-save-layouts-for-replication/3.jpeg" alt="" />
+          </figure>
+        </div>
+      </div>
+      <div class="ids__sequence-item">
+        <div class="ids__media-group shadow">
+          <figure>
+            <img src="/images/how-to-save-layouts-for-replication/4.png" alt="" />
+          </figure>
+        </div>
+      </div>
+    </div>
+    <figure class="ids__media-caption">
+      <figcaption>
+        {% if lang == 'ru' %}Например, здесь ещё не вписаны промокод и цена{% else %}For example, we don’t have the promo code and price here yet{% endif %}
+      </figcaption>
+    </figure>
+
+    <div class="ids__space S"></div>
+    <p>
+      {% if lang == 'ru' %}Если в макете ничего менять не нужно — сохраняем Print.{% else %}If there’s nothing to change in the layout – save it to Print.{% endif %}
+    </p>
+    <ol>
+      <li>
+        <p>{% if lang == 'ru' %}Открываем макет Edit.{% else %}Open the Edit layout.{% endif %}</p>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}Выделяем все объекты на макете и растрируем: «Object → Rasterize…». Весь макет должен стать одной картинкой.{% else %}Select all the objects in the layout and rasterize them: "Object → Rasterize...". The entire layout has to become a single image.{% endif %}
+        </p>
+        <ul>
+          <li>{% if lang == 'ru' %}Лайтбоксы — 150 ppi.{% else %}Lightboxes - 150 ppi.{% endif %}</li>
+          <li>
+            {% if lang == 'ru' %}Мелкие печатные носители — 300 ppi. Например, листовки, тейблтенты, кассовые постеры, объявления А3.{% else %}Small print media - 300 ppi. For example, flyers, table tents, checkout posters, A3 ads.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Билборд — 300 ppi. В шаблоне он в 10 раз меньше и при печати макет увеличивается — и получаются нужные 30 ppi.{% else %}Billboard - 300 ppi. It’s ten times less in the template and when printed, the layout is enlarged to the required 30 ppi.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Наружка — 72 ppi. Например, сити-форматы и пиллары.{% else %}Outdoor media - 72 ppi. For example, city-formats and pillars.{% endif %}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}Мелкие печатные носители и лайтбоксы сохраняем как копию в PDF. Например, листовки, тейблтенты, кассовые постеры, А3 стенды, скатерти на поднос, воблеры и лайтбоксы.{% else %}We save small print media and lightboxes as a PDF copy. For example, flyers, table tents, checkout posters, A3 stands, tray cloths, wobblers, and lightboxes.{% endif %}
+        </p>
+        <ul>
+          <li>
+            {% if lang == 'ru' %}Скачиваем <a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH?usp=sharing">пресет для быстрого сохранения.</a>{% else %}Download <a href="https://drive.google.com/drive/folders/1k1wmCxlEwnox_ssQPxnGOtkTG5hBQJOH?usp=sharing">the preset for quick saving.</a>{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Открываем файл с пресетом через Adobe Illustrator: Правая кнопки мыши → Открыть с помощью → Adobe Illustrator.{% else %}Open the preset file with Adobe Illustrator: Right Click → Open with → Adobe Illustrator.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Визуально ничего не произойдет — это ок. Пресет появится в списке при сохранении макета во всех программах Adobe через «File → Save As… → Adobe PDF»{% else %}You won’t detect any changes – and that’s OK. The preset appears on the list when you save the layout in all Adobe programs through File → Save As... → Adobe PDF{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}При сохранении выбираем его в списке и нажимаем «Save PDF».{% else %}When saving, select your file on the list and click "Save PDF".{% endif %}
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          {% if lang == 'ru' %}Билборды и макеты для наружки — сохраняем как копию в TIFF. Например, сити-форматы и пиллары.{% else %}Billboards and outdoor layouts - save as a copy in TIFF. For example, city formats and billboards.{% endif %}
+        </p>
+        <ul>
+          <li>
+            {% if lang == 'ru' %}Выбираем формат TIFF: File → Export → Export As… → TIFF.{% else %}Choose TIFF format: File → Export → Export As... → TIFF.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Выключаем галочку «Use Artboards». Иначе макет обрежется по артборду и в нём не останется припусков на обрезку, которые нужны типографии.{% else %}Uncheck "Use Artboards”. Otherwise the layout will be cropped by the artboard and the printer will not have any trimming allowance.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Выбираем настройки: для билборда — 300 ppi, для остальной наружки 72 ppi.{% else %}We choose the following settings: 300 ppi for the billboard and 72 ppi for all other media.{% endif %}
+            <div class="ids__sequence XL gap-L">
+              <div class="ids__sequence-item">
+                <div class="ids__media-group shadow">
+                  <figure>
+                    <img src="/images/how-to-save-layouts-for-replication/5.png" alt="" />
+                    <figcaption>
+                      {% if lang == 'ru' %}Настройки для всей наружки, кроме билборда{% else %}Settings for all outdoor ads except for a billboard{% endif %}
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="ids__sequence-item">
+                <div class="ids__media-group shadow">
+                  <figure>
+                    <img src="/images/how-to-save-layouts-for-replication/6.png" alt="" />
+                    <figcaption>
+                      {% if lang == 'ru' %}Настройки для билборда{% else %}Settings for a billboard{% endif %}
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            {% if lang == 'ru' %}В названии меняем «Edit» на «Print».{% else %}Change "Edit" to "Print" in the file name.{% endif %}
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>

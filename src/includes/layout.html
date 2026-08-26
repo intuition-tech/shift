@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8" />
+    {%- set metaTitle = title or "Shift" %}
+    {%- if lang == 'en' and titleEn %}{% set metaTitle = titleEn %}{% endif %}
+    {%- set metaDescription = description or "" %}
+    {%- if lang == 'en' and descriptionEn %}{% set metaDescription = descriptionEn %}{% endif %}
+    <title>{{ metaTitle }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if metaDescription %}<meta name="description" content="{{ metaDescription }}" />{% endif %}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shift" />
+    <meta property="og:title" content="{{ metaTitle }}" />
+    {% if metaDescription %}<meta property="og:description" content="{{ metaDescription }}" />{% endif %}
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preload" href="/fonts/Pragmatica.ttf" as="font" type="font/ttf" crossorigin />
+    <!-- Порядок подключения IDS нормативный: tokens → settings → reset → page-composition → components -->
+    <link rel="stylesheet" href="/css/tokens/palette.css" />
+    <link rel="stylesheet" href="/css/tokens/colors.css" />
+    <link rel="stylesheet" href="/css/tokens/scales.css" />
+    <link rel="stylesheet" href="/css/tokens/shift.css" />
+    <link rel="stylesheet" href="/css/settings.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/page-composition/layout.css" />
+    <link rel="stylesheet" href="/css/components/ids.css" />
+    <link rel="stylesheet" href="/css/components/media.css" />
+    <link rel="stylesheet" href="/css/components/video.css" />
+    <link rel="stylesheet" href="/css/components/no-yes.css" />
+    <link rel="stylesheet" href="/css/components/gallery.css" />
+    <link rel="stylesheet" href="/css/components/navbar.css" />
+    <link rel="stylesheet" href="/css/components/promo-block.css" />
+    <link rel="stylesheet" href="/css/components/footnotes.css" />
+    <link rel="stylesheet" href="/css/components/gen-cover.css" />
+    <link rel="stylesheet" href="/css/components/style-guide.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body class="ids">
+    {% include "header.html" %}
+    <main>{{ content | safe }}</main>
+    {% include "footer.html" %}
+    <script src="/js/lib/photoswipe.umd.min.js"></script>
+    <script src="/js/lib/photoswipe-lightbox.umd.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/footnotes.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/promo-block.js"></script>
+    <script src="/js/gen-cover.js"></script>
+    <script src="/assets/main.js"></script>
+  </body>
+</html>

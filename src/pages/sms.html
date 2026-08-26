@@ -1,0 +1,127 @@
+---
+title: СМС — Shift
+titleEn: SMS — Shift
+tags: guide
+---
+<style>
+  .ids table td {
+    vertical-align: top;
+    padding-right: calc(var(--ids__density) * 0.8em);
+  }
+  .ids table thead tr td:nth-child(1) {
+    width: 50%;
+  }
+  br {
+    display: block;
+    content: "";
+    padding-bottom: 0.6em;
+  }
+</style>
+
+<div class="ids__space L"></div>
+<article class="ids__wrapper guide">
+  <h1>{% if lang == 'ru' %}СМС{% else %}SMS{% endif %}</h1>
+
+  <div class="ids__billet under">
+    {% if lang == 'ru' %}Функция{% else %}Function{% endif %}
+  </div>
+
+  <p>
+    {% if lang == 'ru' %}СМС — платный способ коммуникации, поэтому используем его только в тех случаях, когда до пользователя очень важно донести информацию. Например, когда даем промокод за опоздание или рассказываем об акциях локально. Здесь важно коротко и понятно донести условия, поэтому прописываем их по гайду.{% else %}SMS is a paid method of communication, so we employ it only in cases when it is really necessary to convey information to the user. For example, when we give a promo code for being late or tell about promotions locally. With SMS, it is essential to disclose the terms and conditions in a short and succinct way, so we create them following this guide carefully.{% endif %}
+  </p>
+
+  <div class="ids__no-yes">
+    <div class="ids__no-yes--wrap">
+      <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-L" style="--top: 6.8em">
+        {%- if lang == 'ru' %}НЕТ{% else %}NO{% endif -%}
+      </div>
+      <img class="ids__no-yes--img" src="/images/sms/14.jpg" alt="" />
+    </div>
+  </div><!--
+  --><div class="ids__no-yes right">
+    <div class="ids__no-yes--wrap">
+      <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-R" style="--top: 2.8em">
+        {%- if lang == 'ru' %}ДА{% else %}YES{% endif -%}
+      </div>
+      <img class="ids__no-yes--img" src="/images/sms/13.jpg" alt="" />
+    </div>
+  </div>
+
+  <div class="ids__space S"></div>
+  <h3>{% if lang == 'ru' %}Формат{% else %}Format{% endif %}</h3>
+  <p>
+    {% if lang == 'ru' %}Длина текста — желательно до 67 символов с пробелами, больше будет дороже, так что зависит от бюджета. Если прикрепляем ссылку, то из текста СМС должно быть понятно, куда она ведёт и зачем по ней переходить.{% else %}Preferred text length is up to 67 characters with spaces: longer messages will be more expensive, so eventually it depends on the budget. If we attach a link, it should be clear from the SMS text where it leads to and why to tap on it.{% endif %}
+  </p>
+
+  <div class="ids__table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          {% if lang == 'ru' %}
+          <th></th>
+          <th>Нет</th>
+          <th>Да</th>
+          {% else %}
+          <th></th>
+          <th>No</th>
+          <th>Yes</th>
+          {% endif %}
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Валюты пишем знаком, а не символом.{% else %}Write currencies with a symbol, not a word.{% endif %}</td>
+          <td>{% if lang == 'ru' %}200 рублей{% else %}200 rubles{% endif %}</td>
+          <td>200 ₽</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Сантиметры отбиваем пробелами.{% else %}The centimeters are punctuated with spaces.{% endif %}</td>
+          <td>{% if lang == 'ru' %}25см{% else %}25cm{% endif %}</td>
+          <td>{% if lang == 'ru' %}25 см{% else %}25 cm{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Понятней словами.{% else %}Better with words.{% endif %}</td>
+          <td>2=1</td>
+          <td>{% if lang == 'ru' %}2 по цене 1{% else %}2 for the price of 1 <br />2 for 1{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Не сокращаем слова.{% else %}We do not make contractions.{% endif %}</td>
+          <td>{% if lang == 'ru' %}Акц. действ. до 20 апр.{% else %}B. buy is valid unt. Apr, 20{% endif %}</td>
+          <td>{% if lang == 'ru' %}Акция действует до 20 апреля{% else %}Best buy is valid until April, 20{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Если место позволяет, пишем месяц словом.{% else %}If space allows, write a month with a word.{% endif %}</td>
+          <td>{% if lang == 'ru' %}Скидка до 23.04{% else %}On sale until 23/04{% endif %}</td>
+          <td>{% if lang == 'ru' %}Скидка до 23 апреля{% else %}On sale until April, 24{% endif %}</td>
+        </tr>
+        {% if lang == 'ru' %}
+        <tr>
+          <td>Обращаемся на вы, «вы» и «вас» — пишем с маленькой буквы.</td>
+          <td>Подарок для Вас</td>
+          <td>Подарок для вас</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{% if lang == 'ru' %}Название бренда и пицц пишем без кавычек.{% else %}The brand and pizza's name are written without quotation marks.{% endif %}</td>
+          <td>{% if lang == 'ru' %}«Додо Пицца»<br />Пицца «Сырная»{% else %}“Dodo Pizza”<br />“Cheesy” pizza{% endif %}</td>
+          <td>{% if lang == 'ru' %}Додо Пицца<br />Пицца Сырная{% else %}Dodo Pizza<br />Cheesy Pizza{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Только «пиццерия». «Ресторан», «заведение» и другие синонимы — не используем.{% else %}Just “pizzeria.” We don't say “restaurant”, “establishment” or other synonyms.{% endif %}</td>
+          <td>{% if lang == 'ru' %}Скидка на заказ в ресторане{% else %}Discount for ordering in a restaurant{% endif %}</td>
+          <td>{% if lang == 'ru' %}Скидка на заказ в пиццерии{% else %}Discount for ordering in a pizzeria{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Не используем капс, исключение — промокоды.{% else %}We don't write with capital letters; the only exception is promo codes.{% endif %}</td>
+          <td>{% if lang == 'ru' %}Вам СКИДКА{% else %}A DISCOUNT for you{% endif %}</td>
+          <td>{% if lang == 'ru' %}Скидка, промокод СЫЫЫР{% else %}Discount. Your promo code is CHEEESE{% endif %}</td>
+        </tr>
+        <tr>
+          <td>{% if lang == 'ru' %}Используем правильные знаки. Рядом с процентами — минус, в интервалах — среднее тире, внутри предложения — длинное тире.{% else %}Use the correct punctuation signs. Prior to percentages — minus, in intervals — middle dash, inside a sentence — long dash.{% endif %}</td>
+          <td>{% if lang == 'ru' %}-20%<br />16-18 сентября<br />Ваш подарок - пицца Ветчина и сыр.{% else %}-20%<br />September, 16-18<br />Ham Pizza and cheese - for free{% endif %}</td>
+          <td>{% if lang == 'ru' %}−20%<br />16–18 сентября<br />Ваш подарок — пицца Ветчина и сыр.{% else %}−20%<br />September, 16–18<br />Ham Pizza and cheese — for free{% endif %}</td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="ids__space L"></div>
+</article>

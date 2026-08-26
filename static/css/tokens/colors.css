@@ -1,0 +1,44 @@
+/* Семантические цвета — значения дизайна Shift (перенесены со старого сайта).
+   Именование функциональное: для чего используется, так и называется.
+   Переключение темы происходит здесь, а не в палитре. */
+
+:root {
+  color-scheme: light;
+
+  --ids__text: rgb(20, 30, 50);
+  --ids__text-caption: var(--shift__gray-caption);
+  --ids__link: var(--ids__text);
+  --ids__hover: rgb(255, 80, 0);
+  --ids__accent: rgb(105, 231, 134);
+  --ids__code: rgb(100, 80, 80);
+  --ids__mark: rgb(255, 235, 83);
+  --ids__surface: rgb(234, 235, 236);
+  --ids__background: var(--ids__color-white);
+
+  --ids__border: color-mix(in srgb, var(--ids__text) 20%, transparent);
+
+  --ids__error: rgb(240, 84, 95);
+  --ids__success: rgb(84, 180, 140);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --ids__text: var(--ids__color-gray-200);
+  --ids__text-caption: var(--ids__color-gray-400);
+  --ids__link: var(--ids__text);
+  --ids__hover: rgb(255, 80, 0);
+  --ids__accent: var(--ids__color-red-450);
+  --ids__code: var(--ids__color-gray-400);
+  --ids__mark: var(--ids__color-yellow-500);
+  --ids__surface: var(--ids__color-gray-800);
+  --ids__background: var(--ids__color-gray-900);
+
+  --ids__error: var(--ids__color-red-450);
+  --ids__success: var(--ids__color-green-450);
+}
+
+body {
+  color: var(--ids__text);
+  background-color: var(--ids__background);
+}
