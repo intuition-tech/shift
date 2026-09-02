@@ -1,0 +1,87 @@
+---
+title: Все публикации — Shift
+titleEn: All publications — Shift
+---
+{#- Полная таблица публикаций из src/data/publications.js: дата по убыванию,
+    «новые» болдом. Фильтрация и группировка — static/js/pubs-table.js поверх
+    data-атрибутов строк; состояние целиком в URL (?market=…, ?group=markets…).
+    JSON-остров ниже отдаёт скрипту локализованные имена — язык знает только шаблон. -#}
+<div class="ids__space XL"></div>
+<div class="ids__wrapper">
+  <div class="ids__pubs">
+    <div class="ids__pubs--toolbar" hidden></div>
+    <table>
+      {% include "pubs-head.html" %}
+      <tbody>
+        {%- set pubsList = publications | byDateDesc %}
+        {%- include "pubs-rows.html" %}
+      </tbody>
+    </table>
+  </div>
+  <div class="ids__space XL"></div>
+</div>
+<script type="application/json" id="pubs-taxonomy">
+{
+  "groups": {
+    "markets": {
+      "none": "{% if lang == 'ru' %}Без рынка{% else %}No market{% endif %}",
+      "items": [
+        {%- for t in taxonomy.markets %}
+        { "slug": "{{ t.slug }}", "name": {{ (t.en if lang == 'en' else t.ru) | dump | safe }} }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    },
+    "teams": {
+      "none": "{% if lang == 'ru' %}Вне команд{% else %}No team{% endif %}",
+      "items": [
+        {%- for t in taxonomy.teams %}
+        { "slug": "{{ t.slug }}", "name": {{ (t.en if lang == 'en' else t.ru) | dump | safe }} }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    },
+    "collections": {
+      "none": "{% if lang == 'ru' %}Без подборки{% else %}No collection{% endif %}",
+      "items": [
+        {%- for t in taxonomy.collections %}
+        { "slug": "{{ t.slug }}", "name": {{ (t.en if lang == 'en' else t.ru) | dump | safe }} }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  },
+  "names": {
+    "author": {
+      {%- for slug, a in authors %}
+      "{{ slug }}": {{ a.name | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    },
+    "market": {
+      {%- for t in taxonomy.markets %}
+      "{{ t.slug }}": {{ (t.en if lang == 'en' else t.ru) | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    },
+    "team": {
+      {%- for t in taxonomy.teams %}
+      "{{ t.slug }}": {{ (t.en if lang == 'en' else t.ru) | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    },
+    "area": {
+      {%- for t in taxonomy.areas %}
+      "{{ t.slug }}": {{ (t.en if lang == 'en' else t.ru) | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    },
+    "collection": {
+      {%- for t in taxonomy.collections %}
+      "{{ t.slug }}": {{ (t.en if lang == 'en' else t.ru) | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    }
+  },
+  "dims": {
+    "author": "{% if lang == 'ru' %}Автор{% else %}Author{% endif %}",
+    "market": "{% if lang == 'ru' %}Рынок{% else %}Market{% endif %}",
+    "team": "{% if lang == 'ru' %}Команда{% else %}Team{% endif %}",
+    "area": "{% if lang == 'ru' %}Предметная область{% else %}Subject area{% endif %}",
+    "collection": "{% if lang == 'ru' %}Подборка{% else %}Collection{% endif %}",
+    "new": "{% if lang == 'ru' %}Новое{% else %}New{% endif %}"
+  }
+}
+</script>

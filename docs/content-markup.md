@@ -19,6 +19,7 @@ tags: guide
 <article class="ids__wrapper guide">
   <div class="guide__nav"><ids-navbar></ids-navbar></div>   <!-- если есть разделы -->
   <h1>{% if lang == 'ru' %}…{% else %}…{% endif %}</h1>
+  {% include "pub-meta.html" %}                              <!-- дата и теги из src/data/publications.js -->
   <p class="ids__description">…</p>                          <!-- лид -->
   <ids-nav-item id="слаг-раздела" label="Название раздела">
     <h2 class="h3">…</h2>
@@ -29,6 +30,8 @@ tags: guide
 ```
 
 Оглавление строится само из `<ids-nav-item>`. Якоря разделов — **осмысленные слаги** (`#small-formats`), а не порядковые номера, как было на старом сайте (`#n0`): номера ломаются при вставке раздела в середину.
+
+У каждой публикации должна быть запись в `src/data/publications.js` (оттуда таблица на главной и мета-блок под h1 берут заголовок, дату и теги). При переносе гайда со старого сайта перезаписывайте его страницу-заглушку и меняйте `status: "stub"` на `"published"` в данных.
 
 ## Компоненты и стили
 

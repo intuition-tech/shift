@@ -1,0 +1,46 @@
+/* Мета-блок публикации под h1: дата и теги (авторы, рынок, команда,
+   предметная область, подборка). Каждый тег — ссылка на главную с фильтром
+   по себе. Контактное лицо — с фото и пометкой «контакт».
+   Разметка — src/includes/pub-meta.html, данные — src/data/publications.js. */
+
+.ids .ids__pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em 0.45em;
+  margin: 1.2em 0 2em;
+  font-size: 0.75em;
+}
+
+.ids .ids__pub-meta--date {
+  color: var(--shift__gray-caption);
+  margin-right: 0.6em;
+}
+
+.ids .ids__pub-meta--tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.3em 0.85em;
+  background: var(--shift__tag-background);
+  border-radius: 100em;
+  text-decoration: none;
+  color: var(--ids__text);
+}
+
+.ids .ids__pub-meta--tag:hover {
+  color: var(--ids__hover);
+}
+
+.ids .ids__pub-meta--photo {
+  width: 1.6em;
+  height: 1.6em;
+  margin-left: -0.5em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ids .ids__pub-meta--contact-label {
+  color: var(--shift__gray-caption);
+  font-size: 0.85em;
+}

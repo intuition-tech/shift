@@ -23,6 +23,14 @@
   --ids__color-brown-700: rgb(100, 80, 80);
   --ids__color-blue-800: rgb(11, 11, 193);
 
+  /* Цветные плашки промоблоков главной (значения старого сайта) */
+  --ids__color-orange-400: rgb(244, 110, 37);
+  --ids__color-yellow-400: rgb(245, 201, 66);
+  --ids__color-blue-600: rgb(40, 94, 246);
+  --ids__color-brown-900: rgb(35, 29, 25);
+  --ids__color-pink-400: rgb(254, 78, 117);
+  --ids__color-teal-500: rgb(81, 167, 168);
+
   /* Нейтрали для тёмной темы (из ванильной IDS) */
   --ids__color-gray-200: rgb(220, 221, 223);
   --ids__color-gray-400: rgb(153, 156, 160);

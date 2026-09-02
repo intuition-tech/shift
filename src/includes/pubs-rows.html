@@ -1,0 +1,28 @@
+{#- Строки таблицы публикаций для списка pubsList (задаётся перед инклюдом).
+    data-атрибуты читает static/js/pubs-table.js на /publications/. -#}
+{%- set prefix = '/en' if lang == 'en' else '' -%}
+{%- for pub in pubsList %}
+<tr
+  class="ids__pubs--row{% if pub.isNew %} new{% endif %}"
+  data-authors="{{ pub.authors | join(',') }}"
+  data-markets="{{ pub.markets | join(',') }}"
+  data-teams="{{ pub.teams | join(',') }}"
+  data-areas="{{ pub.areas | join(',') }}"
+  data-collections="{{ pub.collections | join(',') }}"
+  data-new="{{ '1' if pub.isNew else '0' }}"
+>
+  <td class="ids__pubs--title">
+    {%- if pub.status == 'external' %}
+    <a href="{{ pub.externalUrl }}" target="_blank" rel="noopener">{{ pub.title }} ↗</a>
+    {%- elif lang == 'en' and pub.titleEn %}
+    <a href="{{ prefix }}/{{ pub.slug }}/">{{ pub.titleEn }}</a>
+    {%- else %}
+    <a href="{{ prefix }}/{{ pub.slug }}/">{{ pub.title }}</a>
+    {%- endif %}
+  </td>
+  <td class="ids__pubs--authors">
+    {%- for a in pub.authors %}{{ authors[a].name }}{% if not loop.last %}, {% endif %}{% endfor -%}
+  </td>
+  <td class="ids__pubs--date">{{ pub.date | shortDate }}</td>
+</tr>
+{%- endfor %}

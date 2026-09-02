@@ -1,23 +1,50 @@
 ---
 title: Shift
 ---
+{#- Главная (не то же, что /publications/): сначала новые публикации,
+    затем сетка промоблоков (подборки + рынок MENA, src/data/promo.js),
+    затем остальная таблица. Без фильтров — они на /publications/. -#}
+{%- set prefix = '/en' if lang == 'en' else '' -%}
 <div class="ids__space XL"></div>
 <div class="ids__wrapper">
-  <h1>Shift</h1>
-  <ul>
-    {%- for guide in collections.guide %}
-    {%- if guide.data.lang == lang %}
-    <li>
-      <a href="{{ guide.url }}">
-        {%- if lang == 'en' and guide.data.titleEn -%}
-        {{ guide.data.titleEn | replace(" — Shift", "") }}
-        {%- else -%}
-        {{ guide.data.title | replace(" — Shift", "") }}
-        {%- endif -%}
+  <div class="ids__pubs">
+    <table>
+      {% include "pubs-head.html" %}
+      <tbody>
+        {%- set pubsList = publications | byDateDesc | newOnly %}
+        {%- include "pubs-rows.html" %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ids__promo-grid">
+    {%- for column in promo %}
+    <div class="ids__promo-grid--cell">
+      {%- for block in column %}
+      {%- if block.kind == 'market' %}
+      {%- set blockName = taxonomy.markets | tagName(block.slug, lang) %}
+      {%- set blockHref = prefix + '/publications/?market=' + block.slug %}
+      {%- else %}
+      {%- set blockName = taxonomy.collections | tagName(block.slug, lang) %}
+      {%- set blockHref = prefix + '/publications/?collection=' + block.slug %}
+      {%- endif %}
+      {%- if block.title %}{% set blockName = block.title.en if lang == 'en' else block.title.ru %}{% endif %}
+      <a class="ids__promo-card {{ block.size }} {{ block.color }}" href="{{ blockHref }}">
+        <span class="ids__promo-card--title">{{ blockName }}</span><span class="ids__promo-card--number">{{ publications | countPubs(block.kind, block.slug) }}</span>
+        <p class="ids__promo-card--description">{{ block.description.en if lang == 'en' else block.description.ru }}</p>
       </a>
-    </li>
-    {%- endif %}
+      {%- endfor %}
+    </div>
     {%- endfor %}
-  </ul>
+  </div>
+
+  <div class="ids__pubs">
+    <table>
+      <tbody>
+        {%- set pubsList = publications | byDateDesc | notNew %}
+        {%- include "pubs-rows.html" %}
+      </tbody>
+    </table>
+  </div>
   <div class="ids__space XL"></div>
 </div>

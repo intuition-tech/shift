@@ -8,6 +8,7 @@ tags: guide
   <div class="guide__nav"><ids-navbar></ids-navbar></div>
 
   <h1>{% if lang == 'ru' %}Описания продуктов{% else %}Product Descriptions{% endif %}</h1>
+  {% include "pub-meta.html" %}
 
   <p>
     {% if lang == 'ru' %}Описание продукта — это такой же элемент брендинга, как и его название. Оно помогает раскрыть суть, объяснить состав продукта и особенности, описать вкус и создать правильные ожидания. Хорошее описание снимает вопросы клиента, предвосхищает опыт и склоняет к заказу.{% else %}A product description is as much a branding element as the product name. It helps to reveal the essence of the dish, explain the composition and special features of the product; describe the flavor and set the right expectations. A good description leaves no questions for the customer to ask, anticipates the experience and inclines them to order.{% endif %}

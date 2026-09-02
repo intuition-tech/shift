@@ -1,0 +1,11 @@
+{#- Нота на страницах-заглушках: гайд ещё не перенесён, ссылка на старый сайт. -#}
+{%- set pub = publications | pub(page.fileSlug) -%}
+<p class="ids__description">
+  {%- if lang == 'ru' -%}
+  Гайд переносится со старого сайта. Пока он доступен
+  <a href="{{ pub.oldUrl }}">по старому адресу</a>.
+  {%- else -%}
+  This guide is being migrated from the old site. For now it is available
+  <a href="{{ pub.oldUrl }}">at the old address</a>.
+  {%- endif -%}
+</p>

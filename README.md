@@ -13,10 +13,11 @@ npm run build   # сборка в site/
 ## Структура
 
 ```
-eleventy.config.js   # конфиг Eleventy (ESM)
+eleventy.config.js   # конфиг Eleventy (ESM): фильтры pub, tagName, formatDate…
 src/pages/           # страницы: .html с фронтматтером + Nunjucks
 src/pages/pages.11tydata.js  # двуязычная генерация: каждая страница собирается в / и /en
-src/includes/        # layout.html, footer.html
+src/data/            # данные: publications.js (мастер), authors.js, taxonomy.js, promo.js
+src/includes/        # layout.html, header.html, footer.html, pub-meta.html, stub-note.html
 src/styles/site.css  # стили сайта поверх IDS → /assets/site.css
 src/scripts/main.js  # кука переключателя языка → /assets/main.js
 static/              # копируется в корень сайта как есть
@@ -52,16 +53,27 @@ site/                # результат сборки (в гитигноре)
 
 ## Публикации
 
-Каждый гайд — один файл `src/pages/<slug>.html` с фронтматтером (`title`/`titleEn`, `description`/`descriptionEn`, `tags: guide`) и инлайновым переключением языка `{% if lang == 'ru' %}…{% else %}…{% endif %}`. URL плоские: `/<slug>/` и `/en/<slug>/`. Разделы оборачиваются в `<ids-nav-item id="слаг" label="…">` — из них строится оглавление. Картинки — в `static/images/<slug>/`, оптимизированные (WebP, анимации — mp4; см. [docs/content-markup.md](docs/content-markup.md)). Главная — неоформленный список по коллекции `guide`.
+Каждый гайд — один файл `src/pages/<slug>.html` с фронтматтером (`title`/`titleEn`, `description`/`descriptionEn`, `tags: guide`) и инлайновым переключением языка `{% if lang == 'ru' %}…{% else %}…{% endif %}`. URL плоские: `/<slug>/` и `/en/<slug>/`. Разделы оборачиваются в `<ids-nav-item id="слаг" label="…">` — из них строится оглавление. Картинки — в `static/images/<slug>/`, оптимизированные (WebP, анимации — mp4; см. [docs/content-markup.md](docs/content-markup.md)).
+
+### Данные публикаций
+
+Мастер-данные всех публикаций — `src/data/publications.js`: слаг, заголовки, дата, авторы (контактное лицо — флагом `contact`, обязан входить в `authors`), теги (рынки, команды, предметные области, подборки — слаги из `src/data/taxonomy.js`), ручной флаг «новое» `isNew`, статус `published | stub | external`. Справочник авторов — `src/data/authors.js` (имена английские, фото в `static/images/authors/`). Порядок тегов в `taxonomy.js` = порядок групп в таблице. Данные правятся руками; заголовки страниц дублируются во фронтматтере (он остаётся для `<title>`/OG), слаг связывает.
+
+Данные были сгенерированы одноразовыми скриптами: `tools/import-csv.mjs` (из CSV «Shift — All Guides»; даты — из последних коммитов гайдов в dbdt) и `tools/make-stubs.mjs` (страницы-заглушки для неперенесённых гайдов — реальный URL, h1, мета-блок, ссылка на старый адрес; перенос гайда = перезаписать файл и сменить `status`). Команды в данных — плейсхолдеры, разложены эвристикой по областям.
+
+### Главная и /publications/
+
+Главная — не то же, что «Все публикации»: сначала новые публикации (`isNew` — болдом), затем сетка промоблоков (подборки + рынок MENA; конфиг с колонками, цветами и описаниями — `src/data/promo.js`, счётчики считаются на сборке), затем остальная таблица. Фильтров на главной нет.
+
+Полная таблица живёт на `/publications/`: все публикации по дате, фильтрация (автор, рынок, команда, область, подборка, новизна) и группировка (рынки, команды, подборки — ссылки в хедере) — `static/js/pubs-table.js`; состояние целиком в URL (`/publications/?market=russia`, `/publications/?group=teams&area=smm`), над таблицей — чип активного фильтра со сбросом. Контролов фильтрации нет: фильтр включается тегами на страницах публикаций (мета-блок `pub-meta.html` под h1) и ссылками. Активный пункт хедера — болдом (ставит `pubs-table.js`). Компоненты — `components/pubs.css`, `components/pub-meta.css`, `components/promo-grid.css`, образцы на `/design-system/`.
 
 Контент переносится со старого сайта `/Users/arutyunov/dbdt` (Pug, миксины `+ru`/`+en`). Список публикаций и их статусы — CSV «Shift — All Guides». Перенесены 33 из 35 актуальных гайдов.
 
 Не перенесены:
 
-- «Визуальный стиль Додо Пиццы» (`/graphic-design/brandbook-dodo-pizza` → исходник `graphic-design/visual-style-dodo-pizza.pug`, 2117 строк и 185 МБ картинок) — отложен;
-- «Процессы и инструменты команды Stories In App» — это внешняя ссылка на buildin.ai, отдельной страницы сайта нет.
-
-Ссылки на неактуальные гайды (`/how-to-name-files/`, `/editing-the-ligal-in-the-layout/`, `/selecting-a-price-group-in-the-layout/`, `/editing-navigation-in-outdoor-advertising-layouts/`) пока ведут в 404 — эти публикации в CSV не помечены «Актуально».
+- «Визуальный стиль Додо Пиццы» (`/graphic-design/brandbook-dodo-pizza` → исходник `graphic-design/visual-style-dodo-pizza.pug`, 2117 строк и 185 МБ картинок) — отложен, пока заглушка `/visual-style-dodo-pizza/`;
+- гайды в статусе «Обновить» — у них страницы-заглушки со ссылкой на старый адрес (`status: "stub"` в `publications.js`);
+- «Процессы и инструменты команды Stories In App» и «Перед началом работы» — внешние ссылки на buildin.ai, отдельных страниц сайта нет, в таблице открываются в новой вкладке.
 
 ## Дизайн-система /design-system
 

@@ -488,6 +488,92 @@ tags: ''
 
     <div class="guide-component">
       <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Таблица публикаций<br /><code>.ids__pubs</code><br /><code>.ids__pubs--row</code> <code>.new</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--chip</code></span>
+        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__tag-background</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Живёт на главной, данные — <code>src/data/publications.js</code>, фильтрация и группировка — <code>js/pubs-table.js</code>, состояние в URL. Строка <code>.new</code> — болдом, как непрочитанное письмо.</p>
+        <div class="ids__pubs">
+          <div class="ids__pubs--toolbar">
+            <span class="ids__pubs--chip">Рынок: Россия <button class="ids__pubs--chip-reset" type="button">×</button></span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th class="ids__pubs--authors">Авторы</th>
+                <th class="ids__pubs--date">Дата</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="ids__pubs--group"><th colspan="3">Россия</th></tr>
+              <tr class="ids__pubs--row new">
+                <td class="ids__pubs--title"><a href="#components">Новая публикация</a></td>
+                <td class="ids__pubs--authors">Katya Maksimova</td>
+                <td class="ids__pubs--date">21.05.2025</td>
+              </tr>
+              <tr class="ids__pubs--row">
+                <td class="ids__pubs--title"><a href="#components">Обычная публикация</a></td>
+                <td class="ids__pubs--authors">Anna Gorokhova, Maksim Novokhatskiy</td>
+                <td class="ids__pubs--date">17.06.2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Промоблок<br /><code>.ids__promo-grid</code><br /><code>.ids__promo-card</code><br /><code>.XS .S .M .L .XL</code><br /><code>.orange .yellow .blue .dark<br />.pink .green .gray</code></span>
+        <span class="guide-tokens__row-value">--shift__promo-*</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Сетка плашек на главной: подборки и рынок MENA, данные — <code>src/data/promo.js</code>. Каждая плашка ведёт на <code>/publications/</code> с фильтром по себе; число — количество публикаций.</p>
+        <div class="ids__promo-grid">
+          <div class="ids__promo-grid--cell">
+            <a class="ids__promo-card S dark" href="#components">
+              <span class="ids__promo-card--title">Кейвижуал</span><span class="ids__promo-card--number">10</span>
+              <p class="ids__promo-card--description">Процесс создания промокоммуникаций: все этапы от поиска референсов до тиражирования дизайна на разные носители.</p>
+            </a>
+          </div>
+          <div class="ids__promo-grid--cell">
+            <a class="ids__promo-card S orange" href="#components">
+              <span class="ids__promo-card--title">Додо Пицца MENA</span><span class="ids__promo-card--number">2</span>
+              <p class="ids__promo-card--description">Материалы для креативных команд сети Додо Пицца в ОАЭ.</p>
+            </a>
+          </div>
+          <div class="ids__promo-grid--cell">
+            <a class="ids__promo-card S yellow" href="#components">
+              <span class="ids__promo-card--title">Каталожная съемка пиццы</span><span class="ids__promo-card--number">6</span>
+              <p class="ids__promo-card--description">Разбираем особенности каталожных съемок.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label">Мета публикации<br /><code>.ids__pub-meta</code><br /><code>.ids__pub-meta--tag</code> <code>.contact</code><br /><code>.ids__pub-meta--date</code></span>
+        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__tag-background</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; контактное лицо — с фото и пометкой.</p>
+        <div class="ids__pub-meta">
+          <span class="ids__pub-meta--date">21 мая 2025</span>
+          <a class="ids__pub-meta--tag contact" href="#components"><img class="ids__pub-meta--photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">контакт</span></a>
+          <a class="ids__pub-meta--tag" href="#components">Россия</a>
+          <a class="ids__pub-meta--tag" href="#components">Каналы и носители</a>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
         <span class="guide-tokens__row-label">Оглавление<br /><code>ids-navbar</code><br /><code>ids-nav-item</code></span>
         <span class="guide-tokens__row-value">--ids__text<br />--ids__hover</span>
       </div>

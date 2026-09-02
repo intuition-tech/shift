@@ -1,0 +1,85 @@
+/* Сетка промоблоков на главной: колонки скруглённых плашек фирменных цветов,
+   каждая ведёт на /publications/ с фильтром по своей подборке или рынку.
+   Данные — src/data/promo.js (порядок колонок и блоков, размеры, цвета,
+   описания), число публикаций считается на сборке. Вид — со старой главной. */
+
+.ids .ids__promo-grid {
+  display: flex;
+  gap: 0.2em;
+  margin: 2em 0;
+
+  @media (width < 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.ids .ids__promo-grid--cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 33.3%;
+
+  @media (width < 768px) {
+    width: 100%;
+  }
+}
+
+.ids a.ids__promo-card {
+  display: block;
+  border-radius: 1.25em;
+  padding: 1em 1.4em 1.2em;
+  background: var(--shift__promo-gray);
+  color: var(--ids__text);
+  text-decoration: none;
+  transition: filter var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids a.ids__promo-card:hover {
+  filter: contrast(110%) brightness(103%);
+}
+
+.ids .ids__promo-card--title {
+  font-size: 1.42em;
+  text-decoration: underline;
+  text-decoration-thickness: 0.04em;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+.ids .ids__promo-card--number {
+  font-size: 1.42em;
+  margin-left: 0.35em;
+  opacity: 0.5;
+}
+
+.ids .ids__promo-card--description {
+  font-size: 0.9em;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+/* Размеры плашек */
+.ids a.ids__promo-card.XS { min-height: 5.3em; }
+.ids a.ids__promo-card.S { min-height: 7.3em; }
+.ids a.ids__promo-card.M { min-height: 8.3em; }
+.ids a.ids__promo-card.L { min-height: 14em; }
+.ids a.ids__promo-card.XL { min-height: 16.3em; }
+
+@media (width < 768px) {
+  .ids a.ids__promo-card.XS,
+  .ids a.ids__promo-card.S,
+  .ids a.ids__promo-card.M,
+  .ids a.ids__promo-card.L,
+  .ids a.ids__promo-card.XL {
+    min-height: 5.3em;
+  }
+}
+
+/* Цвета плашек; на тёмных — светлый текст */
+.ids a.ids__promo-card.orange { background: var(--shift__promo-orange); }
+.ids a.ids__promo-card.yellow { background: var(--shift__promo-yellow); }
+.ids a.ids__promo-card.pink { background: var(--shift__promo-pink); }
+.ids a.ids__promo-card.gray { background: var(--shift__promo-gray); }
+.ids a.ids__promo-card.blue { background: var(--shift__promo-blue); color: var(--ids__background); }
+.ids a.ids__promo-card.dark { background: var(--shift__promo-dark); color: var(--ids__background); }
+.ids a.ids__promo-card.green { background: var(--shift__promo-green); color: var(--ids__background); }

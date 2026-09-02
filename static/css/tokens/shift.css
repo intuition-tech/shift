@@ -7,6 +7,16 @@
   --shift__aside-background: var(--ids__color-lavender-100);
   --shift__shadow-color: var(--ids__color-gray-300);
   --shift__billet-under: var(--ids__color-blue-800);
+  --shift__tag-background: var(--ids__color-gray-100);
+
+  /* Плашки промоблоков главной */
+  --shift__promo-orange: var(--ids__color-orange-400);
+  --shift__promo-yellow: var(--ids__color-yellow-400);
+  --shift__promo-blue: var(--ids__color-blue-600);
+  --shift__promo-dark: var(--ids__color-brown-900);
+  --shift__promo-pink: var(--ids__color-pink-400);
+  --shift__promo-green: var(--ids__color-teal-500);
+  --shift__promo-gray: var(--ids__color-gray-300);
 
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
   --shift__arrow-font: "Arrow";

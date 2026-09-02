@@ -1,0 +1,29 @@
+{#- Мета-блок публикации под h1: дата и теги из src/data/publications.js по слагу страницы.
+    Каждый тег ведёт на главную с фильтром по себе. Контактное лицо — с фото и пометкой. -#}
+{%- set pub = publications | pub(page.fileSlug) -%}
+{%- if pub -%}
+{%- set pubsUrl = ('/en' if lang == 'en' else '') + '/publications/' -%}
+<div class="ids__pub-meta">
+  {%- if pub.date %}
+  <span class="ids__pub-meta--date">{{ pub.date | formatDate(lang) }}</span>
+  {%- endif %}
+  {%- for slug in pub.authors %}
+  {%- set author = authors[slug] %}
+  <a class="ids__pub-meta--tag{% if slug == pub.contact %} contact{% endif %}" href="{{ pubsUrl }}?author={{ slug }}"
+    >{% if slug == pub.contact and author.photo %}<img class="ids__pub-meta--photo" src="{{ author.photo }}" alt="" />{% endif
+    %}{{ author.name }}{% if slug == pub.contact %} <span class="ids__pub-meta--contact-label">{% if lang == 'ru' %}контакт{% else %}contact{% endif %}</span>{% endif %}</a>
+  {%- endfor %}
+  {%- for slug in pub.markets %}
+  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?market={{ slug }}">{{ taxonomy.markets | tagName(slug, lang) }}</a>
+  {%- endfor %}
+  {%- for slug in pub.teams %}
+  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?team={{ slug }}">{{ taxonomy.teams | tagName(slug, lang) }}</a>
+  {%- endfor %}
+  {%- for slug in pub.areas %}
+  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?area={{ slug }}">{{ taxonomy.areas | tagName(slug, lang) }}</a>
+  {%- endfor %}
+  {%- for slug in pub.collections %}
+  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?collection={{ slug }}">{{ taxonomy.collections | tagName(slug, lang) }}</a>
+  {%- endfor %}
+</div>
+{%- endif -%}

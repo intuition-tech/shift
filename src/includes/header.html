@@ -5,6 +5,20 @@
         <span class="logo-icon">{% include "logo.svg" %}</span>
       </a>
     </div>
+    <nav class="nav-item nav-sections">
+      {%- set prefix = '/en' if lang == 'en' else '' %}
+      {%- if lang == 'ru' %}
+      <a href="{{ prefix }}/publications/" data-nav-group="">Все публикации</a>
+      <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Рынки</a>
+      <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Команды</a>
+      <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Подборки</a>
+      {%- else %}
+      <a href="{{ prefix }}/publications/" data-nav-group="">All publications</a>
+      <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Markets</a>
+      <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Teams</a>
+      <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Collections</a>
+      {%- endif %}
+    </nav>
     <div class="nav-item">
       {%- if lang == 'ru' %}
       <div class="switcher">

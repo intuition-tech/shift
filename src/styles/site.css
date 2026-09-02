@@ -59,6 +59,38 @@ header {
   }
 }
 
+/* Ссылки разделов: все публикации / рынки / команды / подборки.
+   Прижаты влево к логотипу; активный пункт — болдом
+   (ставит pubs-table.js на /publications/ по ?group), оранжевый — только ховер. */
+
+.nav-sections {
+  align-items: center;
+  gap: 1.5em;
+  font-size: 0.8em;
+  margin-top: 0.65em;
+  margin-left: 2.5em;
+  margin-right: auto;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & a:hover {
+    color: var(--ids__hover);
+  }
+
+  & a.active {
+    font-weight: 650;
+  }
+
+  @media (width < 768px) {
+    gap: 0.8em;
+    font-size: 0.7em;
+    margin-left: 1em;
+    flex-wrap: wrap;
+  }
+}
+
 /* Переключалка языка */
 
 .switcher {
