@@ -91,6 +91,51 @@ header {
   }
 }
 
+/* Поиск в шапке (внутренние страницы; на главной вместо него крупное
+   поле в начале контента). Маленькое поле между разделами и переключалкой;
+   выпадайка прижата к правому краю поля и шире него. Сам компонент —
+   css/components/search.css, там же .search--large для главной. */
+
+header .search {
+  flex: 0 1 11em;
+  font-size: 0.8em;
+  margin-top: 0.65em;
+  margin-right: 1.5em;
+
+  & .search-results {
+    left: auto;
+    right: 0;
+    width: 30em;
+    max-width: calc(100vw - 2em);
+  }
+
+  @media (width < 768px) {
+    /* второй строкой под лого/разделами/переключалкой */
+    order: 4;
+    flex-basis: 100%;
+    margin: 0.4em 0 0;
+
+    & .search-results {
+      left: 0;
+      right: 0;
+      width: auto;
+    }
+  }
+}
+
+@media (width < 768px) {
+  header .nav {
+    flex-wrap: wrap;
+  }
+
+  /* Первая строка собирается как без поиска: ссылки сжимаются
+     (переносятся внутри себя), на новую строку уходит только поиск */
+  header .nav-sections {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
 /* Переключалка языка */
 
 .switcher {

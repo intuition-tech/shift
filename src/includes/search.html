@@ -1,0 +1,32 @@
+{#- Поле поиска с выпадайкой результатов. Логика — js/search.js
+    (индекс собирает src/pages/search-index.11ty.js), стили —
+    css/components/search.css. Габарит — модификатором через
+    {% set searchMod = 'search--large' %} перед инклюдом.
+    id списка и aria-controls проставляет скрипт — полей на странице
+    может быть несколько. -#}
+<div class="search{% if searchMod %} {{ searchMod }}{% endif %}" role="search">
+  {#- Линия под полем — border инлайн-спана, а не инпута: у инлайна
+      она ложится по метрикам шрифта, ровно как подчёркивание ссылки. -#}
+  <span class="search-line"
+    ><input
+      class="search-input"
+      type="search"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      role="combobox"
+      aria-expanded="false"
+      aria-autocomplete="list"
+      aria-label="{% if lang == 'ru' %}Поиск по сайту{% else %}Site search{% endif %}"
+      placeholder=" "
+  /></span>
+  <button
+    class="search-clear"
+    type="button"
+    hidden
+    aria-label="{% if lang == 'ru' %}Очистить{% else %}Clear{% endif %}">
+    ×
+  </button>
+  <ul class="search-results" role="listbox" hidden></ul>
+</div>

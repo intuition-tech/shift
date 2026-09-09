@@ -6,7 +6,10 @@ export default {
   pagination: {
     data: "locales",
     size: 1,
-    alias: "lang"
+    alias: "lang",
+    // Без этого в коллекции попадает только первый (ru) проход,
+    // а поисковому индексу нужны обе языковые версии страниц
+    addAllPagesToCollections: true
   },
   eleventyComputed: {
     permalink(data) {

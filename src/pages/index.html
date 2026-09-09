@@ -1,5 +1,6 @@
 ---
 title: Shift
+searchIndex: false
 ---
 {#- Главная (не то же, что /publications/): сначала новые публикации,
     затем сетка промоблоков (подборки + рынок MENA, src/data/promo.js),
@@ -7,6 +8,10 @@ title: Shift
 {%- set prefix = '/en' if lang == 'en' else '' -%}
 <div class="ids__space XL"></div>
 <div class="ids__wrapper">
+  {%- set searchMod = 'search--large' %}
+  {%- include "search.html" %}
+  <div class="ids__space L"></div>
+
   <div class="ids__pubs">
     <table>
       {% include "pubs-head.html" %}

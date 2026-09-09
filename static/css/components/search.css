@@ -1,0 +1,147 @@
+/* Поиск по сайту: поле с линией снизу и выпадайка результатов.
+   Портировано с arutyunov.info. Вся вёрстка в em — крупность инстанса
+   задаётся кеглем на корне .search: маленькое поле в шапке (site.css),
+   крупное .search--large на главной. */
+.search {
+  /* relative нужен выпадайке и крестику: они позиционируются от поля */
+  position: relative;
+  min-width: 0;
+}
+/* Линия под полем: border инлайн-элемента ложится под областью символов
+   (по метрикам шрифта), как и подчёркивание ссылки — поэтому совпадает
+   с ним пиксель в пиксель при любом кегле. Паддинги поля на неё не влияют. */
+.search-line {
+  /* 0.2em = text-underline-offset ссылок в ids.css */
+  padding-bottom: 0.2em;
+  border-bottom: var(--ids__border-width-s) solid
+    color-mix(in srgb, var(--ids__link) 20%, transparent);
+  /* по фокусу — мгновенно, при расфокусе — плавно */
+  transition: border-color var(--ids__duration-base);
+}
+.search-line:focus-within {
+  border-bottom-color: var(--ids__text);
+  transition: none;
+}
+.search-input {
+  /* iOS Safari рисует type=search своим виджетом со своим кеглем,
+     из-за чего лупа и текст расходятся в размере — сбрасываем */
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  vertical-align: baseline;
+  width: 100%;
+  margin: 0;
+  /* справа — место под крестик */
+  padding: 0 1.2em 0.1em 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  /* Без фокуса текст гаснет так же, как линия, и с тем же транзишеном */
+  color: color-mix(in srgb, var(--ids__text) 20%, transparent);
+  font: inherit;
+  transition: color var(--ids__duration-base);
+}
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+  color: var(--ids__text);
+  transition: none;
+}
+/* Лупа вместо текста-плейсхолдера: пустой инлайн-блок перед инпутом
+   в том же спане. У инлайн-блока без содержимого базовая линия — его нижний
+   край, поэтому низ ручки ложится ровно на бейзлайн текста при любом кегле.
+   Места в строке не занимает (отрицательный margin), инпут лежит поверх.
+   Показывается, пока поле пустое и без фокуса (placeholder=" " нужен,
+   чтобы срабатывал :placeholder-shown). */
+.search-line::before {
+  content: "";
+  display: inline-block;
+  /* чуть свешивается под базовую линию */
+  vertical-align: -0.06em;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: -0.85em;
+  background: no-repeat center / contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23050505' stroke-opacity='.45' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='6.5' cy='6.5' r='5'/%3E%3Cpath d='M10.3 10.3 15 15'/%3E%3C/svg%3E");
+  opacity: 0;
+  transition: opacity var(--ids__duration-base);
+}
+.search-line:has(.search-input:placeholder-shown:not(:focus))::before {
+  opacity: 1;
+}
+/* Нативный крестик прячем — вместо него свой, покрупнее и с ховером */
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;
+}
+.search-clear {
+  position: absolute;
+  top: -0.1em;
+  right: 0;
+  padding: 0 0 0.1em 0.4em;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: 1.5em;
+  line-height: 1.3;
+  color: var(--ids__text);
+  cursor: pointer;
+}
+.search-clear:hover {
+  color: var(--ids__hover);
+}
+/* .ids — чтобы перебить .ids ul (маржины и буллеты) */
+.ids .search-results {
+  position: absolute;
+  top: calc(100% + var(--ids__gap-s));
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0.25em 0;
+  list-style: none;
+  background: var(--ids__background);
+  border: var(--ids__border-width-s) solid
+    color-mix(in srgb, var(--ids__text) 15%, transparent);
+  border-radius: var(--ids__radius-m);
+  box-shadow: 0 0.5em 1.5em color-mix(in srgb, var(--ids__text) 15%, transparent);
+  max-height: 24em;
+  overflow-y: auto;
+}
+.ids .search-results li {
+  margin: 0;
+  padding-left: 0;
+}
+.ids .search-results li::before {
+  content: none;
+}
+.ids .search-result a,
+.ids .search-result a:hover {
+  display: block;
+  padding: 0.5em 0.75em;
+  text-decoration: none;
+  color: var(--ids__text);
+}
+.search-result.is-active,
+.search-result:hover {
+  background: var(--ids__surface);
+}
+/* Шрифт один — заголовок результата отличаем весом, сниппет кеглем и серым */
+.search-result-title {
+  display: block;
+  font-weight: 650;
+}
+.search-result-snippet {
+  display: block;
+  font-size: 0.85em;
+  color: var(--shift__gray-caption);
+}
+.search-empty {
+  padding: 1.2em 0.75em;
+  text-align: center;
+  color: color-mix(in srgb, var(--ids__text) 60%, transparent);
+}
+/* Крупное поле на главной; выпадайка масштабируется сама — всё в em */
+.search--large {
+  font-size: 1.6em;
+}

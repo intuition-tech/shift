@@ -19,6 +19,11 @@
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Collections</a>
       {%- endif %}
     </nav>
+    {#- Поиск на внутренних страницах; на главной вместо него
+        крупное поле в начале контента -#}
+    {%- if page.filePathStem != '/index' %}
+    {%- include "search.html" %}
+    {%- endif %}
     <div class="nav-item">
       {%- if lang == 'ru' %}
       <div class="switcher">
