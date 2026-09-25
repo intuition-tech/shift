@@ -1,10 +1,10 @@
 ---
 title: Готовим хиро-блок для меню в приложении — Shift
 titleEn: How to prepare a hero block for the application — Shift
-tags: guide
+tags: publication
 ---
 <style>
-  .guide .hero-promo-block__labeled {
+  .publication .hero-promo-block__labeled {
     box-shadow: 0 0 0.5em color-mix(in srgb, var(--ids__text) 10%, transparent);
     border-radius: 0.5em;
     border: 1px solid color-mix(in srgb, var(--ids__text) 15%, transparent);
@@ -12,7 +12,7 @@ tags: guide
     padding-top: 2em;
   }
 
-  .guide .hero-promo-block__labeled::before {
+  .publication .hero-promo-block__labeled::before {
     content: attr(text);
     font-size: 0.7em;
     position: absolute;
@@ -29,8 +29,8 @@ tags: guide
 </style>
 
 <div class="ids__space XL"></div>
-<article class="ids__wrapper guide">
-  <div class="guide__nav"><ids-navbar></ids-navbar></div>
+<article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>
 
   <h1>{% if lang == 'ru' %}Готовим хиро-блок для меню в приложении{% else %}How to prepare a hero block for the application{% endif %}</h1>
   {% include "pub-meta.html" %}

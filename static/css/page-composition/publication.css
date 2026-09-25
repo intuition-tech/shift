@@ -1,0 +1,22 @@
+/* Композиция публикации (локальное дополнение IDS, не из ванильной системы).
+   Текстовая колонка по центру — та же расчётная ширина, что у старого
+   трёхколоночного флексбокса: 60% контейнера. Оглавление — в поле слева
+   от неё: слот .publication__nav начинается с верха статьи (= верх h1),
+   внутри него ids-navbar sticky (см. components/navbar.css). */
+
+.publication {
+  width: 60%;
+  position: relative;
+}
+
+.publication__nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -33.4%;
+  width: 33.4%;
+
+  @media (width < 768px) {
+    display: none;
+  }
+}

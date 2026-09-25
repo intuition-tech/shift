@@ -1,5 +1,6 @@
-/* Композиция сайта и его хром (хедер, футер) поверх IDS.
-   Значения — со старого сайта Shift. */
+/* Хром сайта (хедер, футер, переключалка языка) поверх IDS.
+   Значения — со старого сайта Shift.
+   Композиция публикации — в static/css/page-composition/publication.css. */
 
 body.ids {
   max-width: 1600px;
@@ -156,28 +157,6 @@ header .search {
   & a {
     margin: 0 0.4em;
     text-decoration: none;
-  }
-}
-
-/* Публикация: текстовая колонка по центру (та же расчётная ширина,
-   что у старого трёхколоночного флексбокса: 60% контейнера),
-   оглавление — в поле слева от неё. Слот оглавления начинается
-   с верха статьи (= верх h1), внутри него ids-navbar sticky. */
-
-.guide {
-  width: 60%;
-  position: relative;
-}
-
-.guide__nav {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -33.4%;
-  width: 33.4%;
-
-  @media (width < 768px) {
-    display: none;
   }
 }
 

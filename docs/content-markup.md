@@ -13,11 +13,11 @@
 title: Название — Shift
 titleEn: Title — Shift
 description: "…"
-tags: guide
+tags: publication
 ---
 <div class="ids__space XL"></div>
-<article class="ids__wrapper guide">
-  <div class="guide__nav"><ids-navbar></ids-navbar></div>   <!-- если есть разделы -->
+<article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>   <!-- если есть разделы -->
   <h1>{% if lang == 'ru' %}…{% else %}…{% endif %}</h1>
   {% include "pub-meta.html" %}                              <!-- дата и теги из src/data/publications.js -->
   <p class="ids__description">…</p>                          <!-- лид -->
