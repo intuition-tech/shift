@@ -134,7 +134,7 @@
 .search-result-snippet {
   display: block;
   font-size: 0.85em;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 }
 .search-empty {
   padding: 1.2em 0.75em;

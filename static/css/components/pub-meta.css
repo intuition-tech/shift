@@ -13,7 +13,7 @@
 }
 
 .ids .ids__pub-meta--date {
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
   margin-right: 0.6em;
 }
 
@@ -22,7 +22,7 @@
   align-items: center;
   gap: 0.45em;
   padding: 0.3em 0.85em;
-  background: var(--shift__tag-background);
+  background: var(--ids__surface);
   border-radius: 100em;
   text-decoration: none;
   color: var(--ids__text);
@@ -41,6 +41,6 @@
 }
 
 .ids .ids__pub-meta--contact-label {
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
   font-size: 0.85em;
 }

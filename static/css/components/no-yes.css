@@ -77,7 +77,7 @@
   font-size: 0.75em;
   font-weight: 570;
   letter-spacing: 0.13em;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
   margin-bottom: 0.6em;
 
   @media (width >= 768px) {
@@ -85,7 +85,7 @@
   }
 
   &.right {
-    color: var(--shift__dodo-orange);
+    color: var(--shift__brand);
   }
 }
 
@@ -135,7 +135,7 @@
 
 .ids .ids__no-yes--arrow---bottom-L {
   left: -4.2em;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 
   @media (width < 768px) {
     left: 0;
@@ -156,7 +156,7 @@
 }
 
 .ids .ids__no-yes--arrow---bottom-R {
-  color: var(--shift__dodo-orange);
+  color: var(--shift__brand);
   right: -3.7em;
   align-items: flex-end;
 
@@ -177,7 +177,7 @@
 
 .ids .ids__no-yes--arrow---top-L {
   left: -4.2em;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 
   @media (width < 768px) {
     left: 0;
@@ -199,7 +199,7 @@
 }
 
 .ids .ids__no-yes--arrow---top-R {
-  color: var(--shift__dodo-orange);
+  color: var(--shift__brand);
   right: -3.7em;
   align-items: flex-end;
 
@@ -223,7 +223,7 @@
 
 .ids .ids__no-yes--arrow---curve-L {
   left: -4.2em;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 
   @media (width < 768px) {
     left: 0;
@@ -246,7 +246,7 @@
 }
 
 .ids .ids__no-yes--arrow---curve-R {
-  color: var(--shift__dodo-orange);
+  color: var(--shift__brand);
   right: -3.7em;
   align-items: flex-end;
 
@@ -325,7 +325,7 @@
   font-weight: 570;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 
   /* бейдж, прижатый к следующему за ним блоку */
   &.under {

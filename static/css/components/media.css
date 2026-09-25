@@ -101,7 +101,7 @@
 
 /* Оранжевая обводка (макеты на белом) */
 .ids figure.border-orange {
-  outline: 0.001em solid var(--shift__dodo-orange);
+  outline: 0.001em solid var(--shift__brand);
   border-radius: 0.1em;
 }
 

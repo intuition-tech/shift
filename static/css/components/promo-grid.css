@@ -80,6 +80,5 @@
 .ids a.ids__promo-card.yellow { background: var(--shift__promo-yellow); }
 .ids a.ids__promo-card.pink { background: var(--shift__promo-pink); }
 .ids a.ids__promo-card.gray { background: var(--shift__promo-gray); }
-.ids a.ids__promo-card.blue { background: var(--shift__promo-blue); color: var(--ids__background); }
 .ids a.ids__promo-card.dark { background: var(--shift__promo-dark); color: var(--ids__background); }
 .ids a.ids__promo-card.green { background: var(--shift__promo-green); color: var(--ids__background); }

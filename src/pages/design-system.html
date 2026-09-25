@@ -1,6 +1,6 @@
 ---
-title: Дизайн-система — Shift
-titleEn: Design system — Shift
+title: Токены и компоненты — Shift
+titleEn: Tokens and components — Shift
 description: Дизайн-система Shift — палитра, семантические токены, типографика и компоненты живыми образцами.
 tags: ''
 searchIndex: false
@@ -9,53 +9,76 @@ searchIndex: false
 <article class="ids__wrapper publication">
   <div class="publication__nav"><ids-navbar></ids-navbar></div>
 
-  <h1>{% if lang == 'ru' %}Дизайн-система{% else %}Design system{% endif %}</h1>
-  <p class="ids__description">
-    Токены собираются из живого CSS скриптом — витрина не может разойтись с кодом. Типографика и компоненты показаны живыми образцами с продовыми классами.
-  </p>
+  <h1>{% if lang == 'ru' %}Токены и компоненты{% else %}Tokens and components{% endif %}</h1>
 
   <div class="ids__space S"></div>
-  <ids-nav-item id="tokens" label="Токены">
-    <h2>Токены</h2>
-
-    <h3>Палитра</h3>
-    <p>Базовый слой: статичные значения цвета, названные по оттенку и весу. Сами по себе в компонентах не используются — только через семантику. Клик по значению копирует <code>var(…)</code>.</p>
-    <div data-tokens-prefix="color" data-tokens-render="swatch"></div>
-
+  <ids-nav-item id="palette" label="Палитры">
+    <h2 class="h3">Палитры</h2>
+    <p class="subdued">Базовая</p>
+    {#- Группы palette.css показываются отдельными дампами: скрипт не видит
+        комментариев в CSS, поэтому группа задаётся списком исключений -#}
+    <div data-tokens-prefix="color" data-tokens-exclude="color-orange-4,color-yellow-4,color-pink,color-teal,color-brown" data-tokens-render="swatch"></div>
+    <div class="ids__space S"></div>
+    <div data-tokens-prefix="color" data-tokens-exclude="color-navy,color-gray,color-white,color-blue,color-orange-5,color-yellow-3" data-tokens-render="swatch"></div>
     <div class="ids__space M"></div>
-    <h3>Семантические роли</h3>
-    <p>Для чего цвет используется — так и называется. Значения — только ссылки на палитру. Токены с префиксом <code>--shift__</code> — та же семантика, но специфичная для Shift, не входящая в базовую IDS.</p>
+    <p class="subdued">Семантическая</p>
     <div
       data-tokens-prefix=""
       data-tokens-exclude="color-,spacer-,gap-,radius,border-width-,duration-,easing-,density,border"
       data-tokens-render="swatch"
     ></div>
-    <div data-tokens-namespace="--shift__" data-tokens-prefix="" data-tokens-exclude="description-font,arrow-font" data-tokens-render="swatch"></div>
+    <div class="ids__space S"></div>
+    <div data-tokens-namespace="--shift__" data-tokens-prefix="" data-tokens-exclude="description-font" data-tokens-render="swatch"></div>
+  </ids-nav-item>
 
-    <div class="ids__space M"></div>
-    <h3>Спейсеры</h3>
+  <div class="ids__space M"></div>
+  <ids-nav-item id="spacers" label="Спейсеры">
+    <h2 class="h3">Спейсеры</h2>
     <div data-tokens-prefix="spacer" data-tokens-render="space"></div>
+  </ids-nav-item>
 
-    <h3>Гэпы</h3>
+  <div class="ids__space M"></div>
+  <ids-nav-item id="gaps" label="Гэпы">
+    <h2 class="h3">Гэпы</h2>
     <div data-tokens-prefix="gap" data-tokens-render="gap"></div>
+  </ids-nav-item>
 
-    <h3>Радиусы</h3>
+  <div class="ids__space M"></div>
+  <ids-nav-item id="radii" label="Радиусы">
+    <h2 class="h3">Радиусы</h2>
     <div data-tokens-prefix="radius" data-tokens-render="radius"></div>
+    <div class="guide-tokens__rows">
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label"><code>.ids__rounded</code></span>
+        <div class="guide-tokens__sample">
+          <div class="guide-rounded-samples">
+            <div class="ids__rounded" style="--ids__radius: 0.75em"><span>0.75em</span></div>
+            <div class="ids__rounded" style="--ids__radius: 1.5em"><span>1.5em</span></div>
+            <div class="ids__rounded" style="--ids__radius: 3em"><span>3em</span></div>
+          </div>
+        </div>
+        <span class="guide-tokens__row-value">--ids__radius<br />corner-shape: squircle</span>
+      </div>
+    </div>
+  </ids-nav-item>
 
-    <h3>Границы</h3>
+  <div class="ids__space M"></div>
+  <ids-nav-item id="borders" label="Границы">
+    <h2 class="h3">Границы</h2>
     <div data-tokens-prefix="border-width" data-tokens-render="border-width"></div>
+  </ids-nav-item>
 
-    <h3>Движение</h3>
+  <div class="ids__space M"></div>
+  <ids-nav-item id="motion" label="Анимация">
+    <h2 class="h3">Анимация</h2>
     <div data-tokens-prefix="duration" data-tokens-render="motion"></div>
+    <div class="ids__space S"></div>
     <div data-tokens-prefix="easing" data-tokens-render="motion"></div>
   </ids-nav-item>
 
-  <div class="ids__space L"></div>
+  <div class="ids__space M"></div>
   <ids-nav-item id="typography" label="Типографика">
-    <h2>Типографика</h2>
-    <p>
-      Основной шрифт — Pragmatica (вариативный), вес текста 500. Лид публикации — Elma Trio Slanted. Корневой кегль флюидный: 13→23&thinsp;px на десктопе, 17→26&thinsp;px на мобильных. Кегли элементов — в em от корневого.
-    </p>
+    <h2 class="h3">Типографика</h2>
 
     <div class="guide-tokens__rows">
       <div class="guide-tokens__row guide-tokens__row--header">
@@ -63,117 +86,119 @@ searchIndex: false
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Заголовок публикации<br /><code>h1</code></span>
-        <div class="guide-tokens__sample"><h1>Заголовок h1</h1></div>
+        <span class="guide-tokens__row-label"><code>h1</code></span>
+        <div class="guide-tokens__sample"><h1>Порядок в проектах</h1></div>
         <span class="guide-tokens__row-value">3.23em / 650<br />--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Заголовок второго уровня<br /><code>h2</code></span>
-        <div class="guide-tokens__sample"><h2>Заголовок h2</h2></div>
+        <span class="guide-tokens__row-label"><code>h2</code></span>
+        <div class="guide-tokens__sample"><h2>Принципы сторителлинга</h2></div>
         <span class="guide-tokens__row-value">2.5em / 570<br />--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Раздел публикации<br /><code>h2.h3</code></span>
-        <div class="guide-tokens__sample"><h2 class="h3">Заголовок h2.h3</h2></div>
+        <span class="guide-tokens__row-label"><code>h2.h3</code></span>
+        <div class="guide-tokens__sample"><h2 class="h3">Шаблон папки проекта</h2></div>
         <span class="guide-tokens__row-value">1.4em / 570<br />--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Подраздел<br /><code>h3</code></span>
-        <div class="guide-tokens__sample"><h3>Заголовок h3</h3></div>
+        <span class="guide-tokens__row-label"><code>h3</code></span>
+        <div class="guide-tokens__sample"><h3>Классический логотип</h3></div>
         <span class="guide-tokens__row-value">1.4em / 570<br />--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Мелкий заголовок<br /><code>h4</code></span>
-        <div class="guide-tokens__sample"><h4>Заголовок h4</h4></div>
+        <span class="guide-tokens__row-label"><code>h4</code></span>
+        <div class="guide-tokens__sample"><h4>Не берем фотографии с фотостоков, если:</h4></div>
         <span class="guide-tokens__row-value">1.01em / 600<br />--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Серый капс<br /><code>h2.special</code></span>
-        <div class="guide-tokens__sample"><h2 class="special">Заголовок h2.special</h2></div>
-        <span class="guide-tokens__row-value">.85em / caps / ls .13em<br />--shift__gray-caption</span>
+        <span class="guide-tokens__row-label"><code>h2.special</code></span>
+        <div class="guide-tokens__sample"><h2 class="special">Названия слоёв</h2></div>
+        <span class="guide-tokens__row-value">.85em / caps / ls .13em<br />--ids__caption</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Бейдж<br /><code>.ids__billet</code><br /><code>.under</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__billet</code><br /><code>.under</code></span>
         <div class="guide-tokens__sample"><div class="ids__billet">Функция</div></div>
-        <span class="guide-tokens__row-value">.75em / 570 / caps<br />--shift__gray-caption<br />--shift__billet-under</span>
+        <span class="guide-tokens__row-value">.75em / 570 / caps<br />--ids__caption<br />--shift__billet-under</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Лид публикации<br /><code>p.ids__description</code></span>
-        <div class="guide-tokens__sample"><p class="ids__description">Лид публикации — Elma Trio Slanted, вес 200.</p></div>
+        <span class="guide-tokens__row-label"><code>p.ids__description</code></span>
+        <div class="guide-tokens__sample"><p class="ids__description">Ссылка на шаблон папки проекта, инструкция о том, как им пользоваться, особенности названий проектов и слоев.</p></div>
         <span class="guide-tokens__row-value">--shift__description-font</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Абзац<br /><code>p</code></span>
+        <span class="guide-tokens__row-label"><code>p</code></span>
         <div class="guide-tokens__sample">
-          <p>Обычный абзац со <a href="#typography">ссылкой</a>, <strong>жирным</strong>, <em>курсивом</em>, <mark>маркером</mark> и <code>кодом</code>.</p>
+          <p>Чтобы сэкономить время и не создавать папки вручную, используйте <a href="/order-in-projects/">шаблон папки проекта</a>. В нём уже есть папки для всех носителей.</p>
+          <p><strong>Guidelines</strong> — сетки и направляющие. В папке <code>[Sketch]</code> работайте над скетчем, добавляйте туда <mark>любой контент</mark>.</p>
         </div>
         <span class="guide-tokens__row-value">1em / 500<br />--ids__text<br />--ids__link<br />--ids__hover<br />--ids__mark<br />--ids__code</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Выноска<br /><code>p.lead</code></span>
-        <div class="guide-tokens__sample"><p class="lead">Крупная выноска — используется и как цитата.</p></div>
+        <span class="guide-tokens__row-label"><code>p.lead</code></span>
+        <div class="guide-tokens__sample"><p class="lead">Размещайте в скоростных зонах только самую необходимую и простую информацию. Всю сложную информацию размещайте в медленных зонах.</p></div>
         <span class="guide-tokens__row-value">--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Приглушённый текст<br /><code>p.subdued</code></span>
-        <div class="guide-tokens__sample"><p class="subdued">Второстепенный текст — серым.</p></div>
-        <span class="guide-tokens__row-value">--ids__text-caption</span>
+        <span class="guide-tokens__row-label"><code>p.subdued</code></span>
+        <div class="guide-tokens__sample"><p class="subdued">Название слоя зависит от того, что в нём находится.</p></div>
+        <span class="guide-tokens__row-value">--ids__caption</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Маркированный список<br /><code>ul</code></span>
+        <span class="guide-tokens__row-label"><code>ul</code></span>
         <div class="guide-tokens__sample">
           <ul>
-            <li>Маркированный список;</li>
-            <li>буллеты рисуются псевдоэлементом.</li>
+            <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Process,</li>
+            <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Edit,</li>
+            <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Publish.</li>
           </ul>
         </div>
         <span class="guide-tokens__row-value">--ids__text (50%)</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Нумерованный список<br /><code>ol</code></span>
+        <span class="guide-tokens__row-label"><code>ol</code></span>
         <div class="guide-tokens__sample">
           <ol>
-            <li>Нумерованный список;</li>
-            <li>номера — счётчиком.</li>
+            <li>Скачайте шаблон и удалите папки с носителями, которые не используются в вашем проекте.</li>
+            <li>В папку [Master Layout] положите мастер-макет и используйте его при тиражировании.</li>
           </ol>
         </div>
         <span class="guide-tokens__row-value">--ids__text</span>
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label">Подпись к картинке<br /><code>figcaption</code></span>
+        <span class="guide-tokens__row-label"><code>figcaption</code></span>
         <div class="guide-tokens__sample">
-          <figure style="margin: 0"><figcaption>Подпись к картинке</figcaption></figure>
+          <figure style="margin: 0"><figcaption>Примеры названий слоёв</figcaption></figure>
         </div>
-        <span class="guide-tokens__row-value">.7em<br />--shift__gray-caption</span>
+        <span class="guide-tokens__row-value">.7em<br />--ids__caption</span>
       </div>
     </div>
   </ids-nav-item>
 
-  <div class="ids__space L"></div>
+  <div class="ids__space M"></div>
   <ids-nav-item id="components" label="Компоненты">
-    <h2>Компоненты</h2>
+    <h2 class="h3">Компоненты</h2>
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Врезка<br /><code>aside</code></span>
+        <span class="guide-tokens__row-label"><code>aside</code></span>
         <span class="guide-tokens__row-value">--shift__aside-background</span>
       </div>
       <div class="guide-component__sample">
         <aside>
-          <p><strong>Врезка.</strong> Плашка для ссылок, оговорок и справок. Растягивается на всю ширину колонки.</p>
+          <p>Фотографии из папки проекта дизайнеры используют для разных задач. Поэтому мы всегда копируем общий файл — и работаем с копией отдельно. Это помогает избежать нежелательных изменений в других макетах.</p>
         </aside>
       </div>
     </div>
@@ -181,12 +206,12 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Компактная врезка<br /><code>aside.tight</code></span>
+        <span class="guide-tokens__row-label"><code>aside.tight</code></span>
         <span class="guide-tokens__row-value">--shift__aside-background</span>
       </div>
       <div class="guide-component__sample">
         <aside class="tight">
-          <p>Компактная, по содержимому.</p>
+          <p>Вот как пользоваться шаблоном.</p>
         </aside>
       </div>
     </div>
@@ -194,7 +219,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Сноска на полях<br /><code>.ids__with-note</code><br /><code>.ids__note</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__with-note</code><br /><code>.ids__note</code></span>
         <span class="guide-tokens__row-value">--ids__link</span>
       </div>
       <div class="guide-component__sample">
@@ -210,13 +235,13 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Картинка<br /><code>figure.ids__media</code><br /><code>.XXS .XS .S .M .L</code><br /><code>.shadow</code></span>
+        <span class="guide-tokens__row-label"><code>figure.ids__media</code><br /><code>.XXS .XS .S .M .L</code><br /><code>.shadow</code></span>
         <span class="guide-tokens__row-value">--shift__shadow-color</span>
       </div>
       <div class="guide-component__sample">
         <figure class="ids__media S shadow">
-          <img src="/images/order-in-projects/2.webp" alt="" />
-          <figcaption>Одиночная картинка с ограничением ширины, здесь .S и .shadow</figcaption>
+          <img src="/images/order-in-projects/1.webp" alt="" />
+          <figcaption>Шаблон папки проекта</figcaption>
         </figure>
       </div>
     </div>
@@ -224,14 +249,17 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Группа картинок<br /><code>.ids__media-group</code><br /><code>.S .M .L .XL</code><br /><code>.shadow .border</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__media-group</code><br /><code>.S .M .L .XL</code><br /><code>.shadow .border</code></span>
         <span class="guide-tokens__row-value">--shift__shadow-color<br />--ids__border-width-s</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__media-group L shadow" style="margin-top: 0">
           <figure>
-            <img src="/images/order-in-projects/1.webp" alt="" />
-            <figcaption>Картинки по центру колонки, размер задаёт ширину фигур</figcaption>
+            <img src="/images/order-in-projects/2.webp" alt="" />
+          </figure>
+          <figure>
+            <img src="/images/order-in-projects/3.webp" alt="" />
+            <figcaption>Примеры названий слоёв</figcaption>
           </figure>
         </div>
       </div>
@@ -240,16 +268,16 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Сиквенс<br /><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.no-wrap .tight .labels</code><br /><code>.ids__sequence-item</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.no-wrap .tight .labels</code><br /><code>.ids__sequence-item</code></span>
         <span class="guide-tokens__row-value">--ids__gap-m<br />--ids__gap-l</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__sequence XL gap-M">
-          <div class="ids__sequence-item"><figure class="border"><img src="/images/order-in-projects/2.webp" alt="" /></figure></div>
-          <div class="ids__sequence-item"><figure class="border"><img src="/images/order-in-projects/3.webp" alt="" /></figure></div>
+          <div class="ids__sequence-item"><figure><img src="/images/adding-reflexes-to-layouts/7.webp" alt="" /></figure></div>
+          <div class="ids__sequence-item"><figure><img src="/images/adding-reflexes-to-layouts/8.webp" alt="" /></figure></div>
         </div>
         <figure class="ids__media-caption">
-          <figcaption>Общая подпись к паре — figure.ids__media-caption</figcaption>
+          <figcaption>На первом примере стакан не вписывается в цветной фон. На втором — учли все цвета, добавили рефлексы и дымок</figcaption>
         </figure>
       </div>
     </div>
@@ -257,7 +285,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Таблица<br /><code>.ids__table-wrapper</code><br /><code>table</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__table-wrapper</code><br /><code>table</code></span>
         <span class="guide-tokens__row-value">.8em<br />--ids__text (15%)</span>
       </div>
       <div class="guide-component__sample">
@@ -278,8 +306,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">НЕТ / ДА<br /><code>.ids__no-yes</code><br /><code>.right .wide .full</code><br /><code>.ids__no-yes--arrow---curve-L</code></span>
-        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__dodo-orange<br />--shift__shadow-color</span>
+        <span class="guide-tokens__row-label"><code>.ids__no-yes</code><br /><code>.right .wide .full</code><br /><code>.ids__no-yes--arrow---curve-L</code></span>
+        <span class="guide-tokens__row-value">--ids__caption<br />--shift__brand<br />--shift__shadow-color</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__no-yes">
@@ -300,7 +328,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Видео<br /><code>.ids__video</code><br /><code>.vertical</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__video</code><br /><code>.vertical</code></span>
         <span class="guide-tokens__row-value">aspect-ratio 16/9</span>
       </div>
       <div class="guide-component__sample">
@@ -313,7 +341,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Сравнение картинок<br /><code>.ids__compare</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__compare</code></span>
         <span class="guide-tokens__row-value">--ratio<br />--ids__duration-base</span>
       </div>
       <div class="guide-component__sample">
@@ -327,12 +355,12 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Галерея<br /><code>ids-gallery</code></span>
+        <span class="guide-tokens__row-label"><code>ids-gallery</code></span>
         <span class="guide-tokens__row-value">превью 8em, зазор 3em</span>
       </div>
       <div class="guide-component__sample">
         <ids-gallery>
-          <figure><a href="/images/order-in-projects/1.webp" target="_blank"><img src="/images/order-in-projects/1.webp" alt="" /></a><figcaption>Подпись в лайтбоксе</figcaption></figure>
+          <figure><a href="/images/order-in-projects/1.webp" target="_blank"><img src="/images/order-in-projects/1.webp" alt="" /></a><figcaption>Шаблон папки проекта</figcaption></figure>
           <figure><a href="/images/order-in-projects/2.webp" target="_blank"><img src="/images/order-in-projects/2.webp" alt="" /></a></figure>
           <figure><a href="/images/order-in-projects/3.webp" target="_blank"><img src="/images/order-in-projects/3.webp" alt="" /></a></figure>
         </ids-gallery>
@@ -342,8 +370,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Шапка отчёта<br /><code>.ids__report-header</code><br /><code>.ids__portraits</code><br /><code>.ids__portrait</code></span>
-        <span class="guide-tokens__row-value">--ids__background<br />--shift__gray-caption</span>
+        <span class="guide-tokens__row-label"><code>.ids__report-header</code><br /><code>.ids__portraits</code><br /><code>.ids__portrait</code></span>
+        <span class="guide-tokens__row-value">--ids__background<br />--ids__caption</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__report-header" style="margin-top: 0">
@@ -363,7 +391,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Палитра бренда<br /><code>.ids__color-palette</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__color-palette</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
         <span class="guide-tokens__row-value">--color (инлайн)<br />--ids__color-white<br />--ids__text</span>
       </div>
       <div class="guide-component__sample">
@@ -402,7 +430,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Набор иконок<br /><code>.ids__icon-set</code><br /><code>.ids__icon-copy</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__icon-set</code><br /><code>.ids__icon-copy</code></span>
         <span class="guide-tokens__row-value">--ids__text (5%)</span>
       </div>
       <div class="guide-component__sample">
@@ -417,12 +445,12 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Чеклист<br /><code>.ids__checklist</code><br /><code>.ids__check</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__checklist</code><br /><code>.ids__check</code></span>
         <span class="guide-tokens__row-value">--ids__hover<br />--ids__border-width-s</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__checklist">
-          <label class="ids__check"><input type="checkbox" /><span>Пропорции картинки верные.</span></label>
+          <label class="ids__check"><input type="checkbox" /><span>Пропорции картинки верные: для мобильной версии 351×306, для декстопа 233×233.</span></label>
           <label class="ids__check"><input type="checkbox" checked /><span>Белый текст хорошо видно на фоне плашки.</span></label>
         </div>
       </div>
@@ -431,7 +459,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Слайд<br /><code>.ids__slide</code> <code>.flip .two-images</code><br /><code>.ids__slide-image</code> <code>.with-padding</code><br /><code>.ids__slide-text</code><br /><code>.ids__slide-pair</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__slide</code> <code>.flip .two-images</code><br /><code>.ids__slide-image</code> <code>.with-padding</code><br /><code>.ids__slide-text</code><br /><code>.ids__slide-pair</code></span>
         <span class="guide-tokens__row-value">--ids__surface (50%)</span>
       </div>
       <div class="guide-component__sample">
@@ -451,8 +479,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Скачивание логотипа<br /><code>.ids__download</code><br /><code>.ids__download-item</code><br /><code>.ids__download-plate</code><br /><code>.ids__download-menu</code></span>
-        <span class="guide-tokens__row-value">--ids__surface<br />--shift__dodo-orange</span>
+        <span class="guide-tokens__row-label"><code>.ids__download</code><br /><code>.ids__download-item</code><br /><code>.ids__download-plate</code><br /><code>.ids__download-menu</code></span>
+        <span class="guide-tokens__row-value">--ids__surface<br />--shift__brand</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__download" style="margin: 0">
@@ -476,7 +504,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Переключалка языка<br /><code>.switcher</code></span>
+        <span class="guide-tokens__row-label"><code>.switcher</code></span>
         <span class="guide-tokens__row-value">--ids__text<br />--ids__background</span>
       </div>
       <div class="guide-component__sample">
@@ -489,8 +517,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Поиск по сайту<br /><code>.search</code><br /><code>.search--large</code></span>
-        <span class="guide-tokens__row-value">--ids__link<br />--ids__surface<br />--ids__mark<br />--shift__gray-caption</span>
+        <span class="guide-tokens__row-label"><code>.search</code><br /><code>.search--large</code></span>
+        <span class="guide-tokens__row-value">--ids__link<br />--ids__surface<br />--ids__mark<br />--ids__caption</span>
       </div>
       <div class="guide-component__sample">
         <p class="subdued">Образцы живые: индекс — <code>/search-index.json</code> (собирает <code>src/pages/search-index.11ty.js</code>), логика — <code>js/search.js</code>. Обычный кегль — в шапке внутренних страниц, <code>.search--large</code> — в начале главной. Выпадайка одна, масштабируется от кегля поля.</p>
@@ -505,8 +533,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Таблица публикаций<br /><code>.ids__pubs</code><br /><code>.ids__pubs--row</code> <code>.new</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--chip</code></span>
-        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__tag-background</span>
+        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code> <code>.new</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--chip</code></span>
+        <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
         <p class="subdued">Живёт на главной, данные — <code>src/data/publications.js</code>, фильтрация и группировка — <code>js/pubs-table.js</code>, состояние в URL. Строка <code>.new</code> — болдом, как непрочитанное письмо.</p>
@@ -525,14 +553,14 @@ searchIndex: false
             <tbody>
               <tr class="ids__pubs--group"><th colspan="3">Россия</th></tr>
               <tr class="ids__pubs--row new">
-                <td class="ids__pubs--title"><a href="#components">Новая публикация</a></td>
+                <td class="ids__pubs--title"><a href="#components">СМС</a></td>
                 <td class="ids__pubs--authors">Katya Maksimova</td>
                 <td class="ids__pubs--date">21.05.2025</td>
               </tr>
               <tr class="ids__pubs--row">
-                <td class="ids__pubs--title"><a href="#components">Обычная публикация</a></td>
-                <td class="ids__pubs--authors">Anna Gorokhova, Maksim Novokhatskiy</td>
-                <td class="ids__pubs--date">17.06.2025</td>
+                <td class="ids__pubs--title"><a href="#components">Порядок в проектах</a></td>
+                <td class="ids__pubs--authors">Dmitry Tumanov, Evgeny Revenko</td>
+                <td class="ids__pubs--date">12.12.2024</td>
               </tr>
             </tbody>
           </table>
@@ -543,7 +571,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Промоблок<br /><code>.ids__promo-grid</code><br /><code>.ids__promo-card</code><br /><code>.XS .S .M .L .XL</code><br /><code>.orange .yellow .blue .dark<br />.pink .green .gray</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__promo-grid</code><br /><code>.ids__promo-card</code><br /><code>.XS .S .M .L .XL</code><br /><code>.orange .yellow .dark<br />.pink .green .gray</code></span>
         <span class="guide-tokens__row-value">--shift__promo-*</span>
       </div>
       <div class="guide-component__sample">
@@ -574,8 +602,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Мета публикации<br /><code>.ids__pub-meta</code><br /><code>.ids__pub-meta--tag</code> <code>.contact</code><br /><code>.ids__pub-meta--date</code></span>
-        <span class="guide-tokens__row-value">--shift__gray-caption<br />--shift__tag-background</span>
+        <span class="guide-tokens__row-label"><code>.ids__pub-meta</code><br /><code>.ids__pub-meta--tag</code> <code>.contact</code><br /><code>.ids__pub-meta--date</code></span>
+        <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
         <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; контактное лицо — с фото и пометкой.</p>
@@ -591,7 +619,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label">Оглавление<br /><code>ids-navbar</code><br /><code>ids-nav-item</code></span>
+        <span class="guide-tokens__row-label"><code>ids-navbar</code><br /><code>ids-nav-item</code></span>
         <span class="guide-tokens__row-value">--ids__text<br />--ids__hover</span>
       </div>
       <div class="guide-component__sample">

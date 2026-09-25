@@ -18,6 +18,10 @@
       <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Teams</a>
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Collections</a>
       {%- endif %}
+      {#- Служебная ссылка: только при локальной разработке -#}
+      {%- if isDev %}
+      <a href="{{ prefix }}/design-system/">{{ 'Дизайн-система' if lang == 'ru' else 'Design system' }}</a>
+      {%- endif %}
     </nav>
     {#- Поиск на внутренних страницах; на главной вместо него
         крупное поле в начале контента -#}

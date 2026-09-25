@@ -47,11 +47,11 @@
 }
 
 .ids .ids__pubs--authors {
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
 }
 
 .ids .ids__pubs td.ids__pubs--date {
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
   white-space: nowrap;
 }
 
@@ -84,7 +84,7 @@
   align-items: center;
   gap: 0.5em;
   padding: 0.3em 0.5em 0.3em 0.85em;
-  background: var(--shift__tag-background);
+  background: var(--ids__surface);
   border-radius: 100em;
 }
 
@@ -93,7 +93,7 @@
   background: none;
   padding: 0 0.35em;
   font: inherit;
-  color: var(--shift__gray-caption);
+  color: var(--ids__caption);
   cursor: pointer;
 }
 

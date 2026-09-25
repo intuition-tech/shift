@@ -2,6 +2,10 @@ export default function (conf) {
   // static/ повторяет корень сайта: css и js дизайн-системы, fonts, favicon
   conf.addPassthroughCopy({ static: "/" });
 
+  // Дев-режим (--serve/--watch): в продовой сборке isDev = false.
+  // Функция — чтобы ELEVENTY_RUN_MODE читался в момент сборки данных
+  conf.addGlobalData("isDev", () => process.env.ELEVENTY_RUN_MODE !== "build");
+
   // Публикация по слагу страницы — для мета-блока pub-meta.html
   conf.addFilter("pub", (publications, slug) =>
     publications.find((p) => p.slug === slug)

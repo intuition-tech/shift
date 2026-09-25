@@ -126,18 +126,11 @@
     font-weight: 570;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: var(--shift__gray-caption);
+    color: var(--ids__caption);
   }
   &.labels .ids__sequence-item:first-of-type > p:first-of-type {
-    color: var(--shift__dodo-orange);
+    color: var(--shift__brand);
   }
-  &.labels.yes-green .ids__sequence-item:first-of-type > p:first-of-type {
-    color: var(--shift__gray-caption);
-  }
-  &.labels.yes-green .ids__sequence-item:nth-of-type(2) > p:first-of-type {
-    color: var(--ids__success);
-  }
-
   &.L {
     .ids__sequence-item {
       --columns: 3;

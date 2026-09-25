@@ -30,9 +30,9 @@ site/                # результат сборки (в гитигноре)
 
 Что изменено и добавлено относительно ванильной IDS:
 
-- `tokens/palette.css` — базовый слой: статичные значения цвета старого сайта, названные по оттенку и весу (`--ids__color-navy-900`, `--ids__color-orange-500`…); в компонентах напрямую не используются;
+- `tokens/palette.css` — базовый слой: статичные значения цвета старого сайта, названные по оттенку и весу (`--ids__color-navy-900`, `--ids__color-orange-500`…), двумя группами — универсально-интерфейсные и брендовые Shift (додо-оранжевый и плашки промоблоков); в компонентах напрямую не используются; порядок объявления = порядок на витрине;
 - `tokens/colors.css` — семантические цвета IDS, только ссылки на палитру;
-- `tokens/shift.css` — семантические токены, специфичные для Shift (`--shift__dodo-orange`, `--shift__gray-caption`, `--shift__aside-background`, `--shift__shadow-color`, `--shift__billet-under`, `--shift__description-font`) — тот же слой, что colors.css;
+- `tokens/shift.css` — семантические токены, специфичные для Shift (`--shift__brand` — додо-оранжевый, `--shift__aside-background`, `--shift__shadow-color`, `--shift__billet-under`, `--shift__promo-*`, `--shift__description-font`) — тот же слой, что colors.css;
 - `settings.css` — @font-face старых шрифтов и рампа со старыми числами;
 - `components/ids.css` — типографика по старым кеглям (h1 3.23em/650, h2 2.5em/570, `h2.h3`, `h2.special`, списки, таблицы, `aside`, `figcaption`, `.lead`, `.ids__description`, `.ids__table-wrapper`);
 - новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/note.css` (`.ids__with-note`, `.ids__note` — сноска на полях), `components/video.css` (`.ids__video`, iframe или `<video>`), `components/report.css` (`.ids__report-header`, `.ids__portraits` — отчёты Meme Park), `components/color-palette.css` (`.ids__color-palette`, `.ids__copy`, `.ids__icon-set` — копирование цвета/SVG, JS в `js/copy.js`), `components/checklist.css` (`.ids__checklist`), `components/slide.css` (`.ids__slide`, `.ids__slide-pair`), `components/download.css` (`.ids__download`, JS в `js/download.js`), `components/compare.css` (`.ids__compare`, JS в `js/compare.js`), `components/style-guide.css` (витрина); модификаторы `.ids__sequence` — `.no-wrap`, `.tight`, `.labels` в `page-composition/layout.css`; `gallery.css` — превью 8em как в старых отчётах;
@@ -43,7 +43,7 @@ site/                # результат сборки (в гитигноре)
 
 Порядок подключения CSS в `src/includes/layout.html` нормативный: tokens → settings → reset → page-composition → components.
 
-Темы: используется только светлая, переключателя темы нет (`theme-toggle.css/js` лежат в `static/`, но не подключены). Позже отдельные публикации будут собираться в тёмной теме через класс `.dark` (см. `static/css/tokens/colors.css`).
+Тем нет: сайт только светлый, блок `.dark` из ванильной IDS удалён вместе с цветами, которые жили только в нём. Если тёмные публикации понадобятся — тема добавится слоем в `tokens/colors.css` (`theme-toggle.css/js` лежат в `static/`, но не подключены).
 
 Неиспользуемые на Shift компоненты ванильной IDS удалены из копии: `gen-cover.css/js` с демо `gen-cover-demo.js` (генеративная обложка) и `promo-block.css/js` (инлайн-галерея `.ids__inline-gallery`; наши промоблоки — в `promo-grid.css`). Понадобятся — берутся заново из репозитория IDS. Демо-скрипт `sleepy.js` лежит в `static/`, но не подключён.
 

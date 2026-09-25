@@ -3,7 +3,7 @@
 
 .style-color-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
 
   @media (width < 900px) {
@@ -13,7 +13,7 @@
 
 .guide-color-plate {
   position: relative;
-  min-height: 6.4em;
+  min-height: 3.8em;
   padding: 0.45em 0.5em;
   line-height: 1.2;
 
@@ -101,17 +101,18 @@
   }
 }
 
+/* Без нижнего отступа: контейнеры дампа и статичные ряды (образец .ids__rounded)
+   стыкуются в одну таблицу; воздух между секциями — спейсерами в разметке */
 .guide-tokens__rows {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em;
 }
 
 /* Ширина крайних колонок — в rem: у таблиц в узком и широком враппере
    первая и последняя колонки совпадают по ширине */
 .guide-tokens__row {
   display: grid;
-  grid-template-columns: 11rem minmax(0, 1fr) 8rem;
+  grid-template-columns: 7rem minmax(0, 1fr) 7rem;
   gap: 1em;
   align-items: start;
   padding: 0.45em 0 1.1em;
@@ -134,8 +135,13 @@
   }
 }
 
+/* Крайние колонки таблиц токенов и компонентов — одинаково мелкие */
+.guide-tokens__row-label {
+  font-size: 0.58em;
+}
+
 .guide-tokens__row-label code {
-  font-size: 0.72em;
+  font-size: 1em;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -148,7 +154,7 @@
 
 .guide-tokens__row-value {
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 0.62em;
+  font-size: 0.58em;
   opacity: 0.7;
 }
 
@@ -171,7 +177,7 @@
 }
 
 .guide-tokens__space-bar {
-  background-color: color-mix(in srgb, var(--ids__accent) 45%, transparent);
+  background-color: color-mix(in srgb, var(--ids__caption) 45%, transparent);
   width: 100%;
 
   &.guide-tokens__space-bar--gap {
@@ -184,7 +190,28 @@
   width: 3.4em;
   height: 3.4em;
   background-color: color-mix(in srgb, var(--ids__surface) 90%, transparent);
-  border: 1px solid color-mix(in srgb, var(--ids__text) 25%, transparent);
+}
+
+/* Сквиркл .ids__rounded в трёх размерах скругления;
+   радиус в em — подпись во вложенном span, чтобы не сбивать масштаб */
+.guide-rounded-samples {
+  display: flex;
+  gap: 1em;
+
+  & .ids__rounded {
+    width: 5.5em;
+    height: 5.5em;
+    background-color: color-mix(in srgb, var(--ids__surface) 90%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > span {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 0.58em;
+      opacity: 0.7;
+    }
+  }
 }
 
 .guide-tokens__border-line {
@@ -202,7 +229,7 @@
 .guide-tokens__bar-fill {
   width: 0%;
   height: 100%;
-  background-color: var(--ids__accent);
+  background-color: var(--ids__hover);
   transition-property: width;
 
   &.is-active {
@@ -214,7 +241,7 @@
    под ней образец на всю ширину колонки */
 .guide-component__meta {
   display: grid;
-  grid-template-columns: 11rem minmax(0, 1fr);
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: 1em;
   align-items: start;
   padding: 0.45em 0 0.8em;

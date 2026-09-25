@@ -354,7 +354,7 @@
       margin-bottom: 1.3em;
       font-size: 0.7em;
       line-height: var(--ids__density);
-      color: var(--ids__text-caption);
+      color: var(--ids__caption);
     }
   }
 
