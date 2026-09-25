@@ -26,16 +26,41 @@
 
 .ids a.ids__promo-card {
   display: block;
-  border-radius: 1.25em;
-  padding: 1em 1.4em 1.2em;
+  /* Скругление — сквирклом через класс .ids__rounded в разметке,
+     радиус переопределяем локально */
+  --ids__radius: 1.25em;
+  padding: 0.85em 1.2em 1em;
   background: var(--shift__promo-gray);
   color: var(--ids__text);
   text-decoration: none;
   transition: filter var(--ids__duration-base) var(--ids__easing-base);
 }
 
+/* Ховеры со старого сайта: сила и вид эффекта зависят от фона плашки —
+   светлым поднимается контраст (тем сильнее, чем бледнее фон),
+   тёмной — яркость и приглушение текста. Ховер мгновенно, расховер 0.3s */
 .ids a.ids__promo-card:hover {
-  filter: contrast(110%) brightness(103%);
+  transition-duration: var(--ids__duration-instant);
+}
+
+.ids a.ids__promo-card.orange:hover { filter: contrast(113%); }
+.ids a.ids__promo-card.yellow:hover { filter: contrast(110%); }
+.ids a.ids__promo-card.pink:hover { filter: contrast(109%); }
+.ids a.ids__promo-card.gray:hover { filter: contrast(107%); }
+.ids a.ids__promo-card.green:hover { filter: contrast(120%); }
+.ids a.ids__promo-card.dark:hover { filter: brightness(1.2); }
+
+/* На тёмной плашке текст приглушён и глушится ещё чуть сильнее по ховеру */
+.ids a.ids__promo-card.dark .ids__promo-card--title,
+.ids a.ids__promo-card.dark .ids__promo-card--description {
+  opacity: 0.8;
+  transition: opacity var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids a.ids__promo-card.dark:hover .ids__promo-card--title,
+.ids a.ids__promo-card.dark:hover .ids__promo-card--description {
+  opacity: 0.7;
+  transition-duration: var(--ids__duration-instant);
 }
 
 .ids .ids__promo-card--title {

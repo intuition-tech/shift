@@ -22,6 +22,21 @@
   border-bottom-color: var(--ids__text);
   transition: none;
 }
+
+/* Крупное поле на главной — рамка вместо линии: тот же цвет бордера,
+   но двухпиксельный, с небольшим скруглением; по фокусу — текстового цвета
+   (мгновенно, расфокус с транзишеном — правила выше работают и тут) */
+.search--large .search-line {
+  display: block;
+  padding: 0.35em 0.6em;
+  /* Цвет контура — как линейка под заголовком группы таблицы */
+  border: var(--ids__border-width-m) solid var(--ids__caption);
+  border-radius: var(--ids__radius-m);
+}
+
+.search--large .search-line:focus-within {
+  border-color: var(--ids__text);
+}
 .search-input {
   /* iOS Safari рисует type=search своим виджетом со своим кеглем,
      из-за чего лупа и текст расходятся в размере — сбрасываем */
@@ -83,12 +98,22 @@
   background: none;
   font-family: inherit;
   font-size: 1.5em;
+  font-weight: 200;
   line-height: 1.3;
-  color: var(--ids__text);
+  color: var(--ids__caption);
   cursor: pointer;
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
 }
 .search-clear:hover {
   color: var(--ids__hover);
+  transition-duration: var(--ids__duration-instant);
+}
+/* В крупном поле-рамке крестик стоит на строке текста, внутри рамки */
+.search--large .search-clear {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.45em;
+  padding-bottom: 0;
 }
 /* .ids — чтобы перебить .ids ul (маржины и буллеты) */
 .ids .search-results {
@@ -141,7 +166,12 @@
   text-align: center;
   color: color-mix(in srgb, var(--ids__text) 60%, transparent);
 }
-/* Крупное поле на главной; выпадайка масштабируется сама — всё в em */
+/* Крупное поле на главной; выпадайка при этом остаётся обычного размера
+   (кегль в rem отвязывает её от крупности поля) */
 .search--large {
   font-size: 1.6em;
+}
+
+.ids .search--large .search-results {
+  font-size: 0.8rem;
 }

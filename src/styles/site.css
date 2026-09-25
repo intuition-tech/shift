@@ -14,7 +14,7 @@ header {
   max-width: 1600px;
   width: 100%;
   z-index: 12;
-  padding: 0.8em 0.5em 0.5em;
+  padding: 0.48em 1em 0.5em;
   background: linear-gradient(
     180deg,
     var(--ids__background) 71%,
@@ -23,12 +23,17 @@ header {
   );
 
   @media (width < 768px) {
+    /* Всё содержимое хедера (лого, меню, переключалка, поиск) уменьшается
+       строго пропорционально: размеры внутри заданы в em */
+    font-size: 0.875em;
     padding: 0.8em 0.8em;
   }
 
   & .nav {
     display: flex;
     justify-content: space-between;
+    /* Всё выравнивается по верху — отступы сверху предсказуемые */
+    align-items: flex-start;
 
     & .nav-item {
       display: flex;
@@ -37,19 +42,16 @@ header {
 
   & .logo {
     text-decoration: none;
+    margin-top: 0.3em;
 
     & svg {
-      width: 7.55em;
-      height: 1.8em;
+      /* Вьюбокс подогнан под контент (133 × 42), высота 1.1 → ширина по пропорции */
+      width: 3.48em;
+      height: 1.1em;
 
       & path {
         fill: var(--ids__text);
         transition: fill var(--ids__duration-base) var(--ids__easing-base);
-      }
-
-      @media (width < 768px) {
-        width: 6.7em;
-        height: 1.76em;
       }
     }
 
@@ -65,11 +67,12 @@ header {
    (ставит pubs-table.js на /publications/ по ?group), оранжевый — только ховер. */
 
 .nav-sections {
-  align-items: center;
-  gap: 1.5em;
+  gap: 1.2em;
   font-size: 0.8em;
-  margin-top: 0.65em;
-  margin-left: 2.5em;
+  /* Базовая линия — на линии логотипа (всё от margin-top логотипа) */
+  margin-top: 0.4em;
+  /* Зазор до логотипа = гэпу между пунктами */
+  margin-left: 1.2em;
   margin-right: auto;
 
   & a {
@@ -85,10 +88,30 @@ header {
   }
 
   @media (width < 768px) {
-    gap: 0.8em;
-    font-size: 0.7em;
-    margin-left: 1em;
     flex-wrap: wrap;
+    /* Гэпы плотнее — переключалка языка отделяется заметным отступом */
+    gap: 0.8em;
+    margin-left: 0.8em;
+  }
+}
+
+/* Короткие подписи пунктов — только на мобильных */
+.nav-label-short {
+  display: none;
+}
+
+@media (width < 768px) {
+  .nav-label-full {
+    display: none;
+  }
+
+  .nav-label-short {
+    display: inline;
+  }
+
+  /* Служебная ссылка на дизайн-систему в деве на мобильных мешает */
+  .nav-dev {
+    display: none;
   }
 }
 
@@ -100,7 +123,8 @@ header {
 header .search {
   flex: 0 1 11em;
   font-size: 0.8em;
-  margin-top: 0.65em;
+  /* По базовой линии с меню выравнивается текст в поле, не бордер */
+  margin-top: 0.35em;
   margin-right: 1.5em;
 
   & .search-results {
@@ -110,30 +134,19 @@ header .search {
     max-width: calc(100vw - 2em);
   }
 
+  /* На мобильных поиска в хедере нет — только крупное поле на главной */
   @media (width < 768px) {
-    /* второй строкой под лого/разделами/переключалкой */
-    order: 4;
-    flex-basis: 100%;
-    margin: 0.4em 0 0;
-
-    & .search-results {
-      left: 0;
-      right: 0;
-      width: auto;
-    }
+    display: none;
   }
 }
 
-@media (width < 768px) {
-  header .nav {
-    flex-wrap: wrap;
-  }
+/* Зазор между фиксированным хедером и контентом — добавка к ids__space
+   в начале страниц */
+main {
+  padding-top: 1rem;
 
-  /* Первая строка собирается как без поиска: ссылки сжимаются
-     (переносятся внутри себя), на новую строку уходит только поиск */
-  header .nav-sections {
-    flex: 1 1 0;
-    min-width: 0;
+  @media (width < 768px) {
+    padding-top: 5rem;
   }
 }
 
@@ -144,7 +157,9 @@ header .search {
   align-items: center;
   font-size: 0.8em;
   font-weight: 550;
-  margin-top: 0.65em;
+  /* EN дополнительно опускает align-items: center относительно пилюли RU,
+     поэтому маленький марджин */
+  margin-top: 0.15em;
 
   & span {
     --ids__radius: 0.7em;

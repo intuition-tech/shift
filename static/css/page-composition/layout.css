@@ -25,6 +25,15 @@
     padding: 0 calc(var(--ids__density) * 0.6rem);
   }
 
+  /* Чуть шире обычной колонки — промоблоки главной */
+  &.M {
+    width: 82%;
+
+    @media (width < 768px) {
+      width: 100%;
+      padding: 0 calc(var(--ids__density) * 0.6rem);
+    }
+  }
   &.L {
     width: 85%;
 

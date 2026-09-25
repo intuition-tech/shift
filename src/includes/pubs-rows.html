@@ -11,6 +11,7 @@
   data-collections="{{ pub.collections | join(',') }}"
   data-new="{{ '1' if pub.isNew else '0' }}"
 >
+  {#- Ссылка названия накрывает всю строку псевдоэлементом (см. pubs.css) -#}
   <td class="ids__pubs--title">
     {%- if pub.status == 'external' %}
     <a href="{{ pub.externalUrl }}" target="_blank" rel="noopener">{{ pub.title }} ↗</a>
@@ -21,7 +22,9 @@
     {%- endif %}
   </td>
   <td class="ids__pubs--authors">
-    {%- for a in pub.authors %}{{ authors[a].name }}{% if not loop.last %}, {% endif %}{% endfor -%}
+    {%- for a in pub.authors %}
+    <a class="ids__pubs--author" href="{{ prefix }}/publications/?author={{ a }}">{{ authors[a].name }}</a>
+    {%- endfor %}
   </td>
   <td class="ids__pubs--date">{{ pub.date | shortDate }}</td>
 </tr>

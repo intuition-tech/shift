@@ -121,6 +121,20 @@
     for (const link of document.querySelectorAll("header [data-nav-group]")) {
       link.classList.toggle("active", (link.dataset.navGroup || null) === state.group);
     }
+    updateHeading(state);
+  }
+
+  // h1 повторяет пункт меню: текст берём из хедера — локализацию знает шаблон
+  function updateHeading(state) {
+    const h1 = document.querySelector(".ids__pubs--h1");
+    if (!h1) return;
+    if (!h1.dataset.default) h1.dataset.default = h1.textContent;
+    let text = h1.dataset.default;
+    if (state.group) {
+      const link = document.querySelector(`header [data-nav-group="${state.group}"]`);
+      if (link) text = (link.querySelector(".nav-label-full") || link).textContent.trim();
+    }
+    h1.textContent = text;
   }
 
   let state = readState();

@@ -169,7 +169,7 @@ export default {
   "katya-litvin": {
     "slug": "katya-litvin",
     "name": "Katya Litvin",
-    "photo": null
+    "photo": "/images/authors/katya-litvin.jpg"
   },
   "katya-maksimova": {
     "slug": "katya-maksimova",

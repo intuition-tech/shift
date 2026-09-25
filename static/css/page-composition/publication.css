@@ -7,14 +7,27 @@
 .publication {
   width: 60%;
   position: relative;
+
+  /* На мобильных оглавления нет, колонка — на всю ширину
+     с минимальными паддингами как у хедера */
+  @media (width < 768px) {
+    width: 100%;
+    padding: 0 0.8em;
+    box-sizing: border-box;
+  }
 }
 
+/* Оглавление — в левом поле, начинается с верха статьи (= верх h1),
+   внутри слота ids-navbar прижат к основной колонке.
+   Крайний паддинг — как у хедера */
 .publication__nav {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -33.4%;
   width: 33.4%;
+  padding-left: 1rem;
+  box-sizing: border-box;
 
   @media (width < 768px) {
     display: none;

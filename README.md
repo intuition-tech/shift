@@ -36,7 +36,7 @@ site/                # результат сборки (в гитигноре)
 - `settings.css` — @font-face старых шрифтов и рампа со старыми числами;
 - `components/ids.css` — типографика по старым кеглям (h1 3.23em/650, h2 2.5em/570, `h2.h3`, `h2.special`, списки, таблицы, `aside`, `figcaption`, `.lead`, `.ids__description`, `.ids__table-wrapper`);
 - новые локальные компоненты: `components/media.css` (`.ids__media`, `.ids__media-group`), `components/no-yes.css` (`.ids__no-yes`, `.ids__billet`), `components/note.css` (`.ids__with-note`, `.ids__note` — сноска на полях), `components/video.css` (`.ids__video`, iframe или `<video>`), `components/report.css` (`.ids__report-header`, `.ids__portraits` — отчёты Meme Park), `components/color-palette.css` (`.ids__color-palette`, `.ids__copy`, `.ids__icon-set` — копирование цвета/SVG, JS в `js/copy.js`), `components/checklist.css` (`.ids__checklist`), `components/slide.css` (`.ids__slide`, `.ids__slide-pair`), `components/download.css` (`.ids__download`, JS в `js/download.js`), `components/compare.css` (`.ids__compare`, JS в `js/compare.js`), `components/style-guide.css` (витрина); модификаторы `.ids__sequence` — `.no-wrap`, `.tight`, `.labels` в `page-composition/layout.css`; `gallery.css` — превью 8em как в старых отчётах;
-- `components/navbar.css` — `ids-navbar` перестилен под оглавление публикации (sticky слева, скрыт < 768px); композиция колонки публикации (`.publication`, `.publication__nav`) — локальный `page-composition/publication.css`;
+- `components/navbar.css` — `ids-navbar` — оглавление публикации в правом поле (sticky, начинается от первого заголовка в оглавлении — позицию ставит `js/navbar.js`; плашка текущего пункта и ховер — как в ванильной IDS; скрыт < 768px); композиция колонки публикации (`.publication`, `.publication__nav`) — локальный `page-composition/publication.css`;
 - стрелки «НЕТ/ДА» — `static/images/no-yes/`.
 
 Внимание: нативный CSS-нестинг не умеет Sass-конкатенацию `&--mod` — модификаторы с длинными суффиксами пишутся полными селекторами (см. `no-yes.css`).
@@ -63,7 +63,7 @@ site/                # результат сборки (в гитигноре)
 
 ### Главная и /publications/
 
-Главная — не то же, что «Все публикации»: сначала новые публикации (`isNew` — болдом), затем сетка промоблоков (подборки + рынок MENA; конфиг с колонками, цветами и описаниями — `src/data/promo.js`, счётчики считаются на сборке), затем остальная таблица. Фильтров на главной нет.
+Главная — не то же, что «Все публикации»: крупный поиск, блок «Новое» (`isNew`; строки визуально не отличаются — новизну показывает заголовок блока), кнопка-ссылка «Все публикации» (`a.ids__button`), затем сетка промоблоков в широком враппере `.ids__wrapper.XL` (подборки + рынок MENA; конфиг с колонками, цветами и описаниями — `src/data/promo.js`, счётчики считаются на сборке). Полной таблицы на главной нет, фильтров тоже.
 
 Полная таблица живёт на `/publications/`: все публикации по дате, фильтрация (автор, рынок, команда, область, подборка, новизна) и группировка (рынки, команды, подборки — ссылки в хедере) — `static/js/pubs-table.js`; состояние целиком в URL (`/publications/?market=russia`, `/publications/?group=teams&area=smm`), над таблицей — чип активного фильтра со сбросом. Контролов фильтрации нет: фильтр включается тегами на страницах публикаций (мета-блок `pub-meta.html` под h1) и ссылками. Активный пункт хедера — болдом (ставит `pubs-table.js`). Компоненты — `components/pubs.css`, `components/pub-meta.css`, `components/promo-grid.css`, образцы на `/design-system/`.
 

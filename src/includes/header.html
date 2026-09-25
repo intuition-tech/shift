@@ -8,19 +8,19 @@
     <nav class="nav-item nav-sections">
       {%- set prefix = '/en' if lang == 'en' else '' %}
       {%- if lang == 'ru' %}
-      <a href="{{ prefix }}/publications/" data-nav-group="">Все публикации</a>
+      <a href="{{ prefix }}/publications/" data-nav-group=""><span class="nav-label-full">Все публикации</span><span class="nav-label-short">Всё</span></a>
       <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Рынки</a>
       <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Команды</a>
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Подборки</a>
       {%- else %}
-      <a href="{{ prefix }}/publications/" data-nav-group="">All publications</a>
+      <a href="{{ prefix }}/publications/" data-nav-group=""><span class="nav-label-full">All publications</span><span class="nav-label-short">All</span></a>
       <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Markets</a>
       <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Teams</a>
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Collections</a>
       {%- endif %}
-      {#- Служебная ссылка: только при локальной разработке -#}
+      {#- Служебная ссылка: только при локальной разработке, не на мобильных -#}
       {%- if isDev %}
-      <a href="{{ prefix }}/design-system/">{{ 'Дизайн-система' if lang == 'ru' else 'Design system' }}</a>
+      <a class="nav-dev" href="{{ prefix }}/design-system/">{{ 'Дизайн-система' if lang == 'ru' else 'Design system' }}</a>
       {%- endif %}
     </nav>
     {#- Поиск на внутренних страницах; на главной вместо него

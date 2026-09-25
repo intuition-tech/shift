@@ -1,23 +1,51 @@
-/* Оглавление публикации: ids-navbar в колонке слева от текста.
-   Вид — со старого сайта (.guide-nav): sticky, мелкий кегль, без подчёркиваний. */
+/* Оглавление публикации: ids-navbar в левом поле от текста.
+   Sticky, мелкий кегль. Текущий пункт обрамляет рамка-индикатор,
+   которая едет между пунктами по мере скролла (геометрию считает
+   js/navbar.js — перенос nav-indicator с arutyunov.info). */
 
 .ids__navbar {
   display: block;
   position: sticky;
   /* отступ прилипания = высота фиксированного хедера */
   top: 4rem;
-  /* выравнивание первой строки по верху h1 (кап-высота крупного кегля) */
-  padding: 0 1.2em 0 0;
-  font-size: 0.8em;
+  padding: 0 2.5em 0 0;
+  font-size: 0.7em;
+  /* Ширина — по самому длинному пункту; прижат к основной колонке,
+     а не к краю экрана */
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 0.6rem;
 
   @media (width < 768px) {
     display: none;
   }
 }
 
+/* Рамка-индикатор: поля вокруг текста пункта задаются её padding
+   (скрипт читает их и вычитает из координат, на бокс они не влияют) */
+.ids__navbar .ids__navbar-indicator {
+  position: absolute;
+  box-sizing: border-box;
+  padding: calc(0.1em + 0.1rem) calc(0.35em + 0.1rem);
+  border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__link) 20%, transparent);
+  border-radius: var(--ids__radius-m);
+  pointer-events: none;
+  transition: border-color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+/* По ховеру на любой пункт рамка красится синхронно с ним */
+.ids__navbar:has(ul li a:hover) .ids__navbar-indicator {
+  border-color: color-mix(in srgb, var(--ids__hover) 20%, transparent);
+  transition: none;
+}
+
 .ids__navbar ul {
   margin: 0;
   padding: 0;
+  /* Как в ванилле: список сжимается по самому длинному пункту,
+     плашка не растягивается на всё поле */
+  width: fit-content;
+  max-width: 100%;
 }
 
 .ids__navbar ul li {
@@ -31,10 +59,13 @@
 
   & a {
     display: block;
+    /* Бокс ссылки — по своему тексту: рамка-индикатор меряет его
+       и потому меняет ширину от пункта к пункту */
+    width: fit-content;
     font-size: 0.9em;
-    color: color-mix(in srgb, var(--ids__text) 80%, transparent);
+    color: color-mix(in srgb, var(--ids__text) 65%, transparent);
     text-decoration: none;
-    margin-bottom: 0.9em;
+    margin-bottom: 0.55em;
 
     &:hover {
       color: var(--ids__hover);

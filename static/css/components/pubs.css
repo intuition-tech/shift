@@ -1,5 +1,6 @@
-/* Таблица публикаций на главной: все публикации по дате (новое сверху),
-   «новые» выделены болдом, как непрочитанные письма. Фильтрация и группировка —
+/* Таблица публикаций на главной: все публикации по дате (новое сверху).
+   Новые визуально не отличаются — у них свой блок на главной
+   (isNew живёт в данных и фильтре ?new). Фильтрация и группировка —
    static/js/pubs-table.js, состояние в URL (?market=…, ?group=markets…).
    Над таблицей — чип активного фильтра со сбросом. */
 
@@ -11,59 +12,125 @@
   width: 100%;
 }
 
-/* Одинаковые ширины колонок в обеих таблицах главной */
-.ids .ids__pubs--authors {
-  width: 32%;
+/* Одинаковые ширины колонок в обеих таблицах главной;
+   дата — ровно по содержимому (width 1% + nowrap), остальное — авторам */
+.ids .ids__pubs--title {
+  width: 35%;
 }
 
-.ids .ids__pubs thead th.ids__pubs--date,
 .ids .ids__pubs td.ids__pubs--date {
-  width: 6.5em;
+  width: 1%;
   text-align: right;
   padding-right: 0;
 }
 
 .ids .ids__pubs td {
   padding: 0.55em 1em 0.55em 0;
-  border-top: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 12%, transparent);
+  /* Одна тонкая светлая линейка снизу (перебивает бордер из ids.css —
+     иначе бордеры складывались в двойную толщину) */
+  border-bottom: var(--ids__border-width-s) solid var(--ids__border);
   vertical-align: baseline;
 }
 
-.ids .ids__pubs tr:first-child td {
-  border-top: none;
+/* Ссылкой работает вся строка: псевдоэлемент ссылки названия накрывает tr.
+   Пилюли авторов лежат выше (position: relative) и кликабельны сами по себе */
+.ids .ids__pubs--row {
+  position: relative;
 }
 
 .ids .ids__pubs--title a {
   text-decoration: none;
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-.ids .ids__pubs--title a:hover {
-  color: var(--ids__hover);
+.ids .ids__pubs--title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
-/* «Новое» — вся строка болдом, как непрочитанное письмо в инбоксе */
-.ids .ids__pubs--row.new {
-  font-weight: 650;
-}
-
-.ids .ids__pubs--authors {
+/* Авторы — пилюли как в мета-блоке публикации, но компактнее:
+   кегль на два шага мельче, паддинги в em ужимаются вместе с ним.
+   Набираются строчками с переносом, как в мета-блоке. */
+.ids .ids__pubs--author {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 0.8em;
+  padding: 0.3em 0.85em;
+  margin: 0.12em 0.2em 0.12em 0;
+  background: var(--ids__surface);
+  border-radius: 100em;
+  text-decoration: none;
   color: var(--ids__caption);
+  transition:
+    color var(--ids__duration-base) var(--ids__easing-base),
+    background-color var(--ids__duration-base) var(--ids__easing-base);
 }
 
+/* Затемнение собственного ховера пилюли — отдельным слоем: только так
+   и вход в ховер строки, и вход в ховер пилюли получаются мгновенными,
+   а оба выхода — плавными (у одного состояния не может быть двух длительностей) */
+.ids .ids__pubs--author::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--ids__hover) 9%, transparent);
+  opacity: 0;
+  transition: opacity var(--ids__duration-base) var(--ids__easing-base);
+}
+
+/* Дата — тем же кеглем, что пилюли авторов, по общей базовой линии
+   (vertical-align: baseline у ячеек) */
 .ids .ids__pubs td.ids__pubs--date {
+  font-size: 0.8em;
   color: var(--ids__caption);
   white-space: nowrap;
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-/* Строка-подзаголовок группы (рынок, команда, подборка) */
+/* Ховер строки перекрашивает всё содержимое, включая пилюли (фон светлее);
+   ховер самой пилюли — фон чуть темнее.
+   Паттерн анимации везде один: ховер мгновенно, расховер 0.3s ease.
+   Мгновенная длительность — только на собственном ховере элемента,
+   иначе пилюля теряла свой ховер мгновенно, пока курсор оставался в строке */
+.ids .ids__pubs--row:hover .ids__pubs--title a,
+.ids .ids__pubs--row:hover td.ids__pubs--date {
+  color: var(--ids__hover);
+  transition-duration: var(--ids__duration-instant);
+}
+
+.ids .ids__pubs--row:hover .ids__pubs--author {
+  color: var(--ids__hover);
+  background: color-mix(in srgb, var(--ids__hover) 8%, transparent);
+  transition-duration: var(--ids__duration-instant);
+}
+
+.ids .ids__pubs--author:hover::after {
+  opacity: 1;
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Строка-подзаголовок группы (рынок, команда, подборка; «Новое» на главной) */
 .ids .ids__pubs--group th {
-  padding: 2.2em 0 0.5em;
-  font-size: 1.25em;
-  font-weight: 570;
+  padding: 1.8em 0 0.25em;
+  font-family: var(--shift__description-font);
+  font-weight: 200;
+  font-size: 1.7em;
+  /* Линейка под заголовком темнее и толще, чем между строчками */
+  border-bottom: var(--ids__border-width-m) solid var(--ids__caption);
 }
 
 .ids .ids__pubs tbody tr:first-child.ids__pubs--group th {
-  padding-top: 0.5em;
+  padding-top: 0;
+}
+
+/* Перед заголовком группы линейка предыдущей строки не нужна */
+.ids .ids__pubs tr:has(+ .ids__pubs--group) td {
+  border-bottom: none;
 }
 
 /* Тулбар над таблицей: чип активного фильтра */
@@ -101,8 +168,3 @@
   color: var(--ids__hover);
 }
 
-@media (width < 768px) {
-  .ids .ids__pubs--authors {
-    display: none;
-  }
-}

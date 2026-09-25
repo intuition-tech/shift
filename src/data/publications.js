@@ -705,7 +705,7 @@ export default [
   },
   {
     "slug": "meme-park-S01",
-    "title": "Проекты первого сезона: Kids Pizza Academy Indentity, Iconic Package, Dodo Font Family, Dodo Bird Character, Talking & Information Signs, Neon Signs, Package (Eurasia).",
+    "title": "Dodo Global Meme Park, Season 01",
     "titleEn": "Dodo Global Meme Park, Season 01",
     "date": "2024-12-18",
     "authors": [],
@@ -725,7 +725,7 @@ export default [
   },
   {
     "slug": "meme-park-S02",
-    "title": "Проекты второго сезона: Brand Messages, Dodo Bird Character, App Promo Campaign, Package (Dubai), Dodo Pizza Identity (Global), Dodo Bird Toy, Dodo Bird Mascot, Preopenning Websites, Brand Messages Posters, Neon Signs, Pizza Store Signage Full Kit, Dodo Font Family, Quality Statement, Dodo Pizza Brandbook.",
+    "title": "Dodo Global Meme Park, Season 02",
     "titleEn": "Dodo Global Meme Park, Season 02",
     "date": "2024-12-18",
     "authors": [],
@@ -745,7 +745,7 @@ export default [
   },
   {
     "slug": "meme-park-S03",
-    "title": "Проекты третьего сезона: Dodo Bird Character, Preopenning Websites, Kids Pizza Academy Merch Store, Uniform (Dubai), Brand Memes Library, Dodo Pizza Identity (Dubai), Brand Messages Posters, Dodo Pizza Brandbook, Mobile App Splash Screen.",
+    "title": "Dodo Global Meme Park, Season 03",
     "titleEn": "Dodo Global Meme Park, Season 03",
     "date": "2024-12-18",
     "authors": [],
@@ -765,7 +765,7 @@ export default [
   },
   {
     "slug": "meme-park-S04",
-    "title": "Проекты четвёртого сезона: HR Courier Promo, Preopening (Eurasia), Principles of Care, Brand Messages Posters, Dodo Zine, HR Image Promo, Brandbook Design Section, Dodo History Timeline, Myasnitskaya Interior Signs.",
+    "title": "Dodo Global Meme Park, Season 04",
     "titleEn": "Dodo Global Meme Park, Season 04",
     "date": "2024-12-18",
     "authors": [],
@@ -785,7 +785,7 @@ export default [
   },
   {
     "slug": "meme-park-S05",
-    "title": "Проекты пятого сезона: Myasnitskaya Interior Signs, Small Cities Interior Signs, History Timeline, Viral Things, Quality Control Sticker, Tone of Voice, Dodo Mealbox.",
+    "title": "Dodo Global Meme Park, Season 05",
     "titleEn": "Dodo Global Meme Park, Season 05",
     "date": "2024-12-18",
     "authors": [],
