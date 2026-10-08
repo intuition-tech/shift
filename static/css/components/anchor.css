@@ -1,0 +1,115 @@
+/* Ссылка на любое место публикации. У блоков тела статьи (заголовки, абзацы,
+   списки, иллюстрации, таблицы…) по ховеру в левом поле появляется иконка-цепь;
+   клик копирует URL с якорем на этот блок, переход по такому URL обводит
+   угол блока оранжевым маркером. id блокам раздаёт js/anchor.js по хэшу содержимого
+   (стабильны между сборками, меняются только при правке самого блока).
+   Иконка одна на статью — скрипт переставляет её к блоку под курсором.
+
+   Появление — с задержкой, не транзишеном (полсекунды держит скрипт;
+   иконка не должна мигать при пролёте курсора по тексту), исчезновение —
+   плавно. Осознанное исключение из общего паттерна «ховер мгновенно». */
+
+.ids .ids__anchor {
+  position: absolute;
+  left: -1.55em;
+  /* Чуть выше верха блока */
+  margin-top: -0.15em;
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  /* Справа зона клика дотягивается до текста — путь курсора от блока
+     к иконке не выходит из «живой» зоны (плюс грейс-пауза в скрипте) */
+  padding: 0.15em 0.3em 0.3em 0.15em;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: var(--ids__caption);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ids__duration-base) var(--ids__easing-base);
+
+  @media (width < 768px) {
+    display: none;
+  }
+}
+
+.ids .ids__anchor.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: none;
+}
+
+.ids .ids__anchor svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Цепь чуть мельче галочки — оптически одного веса */
+.ids .ids__anchor .ids__anchor-chain {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+
+.ids .ids__anchor:hover {
+  color: var(--ids__hover);
+}
+
+/* Скопировано — на полторы секунды галочка цветом ховера */
+.ids .ids__anchor .ids__anchor-done {
+  display: none;
+}
+
+.ids .ids__anchor.done {
+  color: var(--ids__hover);
+}
+
+.ids .ids__anchor.done .ids__anchor-chain {
+  display: none;
+}
+
+.ids .ids__anchor.done .ids__anchor-done {
+  display: block;
+}
+
+/* Блок, к которому пришли по ссылке: оранжевый «маркер» обводит его левый
+   верхний угол рукописным эллипсом (SVG рисует js/anchor.js — после того,
+   как страница доскроллила): линия не спеша прорисовывается, затем быстро
+   уходит в том же направлении. Размер и пропорции — в скрипте
+   (половина ширины колонки, 4:3), толщина и цвет — здесь */
+.ids .ids__anchor-mark {
+  position: absolute;
+  /* Поверх фиксированного хедера (у него 12) */
+  z-index: 13;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ids .ids__anchor-mark path {
+  fill: none;
+  stroke: var(--shift__brand);
+  stroke-width: 0.3em;
+  stroke-linecap: round;
+}
+
+/* Якоря не прилипают к верху окна (под фиксированным хедером) */
+.ids [data-anchored] {
+  scroll-margin-top: 5em;
+}
+
+/* Служебный live-регион для скринридеров */
+.ids .ids__anchor-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

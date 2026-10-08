@@ -72,12 +72,14 @@
   content: "";
   display: inline-block;
   /* чуть свешивается под базовую линию */
-  vertical-align: -0.06em;
+  vertical-align: -0.11em;
   width: 0.85em;
   height: 0.85em;
   margin-right: -0.85em;
   background: no-repeat center / contain;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23050505' stroke-opacity='.45' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='6.5' cy='6.5' r='5'/%3E%3Cpath d='M10.3 10.3 15 15'/%3E%3C/svg%3E");
+  /* Штрих непрозрачный серый (= --ids__caption, в data-URI токен не подставить):
+     полупрозрачный давал тёмную точку там, где ручка ложится на кружок */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23878fa0' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='6.5' cy='6.5' r='5'/%3E%3Cpath d='M10.3 10.3 15 15'/%3E%3C/svg%3E");
   opacity: 0;
   transition: opacity var(--ids__duration-base);
 }

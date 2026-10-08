@@ -7,19 +7,22 @@ body.ids {
   margin: 0 auto;
 }
 
-/* Хедер: фиксированный, с градиентом-подложкой */
+/* Хедер: фиксированный, с градиентом-подложкой. Подложка ниже самого
+   содержимого (нижний паддинг), чтобы контент при скролле не слипался
+   с меню: плотная часть до ~60%, хвост до низа */
 
 header {
   position: fixed;
   max-width: 1600px;
   width: 100%;
   z-index: 12;
-  padding: 0.48em 1em 0.5em;
+  box-sizing: border-box;
+  padding: 0.6em 0.65em 1.9em;
   background: linear-gradient(
     180deg,
-    var(--ids__background) 71%,
-    color-mix(in srgb, var(--ids__background) 50%, transparent) 83%,
-    color-mix(in srgb, var(--ids__background) 1%, transparent) 92%
+    var(--ids__background) 52%,
+    color-mix(in srgb, var(--ids__background) 50%, transparent) 74%,
+    color-mix(in srgb, var(--ids__background) 1%, transparent) 100%
   );
 
   @media (width < 768px) {
@@ -42,12 +45,14 @@ header {
 
   & .logo {
     text-decoration: none;
-    margin-top: 0.3em;
+    /* Логотип крупный (≈ как на старом сайте), меню и остальное
+       выравниваются с ним оптически, не по базовой линии */
+    margin-top: 0.05em;
 
     & svg {
-      /* Вьюбокс подогнан под контент (133 × 42), высота 1.1 → ширина по пропорции */
-      width: 3.48em;
-      height: 1.1em;
+      /* Вьюбокс подогнан под контент (133 × 42), высота 1.55 → ширина по пропорции */
+      width: 4.9em;
+      height: 1.55em;
 
       & path {
         fill: var(--ids__text);
@@ -71,8 +76,8 @@ header {
   font-size: 0.8em;
   /* Базовая линия — на линии логотипа (всё от margin-top логотипа) */
   margin-top: 0.4em;
-  /* Зазор до логотипа = гэпу между пунктами */
-  margin-left: 1.2em;
+  /* Зазор до логотипа — в полтора гэпа между пунктами */
+  margin-left: 1.8em;
   margin-right: auto;
 
   & a {
@@ -173,6 +178,12 @@ main {
     margin: 0 0.4em;
     text-decoration: none;
   }
+}
+
+/* Контакты внизу главной */
+
+.ids .contacts {
+  margin: 0;
 }
 
 /* Футер */

@@ -3,15 +3,26 @@ title: Все публикации — Shift
 titleEn: All publications — Shift
 searchIndex: false
 ---
-{#- Полная таблица публикаций из src/data/publications.js: дата по убыванию,
-    «новые» болдом. Фильтрация и группировка — static/js/pubs-table.js поверх
-    data-атрибутов строк; состояние целиком в URL (?market=…, ?group=markets…).
-    JSON-остров ниже отдаёт скрипту локализованные имена — язык знает только шаблон. -#}
+{#- Полная таблица публикаций из src/data/publications.js: дата по убыванию.
+    Фильтрация и группировка — static/js/pubs-table.js поверх data-атрибутов строк;
+    состояние целиком в URL (?market=…, ?group=markets…). Под h1 — теги-фильтры
+    (рынки и команды): обычные ссылки, скрипт перехватывает клик и подсвечивает активный.
+    JSON-остров ниже отдаёт скрипту локализованные имена — язык знает только шаблон.
+    Пины (data-pins="separate") — отдельной табличкой перед основной. -#}
+{%- set prefix = '/en' if lang == 'en' else '' -%}
 <div class="ids__space XL"></div>
 <div class="ids__wrapper">
   {#- Заголовок повторяет пункт меню; при ?group= его меняет pubs-table.js -#}
   <h1 class="ids__pubs--h1">{% if lang == 'ru' %}Все публикации{% else %}All publications{% endif %}</h1>
-  <div class="ids__pubs">
+  <nav class="ids__pubs--tags" aria-label="{% if lang == 'ru' %}Фильтры{% else %}Filters{% endif %}">
+    {%- for t in taxonomy.markets %}
+    <a class="ids__pubs--tag" href="{{ prefix }}/publications/?market={{ t.slug }}" data-dim="market" data-value="{{ t.slug }}" aria-pressed="false">{{ t.en if lang == 'en' else t.ru }}</a>
+    {%- endfor %}
+    {%- for t in taxonomy.teams %}
+    <a class="ids__pubs--tag" href="{{ prefix }}/publications/?team={{ t.slug }}" data-dim="team" data-value="{{ t.slug }}" aria-pressed="false">{{ t.en if lang == 'en' else t.ru }}</a>
+    {%- endfor %}
+  </nav>
+  <div class="ids__pubs" data-pins="separate">
     <div class="ids__pubs--toolbar" hidden></div>
     <table>
       <tbody>
@@ -87,3 +98,5 @@ searchIndex: false
   }
 }
 </script>
+{#- Сразу после таблицы и JSON-острова, а не в конце страницы: пины и фильтр встают на место до первой отрисовки -#}
+<script src="/js/pubs-table.js"></script>

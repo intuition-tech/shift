@@ -1,7 +1,9 @@
 /* Мета-блок публикации под h1: дата и теги (авторы, рынок, команда,
    предметная область, подборка). Каждый тег — ссылка на главную с фильтром
-   по себе. Контактное лицо — с фото и пометкой «контакт».
-   Разметка — src/includes/pub-meta.html, данные — src/data/publications.js. */
+   по себе. Ответственный за публикацию — с пометкой «Оунер».
+   Разметка — src/includes/pub-meta.html, данные — src/data/publications.js.
+   Те же пилюли (фон, ховер, транзишены) — у тегов-фильтров на /publications/
+   (pubs.css, .ids__pubs--tag). */
 
 .ids .ids__pub-meta {
   display: flex;
@@ -12,12 +14,20 @@
   font-size: 0.75em;
 }
 
+/* Фон пилюль — светлее поверхности; контур даты — заметно светлее линеек */
+:root {
+  --ids__pill-background: color-mix(in srgb, var(--ids__surface) 65%, var(--ids__background));
+  --ids__pill-border: color-mix(in srgb, var(--ids__border) 45%, var(--ids__background));
+}
+
 /* Дата — пилюля тех же габаритов, что теги, но контурная, без заливки */
 .ids .ids__pub-meta--date {
   display: inline-flex;
   align-items: center;
   padding: 0.3em 0.85em;
-  border: var(--ids__border-width-s) solid var(--ids__border);
+  min-height: 1.6em;
+  box-sizing: content-box;
+  border: var(--ids__border-width-s) solid var(--ids__pill-border);
   border-radius: 100em;
   color: var(--ids__caption);
 }
@@ -27,7 +37,10 @@
   align-items: center;
   gap: 0.45em;
   padding: 0.3em 0.85em;
-  background: var(--ids__surface);
+  /* Одна высота у тегов с фото и без: фото 1.6em выше строки текста */
+  min-height: 1.6em;
+  box-sizing: content-box;
+  background: var(--ids__pill-background);
   border-radius: 100em;
   text-decoration: none;
   color: var(--ids__text);
@@ -57,7 +70,14 @@
   transition-duration: var(--ids__duration-instant);
 }
 
+/* «Оунер» — тем же кеглем, что имя, серым; по ховеру — ховер-цвет
+   с прозрачностью, тем же паттерном */
 .ids .ids__pub-meta--contact-label {
   color: var(--ids__caption);
-  font-size: 0.85em;
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pub-meta--tag:hover .ids__pub-meta--contact-label {
+  color: color-mix(in srgb, var(--ids__hover) 55%, transparent);
+  transition-duration: var(--ids__duration-instant);
 }

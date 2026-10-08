@@ -533,32 +533,40 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code><br /><code>.ids__pubs--author</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--chip</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code><br /><code>.ids__pubs--author</code><br /><code>.ids__pubs--pin</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--tags</code> <code>.ids__pubs--tag</code> <code>.active</code><br /><code>.ids__pubs--chip</code></span>
         <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Живёт на главной, данные — <code>src/data/publications.js</code>, фильтрация и группировка — <code>js/pubs-table.js</code>, состояние в URL. Ссылкой работает вся строка, пилюли авторов кликабельны отдельно.</p>
+        <p class="subdued">Главная (последняя строка «Новое» — ссылка «Все публикации», оформлена строкой) и <code>/publications/</code>, данные — <code>src/data/publications.js</code>, поведение — <code>js/pubs-table.js</code>: ссылкой работает вся строка (по клику, не оверлеем — Safari), авторы — текстом через запятую, каждое имя кликабельно отдельно; булавка по ховеру строки — личный пин читателя (localStorage), закреплённые собираются копиями в группу «Всегда под рукой» (на главной — в той же таблице перед «Новым», на <code>/publications/</code> — отдельной табличкой, а у основной появляется заголовок «Всё-всё-всё»), исходная строка остаётся на месте. Образец живой — пины работают. Теги под h1 (рынки и команды) фильтруют таблицу, активный — с крестиком; чип над таблицей — для фильтров без тега (автор, область).</p>
+        <nav class="ids__pubs--tags" aria-label="Фильтры">
+          <a class="ids__pubs--tag active" href="#components" aria-pressed="true">Россия<span class="ids__pubs--tag-reset" aria-hidden="true">×</span></a>
+          <a class="ids__pubs--tag" href="#components">Евразия</a>
+          <a class="ids__pubs--tag" href="#components">ОАЭ</a>
+          <a class="ids__pubs--tag" href="#components">Бренд-дизайн</a>
+          <a class="ids__pubs--tag" href="#components">Диджитал</a>
+        </nav>
         <div class="ids__pubs">
           <div class="ids__pubs--toolbar">
-            <span class="ids__pubs--chip">Рынок: Россия <button class="ids__pubs--chip-reset" type="button">×</button></span>
+            <span class="ids__pubs--chip">Автор: Katya Maksimova <button class="ids__pubs--chip-reset" type="button">×</button></span>
           </div>
           <table>
             <tbody>
-              <tr class="ids__pubs--group"><th colspan="3">Россия</th></tr>
-              <tr class="ids__pubs--row">
-                <td class="ids__pubs--title"><a href="#components">СМС</a></td>
+              <tr class="ids__pubs--group"><th colspan="4">Россия</th></tr>
+              <tr class="ids__pubs--row" data-slug="sms" data-href="/sms/">
+                <td class="ids__pubs--title"><a href="/sms/">СМС</a></td>
                 <td class="ids__pubs--authors">
                   <a class="ids__pubs--author" href="#components">Katya Maksimova</a>
                 </td>
                 <td class="ids__pubs--date">21.05.2025</td>
+                <td class="ids__pubs--pin-cell"><button class="ids__pubs--pin" type="button" aria-pressed="false" aria-label="Закрепить: СМС" data-label-pin="Закрепить" data-label-unpin="Снять с закрепления">{% include "pin-icon.svg" %}</button></td>
               </tr>
-              <tr class="ids__pubs--row">
-                <td class="ids__pubs--title"><a href="#components">Порядок в проектах</a></td>
+              <tr class="ids__pubs--row" data-slug="order-in-projects" data-href="/order-in-projects/">
+                <td class="ids__pubs--title"><a href="/order-in-projects/">Порядок в проектах</a></td>
                 <td class="ids__pubs--authors">
-                  <a class="ids__pubs--author" href="#components">Dmitry Tumanov</a>
-                  <a class="ids__pubs--author" href="#components">Evgeny Revenko</a>
+                  <a class="ids__pubs--author" href="#components">Dmitry Tumanov</a>, <a class="ids__pubs--author" href="#components">Evgeny Revenko</a>
                 </td>
                 <td class="ids__pubs--date">12.12.2024</td>
+                <td class="ids__pubs--pin-cell"><button class="ids__pubs--pin" type="button" aria-pressed="false" aria-label="Закрепить: Порядок в проектах" data-label-pin="Закрепить" data-label-unpin="Снять с закрепления">{% include "pin-icon.svg" %}</button></td>
               </tr>
             </tbody>
           </table>
@@ -569,11 +577,16 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>a.ids__button</code></span>
-        <span class="guide-tokens__row-value">--ids__border<br />--ids__radius-s</span>
+        <span class="guide-tokens__row-label"><code>.ids__anchor</code> <code>.visible .done</code><br /><code>[data-anchored]</code><br /><code>.ids__anchor-mark</code></span>
+        <span class="guide-tokens__row-value">--ids__caption<br />--ids__hover<br />--shift__brand</span>
       </div>
       <div class="guide-component__sample">
-        <a class="ids__button" href="#components">Все публикации</a>
+        <p class="subdued">Ссылка на любое место публикации (<code>js/anchor.js</code>): блокам тела статьи раздаются id по хэшу содержимого, по ховеру на блок через полсекунды (задержка, не транзишен) слева появляется иконка-цепь, клик копирует URL с якорем; переход по нему (после доскролла) обводит левый верхний угол блока оранжевым «маркером» — рукописным эллипсом в половину колонки, 3:2, прорисовка через dashoffset, потом быстрое исчезновение в ту же сторону. На этой странице тоже живёт — наведите на любой абзац.</p>
+        <div style="position: relative; padding-left: 2.4em">
+          <button class="ids__anchor visible" type="button" style="left: 0" aria-label="Скопировать ссылку на это место"><svg class="ids__anchor-chain" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+          <p id="anchor-mark-demo">Единая структура в папках, названиях файлов и в слоях помогает проще ориентироваться в проекте, передавать макеты внутри команды и партнёрам.</p>
+        </div>
+        <p><a href="#anchor-mark-demo" onclick="event.preventDefault(); window.shiftAnchorMark(document.getElementById('anchor-mark-demo'))">Показать маркер</a></p>
       </div>
     </div>
     <div class="ids__space L"></div>
@@ -615,10 +628,10 @@ searchIndex: false
         <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; контактное лицо — с фото и пометкой.</p>
+        <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; ответственный за публикацию — с пометкой «Оунер». Теги с фото и без — одной высоты; фон пилюль — осветлённая поверхность (--ids__pill-background), контур даты светлее линеек.</p>
         <div class="ids__pub-meta">
           <span class="ids__pub-meta--date">21 мая 2025</span>
-          <a class="ids__pub-meta--tag contact" href="#components"><img class="ids__pub-meta--photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">контакт</span></a>
+          <a class="ids__pub-meta--tag contact" href="#components"><img class="ids__pub-meta--photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
           <a class="ids__pub-meta--tag" href="#components">Россия</a>
           <a class="ids__pub-meta--tag" href="#components">Каналы и носители</a>
         </div>
@@ -632,7 +645,7 @@ searchIndex: false
         <span class="guide-tokens__row-value">--ids__text<br />--ids__hover</span>
       </div>
       <div class="guide-component__sample">
-        <p>Строится автоматически из <code>&lt;ids-nav-item id label&gt;</code> на странице — образец слева от этого текста. Sticky, скрыто на мобильных.</p>
+        <p>Строится автоматически из <code>&lt;ids-nav-item id label&gt;</code> на странице — образец слева от этого текста. Sticky, скрыто на мобильных. Слева от текущего пункта — черта-индикатор (<code>.ids__navbar-indicator</code>, <code>js/navbar.js</code>): едет между пунктами по скроллу, по клику перелетает к пункту, по ховеру на пункт красится; тот же пункт получает класс <code>current</code> — источник истины один.</p>
       </div>
     </div>
   </ids-nav-item>
@@ -640,3 +653,4 @@ searchIndex: false
   <div class="ids__space L"></div>
 </article>
 <script src="/js/tokens-dump.js"></script>
+<script src="/js/pubs-table.js"></script>

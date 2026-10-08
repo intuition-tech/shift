@@ -1,9 +1,15 @@
 {#- Строки таблицы публикаций для списка pubsList (задаётся перед инклюдом).
-    data-атрибуты читает static/js/pubs-table.js на /publications/. -#}
+    data-атрибуты читает static/js/pubs-table.js: фильтры и группировка на /publications/,
+    ссылка-строка и пины — везде. data-href — адрес перехода по клику в строку
+    (не по пилюле и не по булавке), data-slug — ключ пина в localStorage. -#}
 {%- set prefix = '/en' if lang == 'en' else '' -%}
 {%- for pub in pubsList %}
+{%- if pub.status == 'external' %}{% set pubHref = pub.externalUrl %}{% else %}{% set pubHref = prefix + '/' + pub.slug + '/' %}{% endif %}
+{%- set pubTitle = pub.titleEn if (lang == 'en' and pub.titleEn) else pub.title %}
 <tr
-  class="ids__pubs--row{% if pub.isNew %} new{% endif %}"
+  class="ids__pubs--row"
+  data-slug="{{ pub.slug }}"
+  data-href="{{ pubHref }}"
   data-authors="{{ pub.authors | join(',') }}"
   data-markets="{{ pub.markets | join(',') }}"
   data-teams="{{ pub.teams | join(',') }}"
@@ -11,21 +17,27 @@
   data-collections="{{ pub.collections | join(',') }}"
   data-new="{{ '1' if pub.isNew else '0' }}"
 >
-  {#- Ссылка названия накрывает всю строку псевдоэлементом (см. pubs.css) -#}
   <td class="ids__pubs--title">
     {%- if pub.status == 'external' %}
-    <a href="{{ pub.externalUrl }}" target="_blank" rel="noopener">{{ pub.title }} ↗</a>
-    {%- elif lang == 'en' and pub.titleEn %}
-    <a href="{{ prefix }}/{{ pub.slug }}/">{{ pub.titleEn }}</a>
+    <a href="{{ pubHref }}" target="_blank" rel="noopener">{{ pubTitle }} ↗</a>
     {%- else %}
-    <a href="{{ prefix }}/{{ pub.slug }}/">{{ pub.title }}</a>
+    <a href="{{ pubHref }}">{{ pubTitle }}</a>
     {%- endif %}
   </td>
+  {#- Авторы — обычным текстом через запятую, каждое имя — ссылка на фильтр -#}
   <td class="ids__pubs--authors">
-    {%- for a in pub.authors %}
-    <a class="ids__pubs--author" href="{{ prefix }}/publications/?author={{ a }}">{{ authors[a].name }}</a>
-    {%- endfor %}
+    {%- for a in pub.authors -%}
+    <a class="ids__pubs--author" href="{{ prefix }}/publications/?author={{ a }}">{{ authors[a].name }}</a>{% if not loop.last %}, {% endif %}
+    {%- endfor -%}
   </td>
   <td class="ids__pubs--date">{{ pub.date | shortDate }}</td>
+  {#- Булавка: личная закладка читателя (localStorage), состояние и подписи ставит pubs-table.js -#}
+  <td class="ids__pubs--pin-cell">
+    <button class="ids__pubs--pin" type="button" aria-pressed="false"
+      aria-label="{% if lang == 'ru' %}Закрепить{% else %}Pin{% endif %}: {{ pubTitle }}"
+      data-label-pin="{% if lang == 'ru' %}Закрепить{% else %}Pin{% endif %}"
+      data-label-unpin="{% if lang == 'ru' %}Снять с закрепления{% else %}Unpin{% endif %}"
+    >{% include "pin-icon.svg" %}</button>
+  </td>
 </tr>
 {%- endfor %}

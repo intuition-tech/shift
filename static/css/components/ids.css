@@ -95,7 +95,11 @@
     font-weight: 600;
   }
 
-  /* Кегли и веса заголовков — со старого сайта Shift */
+  /* Кегли и веса заголовков — со старого сайта Shift.
+     Уровни: h1 — название публикации, h2 — раздел (в оглавлении),
+     h3 — подраздел; глубже не используем. Верхнее поле заголовка заметно
+     больше нижнего — заголовок прижат к своему тексту, а не висит между
+     блоками; спейсер прямо перед заголовком схлопывается (см. ниже) */
 
   & h1 {
     font-size: 3.23em;
@@ -122,6 +126,7 @@
     font-size: 2.5em;
     font-weight: 570;
     line-height: calc(var(--ids__density) / 1.2);
+    margin-top: 1em;
     margin-bottom: 0.5em;
 
     @media (width < 768px) {
@@ -138,6 +143,7 @@
       font-size: 1.4em;
       font-weight: 570;
       line-height: calc(var(--ids__density) / 1.1);
+      margin-top: 1.4em;
       margin-bottom: 0.6em;
 
       @media (width < 768px) {
@@ -166,11 +172,25 @@
     font-size: 1.4em;
     font-weight: 570;
     line-height: calc(var(--ids__density) / 1.1);
+    margin-top: 1.4em;
     margin-bottom: 0.6em;
 
     @media (width < 768px) {
       font-size: 1.5em;
     }
+  }
+
+  /* Поле сверху у заголовка — своё: малый ручной спейсер непосредственно
+     перед заголовком или разделом схлопывается (крупные M/L/XL — остаются) */
+  & .ids__space:not(.M, .L, .XL):has(+ h2, + h3, + ids-nav-item) {
+    height: 0;
+  }
+
+  & h1 + h2,
+  & h1 + h3,
+  & .ids__pub-meta + h2,
+  & .ids__description + h2 {
+    margin-top: 0;
   }
 
   & h4 {

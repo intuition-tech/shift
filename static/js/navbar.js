@@ -71,8 +71,9 @@ class IdsNavbar extends HTMLElement {
   }
 }
 
-// TODO можно добавлять/убирать этот лисенер
-document.addEventListener("scroll", () => IdsNavbar.updateCurrent());
+// Текущий пункт по скроллу ставит индикатор ниже (один источник истины —
+// иначе тёмный текст и черта показывали разные пункты); updateCurrent
+// остаётся только для первой отрисовки при подключении элементов.
 
 class IdsNavItem extends HTMLElement {
   constructor() {
@@ -91,13 +92,14 @@ class IdsNavItem extends HTMLElement {
 window.customElements.define("ids-navbar", IdsNavbar);
 window.customElements.define("ids-nav-item", IdsNavItem);
 
-// Рамка-индикатор в оглавлении (перенос nav-indicator.js с arutyunov.info,
-// адаптация под ids-navbar). Обрамляет пункт, соответствующий текущей позиции
-// скролла, и плавно едет между пунктами пропорционально прокрутке между их
-// якорями. По клику страница подскролливается к якорю, и рамка «перелетает»
+// Черта-индикатор в оглавлении (перенос nav-indicator.js с arutyunov.info,
+// адаптация под ids-navbar). Стоит слева от пункта, соответствующего текущей
+// позиции скролла, и плавно едет между пунктами пропорционально прокрутке между
+// их якорями. По клику страница подскролливается к якорю, и черта «перелетает»
 // ровно к пункту. Отличия от исходника: пункты и якоря берутся из живого DOM
 // на каждый кадр (ids-navbar может перерендериться), позиция якоря учитывает
-// scroll-margin-top секций, рамка симметричная (учтён и padding-bottom).
+// scroll-margin-top секций; ширина не считается — черта вертикальная, её
+// ширина и отступ от текста заданы в CSS. Тот же пункт получает класс current.
 (function () {
   var navbar = document.querySelector("ids-navbar");
   if (!navbar) return;
@@ -138,7 +140,7 @@ window.customElements.define("ids-nav-item", IdsNavItem);
   function box(a) {
     var nav = navbar.getBoundingClientRect();
     var r = a.getBoundingClientRect();
-    return { top: r.top - nav.top, left: r.left - nav.left, w: r.width, h: r.height };
+    return { top: r.top - nav.top, left: r.left - nav.left, h: r.height };
   }
 
   function render() {
@@ -151,13 +153,15 @@ window.customElements.define("ids-nav-item", IdsNavItem);
     var y = window.scrollY;
     var n = items.length;
     var t;
+    var idx;
 
     if (flight) {
       var p = flight.y1 === flight.y0 ? 1 : (y - flight.y0) / (flight.y1 - flight.y0);
       p = Math.min(1, Math.max(0, p));
       var to = box(items[flight.to]);
       var k = function (q, r) { return q + (r - q) * p; };
-      t = { top: k(flight.from.top, to.top), left: k(flight.from.left, to.left), w: k(flight.from.w, to.w), h: k(flight.from.h, to.h) };
+      t = { top: k(flight.from.top, to.top), left: k(flight.from.left, to.left), h: k(flight.from.h, to.h) };
+      idx = flight.to;
       if (p >= 1) flight = null;
     } else {
       var i = 0;
@@ -170,20 +174,20 @@ window.customElements.define("ids-nav-item", IdsNavItem);
       var a = box(items[i]);
       var b = i < n - 1 ? box(items[i + 1]) : a;
       var lerp = function (q, r) { return q + (r - q) * prog; };
-      t = { top: lerp(a.top, b.top), left: lerp(a.left, b.left), w: lerp(a.w, b.w), h: lerp(a.h, b.h) };
+      t = { top: lerp(a.top, b.top), left: lerp(a.left, b.left), h: lerp(a.h, b.h) };
+      idx = prog < 0.5 ? i : Math.min(i + 1, n - 1);
     }
     current = t;
+    if (typeof navbar.setCurrent === "function") navbar.setCurrent(idx);
 
-    // Поля рамки заданы в CSS как её padding (на бокс не влияют:
-    // размеры выставляются явно), отсюда берём их уже в пикселях.
+    // Вертикальные поля черты заданы в CSS как её padding (на бокс не влияют:
+    // высота выставляется явно), отсюда берём их уже в пикселях.
     var cs = getComputedStyle(frame);
-    var px = parseFloat(cs.paddingLeft) || 0;
     var pt = parseFloat(cs.paddingTop) || 0;
     var pb = parseFloat(cs.paddingBottom) || 0;
 
     frame.style.top = t.top - pt + "px";
-    frame.style.left = t.left - px + "px";
-    frame.style.width = t.w + 2 * px + "px";
+    frame.style.left = t.left + "px";
     frame.style.height = t.h + pt + pb + "px";
   }
 

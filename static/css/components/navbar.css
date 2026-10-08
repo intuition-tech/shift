@@ -1,7 +1,7 @@
 /* Оглавление публикации: ids-navbar в левом поле от текста.
-   Sticky, мелкий кегль. Текущий пункт обрамляет рамка-индикатор,
-   которая едет между пунктами по мере скролла (геометрию считает
-   js/navbar.js — перенос nav-indicator с arutyunov.info). */
+   Sticky, мелкий кегль. Слева от текущего пункта — вертикальная черта-индикатор,
+   которая едет между пунктами по мере скролла (вертикаль считает
+   js/navbar.js — перенос nav-indicator с arutyunov.info, без ширины). */
 
 .ids__navbar {
   display: block;
@@ -10,9 +10,11 @@
   top: 4rem;
   padding: 0 2.5em 0 0;
   font-size: 0.7em;
-  /* Ширина — по самому длинному пункту; прижат к основной колонке,
-     а не к краю экрана */
+  /* Ширина — по самому длинному пункту, но не шире поля (длинные пункты
+     переносятся); прижат к основной колонке, а не к краю экрана */
   width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-left: auto;
   margin-top: 0.6rem;
 
@@ -21,21 +23,23 @@
   }
 }
 
-/* Рамка-индикатор: поля вокруг текста пункта задаются её padding
-   (скрипт читает их и вычитает из координат, на бокс они не влияют) */
+/* Черта-индикатор: ровно высота строки пункта (без полей; если понадобятся —
+   padding-top / padding-bottom, скрипт прибавит их к высоте). Отступ от текста —
+   отрицательный margin-left: скрипт ставит left по тексту, сдвиг делает браузер */
 .ids__navbar .ids__navbar-indicator {
   position: absolute;
   box-sizing: border-box;
-  padding: calc(0.1em + 0.1rem) calc(0.35em + 0.1rem);
-  border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__link) 20%, transparent);
-  border-radius: var(--ids__radius-m);
+  width: var(--ids__border-width-s);
+  padding: 0;
+  margin-left: -0.5em;
+  background: color-mix(in srgb, var(--ids__link) 20%, transparent);
   pointer-events: none;
-  transition: border-color var(--ids__duration-base) var(--ids__easing-base);
+  transition: background-color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-/* По ховеру на любой пункт рамка красится синхронно с ним */
+/* По ховеру на любой пункт черта красится синхронно с ним */
 .ids__navbar:has(ul li a:hover) .ids__navbar-indicator {
-  border-color: color-mix(in srgb, var(--ids__hover) 20%, transparent);
+  background: var(--ids__hover);
   transition: none;
 }
 
@@ -59,8 +63,6 @@
 
   & a {
     display: block;
-    /* Бокс ссылки — по своему тексту: рамка-индикатор меряет его
-       и потому меняет ширину от пункта к пункту */
     width: fit-content;
     font-size: 0.9em;
     color: color-mix(in srgb, var(--ids__text) 65%, transparent);

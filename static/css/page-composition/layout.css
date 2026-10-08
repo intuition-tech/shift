@@ -15,14 +15,24 @@
   }
 }
 
+/* Доля основной колонки от контейнера — одно число: от него считаются
+   и ширина .ids__wrapper, и левое поле под оглавление (publication.css) */
+:root {
+  --ids__column: 0.63;
+}
+
+/* Основная колонка без модификатора — текст публикации, главная,
+   /publications/: одна ширина, края совпадают. Шире — модификаторами */
 .ids__wrapper {
   position: relative;
-  width: 70%;
+  width: calc(var(--ids__column) * 100%);
   margin: 0 auto;
 
+  /* На мобильных — во всю ширину с минимальными паддингами как у хедера */
   @media (width < 768px) {
     width: 100%;
-    padding: 0 calc(var(--ids__density) * 0.6rem);
+    padding: 0 0.8em;
+    box-sizing: border-box;
   }
 
   /* Чуть шире обычной колонки — промоблоки главной */

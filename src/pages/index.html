@@ -2,9 +2,11 @@
 title: Shift
 searchIndex: false
 ---
-{#- Главная (не то же, что /publications/): поиск, блок «Новое»,
-    кнопка «Все публикации», затем сетка промоблоков в широком враппере
-    (подборки + рынок MENA, src/data/promo.js). Без фильтров — они на /publications/. -#}
+{#- Главная (не то же, что /publications/): поиск, блок «Новое» (перед ним
+    pubs-table.js вставляет «Всегда под рукой» — пины читателя из localStorage),
+    последняя строка таблицы — ссылка «Все публикации», затем сетка промоблоков
+    в широком враппере (подборки + рынок MENA, src/data/promo.js) и блок контактов.
+    Без фильтров — они на /publications/. -#}
 {%- set prefix = '/en' if lang == 'en' else '' -%}
 <div class="ids__space XL"></div>
 <div class="ids__wrapper">
@@ -14,15 +16,28 @@ searchIndex: false
   <div class="ids__pubs">
     <table>
       <tbody>
-        <tr class="ids__pubs--group"><th colspan="3">{% if lang == 'ru' %}Новое{% else %}New{% endif %}</th></tr>
+        <tr class="ids__pubs--group"><th colspan="4">{% if lang == 'ru' %}Новое{% else %}New{% endif %}</th></tr>
         {%- set pubsList = publications | byDateDesc | newOnly %}
         {%- include "pubs-rows.html" %}
+        {#- Ссылка на все публикации — оформлена как последняя строка таблицы
+            (не настоящая публикация: без слага и булавки, остальные ячейки пустые) -#}
+        <tr class="ids__pubs--row ids__pubs--more" data-href="{{ prefix }}/publications/">
+          <td class="ids__pubs--title"><a href="{{ prefix }}/publications/">{% if lang == 'ru' %}Все публикации{% else %}All publications{% endif %}</a></td>
+          <td class="ids__pubs--authors"></td>
+          <td class="ids__pubs--date"></td>
+          <td class="ids__pubs--pin-cell"></td>
+        </tr>
       </tbody>
     </table>
+    {#- Все строки — источник для группы «Всегда под рукой»: пины общие с /publications/,
+        а в таблице выше только новое. В DOM не попадает, читает pubs-table.js -#}
+    <template data-pubs-all>
+      {%- set pubsList = publications | byDateDesc %}
+      {%- include "pubs-rows.html" %}
+    </template>
   </div>
-
-  <div class="ids__space S"></div>
-  <a class="ids__button" href="{{ prefix }}/publications/">{% if lang == 'ru' %}Все публикации{% else %}All publications{% endif %}</a>
+  {#- Сразу после таблицы, а не в конце страницы: пины встают на место до первой отрисовки -#}
+  <script src="/js/pubs-table.js"></script>
 </div>
 
 <div class="ids__space S"></div>
@@ -47,5 +62,13 @@ searchIndex: false
     </div>
     {%- endfor %}
   </div>
-  <div class="ids__space XL"></div>
+</div>
+
+<div class="ids__space L"></div>
+<div class="ids__wrapper">
+  {#- Контакты: как на старом сайте внизу главной, но ведём в тг-канал Shift -#}
+  <p class="contacts">
+    {%- if lang == 'ru' %}С любыми вопросами и предложениями приходите, пожалуйста, в <a href="https://t.me/+cEHpR1mpI1tlNjMy">телеграм-канал Shift</a>, мы там. Ну или просто подпишитесь!
+    {%- else %}With any questions or ideas, please come to the <a href="https://t.me/+cEHpR1mpI1tlNjMy">Shift Telegram channel</a> — we are there. Or just subscribe!{% endif %}
+  </p>
 </div>

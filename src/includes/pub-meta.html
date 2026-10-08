@@ -1,5 +1,5 @@
 {#- Мета-блок публикации под h1: дата и теги из src/data/publications.js по слагу страницы.
-    Каждый тег ведёт на главную с фильтром по себе. Контактное лицо — с фото и пометкой. -#}
+    Каждый тег ведёт на главную с фильтром по себе. Ответственный (contact в данных) — с пометкой «оунер». -#}
 {%- set pub = publications | pub(page.fileSlug) -%}
 {%- if pub -%}
 {%- set pubsUrl = ('/en' if lang == 'en' else '') + '/publications/' -%}
@@ -8,7 +8,7 @@
   {%- set author = authors[slug] %}
   <a class="ids__pub-meta--tag{% if slug == pub.contact %} contact{% endif %}" href="{{ pubsUrl }}?author={{ slug }}"
     >{% if author.photo %}<img class="ids__pub-meta--photo" src="{{ author.photo }}" alt="" />{% endif
-    %}{{ author.name }}{% if slug == pub.contact %} <span class="ids__pub-meta--contact-label">{% if lang == 'ru' %}контакт{% else %}contact{% endif %}</span>{% endif %}</a>
+    %}{{ author.name }}{% if slug == pub.contact %} <span class="ids__pub-meta--contact-label">{% if lang == 'ru' %}Оунер{% else %}Owner{% endif %}</span>{% endif %}</a>
   {%- endfor %}
   {%- for slug in pub.markets %}
   <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?market={{ slug }}">{{ taxonomy.markets | tagName(slug, lang) }}</a>

@@ -1,8 +1,13 @@
-/* Таблица публикаций на главной: все публикации по дате (новое сверху).
+/* Таблица публикаций: все публикации по дате (новое сверху).
    Новые визуально не отличаются — у них свой блок на главной
    (isNew живёт в данных и фильтре ?new). Фильтрация и группировка —
    static/js/pubs-table.js, состояние в URL (?market=…, ?group=markets…).
-   Над таблицей — чип активного фильтра со сбросом. */
+   Под h1 на /publications/ — ряд тегов-фильтров (рынки и команды),
+   над таблицей — чип активного фильтра для остальных измерений.
+   Пины — личные закладки читателя (localStorage), собираются в группу
+   «Всегда под рукой» наверху; строка остаётся и на своём месте (копия).
+   На /publications/ (data-pins="separate") пины — отдельной табличкой
+   со спейсером, а у основной появляется заголовок «Вообще всё». */
 
 .ids .ids__pubs {
   margin-top: 1.6em;
@@ -12,10 +17,10 @@
   width: 100%;
 }
 
-/* Одинаковые ширины колонок в обеих таблицах главной;
-   дата — ровно по содержимому (width 1% + nowrap), остальное — авторам */
+/* Одинаковые ширины колонок во всех таблицах: название — половина,
+   дата и булавка — ровно по содержимому (width 1% + nowrap), остальное — авторам */
 .ids .ids__pubs--title {
-  width: 35%;
+  width: 50%;
 }
 
 .ids .ids__pubs td.ids__pubs--date {
@@ -32,10 +37,12 @@
   vertical-align: baseline;
 }
 
-/* Ссылкой работает вся строка: псевдоэлемент ссылки названия накрывает tr.
-   Пилюли авторов лежат выше (position: relative) и кликабельны сами по себе */
+/* Ссылкой работает вся строка — переход по клику ставит pubs-table.js
+   (data-href): псевдоэлемент-оверлей не годится, Safari не делает tr
+   containing block, и оверлеи всех строк ложились на всю таблицу.
+   Настоящая ссылка — название; пилюли и булавка кликабельны сами по себе */
 .ids .ids__pubs--row {
-  position: relative;
+  cursor: pointer;
 }
 
 .ids .ids__pubs--title a {
@@ -43,50 +50,35 @@
   transition: color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-.ids .ids__pubs--title a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-/* Авторы — пилюли как в мета-блоке публикации, но компактнее:
-   кегль на два шага мельче, паддинги в em ужимаются вместе с ним.
-   Набираются строчками с переносом, как в мета-блоке. */
-.ids .ids__pubs--author {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45em;
+/* Авторы — обычным текстом через запятую, кеглем даты; каждое имя — ссылка
+   на фильтр. Ховер строки красит всю ячейку, собственный ховер имени —
+   подчёркивание */
+.ids .ids__pubs td.ids__pubs--authors {
   font-size: 0.8em;
-  padding: 0.3em 0.85em;
-  margin: 0.12em 0.2em 0.12em 0;
-  background: var(--ids__surface);
-  border-radius: 100em;
-  text-decoration: none;
   color: var(--ids__caption);
-  transition:
-    color var(--ids__duration-base) var(--ids__easing-base),
-    background-color var(--ids__duration-base) var(--ids__easing-base);
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-/* Затемнение собственного ховера пилюли — отдельным слоем: только так
-   и вход в ховер строки, и вход в ховер пилюли получаются мгновенными,
-   а оба выхода — плавными (у одного состояния не может быть двух длительностей) */
-.ids .ids__pubs--author::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: color-mix(in srgb, var(--ids__hover) 9%, transparent);
-  opacity: 0;
-  transition: opacity var(--ids__duration-base) var(--ids__easing-base);
+/* Собственный ховер имени — подложка ховер-цвета (подчёркивание по ховеру
+   не появляется нигде — не наш паттерн); микро-паддинги только по вертикали,
+   на строку они не влияют */
+.ids .ids__pubs--author {
+  color: inherit;
+  text-decoration: none;
+  padding: 0.12em 0;
+  border-radius: var(--ids__radius-s);
+  transition: background-color var(--ids__duration-base) var(--ids__easing-base);
 }
 
-/* Дата — тем же кеглем, что пилюли авторов, по общей базовой линии
+.ids .ids__pubs--author:hover {
+  background: color-mix(in srgb, var(--ids__hover) 10%, transparent);
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Дата — чуть мельче авторов, по общей базовой линии
    (vertical-align: baseline у ячеек) */
 .ids .ids__pubs td.ids__pubs--date {
-  font-size: 0.8em;
+  font-size: 0.76em;
   color: var(--ids__caption);
   white-space: nowrap;
   transition: color var(--ids__duration-base) var(--ids__easing-base);
@@ -98,28 +90,242 @@
    Мгновенная длительность — только на собственном ховере элемента,
    иначе пилюля теряла свой ховер мгновенно, пока курсор оставался в строке */
 .ids .ids__pubs--row:hover .ids__pubs--title a,
+.ids .ids__pubs--row:hover td.ids__pubs--authors,
 .ids .ids__pubs--row:hover td.ids__pubs--date {
   color: var(--ids__hover);
   transition-duration: var(--ids__duration-instant);
 }
 
-.ids .ids__pubs--row:hover .ids__pubs--author {
-  color: var(--ids__hover);
-  background: color-mix(in srgb, var(--ids__hover) 8%, transparent);
-  transition-duration: var(--ids__duration-instant);
+/* Булавка: видна по ховеру строки, по фокусу и в закреплённом состоянии;
+   на тач-устройствах ховера нет — видна всегда, бледно */
+/* Вся ячейка — зона клика булавки (ловит pubs-table.js), не только иконка;
+   её ховер красит булавку так же, как собственный */
+.ids .ids__pubs td.ids__pubs--pin-cell {
+  width: 1%;
+  padding-left: 1.2em;
+  padding-right: 0;
 }
 
-.ids .ids__pubs--author:hover::after {
+/* Инлайн-блок без текста: базовая линия — его нижний край, поэтому
+   низ булавки ложится на базовую линию первой строки, как дата */
+.ids .ids__pubs--pin {
+  display: inline-block;
+  vertical-align: baseline;
+  /* Оптически: чуть ниже и левее базовой линии */
+  position: relative;
+  top: 0.1em;
+  left: -0.2em;
+  padding: 0 0.2em;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: var(--ids__caption);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--ids__duration-base) var(--ids__easing-base),
+    color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+/* Булавка (src/includes/pin-icon.svg, viewBox 16 × 20): головка-кружок
+   с тенью-дугой и иголка. Закреплённая — «воткнута»: тело съезжает вниз
+   ровно на столько, на сколько укорачивается иголка (stroke-dasharray), —
+   кончик остаётся на месте, в дырке-эллипсе, двигается только головка;
+   плюс лёгкий наклон вокруг кончика */
+.ids .ids__pubs--pin svg {
+  display: block;
+  width: 0.88em;
+  height: 1.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  overflow: visible;
+}
+
+/* Две фазы: сначала втыкание (сдвиг тела вниз + укорочение иголки + дырка),
+   потом наклон с небольшим нахлёстом; при отпине — в обратном порядке.
+   Сдвиг — на внешней группе, наклон — на внутренней (у transform одна
+   длительность, а фазам нужны разные задержки) */
+.ids .ids__pubs--pin-body,
+.ids .ids__pubs--pin-needle,
+.ids .ids__pubs--pin-hole {
+  transition-duration: 0.22s;
+  transition-timing-function: var(--ids__easing-base);
+  transition-delay: 0.14s;
+}
+
+.ids .ids__pubs--pin-body { transition-property: transform; }
+
+.ids .ids__pubs--pin-needle {
+  /* Полная длина 9; воткнутая — 6, тело при этом съезжает на те же 3 */
+  stroke-dasharray: 9 9;
+  transition-property: stroke-dasharray;
+}
+
+.ids .ids__pubs--pin-hole {
+  fill: currentColor;
+  stroke: none;
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.ids .ids__pubs--pin-tilt {
+  /* Ось наклона — кончик иголки в воткнутом состоянии (до сдвига вниз) */
+  transform-origin: 8px 14.5px;
+  transition: transform 0.2s var(--ids__easing-base) 0s;
+}
+
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-body,
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-needle,
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-hole {
+  transition-delay: 0s;
+}
+
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-body {
+  transform: translateY(3px);
+}
+
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-needle {
+  stroke-dasharray: 6 9;
+}
+
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-hole {
+  opacity: 1;
+}
+
+.ids .ids__pubs--pin[aria-pressed="true"] .ids__pubs--pin-tilt {
+  transform: rotate(-16deg);
+  transition-delay: 0.16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ids .ids__pubs--pin-body,
+  .ids .ids__pubs--pin-needle,
+  .ids .ids__pubs--pin-hole,
+  .ids .ids__pubs--pin-tilt {
+    transition: none;
+  }
+}
+
+.ids .ids__pubs--row:hover .ids__pubs--pin,
+.ids .ids__pubs--pin:focus-visible,
+.ids .ids__pubs--pin[aria-pressed="true"] {
   opacity: 1;
   transition-duration: var(--ids__duration-instant);
 }
 
-/* Строка-подзаголовок группы (рынок, команда, подборка; «Новое» на главной) */
+@media (hover: none) {
+  .ids .ids__pubs--pin {
+    opacity: 0.5;
+  }
+}
+
+.ids .ids__pubs--pin-cell:hover .ids__pubs--pin {
+  color: var(--ids__hover);
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Строки, которые добавляются и убираются при пине/отпине (копия, заголовок
+   группы, «Всё-всё-всё»), раскрываются и схлопываются по высоте, чтобы контент
+   ниже не прыгал. У tr высоту не анимировать, поэтому в ноль уходят ячейки:
+   кегль, интерлиньяж, паддинги и линейка (всё содержимое — в em) */
+.ids .pinned-new > td,
+.ids .pinned-new > th {
+  animation: ids__pubs-row-in var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .pinned-leaving > td,
+.ids .pinned-leaving > th {
+  animation: ids__pubs-row-out var(--ids__duration-base) var(--ids__easing-base) forwards;
+}
+
+@keyframes ids__pubs-row-in {
+  from {
+    font-size: 0;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-width: 0;
+    opacity: 0;
+  }
+  55% { opacity: 0; }
+}
+
+@keyframes ids__pubs-row-out {
+  45% { opacity: 0; }
+  to {
+    font-size: 0;
+    line-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-width: 0;
+    opacity: 0;
+  }
+}
+
+/* Отдельная табличка пинов (/publications/) раскрывается целиком вместе
+   со спейсером за ней — сетка 0fr → 1fr */
+.ids .ids__pubs--pins {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.ids .ids__pubs--pins-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ids .ids__pubs--pins.entering {
+  animation: ids__pubs-pins-in var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pubs--pins.leaving {
+  animation: ids__pubs-pins-out var(--ids__duration-base) var(--ids__easing-base) forwards;
+}
+
+.ids .ids__pubs--pins-space.entering {
+  animation: ids__pubs-space-in var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pubs--pins-space.leaving {
+  animation: ids__pubs-space-out var(--ids__duration-base) var(--ids__easing-base) forwards;
+}
+
+@keyframes ids__pubs-pins-in {
+  from { grid-template-rows: 0fr; margin-top: 0; opacity: 0; }
+  55% { opacity: 0; }
+}
+
+@keyframes ids__pubs-pins-out {
+  45% { opacity: 0; }
+  to { grid-template-rows: 0fr; margin-top: 0; opacity: 0; }
+}
+
+@keyframes ids__pubs-space-in {
+  from { height: 0; }
+}
+
+@keyframes ids__pubs-space-out {
+  to { height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ids .pinned-new > td,
+  .ids .pinned-new > th,
+  .ids .ids__pubs--pins.entering,
+  .ids .ids__pubs--pins-space.entering {
+    animation: none;
+  }
+}
+
+/* Строка-подзаголовок группы (рынок, команда, подборка; «Новое» и
+   «Всегда под рукой» на главной) */
 .ids .ids__pubs--group th {
   padding: 1.8em 0 0.25em;
   font-family: var(--shift__description-font);
   font-weight: 200;
-  font-size: 1.7em;
+  font-size: 1.5em;
   /* Линейка под заголовком темнее и толще, чем между строчками */
   border-bottom: var(--ids__border-width-m) solid var(--ids__caption);
 }
@@ -128,12 +334,76 @@
   padding-top: 0;
 }
 
+/* На главной после группы пинов следующая группа («Новое») — ближе */
+.ids .ids__pubs tbody .pinned-group ~ .ids__pubs--group:not(.pinned-group) th {
+  padding-top: 0.9em;
+}
+
+/* Служебная строка-ссылка «Все публикации» в конце таблицы на главной:
+   выглядит как строка, но без слага и булавки; остальные ячейки пустые */
+.ids .ids__pubs--more td {
+  border-bottom: none;
+}
+
 /* Перед заголовком группы линейка предыдущей строки не нужна */
 .ids .ids__pubs tr:has(+ .ids__pubs--group) td {
   border-bottom: none;
 }
 
-/* Тулбар над таблицей: чип активного фильтра */
+/* Теги-фильтры под h1 на /publications/: рынки и команды — те же пилюли,
+   что в мета-блоке публикации (фон --ids__pill-background из pub-meta.css,
+   ховер и паттерн транзишенов те же). Активный тег — текстового цвета,
+   с крестиком-сбросом и чуть большим правым паддингом под прицеливание */
+.ids .ids__pubs--tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 0.2em;
+  margin: -0.4em 0 0;
+}
+
+.ids .ids__pubs--tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.8em;
+  padding: 0.3em 0.85em;
+  background: var(--ids__pill-background);
+  border-radius: 100em;
+  text-decoration: none;
+  color: var(--ids__caption);
+  transition:
+    color var(--ids__duration-base) var(--ids__easing-base),
+    background-color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pubs--tag:hover {
+  color: var(--ids__hover);
+  background: color-mix(in srgb, var(--ids__hover) 16%, transparent);
+  transition-duration: var(--ids__duration-instant);
+}
+
+.ids .ids__pubs--tag.active {
+  color: var(--ids__text);
+  background: color-mix(in srgb, var(--ids__caption) 28%, transparent);
+  padding-right: 0.75em;
+}
+
+/* Крестик полупрозрачный, по своему ховеру — непрозрачный (мгновенно) */
+.ids .ids__pubs--tag-reset {
+  margin: 0 -0.1em 0 0.1em;
+  font-weight: 200;
+  font-size: 1.6em;
+  line-height: 0.6;
+  opacity: 0.45;
+  transition: opacity var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pubs--tag-reset:hover {
+  opacity: 1;
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Тулбар над таблицей: чип активного фильтра (автор, область, новизна) */
 .ids .ids__pubs--toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -168,3 +438,12 @@
   color: var(--ids__hover);
 }
 
+/* Служебный live-регион для скринридеров */
+.ids .ids__pubs--live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
