@@ -533,21 +533,21 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code><br /><code>.ids__pubs--author</code><br /><code>.ids__pubs--pin</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--tags</code> <code>.ids__pubs--tag</code> <code>.active</code><br /><code>.ids__pubs--chip</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code><br /><code>.ids__pubs--author</code><br /><code>.ids__pubs--pin</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--tags</code> <code>.ids__pubs--tag</code> <code>.active</code> <code>.ids__pubs--tag-reset</code><br /><code>.ids__pubs--all</code><br /><code>.ids__pubs--chip</code></span>
         <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Главная (последняя строка «Новое» — ссылка «Все публикации», оформлена строкой) и <code>/publications/</code>, данные — <code>src/data/publications.js</code>, поведение — <code>js/pubs-table.js</code>: ссылкой работает вся строка (по клику, не оверлеем — Safari), авторы — текстом через запятую, каждое имя кликабельно отдельно; булавка по ховеру строки — личный пин читателя (localStorage), закреплённые собираются копиями в группу «Всегда под рукой» (на главной — в той же таблице перед «Новым», на <code>/publications/</code> — отдельной табличкой, а у основной появляется заголовок «Всё-всё-всё»), исходная строка остаётся на месте. Образец живой — пины работают. Теги под h1 (рынки и команды) фильтруют таблицу, активный — с крестиком; чип над таблицей — для фильтров без тега (автор, область).</p>
+        <p class="subdued">Главная (под таблицей «Новое» — контурная пилюля «Все публикации») и <code>/publications/</code>, данные — <code>src/data/publications.js</code>, поведение — <code>js/pubs-table.js</code>: ссылкой работает вся строка (по клику, не оверлеем — Safari), авторы — текстом через запятую, каждое имя кликабельно отдельно; булавка по ховеру строки — личный пин читателя (localStorage), закреплённые собираются копиями в группу «Всегда под рукой» (на главной — в той же таблице перед «Новым», на <code>/publications/</code> — отдельной табличкой, а у основной появляется заголовок «Всё-всё-всё»), исходная строка остаётся на месте. Образец живой — пины работают. Теги под h1 (рынки и команды, пилюли <code>.ids__pill</code> того же кегля, что люди на главной) фильтруют таблицу, активный — с крестиком-SVG по центру заглавных; показываются только на «Всех публикациях» без группировки и без фильтра по автору. Чип над таблицей — кнопка-пилюля для фильтров без тега (автор — с фото, область, подборка, новизна), клик снимает фильтр; при фильтре по автору «Всегда под рукой» не показывается.</p>
         <nav class="ids__pubs--tags" aria-label="Фильтры">
-          <a class="ids__pubs--tag active" href="#components" aria-pressed="true">Россия<span class="ids__pubs--tag-reset" aria-hidden="true">×</span></a>
-          <a class="ids__pubs--tag" href="#components">Евразия</a>
-          <a class="ids__pubs--tag" href="#components">ОАЭ</a>
-          <a class="ids__pubs--tag" href="#components">Бренд-дизайн</a>
-          <a class="ids__pubs--tag" href="#components">Диджитал</a>
+          <a class="ids__pill ids__pubs--tag active" href="#components" aria-pressed="true">Россия<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></a>
+          <a class="ids__pill ids__pubs--tag" href="#components">Евразия</a>
+          <a class="ids__pill ids__pubs--tag" href="#components">ОАЭ</a>
+          <a class="ids__pill ids__pubs--tag" href="#components">Бренд-дизайн</a>
+          <a class="ids__pill ids__pubs--tag" href="#components">Диджитал</a>
         </nav>
         <div class="ids__pubs">
           <div class="ids__pubs--toolbar">
-            <span class="ids__pubs--chip">Автор: Katya Maksimova <button class="ids__pubs--chip-reset" type="button">×</button></span>
+            <button class="ids__pill ids__pubs--chip" type="button" aria-label="Снять фильтр: Автор: Katya Maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Автор: Katya Maksimova<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></button>
           </div>
           <table>
             <tbody>
@@ -570,6 +570,7 @@ searchIndex: false
               </tr>
             </tbody>
           </table>
+          <a class="ids__pill outline ids__pubs--all" href="#components">Все публикации</a>
         </div>
       </div>
     </div>
@@ -581,7 +582,7 @@ searchIndex: false
         <span class="guide-tokens__row-value">--ids__caption<br />--ids__hover<br />--shift__brand</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Ссылка на любое место публикации (<code>js/anchor.js</code>): блокам тела статьи раздаются id по хэшу содержимого, по ховеру на блок через полсекунды (задержка, не транзишен) слева появляется иконка-цепь, клик копирует URL с якорем; переход по нему (после доскролла) обводит левый верхний угол блока оранжевым «маркером» — рукописным эллипсом в половину колонки, 3:2, прорисовка через dashoffset, потом быстрое исчезновение в ту же сторону. На этой странице тоже живёт — наведите на любой абзац.</p>
+        <p class="subdued">Ссылка на любое место публикации (<code>js/anchor.js</code>): блокам тела статьи раздаются id по хэшу содержимого, из левой трети колонки над блоком слева сразу (без задержки) появляется иконка-цепь, дальше она следует за курсором по блокам по всей ширине и гаснет с фейдом, когда курсор выходит из колонки и её левого поля; в левом поле блок берётся по вертикали (так ссылку получает и видео-iframe); клик копирует URL с якорем; переход по нему (после доскролла) обводит левый верхний угол блока оранжевым «маркером» — рукописным эллипсом в половину колонки, 2:1, прорисовка через dashoffset, потом быстрое исчезновение в ту же сторону. На этой странице тоже живёт — наведите на левую треть любого абзаца.</p>
         <div style="position: relative; padding-left: 2.4em">
           <button class="ids__anchor visible" type="button" style="left: 0" aria-label="Скопировать ссылку на это место"><svg class="ids__anchor-chain" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
           <p id="anchor-mark-demo">Единая структура в папках, названиях файлов и в слоях помогает проще ориентироваться в проекте, передавать макеты внутри команды и партнёрам.</p>
@@ -597,7 +598,7 @@ searchIndex: false
         <span class="guide-tokens__row-value">--shift__promo-*</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Сетка плашек на главной: подборки и рынок MENA, данные — <code>src/data/promo.js</code>. Каждая плашка ведёт на <code>/publications/</code> с фильтром по себе; число — количество публикаций.</p>
+        <p class="subdued">Сетка плашек на главной: подборки и рынок MENA, данные — <code>src/data/promo.js</code>. Каждая плашка ведёт на <code>/publications/</code> с фильтром по себе; число — количество публикаций. Скругление — сквиркл <code>.ids__rounded</code> с радиусом 2.9em (в браузерах без <code>corner-shape</code> — SVG-маски с радиусом на четверть больше).</p>
         <div class="ids__promo-grid">
           <div class="ids__promo-grid--cell">
             <a class="ids__promo-card ids__rounded S dark" href="#components">
@@ -624,16 +625,54 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>.ids__pill</code> <code>.outline</code><br /><code>.ids__pill-photo</code> <code>.initial</code><br /><code>.ids__pill-count</code></span>
+        <span class="guide-tokens__row-value">--ids__pill-background<br />--ids__pill-border<br />--ids__caption<br />--ids__hover</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Общий формфактор (<code>pill.css</code>): теги мета-блока, теги-фильтры, дата, кнопка «Все публикации», люди. Содержимое выравнивается по базовой линии, интерлиньяж 1.6 = высота фото — пилюли с фото и без одной высоты. Ховер (у ссылок и кнопок) — цвет и фон ховера мгновенно, расховер 0.3s; у контурной красится контур. Нет фото — заглушка с первой буквой.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4em 0.3em; align-items: center">
+          <a class="ids__pill" href="#components">Россия</a>
+          <span class="ids__pill outline">21 мая 2025</span>
+          <a class="ids__pill" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova</a>
+          <a class="ids__pill" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
+          <a class="ids__pill outline" href="#components">Все публикации</a>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
         <span class="guide-tokens__row-label"><code>.ids__pub-meta</code><br /><code>.ids__pub-meta--tag</code> <code>.contact</code><br /><code>.ids__pub-meta--date</code></span>
         <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; ответственный за публикацию — с пометкой «Оунер». Теги с фото и без — одной высоты; фон пилюль — осветлённая поверхность (--ids__pill-background), контур даты светлее линеек.</p>
+        <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; ответственный за публикацию — с пометкой «Оунер». Пилюли — <code>.ids__pill</code>, дата — контурная.</p>
         <div class="ids__pub-meta">
-          <span class="ids__pub-meta--date">21 мая 2025</span>
-          <a class="ids__pub-meta--tag contact" href="#components"><img class="ids__pub-meta--photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
-          <a class="ids__pub-meta--tag" href="#components">Россия</a>
-          <a class="ids__pub-meta--tag" href="#components">Каналы и носители</a>
+          <span class="ids__pill outline ids__pub-meta--date">21 мая 2025</span>
+          <a class="ids__pill ids__pub-meta--tag contact" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
+          <a class="ids__pill ids__pub-meta--tag" href="#components">Россия</a>
+          <a class="ids__pill ids__pub-meta--tag" href="#components">Каналы и носители</a>
+        </div>
+      </div>
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>.ids__people</code><br /><code>.ids__people--heading</code> <code>.ids__people--count</code><br /><code>.ids__people--list</code> <code>.ids__people--person</code></span>
+        <span class="guide-tokens__row-value">--shift__description-font<br />--ids__caption</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Блок «Люди» на главной и на <code>/people/</code> (инклюд <code>people.html</code>, стили <code>people.css</code>): все авторы, у которых есть публикации (фильтр <code>people</code> считает их по <code>publications.js</code>), по алфавиту, крупными пилюлями с фото и числом публикаций; число при заголовке — сколько людей. Каждая пилюля ведёт на таблицу с фильтром по автору. Здесь — четверо из них.</p>
+        <div class="ids__people">
+          <h2 class="ids__people--heading">Авторы всех публикаций <span class="ids__people--count">4</span></h2>
+          <div class="ids__people--list">
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pill-count">13</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/dmitry-tumanov.jpg" alt="" />Dmitry Tumanov <span class="ids__pill-count">9</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/evgeny-revenko.jpg" alt="" />Evgeny Revenko <span class="ids__pill-count">15</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
+          </div>
         </div>
       </div>
     </div>

@@ -3,8 +3,12 @@
       и мета-блока) раздаются id: слаг раздела + хэш содержимого — абзацы
       и картинки без имени получают стабильный адрес, который переживает
       перестановки и ломается только при правке самого блока.
-   2. По ховеру на блок через полсекунды (задержка, не транзишен) в левом поле
-      появляется иконка-цепь; клик копирует в буфер URL с якорем.
+   2. Когда курсор в левой трети колонки над блоком, в левом поле сразу
+      появляется иконка-цепь; клик копирует в буфер URL с якорем. В правых
+      двух третях иконка не появляется — так она не преследует читателя,
+      а задержки, которая воспринималась как тормоз, нет. Уже показанная
+      иконка следует за курсором по блокам по всей ширине колонки и гаснет
+      (с фейдом), как только курсор выходит из колонки и её левого поля.
    3. Открытие URL с якорем: страница доскролливает к блоку, затем его левый
       верхний угол обводится оранжевым «маркером» — рукописным эллипсом
       (SVG, прорисовка и исчезновение через stroke-dashoffset). */
@@ -14,7 +18,10 @@
 
   var BLOCKS = "h2, h3, p, ul, ol, figure, table, aside, blockquote, .ids__sequence, .ids__media-group, .ids__video, .ids__download, .ids__compare, .ids__checklist, .ids__color-palette, .ids__slide-pair";
   var SKIP = "h1, .ids__description, .ids__pub-meta, .publication__nav, figcaption, .ids__pubs, .ids__anchor";
-  var DELAY = 500;
+  // Иконка появляется только в левой трети колонки
+  var ZONE = 1 / 3;
+  // Живая зона слева от колонки (там иконка) — в em статьи
+  var EXTEND = 2.2;
   var lang = document.documentElement.lang === "en" ? "en" : "ru";
   var T = lang === "en"
     ? { copy: "Copy link to this place", copied: "Link copied" }
@@ -184,12 +191,7 @@
   article.appendChild(live);
 
   var current = null;
-  var showTimer = null;
-  var hideTimer = null;
   var doneTimer = null;
-  // Пауза перед исчезновением: курсор идёт от блока к иконке через поле
-  // и на миг не над чем — без неё иконка гасла раньше, чем до неё доедешь
-  var GRACE = 400;
 
   function place(el) {
     var a = article.getBoundingClientRect();
@@ -204,46 +206,56 @@
   }
 
   function hide() {
-    clearTimeout(showTimer);
-    clearTimeout(hideTimer);
-    showTimer = hideTimer = null;
     current = null;
     button.classList.remove("visible");
   }
 
-  function scheduleHide() {
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(hide, GRACE);
+  // Всё по координатам, без таймеров:
+  // — вне живой зоны (колонка + левое поле с иконкой + сам блок, если он шире
+  //   колонки, как .ids__media-group.XL) иконка гаснет сразу (фейд — в CSS);
+  // — в зоне, но не над блоком (поля между абзацами, сама иконка) — остаётся;
+  // — над блоком: показанная иконка переезжает к нему по всей ширине колонки,
+  //   ещё не показанная появляется только из левой трети.
+  // Слушаем и mouseover: над iframe (.ids__video) mousemove в документ
+  // не приходит, а mouseover на входе в iframe — приходит. Внутри iframe
+  // курсор не отследить, поэтому вход в него показывает иконку из любой точки
+  function track(e) {
+    if (e.type === "mouseover" && e.target.tagName === "IFRAME") {
+      var block = e.target.closest("[data-anchored]");
+      if (block && article.contains(block)) show(block);
+      return;
+    }
+    var a = article.getBoundingClientRect();
+    var em = parseFloat(getComputedStyle(article).fontSize);
+    var visible = button.classList.contains("visible");
+    var onButton = e.target === button || button.contains(e.target);
+    var el = e.target.closest ? e.target.closest("[data-anchored]") : null;
+    if (el && !article.contains(el)) el = null;
+    var inField = e.clientX >= a.left - EXTEND * em && e.clientX < a.left &&
+      e.clientY >= a.top && e.clientY <= a.bottom;
+    var inZone = el || onButton || inField || (e.clientX >= a.left && e.clientX <= a.right &&
+      e.clientY >= a.top && e.clientY <= a.bottom);
+    if (!inZone) { if (visible) hide(); return; }
+    // В левом поле блок берём по вертикали — так ссылку получает и iframe,
+    // над которым курсор не отследить
+    if (!el && inField && !onButton) {
+      var under = document.elementFromPoint(a.left + 2, e.clientY);
+      el = under && under.closest ? under.closest("[data-anchored]") : null;
+      if (el && !article.contains(el)) el = null;
+    }
+    if (!el) return;
+    if (visible) { if (el !== current) show(el); return; }
+    if (e.clientX < a.left + a.width * ZONE) show(el);
   }
-
-  article.addEventListener("mouseover", function (e) {
-    if (e.target === button || button.contains(e.target)) {
-      clearTimeout(hideTimer); // доехали до иконки — остаёмся
-      return;
-    }
-    var el = e.target.closest("[data-anchored]");
-    if (!el || !article.contains(el)) return;
-    clearTimeout(hideTimer);
-    if (el === current) return;
-    if (button.classList.contains("visible")) {
-      // иконка уже видна — просто переезжает к соседнему блоку
-      show(el);
-      return;
-    }
-    clearTimeout(showTimer);
-    showTimer = setTimeout(function () { show(el); }, DELAY);
-    current = el;
+  document.addEventListener("mousemove", track);
+  document.addEventListener("mouseover", track);
+  // Вход курсора в iframe — ещё и mouseenter на самом iframe (не всплывает)
+  Array.prototype.forEach.call(article.querySelectorAll("[data-anchored] iframe"), function (frame) {
+    frame.addEventListener("mouseenter", track);
   });
 
-  article.addEventListener("mouseout", function (e) {
-    var to = e.relatedTarget;
-    if (to && (to === button || button.contains(to))) return; // ушли на саму иконку
-    if (to && current && current.contains(to)) return; // внутри того же блока
-    // Иконка ещё не показана — задержка просто отменяется; показана — гаснет
-    // после грейс-паузы, если курсор не вернулся на блок или иконку
-    if (!button.classList.contains("visible")) { hide(); return; }
-    scheduleHide();
-  });
+  // Курсор ушёл из окна
+  document.documentElement.addEventListener("mouseleave", hide);
 
   button.addEventListener("click", function () {
     if (!current || !current.id) return;

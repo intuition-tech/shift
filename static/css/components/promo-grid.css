@@ -28,7 +28,7 @@
   display: block;
   /* Скругление — сквирклом через класс .ids__rounded в разметке,
      радиус переопределяем локально */
-  --ids__radius: 1.25em;
+  --ids__radius: 2.9em;
   padding: 0.85em 1.2em 1em;
   background: var(--shift__promo-gray);
   color: var(--ids__text);

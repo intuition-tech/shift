@@ -6,24 +6,24 @@
 <div class="ids__pub-meta">
   {%- for slug in pub.authors %}
   {%- set author = authors[slug] %}
-  <a class="ids__pub-meta--tag{% if slug == pub.contact %} contact{% endif %}" href="{{ pubsUrl }}?author={{ slug }}"
-    >{% if author.photo %}<img class="ids__pub-meta--photo" src="{{ author.photo }}" alt="" />{% endif
+  <a class="ids__pill ids__pub-meta--tag{% if slug == pub.contact %} contact{% endif %}" href="{{ pubsUrl }}?author={{ slug }}"
+    >{% if author.photo %}<img class="ids__pill-photo" src="{{ author.photo }}" alt="" />{% endif
     %}{{ author.name }}{% if slug == pub.contact %} <span class="ids__pub-meta--contact-label">{% if lang == 'ru' %}Оунер{% else %}Owner{% endif %}</span>{% endif %}</a>
   {%- endfor %}
   {%- for slug in pub.markets %}
-  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?market={{ slug }}">{{ taxonomy.markets | tagName(slug, lang) }}</a>
+  <a class="ids__pill ids__pub-meta--tag" href="{{ pubsUrl }}?market={{ slug }}">{{ taxonomy.markets | tagName(slug, lang) }}</a>
   {%- endfor %}
   {%- for slug in pub.teams %}
-  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?team={{ slug }}">{{ taxonomy.teams | tagName(slug, lang) }}</a>
+  <a class="ids__pill ids__pub-meta--tag" href="{{ pubsUrl }}?team={{ slug }}">{{ taxonomy.teams | tagName(slug, lang) }}</a>
   {%- endfor %}
   {%- for slug in pub.areas %}
-  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?area={{ slug }}">{{ taxonomy.areas | tagName(slug, lang) }}</a>
+  <a class="ids__pill ids__pub-meta--tag" href="{{ pubsUrl }}?area={{ slug }}">{{ taxonomy.areas | tagName(slug, lang) }}</a>
   {%- endfor %}
   {%- for slug in pub.collections %}
-  <a class="ids__pub-meta--tag" href="{{ pubsUrl }}?collection={{ slug }}">{{ taxonomy.collections | tagName(slug, lang) }}</a>
+  <a class="ids__pill ids__pub-meta--tag" href="{{ pubsUrl }}?collection={{ slug }}">{{ taxonomy.collections | tagName(slug, lang) }}</a>
   {%- endfor %}
   {%- if pub.date %}
-  <span class="ids__pub-meta--date">{{ pub.date | formatDate(lang) }}</span>
+  <span class="ids__pill outline ids__pub-meta--date">{{ pub.date | formatDate(lang) }}</span>
   {%- endif %}
 </div>
 {%- endif -%}

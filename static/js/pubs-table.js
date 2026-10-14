@@ -25,9 +25,11 @@
 
   const lang = document.documentElement.lang === "en" ? "en" : "ru";
   const T = lang === "en"
-    ? { pinned: "Always at hand", rest: "All of it", livePinned: "Pinned", liveUnpinned: "Unpinned" }
-    : { pinned: "Всегда под рукой", rest: "Всё-всё-всё", livePinned: "Закреплено", liveUnpinned: "Снято с закрепления" };
+    ? { pinned: "Always at hand", rest: "All of it", livePinned: "Pinned", liveUnpinned: "Unpinned", clear: "Clear filter" }
+    : { pinned: "Всегда под рукой", rest: "Всё-всё-всё", livePinned: "Закреплено", liveUnpinned: "Снято с закрепления", clear: "Снять фильтр" };
   const COLUMNS = 4;
+  // Крестик сброса — SVG, а не символ: его можно точно поставить по заглавным (pubs.css)
+  const RESET_SVG = '<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg>';
 
   // Исходные строки каждой таблицы по слагу — источник для копий в «Всегда под рукой»
   // (фильтр может убрать строку из DOM, копия всё равно нужна). Таблица, в которой
@@ -178,7 +180,8 @@
     const hadRest = tbody.querySelector(".pinned-rest") !== null;
     for (const row of queryAll(pubs, ".pinned-group, .pinned-copy, .pinned-rest")) row.remove();
     const map = sources.get(pubs);
-    const slugs = pins.filter((slug) => map.has(slug));
+    // При фильтре по автору «Всегда под рукой» не показываем (ставит render)
+    const slugs = pubs.dataset.pinsHidden ? [] : pins.filter((slug) => map.has(slug));
     const isSeparate = pubs.dataset.pins === "separate";
     if (!slugs.length) {
       if (isSeparate) dropPinsTable(pubs);
@@ -339,27 +342,26 @@
     }
 
     syncAll(pubs);
+    if (state.filters.author) pubs.dataset.pinsHidden = "1"; else delete pubs.dataset.pinsHidden;
     renderPinned(pubs);
     renderTags(state);
     renderChips(state);
     highlightNav(state);
   }
 
-  // Теги под h1: активный — с крестиком; клик по активному снимает фильтр,
+  // Теги под h1 — только на «Всех публикациях» без группировки и без фильтра
+  // по автору. Активный — с крестиком; клик по активному снимает фильтр,
   // по другому — заменяет (один тег за раз среди рынков и команд)
   function renderTags(state) {
     if (!tagsNav) return;
+    tagsNav.hidden = Boolean(state.group || state.filters.author);
     for (const tag of tagsNav.querySelectorAll("[data-dim]")) {
       const on = state.filters[tag.dataset.dim] === tag.dataset.value;
       tag.classList.toggle("active", on);
       tag.setAttribute("aria-pressed", String(on));
       const reset = tag.querySelector(".ids__pubs--tag-reset");
       if (on && !reset) {
-        const x = document.createElement("span");
-        x.className = "ids__pubs--tag-reset";
-        x.setAttribute("aria-hidden", "true");
-        x.textContent = "×";
-        tag.append(x);
+        tag.insertAdjacentHTML("beforeend", RESET_SVG);
       } else if (!on && reset) {
         reset.remove();
       }
@@ -380,29 +382,43 @@
     });
   }
 
-  // Чип на каждый активный фильтр без своего тега: «Автор: … ×», × сбрасывает его
+  // Чип на каждый активный фильтр без своего тега: кнопка-пилюля «Автор: … ×»
+  // (у автора — с фото, как в списке людей), клик сбрасывает фильтр
   function renderChips(state) {
     toolbar.textContent = "";
     const dims = Object.keys(state.filters).filter((dim) => !TAG_DIMS.has(dim));
     toolbar.hidden = !dims.length;
     for (const dim of dims) {
-      const chip = document.createElement("span");
-      chip.className = "ids__pubs--chip";
-      chip.append(
-        dim === "new"
-          ? taxonomy.dims.new
-          : taxonomy.dims[dim] + ": " + (taxonomy.names[dim][state.filters[dim]] || state.filters[dim])
-      );
-      const reset = document.createElement("button");
-      reset.type = "button";
-      reset.className = "ids__pubs--chip-reset";
-      reset.textContent = "×";
-      reset.addEventListener("click", () => {
+      const value = state.filters[dim];
+      const name = dim === "new" ? "" : taxonomy.names[dim][value] || value;
+      const text = dim === "new" ? taxonomy.dims.new : taxonomy.dims[dim] + ": " + name;
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "ids__pill ids__pubs--chip";
+      chip.setAttribute("aria-label", T.clear + ": " + text);
+      if (dim === "author") {
+        const photo = taxonomy.photos[value];
+        if (photo) {
+          const img = document.createElement("img");
+          img.className = "ids__pill-photo";
+          img.src = photo;
+          img.alt = "";
+          chip.append(img);
+        } else {
+          const initial = document.createElement("span");
+          initial.className = "ids__pill-photo initial";
+          initial.setAttribute("aria-hidden", "true");
+          initial.textContent = name.charAt(0);
+          chip.append(initial);
+        }
+      }
+      chip.append(text);
+      chip.insertAdjacentHTML("beforeend", RESET_SVG);
+      chip.addEventListener("click", () => {
         delete state.filters[dim];
         writeState(state);
         render(state);
       });
-      chip.append(reset);
       toolbar.append(chip);
     }
   }

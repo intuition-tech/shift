@@ -2,10 +2,10 @@
 title: Shift
 searchIndex: false
 ---
-{#- Главная (не то же, что /publications/): поиск, блок «Новое» (перед ним
+{#- Главная (не то же, что /publications/): поиск-пилюля, блок «Новое» (перед ним
     pubs-table.js вставляет «Всегда под рукой» — пины читателя из localStorage),
-    последняя строка таблицы — ссылка «Все публикации», затем сетка промоблоков
-    в широком враппере (подборки + рынок MENA, src/data/promo.js) и блок контактов.
+    под таблицей пилюля «Все публикации», затем сетка промоблоков в широком
+    враппере (подборки + рынок MENA, src/data/promo.js), блок «Люди» и контакты.
     Без фильтров — они на /publications/. -#}
 {%- set prefix = '/en' if lang == 'en' else '' -%}
 <div class="ids__space XL"></div>
@@ -19,16 +19,10 @@ searchIndex: false
         <tr class="ids__pubs--group"><th colspan="4">{% if lang == 'ru' %}Новое{% else %}New{% endif %}</th></tr>
         {%- set pubsList = publications | byDateDesc | newOnly %}
         {%- include "pubs-rows.html" %}
-        {#- Ссылка на все публикации — оформлена как последняя строка таблицы
-            (не настоящая публикация: без слага и булавки, остальные ячейки пустые) -#}
-        <tr class="ids__pubs--row ids__pubs--more" data-href="{{ prefix }}/publications/">
-          <td class="ids__pubs--title"><a href="{{ prefix }}/publications/">{% if lang == 'ru' %}Все публикации{% else %}All publications{% endif %}</a></td>
-          <td class="ids__pubs--authors"></td>
-          <td class="ids__pubs--date"></td>
-          <td class="ids__pubs--pin-cell"></td>
-        </tr>
       </tbody>
     </table>
+    {#- Ссылка на все публикации — контурная пилюля под таблицей, не строка -#}
+    <a class="ids__pill outline ids__pubs--all" href="{{ prefix }}/publications/">{% if lang == 'ru' %}Все публикации{% else %}All publications{% endif %}</a>
     {#- Все строки — источник для группы «Всегда под рукой»: пины общие с /publications/,
         а в таблице выше только новое. В DOM не попадает, читает pubs-table.js -#}
     <template data-pubs-all>
@@ -62,6 +56,12 @@ searchIndex: false
     </div>
     {%- endfor %}
   </div>
+</div>
+
+<div class="ids__space L"></div>
+<div class="ids__wrapper">
+  {#- Люди: все авторы с публикациями, тот же блок — на /people/ -#}
+  {%- include "people.html" %}
 </div>
 
 <div class="ids__space L"></div>

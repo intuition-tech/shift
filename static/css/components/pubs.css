@@ -7,7 +7,8 @@
    Пины — личные закладки читателя (localStorage), собираются в группу
    «Всегда под рукой» наверху; строка остаётся и на своём месте (копия).
    На /publications/ (data-pins="separate") пины — отдельной табличкой
-   со спейсером, а у основной появляется заголовок «Вообще всё». */
+   со спейсером, а у основной появляется заголовок «Всё-всё-всё».
+   Под таблицей на главной — контурная пилюля «Все публикации» (pill.css). */
 
 .ids .ids__pubs {
   margin-top: 1.6em;
@@ -339,10 +340,18 @@
   padding-top: 0.9em;
 }
 
-/* Служебная строка-ссылка «Все публикации» в конце таблицы на главной:
-   выглядит как строка, но без слага и булавки; остальные ячейки пустые */
-.ids .ids__pubs--more td {
-  border-bottom: none;
+/* «Все публикации» под таблицей «Новое» на главной — небольшая контурная
+   пилюля по центру колонки, отдельно от строк (строкой она читалась как часть
+   таблицы); контур — та же линия, что между строками (селектор сильнее
+   .ids__pill.outline, иначе остаётся светлый контур пилюли) */
+.ids .ids__pubs--all.ids__pill {
+  display: flex;
+  width: fit-content;
+  margin: 1.1em auto 0;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  font-size: 0.8em;
+  border-color: var(--ids__border);
 }
 
 /* Перед заголовком группы линейка предыдущей строки не нужна */
@@ -350,36 +359,27 @@
   border-bottom: none;
 }
 
-/* Теги-фильтры под h1 на /publications/: рынки и команды — те же пилюли,
-   что в мета-блоке публикации (фон --ids__pill-background из pub-meta.css,
-   ховер и паттерн транзишенов те же). Активный тег — текстового цвета,
+/* Теги-фильтры под h1 на /publications/ (только без группировки и без фильтра
+   по автору — иначе скрипт прячет ряд): рынки и команды — пилюли (pill.css)
+   того же кегля, что люди на главной, серым. Активный тег — текстового цвета,
    с крестиком-сбросом и чуть большим правым паддингом под прицеливание */
 .ids .ids__pubs--tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25em 0.2em;
-  margin: -0.4em 0 0;
+  gap: 0.3em 0.25em;
+  /* Чуть свешивается влево — оптическая компенсация скругления; уже колонки,
+     чтобы ряд не упирался в правый край (в дефолте «Соцсети» уходит на вторую строку) */
+  margin: -0.4em 0 0 -0.1em;
+  max-width: 80%;
+  font-size: 0.9em;
+}
+
+.ids .ids__pubs--tags[hidden] {
+  display: none;
 }
 
 .ids .ids__pubs--tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35em;
-  font-size: 0.8em;
-  padding: 0.3em 0.85em;
-  background: var(--ids__pill-background);
-  border-radius: 100em;
-  text-decoration: none;
   color: var(--ids__caption);
-  transition:
-    color var(--ids__duration-base) var(--ids__easing-base),
-    background-color var(--ids__duration-base) var(--ids__easing-base);
-}
-
-.ids .ids__pubs--tag:hover {
-  color: var(--ids__hover);
-  background: color-mix(in srgb, var(--ids__hover) 16%, transparent);
-  transition-duration: var(--ids__duration-instant);
 }
 
 .ids .ids__pubs--tag.active {
@@ -388,12 +388,22 @@
   padding-right: 0.75em;
 }
 
-/* Крестик полупрозрачный, по своему ховеру — непрозрачный (мгновенно) */
+/* Крестик — SVG (ставит pubs-table.js; тот же в чипе автора), выровнен
+   по заглавным: пилюля выравнивает содержимое по базовой линии, у SVG базовая —
+   нижний край, так что при высоте 0.76em сдвиг вниз на 0.03em ставит центр
+   крестика на 0.35em над базовой — центр заглавных Pragmatica (cap height
+   0.70em). Полупрозрачный, по своему ховеру — непрозрачный (мгновенно) */
 .ids .ids__pubs--tag-reset {
-  margin: 0 -0.1em 0 0.1em;
-  font-weight: 200;
-  font-size: 1.6em;
-  line-height: 0.6;
+  width: 0.76em;
+  height: 0.76em;
+  position: relative;
+  top: 0.03em;
+  margin-left: 0.05em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linecap: round;
   opacity: 0.45;
   transition: opacity var(--ids__duration-base) var(--ids__easing-base);
 }
@@ -403,13 +413,15 @@
   transition-duration: var(--ids__duration-instant);
 }
 
-/* Тулбар над таблицей: чип активного фильтра (автор, область, новизна) */
+/* Тулбар над таблицей: чип активного фильтра без своего тега (автор,
+   область, подборка, новизна) — кнопка-пилюля того же кегля, что люди
+   на главной, у автора с фото; выглядит как активный тег, клик снимает фильтр */
 .ids .ids__pubs--toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.3em 0.25em;
   margin-bottom: 1.2em;
-  font-size: 0.75em;
+  font-size: 0.9em;
 }
 
 .ids .ids__pubs--toolbar[hidden] {
@@ -417,25 +429,8 @@
 }
 
 .ids .ids__pubs--chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.3em 0.5em 0.3em 0.85em;
-  background: var(--ids__surface);
-  border-radius: 100em;
-}
-
-.ids .ids__pubs--chip-reset {
-  border: none;
-  background: none;
-  padding: 0 0.35em;
-  font: inherit;
-  color: var(--ids__caption);
-  cursor: pointer;
-}
-
-.ids .ids__pubs--chip-reset:hover {
-  color: var(--ids__hover);
+  background: color-mix(in srgb, var(--ids__caption) 28%, transparent);
+  padding-right: 0.75em;
 }
 
 /* Служебный live-регион для скринридеров */

@@ -32,6 +32,19 @@ export default function (conf) {
     ).length
   );
 
+  // Люди — для блока «Люди» (people.html): авторы, у которых есть публикации,
+  // с числом публикаций, по алфавиту. Справочник authors.js шире — в нём
+  // есть и люди без публикаций, их не выводим
+  conf.addFilter("people", (publications, authors) => {
+    const counts = new Map();
+    for (const p of publications) {
+      for (const slug of p.authors || []) counts.set(slug, (counts.get(slug) || 0) + 1);
+    }
+    return [...counts]
+      .map(([slug, count]) => ({ slug, count, name: slug, photo: null, ...authors[slug] }))
+      .sort((a, b) => a.name.localeCompare(b.name, "en"));
+  });
+
   // Имя тега по слагу из списка таксономии: taxonomy.markets | tagName("russia", lang)
   conf.addFilter("tagName", (list, slug, lang) => {
     const tag = list.find((t) => t.slug === slug);

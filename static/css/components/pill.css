@@ -1,0 +1,97 @@
+/* Пилюля — общий формфактор сайта: теги мета-блока публикации (pub-meta.css),
+   теги-фильтры на /publications/ (pubs.css), контурная дата, кнопка
+   «Все публикации» на главной, люди (people.css). Здесь — база: габариты,
+   скругление, фон, ховер по общему паттерну (вход мгновенно, выход 0.3s ease);
+   специфика (активное состояние, подписи) — в файлах компонентов.
+   Содержимое выравнивается по базовой линии, а не по центру строки: так
+   значки (крестик сброса) ставятся относительно заглавных, как и везде
+   у кнопок и пилюль. Интерлиньяж 1.6 = высота фото, поэтому пилюли с фото
+   и без — одной высоты, а текст стоит по центру. */
+
+:root {
+  /* Фон — светлее поверхности; контур — заметно светлее линеек */
+  --ids__pill-background: color-mix(in srgb, var(--ids__surface) 65%, var(--ids__background));
+  --ids__pill-border: color-mix(in srgb, var(--ids__border) 45%, var(--ids__background));
+}
+
+.ids .ids__pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  padding: 0.3em 0.85em;
+  line-height: 1.6;
+  background: var(--ids__pill-background);
+  border: var(--ids__border-width-s) solid transparent;
+  border-radius: var(--ids__radius-pill);
+  text-decoration: none;
+  color: var(--ids__text);
+  transition:
+    color var(--ids__duration-base) var(--ids__easing-base),
+    background-color var(--ids__duration-base) var(--ids__easing-base),
+    border-color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+/* Кнопка-пилюля (чип фильтра) — без своих кнопочных стилей */
+.ids button.ids__pill {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+/* Ховер — только у ссылок и кнопок (дата — просто span) */
+.ids .ids__pill:is(a, button):hover {
+  color: var(--ids__hover);
+  background: color-mix(in srgb, var(--ids__hover) 16%, transparent);
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Контурная: без заливки, тонкий светлый контур; по ховеру контур
+   и текст — ховер-цветом */
+.ids .ids__pill.outline {
+  background: transparent;
+  border-color: var(--ids__pill-border);
+}
+
+.ids .ids__pill.outline:is(a, button):hover {
+  background: transparent;
+  border-color: var(--ids__hover);
+}
+
+/* Фото автора — круг в высоту строки, чуть заходит на левый паддинг;
+   по центру пилюли, не по базовой */
+.ids .ids__pill-photo {
+  align-self: center;
+  width: 1.6em;
+  height: 1.6em;
+  margin-left: -0.5em;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: filter var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pill:hover .ids__pill-photo {
+  filter: brightness(105%);
+  transition-duration: var(--ids__duration-instant);
+}
+
+/* Заглушка вместо фото — первая буква имени на поверхности */
+.ids .ids__pill-photo.initial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background: var(--ids__surface);
+  color: var(--ids__caption);
+}
+
+/* Число после текста (публикаций у автора) — серым */
+.ids .ids__pill-count {
+  color: var(--ids__caption);
+  transition: color var(--ids__duration-base) var(--ids__easing-base);
+}
+
+.ids .ids__pill:is(a, button):hover .ids__pill-count {
+  color: color-mix(in srgb, var(--ids__hover) 55%, transparent);
+  transition-duration: var(--ids__duration-instant);
+}

@@ -1,0 +1,19 @@
+{#- Блок «Люди»: все авторы, у которых есть публикации (фильтр people
+    в eleventy.config.js считает их по src/data/publications.js, имена и фото —
+    src/data/authors.js), пилюлями с фото и числом публикаций; каждая ведёт
+    на таблицу с фильтром по автору. Общий для главной и /people/; уровень
+    заголовка — peopleHeading (h2 по умолчанию, h1 на странице). Стили —
+    css/components/people.css. -#}
+{%- set prefix = '/en' if lang == 'en' else '' -%}
+{%- set people = publications | people(authors) -%}
+{%- set tag = peopleHeading or 'h2' -%}
+<div class="ids__people" id="people">
+  <{{ tag }} class="ids__people--heading">{% if lang == 'ru' %}Авторы всех публикаций{% else %}Authors of all publications{% endif %} <span class="ids__people--count">{{ people.length }}</span></{{ tag }}>
+  <div class="ids__people--list">
+    {%- for person in people %}
+    <a class="ids__pill ids__people--person" href="{{ prefix }}/publications/?author={{ person.slug }}"
+      >{% if person.photo %}<img class="ids__pill-photo" src="{{ person.photo }}" alt="" loading="lazy" />{% else %}<span class="ids__pill-photo initial" aria-hidden="true">{{ person.name[0] }}</span>{% endif
+      %}{{ person.name }} <span class="ids__pill-count">{{ person.count }}</span></a>
+    {%- endfor %}
+  </div>
+</div>

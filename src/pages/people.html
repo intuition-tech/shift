@@ -1,0 +1,13 @@
+---
+title: Люди — Shift
+titleEn: People — Shift
+searchIndex: false
+---
+{#- Страница «Люди» (пункт меню): обычный h1 и тот же блок, что на главной, —
+    инклюд people.html со своим заголовком «Авторы всех публикаций». -#}
+<div class="ids__space XL"></div>
+<div class="ids__wrapper">
+  <h1>{% if lang == 'ru' %}Люди{% else %}People{% endif %}</h1>
+  {%- include "people.html" %}
+  <div class="ids__space XL"></div>
+</div>

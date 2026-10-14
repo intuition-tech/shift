@@ -23,15 +23,15 @@
   transition: none;
 }
 
-/* Крупное поле на главной — рамка вместо линии: тот же цвет бордера,
-   но двухпиксельный, с небольшим скруглением; по фокусу — текстового цвета
-   (мгновенно, расфокус с транзишеном — правила выше работают и тут) */
+/* Крупное поле на главной — пилюля вместо линии: тот же цвет бордера,
+   но двухпиксельный; по фокусу — текстового цвета (мгновенно, расфокус
+   с транзишеном — правила выше работают и тут) */
 .search--large .search-line {
   display: block;
-  padding: 0.35em 0.6em;
+  padding: 0.35em 0.8em;
   /* Цвет контура — как линейка под заголовком группы таблицы */
   border: var(--ids__border-width-m) solid var(--ids__caption);
-  border-radius: var(--ids__radius-m);
+  border-radius: var(--ids__radius-pill);
 }
 
 .search--large .search-line:focus-within {
@@ -114,7 +114,7 @@
 .search--large .search-clear {
   top: 50%;
   transform: translateY(-50%);
-  right: 0.45em;
+  right: 0.6em;
   padding-bottom: 0;
 }
 /* .ids — чтобы перебить .ids ul (маржины и буллеты) */
@@ -168,10 +168,11 @@
   text-align: center;
   color: color-mix(in srgb, var(--ids__text) 60%, transparent);
 }
-/* Крупное поле на главной; выпадайка при этом остаётся обычного размера
-   (кегль в rem отвязывает её от крупности поля) */
+/* Крупное поле на главной — чуть свешивается за края колонки; выпадайка
+   при этом остаётся обычного размера (кегль в rem отвязывает её от крупности поля) */
 .search--large {
   font-size: 1.6em;
+  margin: 0 -0.3rem;
 }
 
 .ids .search--large .search-results {

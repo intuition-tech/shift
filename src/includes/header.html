@@ -12,11 +12,13 @@
       <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Рынки</a>
       <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Команды</a>
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Подборки</a>
+      <a href="{{ prefix }}/people/"{% if page.filePathStem == '/people' %} class="active"{% endif %}>Люди</a>
       {%- else %}
       <a href="{{ prefix }}/publications/" data-nav-group=""><span class="nav-label-full">All publications</span><span class="nav-label-short">All</span></a>
       <a href="{{ prefix }}/publications/?group=markets" data-nav-group="markets">Markets</a>
       <a href="{{ prefix }}/publications/?group=teams" data-nav-group="teams">Teams</a>
       <a href="{{ prefix }}/publications/?group=collections" data-nav-group="collections">Collections</a>
+      <a href="{{ prefix }}/people/"{% if page.filePathStem == '/people' %} class="active"{% endif %}>People</a>
       {%- endif %}
       {#- Служебная ссылка: только при локальной разработке, не на мобильных -#}
       {%- if isDev %}
