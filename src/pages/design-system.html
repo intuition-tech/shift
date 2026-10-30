@@ -116,14 +116,8 @@ searchIndex: false
       </div>
 
       <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label"><code>h2.special</code></span>
-        <div class="guide-tokens__sample"><h2 class="special">Названия слоёв</h2></div>
-        <span class="guide-tokens__row-value">.85em / caps / ls .13em<br />--ids__caption</span>
-      </div>
-
-      <div class="guide-tokens__row">
         <span class="guide-tokens__row-label"><code>.ids__billet</code><br /><code>.under</code></span>
-        <div class="guide-tokens__sample"><div class="ids__billet">Функция</div></div>
+        <div class="guide-tokens__sample"><div class="ids__billet under">Функция</div></div>
         <span class="guide-tokens__row-value">.75em / 570 / caps<br />--ids__caption<br />--shift__billet-under</span>
       </div>
 
@@ -137,21 +131,15 @@ searchIndex: false
         <span class="guide-tokens__row-label"><code>p</code></span>
         <div class="guide-tokens__sample">
           <p>Чтобы сэкономить время и не создавать папки вручную, используйте <a href="/order-in-projects/">шаблон папки проекта</a>. В нём уже есть папки для всех носителей.</p>
-          <p><strong>Guidelines</strong> — сетки и направляющие. В папке <code>[Sketch]</code> работайте над скетчем, добавляйте туда <mark>любой контент</mark>.</p>
+          <p>Отчёты первого сезона: <code>Kids Pizza Academy Indentity</code>, <code>Iconic Package</code>, <code>Dodo Font Family</code>.</p>
         </div>
-        <span class="guide-tokens__row-value">1em / 500<br />--ids__text<br />--ids__link<br />--ids__hover<br />--ids__mark<br />--ids__code</span>
+        <span class="guide-tokens__row-value">1em / 500<br />--ids__text<br />--ids__link<br />--ids__hover<br />--ids__code</span>
       </div>
 
       <div class="guide-tokens__row">
         <span class="guide-tokens__row-label"><code>p.lead</code></span>
         <div class="guide-tokens__sample"><p class="lead">Размещайте в скоростных зонах только самую необходимую и простую информацию. Всю сложную информацию размещайте в медленных зонах.</p></div>
         <span class="guide-tokens__row-value">--ids__text</span>
-      </div>
-
-      <div class="guide-tokens__row">
-        <span class="guide-tokens__row-label"><code>p.subdued</code></span>
-        <div class="guide-tokens__sample"><p class="subdued">Название слоя зависит от того, что в нём находится.</p></div>
-        <span class="guide-tokens__row-value">--ids__caption</span>
       </div>
 
       <div class="guide-tokens__row">
@@ -207,28 +195,14 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>aside.tight</code></span>
-        <span class="guide-tokens__row-value">--shift__aside-background</span>
-      </div>
-      <div class="guide-component__sample">
-        <aside class="tight">
-          <p>Вот как пользоваться шаблоном.</p>
-        </aside>
-      </div>
-      {{ "aside.tight" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
         <span class="guide-tokens__row-label"><code>.ids__with-note</code><br /><code>.ids__note</code></span>
         <span class="guide-tokens__row-value">--ids__link</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__with-note">
-          <p>Название — это уникальное, осмысленное и запоминающееся слово или словосочетание, которое закреплено за продуктом. Сноска встаёт справа от абзаца, в свободной колонке; на мобильных — под ним.</p>
+          <p>Название — это уникальное, осмысленное и запоминающееся слово или словосочетание, которое закреплено за продуктом. Это не просто описание, а имя собственное.</p>
           <div class="ids__note">
-            <p><a href="#components">Словарь названий из меню</a></p>
+            <p><a href="https://www.buildin.ai/0137f5df-0544-4058-89d7-e5920e464abd#85aee688-4aa7-4bb3-909f-44c2cc0859b1" target="_blank">Словарь названий из меню</a></p>
           </div>
         </div>
       </div>
@@ -242,9 +216,9 @@ searchIndex: false
         <span class="guide-tokens__row-value">--shift__shadow-color</span>
       </div>
       <div class="guide-component__sample">
+        <p>Получаем ответ с извинениями и разблокировкой.</p>
         <figure class="ids__media S shadow">
-          <img src="/images/order-in-projects/1.webp" alt="" />
-          <figcaption>Шаблон папки проекта</figcaption>
+          <img src="/images/how-to-unlock-a-disabled-Instagram-account/6.webp" alt="" />
         </figure>
       </div>
       {{ ".ids__media" | usages | safe }}
@@ -257,7 +231,7 @@ searchIndex: false
         <span class="guide-tokens__row-value">--shift__shadow-color<br />--ids__border-width-s</span>
       </div>
       <div class="guide-component__sample">
-        <div class="ids__media-group L shadow" style="margin-top: 0">
+        <div class="ids__media-group M shadow" style="margin-top: 0">
           <figure>
             <img src="/images/order-in-projects/2.webp" alt="" />
           </figure>
@@ -285,15 +259,35 @@ searchIndex: false
           <figcaption>На первом примере стакан не вписывается в цветной фон. На втором — учли все цвета, добавили рефлексы и дымок</figcaption>
         </figure>
         <div class="ids__space M"></div>
-        <p class="subdued"><code>.labels</code> — первый абзац ячейки становится меткой-капсом: первая брендовым оранжевым, остальные серым («Додо / Не Додо»). <code>.labels.yes-green</code> — «Нет / Да» со старого сайта: первая серая, вторая зелёная.</p>
+        <p class="subdued"><code>.labels</code> — первый абзац ячейки становится меткой-капсом: первая брендовым оранжевым, остальные серым. <code>.labels.yes-green</code> — «Нет / Да» со старого сайта: первая серая, вторая зелёная.</p>
         <div class="ids__sequence XL gap-M labels">
-          <div class="ids__sequence-item"><p>Додо</p><p>Стакан вписан в цветной фон, есть рефлексы и дымок</p></div>
-          <div class="ids__sequence-item"><p>Не Додо</p><p>Стакан вырезан и поставлен на фон как есть</p></div>
+          <div class="ids__sequence-item">
+            <p>Нет</p>
+            <p>Текст не читается, слишком светый фон</p>
+            <figure class="ids__media shadow"><img src="/images/hero-promo-block/27-1.webp" alt="" /></figure>
+          </div>
+          <div class="ids__sequence-item">
+            <p>Да</p>
+            <p>Контрастный цвет фона, все видно</p>
+            <figure class="ids__media shadow"><img src="/images/hero-promo-block/1.webp" alt="" /></figure>
+          </div>
         </div>
         <div class="ids__space M"></div>
         <div class="ids__sequence XL gap-M labels yes-green">
-          <div class="ids__sequence-item"><p>Нет</p><p>Слишком большая банка пепси</p></div>
-          <div class="ids__sequence-item"><p>Да</p><p>Все продукты реалистичных размеров</p></div>
+          <div class="ids__sequence-item">
+            <p>Нет</p>
+            <figure class="ids__media shadow">
+              <img src="/images/how-to-prepare-an-image-for-the-catalog/no-new.webp" alt="" />
+              <figcaption>Слишком большая банка пепси</figcaption>
+            </figure>
+          </div>
+          <div class="ids__sequence-item">
+            <p>Да</p>
+            <figure class="ids__media shadow">
+              <img src="/images/how-to-prepare-an-image-for-the-catalog/yes-new.webp" alt="" />
+              <figcaption>Все продукты реалистичных размеров</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
       {{ ".ids__sequence" | usages | safe }}
@@ -312,8 +306,9 @@ searchIndex: false
               <tr><th></th><th>Нет</th><th>Да</th></tr>
             </thead>
             <tbody>
-              <tr><th>Валюта — знаком</th><td>200 рублей</td><td>200 ₽</td></tr>
-              <tr><th>Тире в интервалах</th><td>16-18 сентября</td><td>16–18 сентября</td></tr>
+              <tr><td>Валюты пишем знаком, а не символом.</td><td>200 рублей</td><td>200 ₽</td></tr>
+              <tr><td>Сантиметры отбиваем пробелами.</td><td>25см</td><td>25 см</td></tr>
+              <tr><td>Не сокращаем слова.</td><td>Акц. действ. до 20 апр.</td><td>Акция действует до 20 апреля</td></tr>
             </tbody>
           </table>
         </div>
@@ -365,7 +360,7 @@ searchIndex: false
         <span class="guide-tokens__row-value">--ratio<br />--ids__duration-base</span>
       </div>
       <div class="guide-component__sample">
-        <div class="ids__compare" style="--ratio: 1920 / 1235; max-width: 24em">
+        <div class="ids__compare" style="--ratio: 1920 / 1235">
           <img src="/images/slow-and-fast-zones-qsr/2.3-o-on.webp" alt="" /><img src="/images/slow-and-fast-zones-qsr/2.2-o-off.webp" alt="" />
         </div>
         <p class="subdued">Наведите: верхняя картинка гаснет (на тач-экранах — по тапу).</p>
@@ -381,9 +376,9 @@ searchIndex: false
       </div>
       <div class="guide-component__sample">
         <ids-gallery>
-          <figure><a href="/images/order-in-projects/1.webp" target="_blank"><img src="/images/order-in-projects/1.webp" alt="" /></a><figcaption>Шаблон папки проекта</figcaption></figure>
-          <figure><a href="/images/order-in-projects/2.webp" target="_blank"><img src="/images/order-in-projects/2.webp" alt="" /></a></figure>
-          <figure><a href="/images/order-in-projects/3.webp" target="_blank"><img src="/images/order-in-projects/3.webp" alt="" /></a></figure>
+          <figure><a href="https://res.cloudinary.com/intuition-design-bureau/image/upload/v1718958067/meme-park-reports/s1/dgmp-slide_vtzagq.png" data-pswp-width="3000" data-pswp-height="1686" target="_blank"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/dgmp-slide_vtzagq.png" alt="" /></a></figure>
+          <figure><a href="https://res.cloudinary.com/intuition-design-bureau/image/upload/v1718644587/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.43_gi6l5j.png" data-pswp-width="2880" data-pswp-height="1800" target="_blank"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.43_gi6l5j.png" alt="" /></a></figure>
+          <figure><a href="https://res.cloudinary.com/intuition-design-bureau/image/upload/v1718644588/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.54_w79xjq.png" data-pswp-width="2880" data-pswp-height="1800" target="_blank"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.54_w79xjq.png" alt="" /></a></figure>
         </ids-gallery>
       </div>
       {{ "ids-gallery" | usages | safe }}
@@ -404,7 +399,7 @@ searchIndex: false
               <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-02_swlldl.jpg" alt="" /></div>
               <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-03_k4oiuv.jpg" alt="" /></div>
             </div>
-            <figcaption>22.05.2023, Женя Арутюнов, Кира Зыкина, Женя Хайидова</figcaption>
+            <figcaption>22.05.2023, Женя Арутюнов, Кира Зыкина, Женя Хайидова, Женя Синицына, Тёма Зыкин, Лёня Даньщиков, Майк Семёнов, Людвиг Быстроновский</figcaption>
           </figure>
         </div>
       </div>
@@ -419,30 +414,43 @@ searchIndex: false
       </div>
       <div class="guide-component__sample">
         <div class="ids__color-palette">
-          <div class="ids__color-plate">
+          <div class="ids__color-plate big">
             <div class="ids__color-sample" style="--color: rgb(255, 78, 0)">
               <div class="ids__color-sample-text">
-                <p>Orange</p>
-                <button class="ids__copy" data-copy="RGB 255, 78, 0">RGB 255, 78, 0</button>
-                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+                <p><strong>Жгучий оранжевый</strong></p>
+                <p>Это цвет Додо Пиццы. Наша визуальная коммуникация стремится быть максимально оранжевой.</p>
+                <button class="ids__copy" data-copy="255, 78, 0">RGB 255, 78, 0</button>
+                <button class="ids__copy" data-copy="0, 75, 100, 0">CMYK 0, 75, 100, 0</button>
+                <button class="ids__copy" data-copy="#ff4e00">HEX #ff4e00</button>
+                <button class="ids__copy" data-copy="1505">PANTONE 1505</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
               </div>
             </div>
           </div>
-          <div class="ids__color-plate">
-            <div class="ids__color-sample light" style="--color: rgb(249, 241, 230)">
+          <div class="ids__color-plate wide">
+            <div class="ids__color-sample light" style="--color: rgb(251, 243, 230)">
               <div class="ids__color-sample-text">
-                <p>Beige</p>
-                <button class="ids__copy" data-copy="RGB 249, 241, 230">RGB 249, 241, 230</button>
-                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+                <p><strong>Лайтовый бежевый</strong></p>
+                <p>Теплый фоновый цвет. Используем там, где нужен уютный и нейтральный фон.</p>
+                <button class="ids__copy" data-copy="251, 243, 230">RGB 251, 243, 230</button>
+                <button class="ids__copy" data-copy="#FBF3E6">HEX #FBF3E6</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
               </div>
             </div>
           </div>
-          <div class="ids__color-plate">
-            <div class="ids__color-sample" style="--color: rgb(148, 149, 152)">
+          <div class="ids__color-plate wide">
+            <div class="ids__color-sample" style="--color: rgb(0, 0, 0)">
               <div class="ids__color-sample-text">
-                <p>Gray</p>
-                <button class="ids__copy" data-copy="RGB 148, 149, 152">RGB 148, 149, 152</button>
-                <span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span>
+                <p><strong>Черный</strong></p>
+                <p>Базовый цвет. Набираем им текст, используем в навигации.</p>
+                <button class="ids__copy" data-copy="0, 0, 0">RGB 0, 0, 0</button>
+                <button class="ids__copy" data-copy="0, 0, 0, 100">CMYK 0, 0, 0, 100</button>
+                <button class="ids__copy" data-copy="#000000">HEX #000000</button>
+                <button class="ids__copy" data-copy="Black">PANTONE Black</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
               </div>
             </div>
           </div>
@@ -450,10 +458,58 @@ searchIndex: false
         <div class="ids__space S"></div>
         <p class="subdued"><code>.four</code> — четыре плашки в ряд на всю ширину колонки (палитры позиционирования, акцентные цвета); пятая переносится на следующий ряд, на мобильных — по две.</p>
         <div class="ids__color-palette four">
-          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(80, 215, 255)"><div class="ids__color-sample-text"><p>Sky blue</p><button class="ids__copy" data-copy="#50D7FF">HEX #50D7FF</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
-          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(103, 91, 216)"><div class="ids__color-sample-text"><p>Blueberry violet</p><button class="ids__copy" data-copy="#675BD8">HEX #675BD8</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
-          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(225, 254, 60)"><div class="ids__color-sample-text"><p>Neon lime</p><button class="ids__copy" data-copy="#D1FE3C">HEX #D1FE3C</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
-          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(252, 227, 248)"><div class="ids__color-sample-text"><p>Pastel pink</p><button class="ids__copy" data-copy="#FCE3F8">HEX #FCE3F8</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(80, 215, 255)">
+              <div class="ids__color-sample-text">
+                <p><strong>Небесно-голубой</strong></p>
+                <button class="ids__copy" data-copy="80, 215, 255">RGB 80, 215, 255</button>
+                <button class="ids__copy" data-copy="TBD">CMYK TBD</button>
+                <button class="ids__copy" data-copy="#50D7FF">HEX #50D7FF</button>
+                <button class="ids__copy" data-copy="TBD">PANTONE TBD</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(103, 91, 216)">
+              <div class="ids__color-sample-text">
+                <p><strong>Чернично-фиолетовый</strong></p>
+                <button class="ids__copy" data-copy="103, 91, 216">RGB 103, 91, 216</button>
+                <button class="ids__copy" data-copy="TBD">CMYK TBD</button>
+                <button class="ids__copy" data-copy="#675BD8">HEX #675BD8</button>
+                <button class="ids__copy" data-copy="TBD">PANTONE TBD</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(225, 254, 60)">
+              <div class="ids__color-sample-text">
+                <p><strong>Неоновый лайм</strong></p>
+                <button class="ids__copy" data-copy="225, 254, 60">RGB 225, 254, 60</button>
+                <button class="ids__copy" data-copy="TBD">CMYK TBD</button>
+                <button class="ids__copy" data-copy="#D1FE3C">HEX #D1FE3C</button>
+                <button class="ids__copy" data-copy="TBD">PANTONE TBD</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(252, 227, 248)">
+              <div class="ids__color-sample-text">
+                <p><strong>Пастельно-розовый</strong></p>
+                <button class="ids__copy" data-copy="252, 227, 248">RGB 252, 227, 248</button>
+                <button class="ids__copy" data-copy="TBD">CMYK TBD</button>
+                <button class="ids__copy" data-copy="#FCE3F8">HEX #FCE3F8</button>
+                <button class="ids__copy" data-copy="TBD">PANTONE TBD</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {{ ".ids__color-palette" | usages | safe }}
@@ -503,6 +559,7 @@ searchIndex: false
             <ol>
               <li>Додо пицца растет в регионе.</li>
               <li>Мультикультурный и конкурентный рынок.</li>
+              <li>У нас еще нет точного пониания, какой должна быть Додо Пицца в ОАЭ.</li>
               <li>Нужен простой и понятный бренд месседж.</li>
             </ol>
           </div>
@@ -528,8 +585,8 @@ searchIndex: false
               <figcaption>Английский</figcaption>
             </figure>
             <div class="ids__download-menu">
-              <p><a href="#components">Для экрана<span> ⋅ RGB ⋅ EN ⋅ PNG, SVG</span></a></p>
-              <p><a href="#components">Для печати<span> ⋅ CMYK ⋅ EN ⋅ EPS, PDF</span></a></p>
+              <p><a href="https://shift.dodobrands.io/cdn/Dubai-English-RGB.zip">Для экрана<span> ⋅ RGB ⋅ EN ⋅ PNG, JPG, SVG, EPS, AI</span></a></p>
+              <p><a href="https://shift.dodobrands.io/cdn/Dubai-English-CMYK.zip">Для печати<span> ⋅ CMYK ⋅ EN ⋅ EPS, PDF, AI</span></a></p>
             </div>
           </div>
         </div>
@@ -540,142 +597,16 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.switcher</code></span>
-        <span class="guide-tokens__row-value">--ids__text<br />--ids__background</span>
-      </div>
-      <div class="guide-component__sample">
-        <div class="switcher" style="margin-top: 0">
-          <a href="#components" data-locale="">EN</a><span class="ids__rounded">RU</span>
-        </div>
-      </div>
-      {{ ".switcher" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.search</code><br /><code>.search--large</code></span>
-        <span class="guide-tokens__row-value">--ids__link<br />--ids__surface<br />--ids__mark<br />--ids__caption</span>
-      </div>
-      <div class="guide-component__sample">
-        <p class="subdued">Образцы живые: индекс — <code>/search-index.json</code> (собирает <code>src/pages/search-index.11ty.js</code>), логика — <code>js/search.js</code>. Обычный кегль — в шапке внутренних страниц, <code>.search--large</code> — в начале главной. Выпадайка одна, масштабируется от кегля поля.</p>
-        {% include "search.html" %}
-        <div class="ids__space M"></div>
-        {%- set searchMod = 'search--large' %}
-        {%- include "search.html" %}
-        {%- set searchMod = '' %}
-      </div>
-      {{ ".search" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__pubs</code><br /><code>.ids__pubs--row</code><br /><code>.ids__pubs--author</code><br /><code>.ids__pubs--pin</code><br /><code>.ids__pubs--group</code><br /><code>.ids__pubs--tags</code> <code>.ids__pubs--tag</code> <code>.active</code> <code>.ids__pubs--tag-reset</code><br /><code>.ids__pubs--all</code><br /><code>.ids__pubs--chip</code></span>
-        <span class="guide-tokens__row-value">--ids__caption<br />--ids__surface</span>
-      </div>
-      <div class="guide-component__sample">
-        <p class="subdued">Главная (под таблицей «Новое» — контурная пилюля «Все публикации») и <code>/publications/</code>, данные — <code>src/data/publications.js</code>, поведение — <code>js/pubs-table.js</code>: ссылкой работает вся строка (по клику, не оверлеем — Safari), авторы — текстом через запятую, каждое имя кликабельно отдельно; булавка по ховеру строки — личный пин читателя (localStorage), закреплённые собираются копиями в группу «Всегда под рукой» (на главной — в той же таблице перед «Новым», на <code>/publications/</code> — отдельной табличкой, а у основной появляется заголовок «Всё-всё-всё»), исходная строка остаётся на месте. Образец живой — пины работают. Теги под h1 (рынки и команды, пилюли <code>.ids__pill</code> того же кегля, что люди на главной) фильтруют таблицу, активный — с крестиком-SVG по центру заглавных; показываются только на «Всех публикациях» без группировки и без фильтра по автору. Чип над таблицей — кнопка-пилюля для фильтров без тега (автор — с фото, область, подборка, новизна), клик снимает фильтр; при фильтре по автору «Всегда под рукой» не показывается.</p>
-        <nav class="ids__pubs--tags" aria-label="Фильтры">
-          <a class="ids__pill ids__pubs--tag active" href="#components" aria-pressed="true">Россия<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></a>
-          <a class="ids__pill ids__pubs--tag" href="#components">Евразия</a>
-          <a class="ids__pill ids__pubs--tag" href="#components">ОАЭ</a>
-          <a class="ids__pill ids__pubs--tag" href="#components">Бренд-дизайн</a>
-          <a class="ids__pill ids__pubs--tag" href="#components">Диджитал</a>
-        </nav>
-        <div class="ids__pubs">
-          <div class="ids__pubs--toolbar">
-            <button class="ids__pill ids__pubs--chip" type="button" aria-label="Снять фильтр: Автор: Katya Maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Автор: Katya Maksimova<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></button>
-          </div>
-          <table>
-            <tbody>
-              <tr class="ids__pubs--group"><th colspan="4">Россия</th></tr>
-              <tr class="ids__pubs--row" data-slug="sms" data-href="/sms/">
-                <td class="ids__pubs--title"><a href="/sms/">СМС</a></td>
-                <td class="ids__pubs--authors">
-                  <a class="ids__pubs--author" href="#components">Katya Maksimova</a>
-                </td>
-                <td class="ids__pubs--date">21.05.2025</td>
-                <td class="ids__pubs--pin-cell"><button class="ids__pubs--pin" type="button" aria-pressed="false" aria-label="Закрепить: СМС" data-label-pin="Закрепить" data-label-unpin="Снять с закрепления">{% include "pin-icon.svg" %}</button></td>
-              </tr>
-              <tr class="ids__pubs--row" data-slug="order-in-projects" data-href="/order-in-projects/">
-                <td class="ids__pubs--title"><a href="/order-in-projects/">Порядок в проектах</a></td>
-                <td class="ids__pubs--authors">
-                  <a class="ids__pubs--author" href="#components">Dmitry Tumanov</a>, <a class="ids__pubs--author" href="#components">Evgeny Revenko</a>
-                </td>
-                <td class="ids__pubs--date">12.12.2024</td>
-                <td class="ids__pubs--pin-cell"><button class="ids__pubs--pin" type="button" aria-pressed="false" aria-label="Закрепить: Порядок в проектах" data-label-pin="Закрепить" data-label-unpin="Снять с закрепления">{% include "pin-icon.svg" %}</button></td>
-              </tr>
-            </tbody>
-          </table>
-          <a class="ids__pill outline ids__pubs--all" href="#components">Все публикации</a>
-        </div>
-      </div>
-      {{ ".ids__pubs" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__anchor</code> <code>.visible .done</code><br /><code>[data-anchored]</code><br /><code>.ids__anchor-mark</code></span>
-        <span class="guide-tokens__row-value">--ids__caption<br />--ids__hover<br />--shift__brand</span>
-      </div>
-      <div class="guide-component__sample">
-        <p class="subdued">Ссылка на любое место публикации (<code>js/anchor.js</code>): блокам тела статьи раздаются id по хэшу содержимого, из левой трети колонки над блоком слева сразу (без задержки) появляется иконка-цепь, дальше она следует за курсором по блокам по всей ширине и гаснет с фейдом, когда курсор выходит из колонки и её левого поля; в левом поле блок берётся по вертикали (так ссылку получает и видео-iframe); клик копирует URL с якорем; переход по нему (после доскролла) обводит левый верхний угол блока оранжевым «маркером» — рукописным эллипсом в половину колонки, 2:1, прорисовка через dashoffset, потом быстрое исчезновение в ту же сторону. На этой странице тоже живёт — наведите на левую треть любого абзаца.</p>
-        <div style="position: relative; padding-left: 2.4em">
-          <button class="ids__anchor visible" type="button" style="left: 0" aria-label="Скопировать ссылку на это место"><svg class="ids__anchor-chain" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
-          <p id="anchor-mark-demo">Единая структура в папках, названиях файлов и в слоях помогает проще ориентироваться в проекте, передавать макеты внутри команды и партнёрам.</p>
-        </div>
-        <p><a href="#anchor-mark-demo" onclick="event.preventDefault(); window.shiftAnchorMark(document.getElementById('anchor-mark-demo'))">Показать маркер</a></p>
-      </div>
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__promo-grid</code><br /><code>.ids__promo-card</code><br /><code>.XS .S .M .L .XL</code><br /><code>.orange .yellow .dark<br />.pink .green .gray</code></span>
-        <span class="guide-tokens__row-value">--shift__promo-*</span>
-      </div>
-      <div class="guide-component__sample">
-        <p class="subdued">Сетка плашек на главной: подборки и рынок MENA, данные — <code>src/data/promo.js</code>. Каждая плашка ведёт на <code>/publications/</code> с фильтром по себе; число — количество публикаций. Скругление — сквиркл <code>.ids__rounded</code> с радиусом 2.9em (в браузерах без <code>corner-shape</code> — SVG-маски с радиусом на четверть больше).</p>
-        <div class="ids__promo-grid">
-          <div class="ids__promo-grid--cell">
-            <a class="ids__promo-card ids__rounded S dark" href="#components">
-              <span class="ids__promo-card--title">Кейвижуал</span><span class="ids__promo-card--number">10</span>
-              <p class="ids__promo-card--description">Процесс создания промокоммуникаций: все этапы от поиска референсов до тиражирования дизайна на разные носители.</p>
-            </a>
-          </div>
-          <div class="ids__promo-grid--cell">
-            <a class="ids__promo-card ids__rounded S orange" href="#components">
-              <span class="ids__promo-card--title">Додо Пицца MENA</span><span class="ids__promo-card--number">2</span>
-              <p class="ids__promo-card--description">Материалы для креативных команд сети Додо Пицца в ОАЭ.</p>
-            </a>
-          </div>
-          <div class="ids__promo-grid--cell">
-            <a class="ids__promo-card ids__rounded S yellow" href="#components">
-              <span class="ids__promo-card--title">Каталожная съемка пиццы</span><span class="ids__promo-card--number">6</span>
-              <p class="ids__promo-card--description">Разбираем особенности каталожных съемок.</p>
-            </a>
-          </div>
-        </div>
-      </div>
-      {{ ".ids__promo-grid" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
         <span class="guide-tokens__row-label"><code>.ids__pill</code> <code>.outline</code><br /><code>.ids__pill-photo</code> <code>.initial</code><br /><code>.ids__pill-count</code></span>
         <span class="guide-tokens__row-value">--ids__pill-background<br />--ids__pill-border<br />--ids__caption<br />--ids__hover</span>
       </div>
       <div class="guide-component__sample">
-        <p class="subdued">Общий формфактор (<code>pill.css</code>): теги мета-блока, теги-фильтры, дата, кнопка «Все публикации», люди. Содержимое выравнивается по базовой линии, интерлиньяж 1.6 = высота фото — пилюли с фото и без одной высоты. Ховер (у ссылок и кнопок) — цвет и фон ховера мгновенно, расховер 0.3s; у контурной красится контур. Нет фото — заглушка с первой буквой.</p>
+        <p class="subdued">Общий формфактор (<code>pill.css</code>): в публикации — теги и дата мета-блока, база промо-ссылки; на сайте — теги-фильтры и люди. Содержимое выравнивается по базовой линии, интерлиньяж 1.6 = высота фото — пилюли с фото и без одной высоты. Ховер (у ссылок и кнопок) — цвет и фон ховера мгновенно, расховер 0.3s; у контурной красится контур. Нет фото — заглушка с первой буквой.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.4em 0.3em; align-items: center">
-          <a class="ids__pill" href="#components">Россия</a>
+          <a class="ids__pill" href="/publications/?author=katya-maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova</a>
+          <a class="ids__pill" href="/publications/?author=spartak-petrosyan"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan</a>
+          <a class="ids__pill" href="/publications/?market=russia">Россия</a>
           <span class="ids__pill outline">21 мая 2025</span>
-          <a class="ids__pill" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova</a>
-          <a class="ids__pill" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
-          <a class="ids__pill outline" href="#components">Все публикации</a>
         </div>
       </div>
       {{ ".ids__pill" | usages | safe }}
@@ -703,34 +634,14 @@ searchIndex: false
       <div class="guide-component__sample">
         <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; ответственный за публикацию — с пометкой «Оунер». Пилюли — <code>.ids__pill</code>, дата — контурная.</p>
         <div class="ids__pub-meta">
+          <a class="ids__pill ids__pub-meta--tag contact" href="/publications/?author=katya-maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
+          <a class="ids__pill ids__pub-meta--tag" href="/publications/?market=russia">Россия</a>
+          <a class="ids__pill ids__pub-meta--tag" href="/publications/?team=digital">Диджитал</a>
+          <a class="ids__pill ids__pub-meta--tag" href="/publications/?area=channels-and-media">Каналы и носители</a>
           <span class="ids__pill outline ids__pub-meta--date">21 мая 2025</span>
-          <a class="ids__pill ids__pub-meta--tag contact" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
-          <a class="ids__pill ids__pub-meta--tag" href="#components">Россия</a>
-          <a class="ids__pill ids__pub-meta--tag" href="#components">Каналы и носители</a>
         </div>
       </div>
       {{ ".ids__pub-meta" | usages | safe }}
-    </div>
-    <div class="ids__space L"></div>
-
-    <div class="guide-component">
-      <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__people</code><br /><code>.ids__people--heading</code> <code>.ids__people--count</code><br /><code>.ids__people--list</code> <code>.ids__people--person</code></span>
-        <span class="guide-tokens__row-value">--shift__description-font<br />--ids__caption</span>
-      </div>
-      <div class="guide-component__sample">
-        <p class="subdued">Блок «Люди» на главной и на <code>/people/</code> (инклюд <code>people.html</code>, стили <code>people.css</code>): все авторы, у которых есть публикации (фильтр <code>people</code> считает их по <code>publications.js</code>), по алфавиту, крупными пилюлями с фото и числом публикаций; число при заголовке — сколько людей. Каждая пилюля ведёт на таблицу с фильтром по автору. Здесь — четверо из них.</p>
-        <div class="ids__people">
-          <h2 class="ids__people--heading">Авторы всех публикаций <span class="ids__people--count">4</span></h2>
-          <div class="ids__people--list">
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova <span class="ids__pill-count">13</span></a>
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/dmitry-tumanov.webp" alt="" />Dmitry Tumanov <span class="ids__pill-count">9</span></a>
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/evgeny-revenko.webp" alt="" />Evgeny Revenko <span class="ids__pill-count">15</span></a>
-            <a class="ids__pill ids__people--person" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
-          </div>
-        </div>
-      </div>
-      {{ ".ids__people" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -749,4 +660,3 @@ searchIndex: false
   <div class="ids__space L"></div>
 </article>
 <script src="/js/tokens-dump.js"></script>
-<script src="/js/pubs-table.js"></script>
