@@ -13,6 +13,7 @@
   --ids__hover: var(--ids__color-orange-500);
   --ids__code: var(--ids__color-navy-700);
   --ids__mark: var(--ids__color-yellow-300);
+  --ids__success: var(--ids__color-green-500);
   --ids__surface: var(--ids__color-gray-100);
   --ids__background: var(--ids__color-white);
 

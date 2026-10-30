@@ -1,0 +1,18 @@
+/* Промо-ссылка — пилюля (база в pill.css) с толстым подчёркиванием:
+   заметная ссылка на внешний файл или материал в теле публикации
+   («Смотреть файл» → Фигма). Отличие от обычной пилюли-тега — она читается
+   как ссылка: цвет ссылки и двухпиксельное подчёркивание под текстом,
+   на ховере — общий ховер пилюли. Ставится в своём абзаце. */
+
+.ids .ids__promo-link {
+  color: var(--ids__link);
+  text-decoration: underline;
+  text-decoration-thickness: var(--ids__border-width-m);
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: none;
+  text-decoration-color: var(--ids__link);
+}
+
+.ids .ids__promo-link:hover {
+  text-decoration-color: var(--ids__hover);
+}

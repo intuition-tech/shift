@@ -150,6 +150,14 @@
   &.labels .ids__sequence-item:first-of-type > p:first-of-type {
     color: var(--shift__brand);
   }
+  /* «Нет / Да» с зелёным «Да» (бывш. .dodo-not-dodo--yes-green):
+     первая метка серая, вторая — цветом успеха */
+  &.labels.yes-green .ids__sequence-item:first-of-type > p:first-of-type {
+    color: var(--ids__caption);
+  }
+  &.labels.yes-green .ids__sequence-item:nth-of-type(2) > p:first-of-type {
+    color: var(--ids__success);
+  }
   &.L {
     .ids__sequence-item {
       --columns: 3;

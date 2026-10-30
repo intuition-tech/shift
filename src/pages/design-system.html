@@ -201,6 +201,7 @@ searchIndex: false
           <p>Фотографии из папки проекта дизайнеры используют для разных задач. Поэтому мы всегда копируем общий файл — и работаем с копией отдельно. Это помогает избежать нежелательных изменений в других макетах.</p>
         </aside>
       </div>
+      {{ "aside" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -214,6 +215,7 @@ searchIndex: false
           <p>Вот как пользоваться шаблоном.</p>
         </aside>
       </div>
+      {{ "aside.tight" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -230,6 +232,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__with-note" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -244,6 +247,7 @@ searchIndex: false
           <figcaption>Шаблон папки проекта</figcaption>
         </figure>
       </div>
+      {{ ".ids__media" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -263,13 +267,14 @@ searchIndex: false
           </figure>
         </div>
       </div>
+      {{ ".ids__media-group" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.no-wrap .tight .labels</code><br /><code>.ids__sequence-item</code></span>
-        <span class="guide-tokens__row-value">--ids__gap-m<br />--ids__gap-l</span>
+        <span class="guide-tokens__row-label"><code>.ids__sequence</code><br /><code>.L .XL .gap-M .gap-L</code><br /><code>.no-wrap .tight .labels</code> <code>.yes-green</code><br /><code>.ids__sequence-item</code></span>
+        <span class="guide-tokens__row-value">--ids__gap-m<br />--ids__gap-l<br />--shift__brand<br />--ids__caption<br />--ids__success</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__sequence XL gap-M">
@@ -279,7 +284,19 @@ searchIndex: false
         <figure class="ids__media-caption">
           <figcaption>На первом примере стакан не вписывается в цветной фон. На втором — учли все цвета, добавили рефлексы и дымок</figcaption>
         </figure>
+        <div class="ids__space M"></div>
+        <p class="subdued"><code>.labels</code> — первый абзац ячейки становится меткой-капсом: первая брендовым оранжевым, остальные серым («Додо / Не Додо»). <code>.labels.yes-green</code> — «Нет / Да» со старого сайта: первая серая, вторая зелёная.</p>
+        <div class="ids__sequence XL gap-M labels">
+          <div class="ids__sequence-item"><p>Додо</p><p>Стакан вписан в цветной фон, есть рефлексы и дымок</p></div>
+          <div class="ids__sequence-item"><p>Не Додо</p><p>Стакан вырезан и поставлен на фон как есть</p></div>
+        </div>
+        <div class="ids__space M"></div>
+        <div class="ids__sequence XL gap-M labels yes-green">
+          <div class="ids__sequence-item"><p>Нет</p><p>Слишком большая банка пепси</p></div>
+          <div class="ids__sequence-item"><p>Да</p><p>Все продукты реалистичных размеров</p></div>
+        </div>
       </div>
+      {{ ".ids__sequence" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -301,6 +318,7 @@ searchIndex: false
           </table>
         </div>
       </div>
+      {{ ".ids__table-wrapper" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -323,6 +341,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__no-yes" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -336,6 +355,7 @@ searchIndex: false
           <iframe src="https://www.youtube.com/embed/lgG-pGej_Fk" title="Видео" allowfullscreen></iframe>
         </div>
       </div>
+      {{ ".ids__video" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -350,6 +370,7 @@ searchIndex: false
         </div>
         <p class="subdued">Наведите: верхняя картинка гаснет (на тач-экранах — по тапу).</p>
       </div>
+      {{ ".ids__compare" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -365,6 +386,7 @@ searchIndex: false
           <figure><a href="/images/order-in-projects/3.webp" target="_blank"><img src="/images/order-in-projects/3.webp" alt="" /></a></figure>
         </ids-gallery>
       </div>
+      {{ "ids-gallery" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -386,6 +408,7 @@ searchIndex: false
           </figure>
         </div>
       </div>
+      {{ ".ids__report-header" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -425,6 +448,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__color-palette" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -440,6 +464,7 @@ searchIndex: false
           <button class="ids__icon-copy"><img src="/images/dodo-pizza-dubai-brandbook/s_pepper.svg" alt="pepper" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
         </div>
       </div>
+      {{ ".ids__icon-set" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -454,6 +479,7 @@ searchIndex: false
           <label class="ids__check"><input type="checkbox" checked /><span>Белый текст хорошо видно на фоне плашки.</span></label>
         </div>
       </div>
+      {{ ".ids__checklist" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -474,6 +500,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__slide,.ids__slide-pair" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -499,6 +526,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__download" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -512,6 +540,7 @@ searchIndex: false
           <a href="#components" data-locale="">EN</a><span class="ids__rounded">RU</span>
         </div>
       </div>
+      {{ ".switcher" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -528,6 +557,7 @@ searchIndex: false
         {%- include "search.html" %}
         {%- set searchMod = '' %}
       </div>
+      {{ ".search" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -547,7 +577,7 @@ searchIndex: false
         </nav>
         <div class="ids__pubs">
           <div class="ids__pubs--toolbar">
-            <button class="ids__pill ids__pubs--chip" type="button" aria-label="Снять фильтр: Автор: Katya Maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Автор: Katya Maksimova<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></button>
+            <button class="ids__pill ids__pubs--chip" type="button" aria-label="Снять фильтр: Автор: Katya Maksimova"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Автор: Katya Maksimova<svg class="ids__pubs--tag-reset" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8"/></svg></button>
           </div>
           <table>
             <tbody>
@@ -573,6 +603,7 @@ searchIndex: false
           <a class="ids__pill outline ids__pubs--all" href="#components">Все публикации</a>
         </div>
       </div>
+      {{ ".ids__pubs" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -620,6 +651,7 @@ searchIndex: false
           </div>
         </div>
       </div>
+      {{ ".ids__promo-grid" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -633,11 +665,25 @@ searchIndex: false
         <div style="display: flex; flex-wrap: wrap; gap: 0.4em 0.3em; align-items: center">
           <a class="ids__pill" href="#components">Россия</a>
           <span class="ids__pill outline">21 мая 2025</span>
-          <a class="ids__pill" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova</a>
+          <a class="ids__pill" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova</a>
           <a class="ids__pill" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
           <a class="ids__pill outline" href="#components">Все публикации</a>
         </div>
       </div>
+      {{ ".ids__pill" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>a.ids__promo-link</code></span>
+        <span class="guide-tokens__row-value">--ids__pill-background<br />--ids__link<br />--ids__hover<br />--ids__border-width-m</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Промо-ссылка (<code>promo-link.css</code>): заметная ссылка на внешний файл или материал в теле публикации — «Смотреть файл» на Фигму. База пилюли плюс цвет ссылки и толстое, двухпиксельное подчёркивание; на ховере — общий ховер пилюли. Ставится в своём абзаце, для внешних ссылок — с <code>target="_blank" rel="noopener noreferrer"</code>.</p>
+        <p><a class="ids__promo-link" href="#components">Смотреть файл</a></p>
+      </div>
+      {{ ".ids__promo-link" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -650,11 +696,12 @@ searchIndex: false
         <p class="subdued">Под h1 каждой публикации: дата и теги из <code>src/data/publications.js</code> (инклюд <code>pub-meta.html</code>). Каждый тег открывает таблицу с фильтром по себе; ответственный за публикацию — с пометкой «Оунер». Пилюли — <code>.ids__pill</code>, дата — контурная.</p>
         <div class="ids__pub-meta">
           <span class="ids__pill outline ids__pub-meta--date">21 мая 2025</span>
-          <a class="ids__pill ids__pub-meta--tag contact" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
+          <a class="ids__pill ids__pub-meta--tag contact" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova <span class="ids__pub-meta--contact-label">Оунер</span></a>
           <a class="ids__pill ids__pub-meta--tag" href="#components">Россия</a>
           <a class="ids__pill ids__pub-meta--tag" href="#components">Каналы и носители</a>
         </div>
       </div>
+      {{ ".ids__pub-meta" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -668,13 +715,14 @@ searchIndex: false
         <div class="ids__people">
           <h2 class="ids__people--heading">Авторы всех публикаций <span class="ids__people--count">4</span></h2>
           <div class="ids__people--list">
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.jpg" alt="" />Katya Maksimova <span class="ids__pill-count">13</span></a>
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/dmitry-tumanov.jpg" alt="" />Dmitry Tumanov <span class="ids__pill-count">9</span></a>
-            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/evgeny-revenko.jpg" alt="" />Evgeny Revenko <span class="ids__pill-count">15</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/katya-maksimova.webp" alt="" />Katya Maksimova <span class="ids__pill-count">13</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/dmitry-tumanov.webp" alt="" />Dmitry Tumanov <span class="ids__pill-count">9</span></a>
+            <a class="ids__pill ids__people--person" href="#components"><img class="ids__pill-photo" src="/images/authors/evgeny-revenko.webp" alt="" />Evgeny Revenko <span class="ids__pill-count">15</span></a>
             <a class="ids__pill ids__people--person" href="#components"><span class="ids__pill-photo initial" aria-hidden="true">S</span>Spartak Petrosyan <span class="ids__pill-count">8</span></a>
           </div>
         </div>
       </div>
+      {{ ".ids__people" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -686,6 +734,7 @@ searchIndex: false
       <div class="guide-component__sample">
         <p>Строится автоматически из <code>&lt;ids-nav-item id label&gt;</code> на странице — образец слева от этого текста. Sticky, скрыто на мобильных. Слева от текущего пункта — черта-индикатор (<code>.ids__navbar-indicator</code>, <code>js/navbar.js</code>): едет между пунктами по скроллу, по клику перелетает к пункту, по ховеру на пункт красится; тот же пункт получает класс <code>current</code> — источник истины один.</p>
       </div>
+      {{ "ids-navbar" | usages | safe }}
     </div>
   </ids-nav-item>
 

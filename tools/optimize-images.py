@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Оптимизация картинок: ресайз под фактическую ширину отрисовки, WebP, GIF → mp4.
 
-Оригиналы заменяются: они всегда есть в старом репозитории (/Users/arutyunov/dbdt)
-и при необходимости пересохраняются оттуда заново.
+Оригиналы не удаляются, а переезжают в originals/ (в гитигноре, структура
+повторяет static/): из них можно пересохранить картинку под другой размер
+или вернуть исходник. Удаляется только мусор — файлы, на которые никто не ссылается.
 
 Что делает:
   1. Удаляет картинки, на которые не ссылается ни одна страница и ни один CSS.
@@ -40,6 +41,13 @@ QUALITY = {"jpg": 82, "jpeg": 82, "png": 90}   # фото жмём сильне�
 
 def sh(cmd):
     return subprocess.run(cmd, shell=True, capture_output=True, text=True)
+
+
+def stash(p):
+    """Оригинал → originals/<тот же путь без static/>, вместо удаления."""
+    dest = os.path.join("originals", p.replace("static/", "", 1))
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.move(p, dest)
 
 
 def natural_size(path):
@@ -99,8 +107,9 @@ def main():
     used = used_paths()
     rename, stat = {}, {k: [0, 0, 0] for k in ("removed", "webp", "resized", "gif", "kept")}
 
-    # 1. мусор
+    # 1. мусор (фото авторов не считаем: на них ссылаются данные, не страницы)
     for p in sorted(glob.glob("static/images/**/*", recursive=True)):
+        if p.startswith("static/images/authors/"): continue
         if os.path.isfile(p) and "/" + p.replace("static/", "") not in used:
             stat["removed"][0] += 1; stat["removed"][1] += os.path.getsize(p)
             os.remove(p)
@@ -108,6 +117,9 @@ def main():
     # 2. растр
     for p in sorted(glob.glob("static/images/**/*", recursive=True)):
         if not os.path.isfile(p): continue
+        # Фото авторов живут в src/data/authors.js, а не в разметке страниц —
+        # --fix-links их не поправит, поэтому не трогаем
+        if p.startswith("static/images/authors/"): continue
         ext = os.path.splitext(p)[1].lower().lstrip(".")
         if ext not in QUALITY: continue
         web = "/" + p.replace("static/", "")
@@ -127,7 +139,7 @@ def main():
         if sh(f'cwebp -q {QUALITY[ext]} -quiet "{src}" -o "{out}"').returncode: continue
 
         if os.path.getsize(out) < orig * 0.95:
-            os.remove(p)
+            stash(p)
             rename[web] = os.path.splitext(web)[0] + ".webp"
             stat["webp"][0] += 1; stat["webp"][1] += orig; stat["webp"][2] += os.path.getsize(out)
         else:
@@ -147,7 +159,7 @@ def main():
                f'-vf "scale={target}:-2:flags=lanczos" -c:v libx264 -crf 27 -an "{out}"')
         if r.returncode or not os.path.exists(out):
             print("ffmpeg не справился:", p); continue
-        os.remove(p)
+        stash(p)
         rename[web] = os.path.splitext(web)[0] + ".mp4"
         stat["gif"][0] += 1; stat["gif"][1] += orig; stat["gif"][2] += os.path.getsize(out)
 

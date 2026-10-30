@@ -1,3 +1,98 @@
+import fs from "node:fs";
+import path from "node:path";
+import publications from "./src/data/publications.js";
+
+// Где используется компонент — для витрины /design-system/. Сканирует разметку
+// страниц (кроме самой витрины) и инклюдов на сборке. Селектор: "tag.class.class",
+// ".class" или "tag"; несколько через запятую. Одно вхождение на странице —
+// якорная ссылка на охватывающий <ids-nav-item id>, несколько — просто URL.
+const PAGES_DIR = "./src/pages";
+const INCLUDES_DIR = "./src/includes";
+let sourcesCache = null;
+
+function readSources() {
+  if (sourcesCache) return sourcesCache;
+  const list = [];
+  for (const file of fs.readdirSync(PAGES_DIR)) {
+    if (!file.endsWith(".html") || file === "design-system.html") continue;
+    const slug = file.replace(/\.html$/, "");
+    const text = fs.readFileSync(path.join(PAGES_DIR, file), "utf8");
+    const pub = publications.find((p) => p.slug === slug);
+    const fm = text.match(/^title:\s*(.+)$/m);
+    const title = pub?.title || (fm ? fm[1].replace(/\s*[—-]\s*Shift\s*$/, "").trim() : slug);
+    list.push({ kind: "page", slug, text, url: slug === "index" ? "/" : `/${slug}/`, title: slug === "index" ? "Главная" : title });
+  }
+  for (const file of fs.readdirSync(INCLUDES_DIR)) {
+    if (!file.endsWith(".html")) continue;
+    list.push({ kind: "include", slug: file, text: fs.readFileSync(path.join(INCLUDES_DIR, file), "utf8"), title: `includes/${file}` });
+  }
+  sourcesCache = list;
+  return list;
+}
+
+function parseSelector(sel) {
+  const [tagPart, ...classes] = sel.trim().split(".");
+  return { tag: tagPart || null, classes };
+}
+
+// Позиции всех тегов, подходящих под селектор
+function findMatches(text, selectors) {
+  const positions = [];
+  const tagRe = /<([a-z][a-z0-9-]*)\b([^>]*)>/g;
+  let m;
+  while ((m = tagRe.exec(text))) {
+    const classAttr = m[2].match(/\sclass="([^"]*)"/);
+    // Шаблонные вставки в атрибуте (class="search{% if … %}") — не токены
+    const tokens = classAttr ? classAttr[1].replace(/{[%{][\s\S]*?[%}]}/g, " ").split(/\s+/).filter(Boolean) : [];
+    for (const { tag, classes } of selectors) {
+      if (tag && m[1] !== tag) continue;
+      if (classes.every((c) => tokens.includes(c))) {
+        positions.push(m.index);
+        break;
+      }
+    }
+  }
+  return positions;
+}
+
+// id охватывающего <ids-nav-item> для позиции в тексте, если он есть
+function enclosingSection(text, pos) {
+  const before = text.slice(0, pos);
+  const open = before.lastIndexOf("<ids-nav-item");
+  if (open === -1) return null;
+  if (before.lastIndexOf("</ids-nav-item>") > open) return null;
+  const id = before.slice(open).match(/\sid="([^"]+)"/);
+  return id ? id[1] : null;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+}
+
+function renderUsages(selectorList) {
+  const selectors = selectorList.split(",").map(parseSelector);
+  const items = [];
+  for (const src of readSources()) {
+    const positions = findMatches(src.text, selectors);
+    if (!positions.length) continue;
+    if (src.kind === "include") {
+      items.push({ title: src.title, html: `<li>${escapeHtml(src.title)}</li>` });
+      continue;
+    }
+    const section = positions.length === 1 ? enclosingSection(src.text, positions[0]) : null;
+    const href = section ? `${src.url}#${section}` : src.url;
+    items.push({ title: src.title, html: `<li><a href="${href}">${escapeHtml(src.title)}</a></li>` });
+  }
+  items.sort((a, b) => a.title.localeCompare(b.title, "ru"));
+  const list = items.length
+    ? `<ul>${items.map((i) => i.html).join("")}</ul>`
+    : `<p class="guide-component__usage-none">Пока не используется</p>`;
+  const body = items.length > 24
+    ? `<details><summary>${items.length} страниц</summary>${list}</details>`
+    : list;
+  return `<div class="guide-component__usage">${body}</div>`;
+}
+
 export default function (conf) {
   // static/ повторяет корень сайта: css и js дизайн-системы, fonts, favicon
   conf.addPassthroughCopy({ static: "/" });
@@ -67,6 +162,10 @@ export default function (conf) {
       .format(new Date(iso))
       .replace(/\s*г\.$/, "");
   });
+  // Список использований компонента на витрине; кэш исходников сбрасывается на каждую сборку
+  conf.on("eleventy.before", () => { sourcesCache = null; });
+  conf.addFilter("usages", renderUsages);
+
   conf.addPassthroughCopy({ "src/styles/site.css": "assets/site.css" });
   conf.addPassthroughCopy({ "src/scripts/main.js": "assets/main.js" });
 

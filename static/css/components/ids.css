@@ -20,44 +20,6 @@
     }
   }
 
-  .ids__promo-link {
-    display: flex;
-
-    & a {
-      display: inline-block;
-      padding: 0.45em 0.6em 0.5em;
-      border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 50%, transparent);
-      border-right: 0;
-
-      &:hover {
-        background-color: color-mix(in srgb, var(--ids__hover) 10%, transparent);
-      }
-
-      &:first-child {
-        border-radius: var(--ids__radius-m) 0 0 var(--ids__radius-m);
-        padding-left: 1em;
-      }
-
-      &:last-child {
-        border-radius: 0 var(--ids__radius-m) var(--ids__radius-m) 0;
-        padding-right: 1em;
-        border-right: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 50%, transparent);
-      }
-
-      &.active {
-        color: var(--ids__text);
-        background-color: color-mix(in srgb, var(--ids__text) 5%, transparent);
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        cursor: default;
-      }
-
-      &.active::after {
-        content: " ↓";
-      }
-    }
-  }
-
   & p {
     margin-top: 0;
     margin-bottom: calc(var(--ids__density) * 0.6em);

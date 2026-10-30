@@ -1,6 +1,7 @@
 /* Пилюля — общий формфактор сайта: теги мета-блока публикации (pub-meta.css),
    теги-фильтры на /publications/ (pubs.css), контурная дата, кнопка
-   «Все публикации» на главной, люди (people.css). Здесь — база: габариты,
+   «Все публикации» на главной, люди (people.css), промо-ссылка
+   (promo-link.css). Здесь — база: габариты,
    скругление, фон, ховер по общему паттерну (вход мгновенно, выход 0.3s ease);
    специфика (активное состояние, подписи) — в файлах компонентов.
    Содержимое выравнивается по базовой линии, а не по центру строки: так
@@ -14,7 +15,7 @@
   --ids__pill-border: color-mix(in srgb, var(--ids__border) 45%, var(--ids__background));
 }
 
-.ids .ids__pill {
+.ids :is(.ids__pill, .ids__promo-link) {
   display: inline-flex;
   align-items: baseline;
   gap: 0.45em;
@@ -40,7 +41,7 @@
 }
 
 /* Ховер — только у ссылок и кнопок (дата — просто span) */
-.ids .ids__pill:is(a, button):hover {
+.ids :is(.ids__pill, .ids__promo-link):is(a, button):hover {
   color: var(--ids__hover);
   background: color-mix(in srgb, var(--ids__hover) 16%, transparent);
   transition-duration: var(--ids__duration-instant);
