@@ -81,6 +81,16 @@ tags: publication
 | `.stacked-images` — стопка в колонке пары | два `figure` в одном `.ids__sequence-item` |
 | `h2.brandbook-guide-subtitle` «Рынок: Россия» | подзаголовка нет — тег рынка в `markets` записи публикации |
 | «Последнее обновление …» в тексте | строки нет — дата в `date` записи публикации (та, что названа в тексте) |
+| `.dubai-slide-brand--spaced-pair` — пара без подписей с зазором побольше | `.ids__slide-pair`, зазор не воспроизводится |
+| `.photo-style-pair--caption-below` — пара или тройка с подписью под каждой картинкой | `.ids__sequence XL gap-S` (пара) / `L gap-S` (тройка), внутри `figure` с `figcaption` |
+| `.typography-sample-single`, `.graphics-figure` — одна картинка во всю ширину | просто `figure` |
+| `.stacked-images` во всю ширину, с подписями или без | `figure` подряд |
+| `.figure-busy-bg--narrow` — узкая картинка по центру (треть колонки) | `.ids__media-group M` |
+| доли ширины у картинок в паре (`…__img--three-fifths`, `--four-fifths`, `--three-quarters`, `--quarter`) | `figure.ids__media S / M / XS` внутри `.ids__sequence-item` — ближайший размер IDS |
+| `.slide-image-on-white` — белая подложка под макетом | не переносится |
+| `.brandbook-links-panel`, `.brandbook-gray-plate` — серая панель с заголовком | `aside`, заголовок внутри; после заголовка спейсер S |
+| `.svg-icons > .svg-copy` | `.ids__icon-set > button.ids__icon-copy` |
+| ссылка на гайд, которого на новом сайте нет | полный адрес старого сайта `https://shift.dodobrands.io/…` |
 
 ## Картинки
 

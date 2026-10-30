@@ -878,7 +878,7 @@ export default [
     ],
     "collections": [],
     "isNew": true,
-    "status": "stub",
+    "status": "published",
     "oldUrl": "https://shift.dodobrands.io/graphic-design/visual-style-dodo-pizza",
     "externalUrl": null
   },
