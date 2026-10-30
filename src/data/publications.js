@@ -881,6 +881,31 @@ export default [
     "externalUrl": null
   },
   {
+    "slug": "how-to-prepare-an-image-for-the-catalog",
+    "title": "Как сделать макет для комбо",
+    "titleEn": "How to make a combo layout",
+    "date": "2026-08-12",
+    "authors": [
+      "ivan-afanasiev",
+      "maria-mikhailova"
+    ],
+    "contact": null,
+    "markets": [
+      "uae"
+    ],
+    "teams": [
+      "brand-design"
+    ],
+    "areas": [
+      "graphic-design"
+    ],
+    "collections": [],
+    "isNew": true,
+    "status": "published",
+    "oldUrl": "https://shift.dodobrands.io/graphic-design/how-to-prepare-an-image-for-the-catalog",
+    "externalUrl": null
+  },
+  {
     "slug": "adding-reflexes-to-layouts",
     "title": "Добавляем рефлексы в макеты",
     "titleEn": "Adding reflexes to layouts",

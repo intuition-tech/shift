@@ -156,6 +156,11 @@ export default {
     "name": "Irina Smelkova",
     "photo": "/images/authors/irina-smelkova.jpg"
   },
+  "ivan-afanasiev": {
+    "slug": "ivan-afanasiev",
+    "name": "Ivan Afanasiev",
+    "photo": "/images/authors/ivan-afanasiev.jpg"
+  },
   "jaroslav-mymryk": {
     "slug": "jaroslav-mymryk",
     "name": "Jaroslav Mymryk",
