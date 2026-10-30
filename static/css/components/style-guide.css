@@ -266,8 +266,10 @@
    Одно вхождение на странице — якорь на раздел, несколько — URL страницы.
    Генерируется фильтром usages в eleventy.config.js */
 .guide-component__usage {
-  margin-top: 1em;
-  font-size: 0.6em;
+  margin-top: 1.2em;
+  padding-top: 0.6em;
+  border-top: var(--ids__border-width-s) solid var(--ids__border);
+  font-size: 0.5em;
   line-height: 1.3;
   color: var(--ids__text);
 

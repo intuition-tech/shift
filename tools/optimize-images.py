@@ -3,7 +3,9 @@
 
 Оригиналы не удаляются, а переезжают в originals/ (в гитигноре, структура
 повторяет static/): из них можно пересохранить картинку под другой размер
-или вернуть исходник. Удаляется только мусор — файлы, на которые никто не ссылается.
+или вернуть исходник. Для переноса со старого сайта — флаг --no-originals:
+исходники есть в старом репозитории, копить их здесь незачем.
+Мусор (файлы, на которые никто не ссылается) удаляется всегда.
 
 Что делает:
   1. Удаляет картинки, на которые не ссылается ни одна страница и ни один CSS.
@@ -16,7 +18,7 @@
 Запуск:
     npm run build                       # нужен свежий site/
     node tools/measure-images.mjs       # необязательно, но желательно
-    python3 tools/optimize-images.py
+    python3 tools/optimize-images.py                # или --no-originals при переносе
     python3 tools/optimize-images.py --fix-links    # правит src/pages/*.html
     npm run build                       # пересобрать и проверить
 
@@ -44,7 +46,9 @@ def sh(cmd):
 
 
 def stash(p):
-    """Оригинал → originals/<тот же путь без static/>, вместо удаления."""
+    """Оригинал → originals/<тот же путь без static/>; с --no-originals — удаление."""
+    if "--no-originals" in sys.argv:
+        os.remove(p); return
     dest = os.path.join("originals", p.replace("static/", "", 1))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     shutil.move(p, dest)
