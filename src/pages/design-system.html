@@ -414,7 +414,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__color-palette</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__color-palette</code> <code>.four</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
         <span class="guide-tokens__row-value">--color (инлайн)<br />--ids__color-white<br />--ids__text</span>
       </div>
       <div class="guide-component__sample">
@@ -446,6 +446,14 @@ searchIndex: false
               </div>
             </div>
           </div>
+        </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>.four</code> — четыре плашки в ряд на всю ширину колонки (палитры позиционирования, акцентные цвета); пятая переносится на следующий ряд, на мобильных — по две.</p>
+        <div class="ids__color-palette four">
+          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(80, 215, 255)"><div class="ids__color-sample-text"><p>Sky blue</p><button class="ids__copy" data-copy="#50D7FF">HEX #50D7FF</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
+          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(103, 91, 216)"><div class="ids__color-sample-text"><p>Blueberry violet</p><button class="ids__copy" data-copy="#675BD8">HEX #675BD8</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
+          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(225, 254, 60)"><div class="ids__color-sample-text"><p>Neon lime</p><button class="ids__copy" data-copy="#D1FE3C">HEX #D1FE3C</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
+          <div class="ids__color-plate"><div class="ids__color-sample light" style="--color: rgb(252, 227, 248)"><div class="ids__color-sample-text"><p>Pastel pink</p><button class="ids__copy" data-copy="#FCE3F8">HEX #FCE3F8</button><span class="ids__copy-hint">Copy colour</span><span class="ids__copy-done">Colour copied</span></div></div></div>
         </div>
       </div>
       {{ ".ids__color-palette" | usages | safe }}

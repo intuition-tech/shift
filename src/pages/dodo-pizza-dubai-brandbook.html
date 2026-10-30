@@ -3,24 +3,6 @@ title: Брендбук Додо Пицца Дубай — Shift
 titleEn: Dodo Pizza Dubai Brandbook — Shift
 tags: publication
 ---
-<style>
-  /* Палитры позиционирования: четыре плашки в ряд на всю ширину */
-  .brandbook__four-color .ids__color-palette {
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-  .brandbook__four-color .ids__color-plate {
-    width: 25%;
-  }
-  @media (width < 768px) {
-    .brandbook__four-color .ids__color-palette {
-      flex-wrap: wrap;
-    }
-    .brandbook__four-color .ids__color-plate {
-      width: 50%;
-    }
-  }
-</style>
 
 <div class="ids__space XL"></div>
 <article class="ids__wrapper publication">
@@ -298,8 +280,7 @@ tags: publication
     <h3>For You</h3>
     <p>{% if lang == 'ru' %}Мягкий желтый: индивидуальность, внимание к себе, комфорт, забота о себе.{% else %}Soft yellow: individuality, self-attention, comfort, self-care.{% endif %}</p>
 
-    <div class="brandbook__four-color">
-      <div class="ids__color-palette">
+    <div class="ids__color-palette four">
         <div class="ids__color-plate">
           <div class="ids__color-sample light" style="--color: rgb(255, 200, 5)">
             <div class="ids__color-sample-text">
@@ -349,7 +330,6 @@ tags: publication
           </div>
         </div>
       </div>
-    </div>
 
     <div class="ids__space S"></div>
     <figure>
@@ -364,8 +344,7 @@ tags: publication
     <h3>For Friends</h3>
     <p>{% if lang == 'ru' %}Теплый зеленый: нейтральный, современный и дружелюбный.{% else %}Warm green: neutral, modern, and friendly.{% endif %}</p>
 
-    <div class="brandbook__four-color">
-      <div class="ids__color-palette">
+    <div class="ids__color-palette four">
         <div class="ids__color-plate">
           <div class="ids__color-sample light" style="--color: rgb(185, 210, 70)">
             <div class="ids__color-sample-text">
@@ -415,7 +394,6 @@ tags: publication
           </div>
         </div>
       </div>
-    </div>
 
     <div class="ids__space S"></div>
     <figure>
@@ -430,8 +408,7 @@ tags: publication
     <h3>For Family</h3>
     <p>{% if lang == 'ru' %}Оранжевый Додо: поддержка, доверие, семейный уют.{% else %}Orange Dodo: support, trust, family atmosphere.{% endif %}</p>
 
-    <div class="brandbook__four-color">
-      <div class="ids__color-palette">
+    <div class="ids__color-palette four">
         <div class="ids__color-plate">
           <div class="ids__color-sample light" style="--color: rgb(255, 78, 0)">
             <div class="ids__color-sample-text">
@@ -481,7 +458,6 @@ tags: publication
           </div>
         </div>
       </div>
-    </div>
 
     <div class="ids__space S"></div>
     <figure>
