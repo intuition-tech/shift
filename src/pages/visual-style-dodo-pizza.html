@@ -1,12 +1,135 @@
 ---
 title: Визуальный стиль Додо Пиццы — Shift
+description: "Константы фирменного стиля: логотип, цветовые палитры, описание фотостиля, графика и типографика."
 tags: publication
-stub: true
 ---
+{#- Переносится без перевода (решение Жени): русский текст без условий, EN-страница показывает его же. -#}
 <div class="ids__space XL"></div>
 <article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>
+
   <h1>Визуальный стиль Додо Пиццы</h1>
   {% include "pub-meta.html" %}
+  <p class="ids__description">Здесь константы фирменного стиля: логотип, цветовые палитры, описание фотостиля, графика и типографика. Гайд постоянно обновляется. Версия в формате презентации — <a href="https://www.figma.com/proto/DIxkMsM2ZcD5MbVdq2XYUM/ru---dodo-%E2%80%94-guidebook?node-id=5216-478" rel="noopener noreferrer">в Фигме</a>.</p>
+
+  <div class="ids__space S"></div>
+  <ids-nav-item id="logo" label="Логотип">
+    <h2 class="h3">Логотип</h2>
+    <div class="ids__with-note">
+      <p>В системе несколько вариантов логотипа: объёмный и плоский знак, версии с дескриптором и без, и знак без текста — буква «D» в фирменной форме.</p>
+      <div class="ids__note">
+        <p><a href="https://www.figma.com/design/F9C7ioZx6oj72MxBGcAj3i/Component-Library-%E2%80%94-Dodo-Pizza?node-id=1-19&amp;p=f" target="_blank" rel="noopener noreferrer">Логотипы в фигме</a>, <a href="https://drive.google.com/drive/folders/1xYuDiB3pRy_szQgaCFfuyylFMeCPCLsg?usp=drive_link" target="_blank" rel="noopener noreferrer">логотипы на гугл-диске</a></p>
+      </div>
+    </div>
+    <figure><img src="/images/visual-style-dodo-pizza/logo-1.webp" alt="" /></figure>
+
+    <p><strong>Объемный знак.</strong> Используем объемный знак в брендовых, цифровых и промоматериалах. Знак можно повернуть на 6 градусов против часовой стрелки.</p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/visual-style-dodo-pizza/1-1.webp" alt="" />
+          <figcaption>На белом фоне</figcaption>
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure>
+          <img src="/images/visual-style-dodo-pizza/orange-logo.webp" alt="" />
+          <figcaption>На оранжевом фоне</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p><strong>Плоский знак.</strong> Эта версия подходит для случаев, когда нет технической возможности воспользоваться объемным знаком (например, ограничения печати в два плашечных цвета) или размер носителя меньше 5 миллиметров (28 пикселей).</p>
+    <figure><img src="/images/visual-style-dodo-pizza/2.webp" alt="" /></figure>
+
+    <p><strong>Свободное поле.</strong> Для объемного и плоского знаков свободное поле равно 1/4 высоты знака.</p>
+    <figure><img src="/images/visual-style-dodo-pizza/clear-space.webp" alt="" /></figure>
+  </ids-nav-item>
+
+  <ids-nav-item id="logo-in-layouts" label="Логотип в макетах">
+    <h2 class="h3">Логотип в макетах</h2>
+    <p><strong>Интеграция.</strong> Стараемся интегрировать название «Додо Пиццы» или «Додо» в копирайт, добавляя к нему знак перед или после слова в зависимости от композиции. Это предпочтительный вариант использования знака без вордмарка.</p>
+    <div class="ids__sequence L gap-S">
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/layout-ciao.webp" alt="" /></figure></div>
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/layout-combo.webp" alt="" /></figure></div>
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/layout-mini.webp" alt="" /></figure></div>
+    </div>
+
+    <p><strong>Классика.</strong> Когда нет возможности интегрировать название компании и знак в копирайт заголовка, допускаем использование классического логотипа.</p>
+    <div class="ids__slide-pair">
+      <div class="ids__slide-image"><img src="/images/visual-style-dodo-pizza/classic-1.webp" alt="" /></div>
+      <div class="ids__slide-image"><img src="/images/visual-style-dodo-pizza/classic-2.webp" alt="" /></div>
+    </div>
+
+    <p><strong>Вордмарк без знака.</strong> В некоторых случаях оставляем только вордмарк, часто этот прием используем в упаковке из-за технических ограничений печати или размерных ограничений.</p>
+    <div class="ids__media-group M">
+      <figure><img src="/images/visual-style-dodo-pizza/descriptor-box.webp" alt="" /></figure>
+    </div>
+
+    <p><strong>Аватар.</strong> Круглый знак адаптирован для диджитала и соцсетей. В случаях, когда у аватарки случайные скругления, используем вариант с градиентом.</p>
+    <div class="ids__sequence L gap-S">
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/avatar-circle.webp" alt="" /></figure></div>
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/avatar-squircle.webp" alt="" /></figure></div>
+      <div class="ids__sequence-item"><figure><img src="/images/visual-style-dodo-pizza/avatar-social.webp" alt="" /></figure></div>
+    </div>
+
+    <p><strong>Кобрендинг.</strong> В коллаборациях объединяем оба логотипа с помощью разделителя — знака умножения. Когда Додо Пицца является главной площадкой рекламной кампании, ее логотип всегда размещается первым. Визуальный вес логотипов должен быть одинаковым.</p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/visual-style-dodo-pizza/cobrand-8-1.webp" alt="" /></figure>
+        <figure><img src="/images/visual-style-dodo-pizza/cobrand-8-2.webp" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/visual-style-dodo-pizza/cobrand-8-3.webp" alt="" /></figure>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  <ids-nav-item id="placement" label="Правила размещения">
+    <h2 class="h3">Правила размещения</h2>
+    <p><strong>Размер логотипа.</strong> Логотип — это часть макета, поэтому он должен быть заметным и крупным объектом, но сбалансированным с остальными элементами. Не делаем логотип излишне крупным: знак не должен перекрывать 1/3 буквы, чтобы сохранить читаемость текста. Также не уменьшаем знак до размера наночастицы, иначе его присутствие на макете перестает играть роль бренд-якоря. Не любим, когда знак выходит за границы макета и из-за этого обрезается.</p>
+    <div class="ids__sequence XL gap-M labels yes-green">
+      <div class="ids__sequence-item">
+        <p>Нет</p>
+        <p>Слишком мелкий логотип, наезжает на заголовок</p>
+        <figure><img src="/images/visual-style-dodo-pizza/placement-vertical-no.webp" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <p>Да</p>
+        <p>Логотип сбалансирован с заголовком и ценой, не перекрывает текст</p>
+        <figure><img src="/images/visual-style-dodo-pizza/placement-vertical-yes.webp" alt="" /></figure>
+      </div>
+    </div>
+    <div class="ids__sequence XL gap-M labels yes-green">
+      <div class="ids__sequence-item">
+        <p>Нет</p>
+        <p>Слишком большой логотип, он частично обрезан и заходит на текст</p>
+        <figure><img src="/images/visual-style-dodo-pizza/placement-city-yes.webp" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <p>Да</p>
+        <p>Объёмный знак в верхней части макета, размер читаемый с расстояния</p>
+        <figure><img src="/images/visual-style-dodo-pizza/placement-city-no.webp" alt="" /></figure>
+      </div>
+    </div>
+
+    <p><strong>Расположение на макете.</strong> Учитываем контекст размещения носителя в среде — логотип должен всегда оставаться видимым. К примеру, на ситиформатах место логотипа в верхней части макета, чтобы прохожие не заслоняли его.</p>
+    <div class="ids__sequence XL gap-M labels yes-green">
+      <div class="ids__sequence-item">
+        <p>Нет</p>
+        <p>Логотип внизу макета на ситиформате заслоняют прохожие</p>
+        <figure><img src="/images/visual-style-dodo-pizza/with-people.webp" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <p>Да</p>
+        <p>Объёмный знак в верхней части макета, читается с расстояния</p>
+        <figure><img src="/images/visual-style-dodo-pizza/without-people.webp" alt="" /></figure>
+      </div>
+    </div>
+  </ids-nav-item>
+
+  {#- Перенос идёт кусками: разделы «Цвета» и дальше пока на старом сайте -#}
+  <div class="ids__space M"></div>
   {% include "stub-note.html" %}
   <div class="ids__space L"></div>
 </article>

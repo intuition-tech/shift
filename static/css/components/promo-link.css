@@ -4,7 +4,9 @@
    как ссылка: цвет ссылки и двухпиксельное подчёркивание под текстом,
    на ховере — общий ховер пилюли. Паддинги шире пилюльных: снизу —
    компенсация массивного подчёркивания, по бокам — воздух; радиус пилюльный.
-   Ставится в своём абзаце. */
+   Подчёркивание перекрашивается в том же ритме, что текст и фон
+   (вход мгновенно, выход 0.3s) — транзишен задаётся здесь целиком,
+   потому что пилюля свой список свойств переопределяет. Ставится в своём абзаце. */
 
 .ids .ids__promo-link {
   padding: 0.3em 1.5em 0.5em;
@@ -14,8 +16,13 @@
   text-underline-offset: 0.2em;
   text-decoration-skip-ink: none;
   text-decoration-color: var(--ids__link);
+  transition:
+    color var(--ids__duration-base) var(--ids__easing-base),
+    background-color var(--ids__duration-base) var(--ids__easing-base),
+    text-decoration-color var(--ids__duration-base) var(--ids__easing-base);
 }
 
 .ids .ids__promo-link:hover {
   text-decoration-color: var(--ids__hover);
+  transition-duration: var(--ids__duration-instant);
 }

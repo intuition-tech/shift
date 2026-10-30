@@ -858,7 +858,7 @@ export default [
     "slug": "visual-style-dodo-pizza",
     "title": "Визуальный стиль Додо Пиццы",
     "titleEn": null,
-    "date": "2026-08-07",
+    "date": "2026-10-20",
     "authors": [
       "alina-afonkina",
       "anya-sheloumova",
@@ -867,7 +867,9 @@ export default [
       "anatoly-malakhov"
     ],
     "contact": null,
-    "markets": [],
+    "markets": [
+      "russia"
+    ],
     "teams": [
       "brand-design"
     ],
