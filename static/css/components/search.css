@@ -125,14 +125,19 @@
   right: 0;
   z-index: 10;
   margin: 0;
-  padding: 0.25em 0;
+  /* Паддинг только сверху: снизу он отодвигал бы липкий туман от края
+     (sticky считается от контентной области), отступ последней строки — ниже */
+  padding: 0.25em 0 0;
   list-style: none;
   background: var(--ids__background);
   border: var(--ids__border-width-s) solid
     color-mix(in srgb, var(--ids__text) 15%, transparent);
-  border-radius: var(--ids__radius-m);
+  border-radius: 0.8em;
   box-shadow: 0 0.5em 1.5em color-mix(in srgb, var(--ids__text) 15%, transparent);
-  max-height: 24em;
+  /* Высота — не ниже низа экрана с отступом; точное значение по положению
+     поля ставит search.js при открытии (панель в шапке и на главной стоят
+     на разной высоте), это фолбэк */
+  max-height: calc(100vh - 8em);
   overflow-y: auto;
 }
 .ids .search-results li {
@@ -149,22 +154,93 @@
   text-decoration: none;
   color: var(--ids__text);
 }
+/* Нижний отступ списка — у последней строки, а не у панели (см. выше) */
+.ids .search-results > li:last-of-type:not(.search-empty) {
+  padding-bottom: 0.25em;
+}
+/* Активная (стрелками) и ховер-строка — еле заметная подложка */
 .search-result.is-active,
 .search-result:hover {
-  background: var(--ids__surface);
+  background: color-mix(in srgb, var(--ids__text) 3%, var(--ids__background));
 }
-/* Шрифт один — заголовок результата отличаем весом, сниппет кеглем и серым */
-.search-result-title {
+/* Туман снизу: пока выдача не долистана до конца, у нижнего края — градиент
+   к цвету фона (класс has-more ставит search.js по скроллу). Липкий
+   псевдоэлемент в конце списка, отрицательный марджин кладёт его поверх
+   последних строк, на клики не реагирует */
+.ids .search-results::after {
+  content: "";
   display: block;
+  position: sticky;
+  bottom: 0;
+  height: 2em;
+  margin-top: -2em;
+  background: linear-gradient(to bottom, transparent, var(--ids__background));
+  /* Поверх строк: ссылки в .ids позиционированы, без z-index текст рисуется над туманом */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--ids__duration-base);
+}
+.ids .search-results.has-more::after {
+  opacity: 1;
+}
+/* Заголовок раздела выдачи (Люди, Рынки, …, Публикации) — мелкий капительный
+   кэпшен с разрядкой, как в образце; боковой паддинг — тот же, что у строк
+   (0.75em в кегле строки), между разделами отступ сверху */
+.ids .search-results .search-group-label {
+  padding: 1.3em calc(0.75em / 0.7) 0.45em;
+  font-size: 0.7em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ids__caption);
+}
+.ids .search-results .search-group-label:first-child {
+  padding-top: 0.75em;
+}
+/* Шрифт один — заголовок результата отличаем весом, сниппет и мету кеглем и серым */
+.search-result-title {
   font-weight: 650;
 }
-.search-result-snippet {
+/* У публикаций заголовок на своей строке; у людей и тегов счётчик стоит рядом с именем */
+.search-result.pub .search-result-title {
   display: block;
+}
+/* Совпадение в самом заголовке — заголовок крупнее */
+.search-result.in-title .search-result-title {
+  font-size: 1.4em;
+}
+.search-result-count,
+.search-result-meta,
+.search-result-snippet {
   font-size: 0.85em;
   color: var(--ids__caption);
 }
-.search-empty {
-  padding: 1.2em 0.75em;
+.search-result-snippet,
+.search-result-meta {
+  display: block;
+}
+/* Совпадение — толстое жёлтое подчёркивание, а не подложка; в сером
+   сниппете совпавшее слово — обычным текстовым цветом */
+.search-result mark {
+  color: var(--ids__text);
+  background: none;
+  text-decoration: underline;
+  text-decoration-color: var(--ids__mark);
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: none;
+}
+.ids .search-results .search-empty {
+  /* Плашка «ничего не нашлось» — не ниже 6.5 rem, текст точно по центру;
+     паддинг панели сверху и у последней строки компенсируем */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 6.5rem;
+  margin-top: -0.25em;
+  padding: 0.75em;
   text-align: center;
   color: color-mix(in srgb, var(--ids__text) 60%, transparent);
 }

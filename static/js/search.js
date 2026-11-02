@@ -1,11 +1,11 @@
-// Поиск по сайту. Движок (нормализация, стеммеры, матчинг, сниппеты)
-// не трогает DOM и портирован как есть с arutyunov.info, где обкатывался
-// как прототип. Индекс общий для обоих языков (поиск с английской страницы
-// находит русские страницы и наоборот): /search-index.json и
+// Поиск по сайту: выдача по разделам — люди, теги (рынки, команды, предметные
+// области, подборки), заголовки, текст. Движок текста (нормализация, стеммеры,
+// матчинг, сниппеты) не трогает DOM и портирован с arutyunov.info, где
+// обкатывался как прототип. Индекс общий для обоих языков (поиск с английской
+// страницы находит русские страницы и наоборот): /search-index.json и
 // /en/search-index.json — одинаковые файлы, собираются шаблоном
-// src/pages/search-index.11ty.js.
-// UI поддерживает несколько полей на странице (шапка + образцы
-// на /design-system/) — индекс грузится один раз на всех.
+// src/pages/search-index.11ty.js, формат описан там.
+// UI поддерживает несколько полей на странице — индекс грузится один раз на всех.
 (() => {
   const roots = document.querySelectorAll(".search");
   if (!roots.length) return;
@@ -242,85 +242,189 @@
     return /[а-я]/.test(word) ? stemRu(word) : stemEn(word);
   };
 
-  // Готовит записи индекса к поиску: токены, стемы, множества стемов.
-  const buildIndex = (entries) =>
-    entries.map((entry) => {
-      const tokens = tokenize(entry.text);
-      const stems = tokens.map((t) => stem(t.norm));
-      const titleTokens = tokenize(entry.title);
-      const titleStems = titleTokens.map((t) => stem(t.norm));
-      return {
-        ...entry,
-        tokens,
-        stems,
-        stemSet: new Set(stems),
-        titleTokens,
-        titleStems,
-        titleStemSet: new Set(titleStems)
-      };
-    });
 
   // Все слова запроса должны найтись (по стему), последнее — ещё и по префиксу,
-  // чтобы результаты появлялись прямо по ходу набора.
-  const search = (index, query, limit = 8) => {
-    const terms = tokenize(normalizeWord(query));
-    if (!terms.length) return [];
-    const stems = terms.map((t) => stem(t.norm));
-    const last = terms[terms.length - 1].norm;
-
-    const results = [];
-    for (const entry of index) {
-      const matchedByTerm = stems.map(() => false);
-      const matchedTokens = [];
-      for (let i = 0; i < entry.tokens.length; i++) {
-        let hit = false;
-        for (let j = 0; j < stems.length; j++) {
-          const isLast = j === stems.length - 1;
-          if (
-            entry.stems[i] === stems[j] ||
-            (isLast && entry.tokens[i].norm.startsWith(last))
-          ) {
-            matchedByTerm[j] = true;
-            hit = true;
-          }
-        }
-        if (hit) matchedTokens.push(i);
-      }
-      if (!matchedByTerm.every(Boolean)) continue;
-
-      let titleHits = 0;
-      const matchedTitleTokens = [];
-      for (let i = 0; i < entry.titleTokens.length; i++) {
-        const t = entry.titleTokens[i];
-        const tStem = entry.titleStems[i];
-        for (let j = 0; j < stems.length; j++) {
-          const isLast = j === stems.length - 1;
-          if (tStem === stems[j] || (isLast && t.norm.startsWith(last))) {
-            matchedTitleTokens.push(i);
-            break;
-          }
+  // чтобы результаты появлялись прямо по ходу набора. Возвращает индексы
+  // совпавших токенов или null, если какое-то слово не нашлось.
+  const matchTokens = (tokens, stems, query) => {
+    const matchedByTerm = query.stems.map(() => false);
+    const matched = [];
+    for (let i = 0; i < tokens.length; i++) {
+      let hit = false;
+      for (let j = 0; j < query.stems.length; j++) {
+        const isLast = j === query.stems.length - 1;
+        if (stems[i] === query.stems[j] || (isLast && tokens[i].norm.startsWith(query.last))) {
+          matchedByTerm[j] = true;
+          hit = true;
         }
       }
-      for (let j = 0; j < stems.length; j++) {
-        const isLast = j === stems.length - 1;
-        if (
-          entry.titleStemSet.has(stems[j]) ||
-          (isLast && entry.titleTokens.some((t) => t.norm.startsWith(last)))
-        )
-          titleHits++;
-      }
-
-      const score =
-        titleHits * 10 +
-        matchedTokens.length +
-        matchedTokens.length / (entry.tokens.length || 1);
-      results.push({ entry, matchedTokens, matchedTitleTokens, score });
+      if (hit) matched.push(i);
     }
-
-    results.sort((a, b) => b.score - a.score);
-    return results.slice(0, limit);
+    return matchedByTerm.every(Boolean) ? matched : null;
   };
 
+  // Транслит кириллического слова в латиницу — все правдоподобные варианты
+  // (имена в authors.js написаны по-разному: Maksim и Alexey, Dmitry и
+  // Novokhatskiy), чтобы «максимова» нашла Maksimova, а «алексей» — Alexey.
+  // Потолок вариантов — чтобы длинное слово с несколькими ё/й/я не взрывалось.
+  const TRANSLIT = {
+    а: ["a"], б: ["b"], в: ["v"], г: ["g"], д: ["d"], е: ["e"], ё: ["e", "yo"],
+    ж: ["zh"], з: ["z"], и: ["i"], й: ["y", "i", "j"], к: ["k"], л: ["l"],
+    м: ["m"], н: ["n"], о: ["o"], п: ["p"], р: ["r"], с: ["s"], т: ["t"],
+    у: ["u"], ф: ["f"], х: ["kh", "h"], ц: ["ts", "c"], ч: ["ch"], ш: ["sh"],
+    щ: ["shch", "sch"], ъ: [""], ы: ["y", "i"], ь: ["", "i"], э: ["e"],
+    ю: ["yu", "iu"], я: ["ya", "ia"]
+  };
+  const TRANSLIT_PAIRS = { кс: ["ks", "x"], ий: ["iy", "y"] };
+  const TRANSLIT_CAP = 64;
+  const translit = (word) => {
+    let variants = [""];
+    for (let i = 0; i < word.length; i++) {
+      const pair = TRANSLIT_PAIRS[word.slice(i, i + 2)];
+      const options = pair || TRANSLIT[word[i]] || [word[i]];
+      if (pair) i++;
+      const next = [];
+      for (const v of variants)
+        for (const o of options) {
+          if (next.length >= TRANSLIT_CAP) break;
+          next.push(v + o);
+        }
+      variants = next;
+    }
+    return variants;
+  };
+
+  // Люди: без стемминга, по префиксу слов имени. Кандидаты для слова запроса —
+  // само слово (латиница), варианты транслита (кириллица) и латинские формы
+  // из словарика aliases: по ключам, которые начинаются с этого слова
+  // («кат» → катя → ekaterina, katya), и по значениям — латинская форма тянет
+  // остальные формы того же имени («katya» → катя → ekaterina).
+  const personCandidates = (term, aliases) => {
+    const cyrillic = /[а-я]/.test(term);
+    const out = new Set(cyrillic ? translit(term) : [term]);
+    for (const key in aliases) {
+      const forms = aliases[key];
+      if (cyrillic ? key.startsWith(term) : forms.some((f) => f.startsWith(term)))
+        for (const f of forms) out.add(f);
+    }
+    return [...out].filter(Boolean);
+  };
+
+  const matchPerson = (person, query, aliases) => {
+    const matched = new Set();
+    for (const term of query.terms) {
+      const candidates = personCandidates(term.norm, aliases);
+      let hit = false;
+      person.tokens.forEach((t, i) => {
+        if (candidates.some((c) => t.norm.startsWith(c))) {
+          matched.add(i);
+          hit = true;
+        }
+      });
+      if (!hit) return null;
+    }
+    return [...matched].sort((a, b) => a - b);
+  };
+
+  const prepare = (text) => {
+    const tokens = tokenize(text);
+    const stems = tokens.map((t) => stem(t.norm));
+    return { tokens, stems };
+  };
+
+  // Готовит индекс к поиску: публикации группируются по слагу (RU и EN записи
+  // одной страницы — одна строка выдачи), у людей токены имени, у тегов —
+  // токены имён на обоих языках.
+  const buildIndex = (data) => {
+    const pubs = new Map();
+    for (const entry of data.pubs) {
+      const prepared = {
+        ...entry,
+        ...prepare(entry.text),
+        title: entry.title,
+        titleTokens: tokenize(entry.title)
+      };
+      prepared.titleStems = prepared.titleTokens.map((t) => stem(t.norm));
+      if (!pubs.has(entry.slug)) pubs.set(entry.slug, { slug: entry.slug, entries: {} });
+      pubs.get(entry.slug).entries[entry.lang] = prepared;
+    }
+    const people = data.people.map((p) => ({ ...p, tokens: tokenize(p.name) }));
+    const tags = data.tags.map((t) => ({
+      ...t,
+      ru: { name: t.ru, ...prepare(t.ru) },
+      en: { name: t.en, ...prepare(t.en) }
+    }));
+    return { pubs: [...pubs.values()], people, tags, aliases: data.aliases || {} };
+  };
+
+  const parseQuery = (query) => {
+    const terms = tokenize(normalizeWord(query));
+    if (!terms.length) return null;
+    return { terms, stems: terms.map((t) => stem(t.norm)), last: terms[terms.length - 1].norm };
+  };
+
+  // Выдача по разделам. lang — язык страницы: какую запись публикации и какое
+  // имя тега показывать. Публикации — двумя списками: совпавшие заголовком
+  // (любого языка) и только текстом; в выдаче они идут одним разделом в этом порядке.
+  const search = (index, queryText, lang, limit = 8) => {
+    const query = parseQuery(queryText);
+    const empty = { people: [], tags: { market: [], team: [], area: [], collection: [] }, titles: [], texts: [] };
+    if (!query) return empty;
+    const result = empty;
+
+    for (const person of index.people) {
+      const matched = matchPerson(person, query, index.aliases);
+      if (matched) result.people.push({ person, matchedTokens: matched });
+    }
+
+    for (const tag of index.tags) {
+      const shown = tag[lang] || tag.ru;
+      const other = shown === tag.ru ? tag.en : tag.ru;
+      const matched = matchTokens(shown.tokens, shown.stems, query);
+      const matchedOther = matched ? null : matchTokens(other.tokens, other.stems, query);
+      if (matched || matchedOther)
+        result.tags[tag.dim].push({ tag, name: shown, matchedTokens: matched || [] });
+    }
+
+    const titles = [];
+    const texts = [];
+    for (const pub of index.pubs) {
+      const shown = pub.entries[lang] || pub.entries.ru || Object.values(pub.entries)[0];
+      let best = null;
+      for (const entry of Object.values(pub.entries)) {
+        const matchedTokens = matchTokens(entry.tokens, entry.stems, query);
+        const matchedTitleTokens = matchTokens(entry.titleTokens, entry.titleStems, query);
+        if (!matchedTokens && !matchedTitleTokens) continue;
+        const score =
+          (matchedTitleTokens ? 10 * matchedTitleTokens.length : 0) +
+          (matchedTokens ? matchedTokens.length + matchedTokens.length / (entry.tokens.length || 1) : 0);
+        const candidate = { entry, matchedTokens, matchedTitleTokens, score };
+        // Запись языка страницы при равном счёте предпочтительнее
+        if (!best || score > best.score || (score === best.score && entry === shown)) best = candidate;
+      }
+      if (!best) continue;
+      const inTitle = Object.values(pub.entries).some(
+        (e) => matchTokens(e.titleTokens, e.titleStems, query)
+      );
+      const shownTitle = matchTokens(shown.titleTokens, shown.titleStems, query) || [];
+      const item = {
+        pub,
+        entry: shown,
+        // Подсветка — по заголовку показываемой записи; если совпал только
+        // заголовок другого языка, заголовок показывается без подсветки
+        matchedTitleTokens: shownTitle,
+        // Сниппет — из той записи, где текст совпал (может быть другой язык)
+        snippetFrom: best.matchedTokens ? best : null,
+        inTitle,
+        score: best.score
+      };
+      (inTitle ? titles : texts).push(item);
+    }
+    const byScore = (a, b) => b.score - a.score;
+    result.titles = titles.sort(byScore).slice(0, limit);
+    result.texts = texts.sort(byScore).slice(0, limit);
+    return result;
+  };
   // Кусок текста [from, to) с совпавшими токенами, завёрнутыми в <mark>.
   // Собирается через DOM-узлы, без innerHTML.
   const markRange = (text, tokens, matchedIdxs, from, to) => {
@@ -368,18 +472,76 @@
   const lang =
     document.documentElement.lang ||
     (location.pathname.startsWith("/en/") ? "en" : "ru");
-  const EMPTY_TEXT = lang === "ru" ? "Ничего не нашлось" : "Nothing found";
+  const T =
+    lang === "ru"
+      ? {
+          empty: "Ничего не нашлось",
+          people: "Люди",
+          market: "Рынки",
+          team: "Команды",
+          area: "Предметные области",
+          collection: "Подборки",
+          pubs_label: "Публикации",
+          pubs: ["публикация", "публикации", "публикаций"]
+        }
+      : {
+          empty: "Nothing found",
+          people: "People",
+          market: "Markets",
+          team: "Teams",
+          area: "Subject areas",
+          collection: "Collections",
+          pubs_label: "Publications",
+          pubs: ["publication", "publications", "publications"]
+        };
+  const PREFIX = lang === "en" ? "/en" : "";
+  const PUB_LIMIT = 8;
   // Насколько можно проскроллить страницу, прежде чем выпадайка закроется:
   // случайный микро-скролл не должен мешать выбирать результат.
   const SCROLL_TOLERANCE = 40;
+
+  // «1 публикация», «3 публикации», «12 публикаций» / «1 publication», «2 publications»
+  const pluralize = (n) => {
+    const forms = T.pubs;
+    let form;
+    if (lang === "ru") {
+      const m10 = n % 10;
+      const m100 = n % 100;
+      form = m10 === 1 && m100 !== 11 ? 0 : m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20) ? 1 : 2;
+    } else form = n === 1 ? 0 : 1;
+    return `${n} ${forms[form]}`;
+  };
+
+  // «17 мая», для прошлых лет «31 октября 2019» (без « г.» из Intl)
+  const thisYear = new Date().getFullYear();
+  const formatDate = (iso) => {
+    if (!iso) return "";
+    const date = new Date(iso + "T00:00:00Z");
+    const withYear = date.getUTCFullYear() !== thisYear;
+    return new Intl.DateTimeFormat(lang === "ru" ? "ru-RU" : "en-GB", {
+      day: "numeric",
+      month: "long",
+      ...(withYear ? { year: "numeric" } : {}),
+      timeZone: "UTC"
+    })
+      .format(date)
+      .replace(/\s*г\.$/, "");
+  };
 
   // Индекс один на все поля страницы
   const indexPromise = fetch(
     lang === "en" ? "/en/search-index.json" : "/search-index.json"
   )
     .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-    .then((entries) => buildIndex(entries))
+    .then((data) => buildIndex(data))
     .catch(() => null); // индекс не загрузился — поиск молча неактивен
+
+  const el = (tag, className, content) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (content !== undefined) node.append(content);
+    return node;
+  };
 
   const setup = (root, instance) => {
     const input = root.querySelector(".search-input");
@@ -390,7 +552,7 @@
     input.setAttribute("aria-controls", panel.id);
 
     let index = null;
-    let results = [];
+    let rows = []; // строки выдачи по порядку — для стрелок и Enter
     let activeIndex = -1;
     let debounceTimer;
     let scrollOrigin = null;
@@ -400,11 +562,30 @@
       if (index && document.activeElement === input) update();
     });
 
+    // Выпадайка не выходит за низ экрана: потолок высоты — от её верха до низа
+    // окна минус отступ; внутри — свой скролл
+    const BOTTOM_GAP = 24;
+    // Туман у нижнего края — пока ниже есть ещё строки (search.css, has-more)
+    const updateFade = () => {
+      const more = panel.scrollHeight - panel.clientHeight - panel.scrollTop > 2;
+      panel.classList.toggle("has-more", more);
+    };
+    panel.addEventListener("scroll", updateFade, { passive: true });
+
+    const fit = () => {
+      if (panel.hidden) return;
+      const top = panel.getBoundingClientRect().top;
+      panel.style.maxHeight = Math.max(120, window.innerHeight - top - BOTTOM_GAP) + "px";
+      updateFade();
+    };
+
     const open = () => {
       panel.hidden = false;
       input.setAttribute("aria-expanded", "true");
       scrollOrigin = window.scrollY;
+      fit();
     };
+    window.addEventListener("resize", fit);
 
     const close = () => {
       panel.hidden = true;
@@ -416,9 +597,9 @@
 
     const setActive = (i) => {
       const items = panel.querySelectorAll(".search-result");
-      items.forEach((el, n) => {
-        el.classList.toggle("is-active", n === i);
-        el.setAttribute("aria-selected", n === i ? "true" : "false");
+      items.forEach((node, n) => {
+        node.classList.toggle("is-active", n === i);
+        node.setAttribute("aria-selected", n === i ? "true" : "false");
       });
       activeIndex = i;
       if (i >= 0 && items[i]) {
@@ -429,42 +610,89 @@
       }
     };
 
-    const render = () => {
-      panel.textContent = "";
-      if (!results.length) {
-        const li = document.createElement("li");
-        li.className = "search-empty";
-        li.textContent = EMPTY_TEXT;
-        panel.append(li);
-      } else {
-        results.forEach((result, i) => {
-          const li = document.createElement("li");
-          li.className = "search-result";
-          li.id = "search-option-" + instance + "-" + i;
-          li.setAttribute("role", "option");
-          li.setAttribute("aria-selected", "false");
+    // Мета-строка публикации: «дата · рынки · команды», пустые части пропускаются
+    const metaFor = (entry) => {
+      const names = (dim, slugs) =>
+        slugs
+          .map((slug) => index.tags.find((t) => t.dim === dim && t.slug === slug))
+          .filter(Boolean)
+          .map((t) => (t[lang] || t.ru).name)
+          .join(", ");
+      return [formatDate(entry.date), names("market", entry.markets), names("team", entry.teams)]
+        .filter(Boolean)
+        .join(" · ");
+    };
 
-          const a = document.createElement("a");
-          a.href = result.entry.url;
-          const title = document.createElement("span");
-          title.className = "search-result-title";
-          // Совпадение в заголовке подсвечивается прямо в нём,
-          // и сниппет тогда не нужен.
-          if (result.matchedTitleTokens.length) {
-            title.append(markTitle(result));
-            a.append(title);
-          } else {
-            title.textContent = result.entry.title;
-            const snippet = document.createElement("span");
-            snippet.className = "search-result-snippet";
-            snippet.append(makeSnippet(result));
-            a.append(title, snippet);
-          }
-          li.append(a);
-          panel.append(li);
-        });
+    const addLabel = (text) => {
+      const li = el("li", "search-group-label", text);
+      li.setAttribute("role", "presentation");
+      panel.append(li);
+    };
+
+    const addRow = (href, kind, build) => {
+      const li = el("li", "search-result " + kind);
+      li.id = "search-option-" + instance + "-" + rows.length;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", "false");
+      const a = el("a");
+      a.href = href;
+      build(a);
+      li.append(a);
+      panel.append(li);
+      rows.push({ href });
+    };
+
+    const render = (result) => {
+      panel.textContent = "";
+      rows = [];
+
+      if (result.people.length) {
+        addLabel(T.people);
+        for (const { person, matchedTokens } of result.people)
+          addRow(`${PREFIX}/publications/?author=${person.slug}`, "person", (a) => {
+            a.append(
+              el("span", "search-result-title", markRange(person.name, person.tokens, matchedTokens, 0, person.name.length)),
+              " ",
+              el("span", "search-result-count", pluralize(person.count))
+            );
+          });
       }
+
+      for (const dim of ["market", "team", "area", "collection"]) {
+        const list = result.tags[dim];
+        if (!list.length) continue;
+        addLabel(T[dim]);
+        for (const { tag, name, matchedTokens } of list)
+          addRow(`${PREFIX}/publications/?${dim}=${tag.slug}`, "tag", (a) => {
+            a.append(
+              el("span", "search-result-title", markRange(name.name, name.tokens, matchedTokens, 0, name.name.length)),
+              " ",
+              el("span", "search-result-count", pluralize(tag.count))
+            );
+          });
+      }
+
+      // Публикации одним разделом: сначала совпавшие заголовком (крупнее),
+      // затем совпавшие текстом — со сниппетом
+      const pubs = [...result.titles, ...result.texts].slice(0, PUB_LIMIT);
+      if (pubs.length) {
+        addLabel(T.pubs_label);
+        for (const item of pubs)
+          addRow(item.entry.url, item.inTitle ? "pub in-title" : "pub", (a) => {
+            const title = el("span", "search-result-title");
+            if (item.matchedTitleTokens.length) title.append(markTitle(item));
+            else title.textContent = item.entry.title;
+            a.append(title);
+            if (!item.inTitle && item.snippetFrom)
+              a.append(el("span", "search-result-snippet", makeSnippet(item.snippetFrom)));
+            const meta = metaFor(item.entry);
+            if (meta) a.append(el("span", "search-result-meta", meta));
+          });
+      }
+
+      if (!rows.length) panel.append(el("li", "search-empty", T.empty));
       activeIndex = -1;
+      panel.scrollTop = 0;
       open();
     };
 
@@ -475,8 +703,7 @@
         close();
         return;
       }
-      results = search(index, query);
-      render();
+      render(search(index, query, lang));
     };
 
     input.addEventListener("input", () => {
@@ -505,15 +732,15 @@
           setTimeout(() => (clearButton.hidden = !input.value), 0);
         return;
       }
-      if (panel.hidden || !results.length) return;
+      if (panel.hidden || !rows.length) return;
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         e.preventDefault();
         const delta = e.key === "ArrowDown" ? 1 : -1;
-        setActive((activeIndex + delta + results.length) % results.length);
+        setActive((activeIndex + delta + rows.length) % rows.length);
       } else if (e.key === "Enter") {
         e.preventDefault();
-        const target = results[activeIndex >= 0 ? activeIndex : 0];
-        if (target) location.href = target.entry.url;
+        const target = rows[activeIndex >= 0 ? activeIndex : 0];
+        if (target) location.href = target.href;
       }
     });
 
@@ -534,6 +761,7 @@
 
   roots.forEach(setup);
 
-  // Движок наружу — для отладки в консоли
-  window.siteSearch = { normalizeWord, tokenize, stem, buildIndex, search };
+  // Движок наружу — для отладки в консоли: siteSearch.search(siteSearch.index, "катя", "ru")
+  window.siteSearch = { normalizeWord, tokenize, stem, translit, buildIndex, search, lang };
+  indexPromise.then((idx) => (window.siteSearch.index = idx));
 })();
