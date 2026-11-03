@@ -30,4 +30,10 @@
   gap: 0.4em 0.3em;
   margin-top: 1em;
   font-size: 0.9em;
+
+  /* На мобильных — пропорционально мельче, чтобы в ряд влезало 2–3 человека */
+  @media (width < 768px) {
+    font-size: 0.65em;
+    gap: 0.5em 0.4em;
+  }
 }

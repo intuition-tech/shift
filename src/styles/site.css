@@ -49,14 +49,18 @@ header {
        выравниваются с ним оптически, не по базовой линии */
     margin-top: 0.05em;
 
+    @media (width < 768px) {
+      margin-top: 0.25em;
+    }
+
     & svg {
       /* Вьюбокс подогнан под контент (133 × 42), высота 1.55 → ширина по пропорции */
       width: 4.9em;
       height: 1.55em;
 
       @media (width < 768px) {
-        width: 4.1em;
-        height: 1.3em;
+        width: 3.7em;
+        height: 1.17em;
       }
 
       & path {
