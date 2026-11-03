@@ -2,7 +2,7 @@
    Портирован со старого сайта (mixin--no-yes) под конвенции IDS.
 
    Разметка (блоки ставить вплотную, без пробелов между ними — они inline-block):
-   <div class="ids__no-yes [right] [wide] [full]">
+   <div class="ids__no-yes [right] [wide] [full] [center]">
      <div class="ids__no-yes--wrap">
        <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-L" style="--top: 6.8em">НЕТ</div>
        <img class="ids__no-yes--img" src="…" alt="">
@@ -45,6 +45,12 @@
     width: 100%;
     display: block;
     margin-left: 0;
+  }
+
+  /* Одиночный блок по центру колонки (стрелка с подписью висит на поле) */
+  &.center {
+    display: block;
+    margin-inline: auto;
   }
 }
 

@@ -7,7 +7,9 @@
      <div class="ids__slide-text"><ol>…</ol></div>
    </div>
 
-   .ids__slide-pair — две картинки в ряд с зазором (бывш. .dubai-slide-brand). */
+   .ids__slide-pair — две картинки в ряд с зазором (бывш. .dubai-slide-brand);
+   .ids__slide-image.border — кейлайн по контуру кадра (белый пример рядом
+   с цветным, чтобы не сливался с фоном страницы). */
 
 .ids .ids__slide {
   display: flex;
@@ -130,4 +132,9 @@
       aspect-ratio: auto;
     }
   }
+}
+
+.ids .ids__slide-image.border img {
+  outline: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 15%, transparent);
+  outline-offset: calc(-1 * var(--ids__border-width-s));
 }

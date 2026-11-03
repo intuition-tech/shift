@@ -16,6 +16,12 @@
   --ids__color-gray-50: rgb(243, 243, 247);
   --ids__color-white: rgb(255, 255, 255);
   --ids__color-blue-800: rgb(11, 11, 193);
+
+  /* Тёмная тема публикаций (значения старого сайта): фон, поверхность, текст */
+  --ids__color-slate-950: rgb(10, 14, 18);
+  --ids__color-slate-900: rgb(28, 35, 39);
+  --ids__color-slate-700: rgb(48, 55, 69);
+  --ids__color-slate-100: rgb(235, 240, 245);
   --ids__color-orange-500: rgb(255, 80, 0);
   --ids__color-yellow-300: rgb(255, 235, 83);
 

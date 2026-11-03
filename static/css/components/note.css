@@ -16,10 +16,12 @@
   position: absolute;
   top: 0;
   left: 100%;
-  width: 30%;
+  /* Не шире правого поля публикации (--margin из publication.css)
+     минус отступ от края экрана, как у хедера */
+  width: min(30%, calc(var(--margin, 30%) - 1rem));
   padding-left: 1em;
-  padding-top: 0.14em;
-  font-size: 0.9em;
+  padding-top: 0.3em;
+  font-size: 0.75em;
   color: var(--ids__link);
 
   & p {

@@ -3,9 +3,13 @@
    figure.ids__media — одиночная картинка с ограничением ширины
    (бывш. publication-vertical-pic + *-pic).
 
-   .ids__media-group — колонка с картинками по центру и воздухом сверху,
-   размер задаёт ширину фигур внутри (бывш. shadow-img / center-img).
-   Модификатор .shadow вешает тень на все картинки внутри. */
+   .ids__media-group — колонка с картинками по центру и одинаковым воздухом
+   сверху и снизу, размер задаёт ширину фигур внутри (бывш. shadow-img /
+   center-img). Модификатор .shadow вешает тень на все картинки внутри.
+
+   figure.border — рамка и тень по контуру (скриншоты интерфейсов);
+   figure.border.labeled с data-label="…" — та же рамка с серой подписью
+   в полосе над картинкой (название сайта или программы). */
 
 .ids .ids__media {
   max-width: 30em;
@@ -42,13 +46,21 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  /* Отступ снизу — у группы, а не у последней фигуры: так он равен верхнему
+     и схлопывается с полем следующего заголовка */
+  margin-bottom: calc(var(--ids__density) * 0.5em);
 
   & figure {
     width: 100%;
   }
 
+  & figure:last-child {
+    margin-bottom: 0;
+  }
+
   &.S {
     margin-top: 4em;
+    margin-bottom: 4em;
 
     & figure {
       max-width: 15em;
@@ -57,6 +69,7 @@
 
   &.M {
     margin-top: 3em;
+    margin-bottom: 3em;
 
     & figure {
       max-width: 20em;
@@ -65,6 +78,7 @@
 
   &.L {
     margin-top: 2em;
+    margin-bottom: 2em;
 
     & figure {
       max-width: 30em;
@@ -73,6 +87,7 @@
 
   &.XL {
     margin-top: 1em;
+    margin-bottom: 1em;
 
     & figure {
       max-width: none;
@@ -97,6 +112,27 @@
   box-shadow: 0 0 0.5em color-mix(in srgb, var(--ids__text) 10%, transparent);
   border-radius: 0.45em;
   border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 15%, transparent);
+}
+
+/* Рамка с подписью в полосе над картинкой (figure.border.labeled, data-label) */
+.ids figure.border.labeled {
+  position: relative;
+  padding-top: 2em;
+
+  &::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 3em;
+    padding-top: 0.85em;
+    font-size: 0.7em;
+    letter-spacing: 0.01em;
+    text-align: center;
+    background-color: var(--ids__background);
+    color: color-mix(in srgb, var(--ids__text) 30%, transparent);
+    border-bottom: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 15%, transparent);
+  }
 }
 
 /* Оранжевая обводка (макеты на белом) */

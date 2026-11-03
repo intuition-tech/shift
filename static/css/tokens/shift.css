@@ -17,3 +17,8 @@
 
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
 }
+
+.dark {
+  --shift__aside-background: var(--ids__color-slate-700);
+  --shift__shadow-color: var(--ids__color-slate-950);
+}

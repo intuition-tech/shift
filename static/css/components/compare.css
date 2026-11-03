@@ -1,5 +1,8 @@
-/* Сравнение двух состояний картинки: верхняя гаснет при наведении
-   (бывш. .image-processor). Обе картинки одного размера.
+/* Сравнение двух состояний картинки по скроллу (бывш. .image-processor +
+   scroll-change.js): пока блок ниже середины окна, видна вторая картинка;
+   когда его центр поднимается выше середины — она гаснет и остаётся первая.
+   Класс .passed ставит js/compare.js; тап (клик) переворачивает текущее
+   состояние (.toggled). Обе картинки одного размера.
 
    <div class="ids__compare" style="--ratio: 1920 / 1235">
      <img src="on.png" alt=""><img src="off.png" alt="">
@@ -19,8 +22,8 @@
     transition: opacity var(--ids__duration-base) ease;
   }
 
-  &:hover img:first-child,
-  &.toggled img:first-child {
+  &.passed:not(.toggled) img:last-child,
+  &.toggled:not(.passed) img:last-child {
     opacity: 0;
   }
 }

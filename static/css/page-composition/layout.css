@@ -129,9 +129,10 @@
   &.no-wrap.XL .ids__sequence-item { --desktop-columns: 2; }
   &.no-wrap.L .ids__sequence-item { --desktop-columns: 3; }
 
-  /* Без нижнего отступа (бывш. .no-bottom-space-grid) */
+  /* Ряд, за которым сразу идёт следующий ряд (бывш. .no-bottom-space-grid):
+     вместо полуторного отступа — ровно зазор, как между колонками */
   &.tight {
-    margin-bottom: 0;
+    margin-bottom: var(--gap);
 
     .ids__sequence-item > :last-child {
       margin-bottom: 0;

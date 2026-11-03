@@ -190,8 +190,16 @@
   }
 
   & mark {
-    color: var(--ids__color-gray-950);
+    color: var(--ids__mark-text);
     background-color: var(--ids__mark);
+  }
+
+  /* Подсветка слова цветом из контента (сегменты «для тебя / друзей / семьи»):
+     цвет задаётся инлайн-переменной --color, как у плашек палитры */
+  & .ids__highlight {
+    padding: 0 0.15em;
+    border-radius: 0.15em;
+    background-color: var(--color);
   }
 
   & ul,
@@ -262,6 +270,42 @@
 
   & .subdued {
     opacity: 0.55;
+  }
+
+  /* Крупное утверждение брендовым цветом — тезис разворота (бывш. .mena-quote) */
+  & .ids__statement {
+    font-size: 3em;
+    line-height: 1.15;
+    color: var(--shift__brand);
+    margin-bottom: calc(var(--ids__density) * 0.5em);
+
+    @media (width < 768px) {
+      font-size: 1.8em;
+    }
+  }
+
+  /* Строка «иконка + заголовок», под ней абзац с отступом под иконку
+     (принципы тональности): <p class="ids__icon-line"><img …><strong>…</strong></p> */
+  & .ids__icon-line {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 0.6em;
+    margin-bottom: 0;
+
+    & img {
+      flex: 0 0 auto;
+      width: 1.4em;
+      height: 1.4em;
+      margin-top: 0.1em;
+    }
+
+    & strong {
+      white-space: nowrap;
+    }
+
+    & + p {
+      margin-left: 2em;
+    }
   }
 
   /* Описание публикации (под h1) */
@@ -352,6 +396,50 @@
 
   & .ids__table-wrapper {
     overflow-x: auto;
+  }
+
+  /* Таблица правил «правило / Нет / Да» (бывш. page-local стили sms и
+     product-names): колонки с воздухом справа, ширина первой колонки —
+     инлайн-переменной --first-column, <br> в ячейке даёт абзацный отступ */
+  & .ids__table-wrapper.rules {
+    & td {
+      padding-right: calc(var(--ids__density) * 0.8em);
+    }
+
+    & thead tr td:first-child {
+      width: var(--first-column, 33.3%);
+    }
+
+    & td br {
+      display: block;
+      content: "";
+      padding-bottom: 0.6em;
+    }
+  }
+
+  /* Таблица с логотипами в шапке: логотипы одной высоты, без линии между
+     логотипом и названием, первая строка тела — названия полужирным */
+  & .ids__table-wrapper.logos {
+    & table {
+      width: 100%;
+    }
+
+    & thead th {
+      border-bottom: none;
+      padding-bottom: 0.15em;
+    }
+
+    & thead img {
+      display: block;
+      height: 3em;
+      width: auto;
+      margin-bottom: 0.15em;
+    }
+
+    & tbody tr:first-child td {
+      padding-top: 0.15em;
+      font-weight: 600;
+    }
   }
 
   & table {

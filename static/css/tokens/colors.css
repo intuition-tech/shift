@@ -1,8 +1,9 @@
 /* Семантические цвета — значения дизайна Shift (перенесены со старого сайта).
    Именование функциональное: для чего используется, так и называется.
    Значения — только ссылки на палитру (palette.css).
-   Тем нет: сайт только светлый; тёмная тема добавится здесь слоем,
-   когда (и если) начнём её делать. */
+   Темы: по умолчанию светлая; тёмная — слой .dark на html (там, где живут токены), включается
+   у отдельной публикации фронтматтером `theme: dark` (переключателя для
+   читателя нет). Значения тёмной — со старого сайта (body.dark-mode). */
 
 :root {
   color-scheme: light;
@@ -13,11 +14,23 @@
   --ids__hover: var(--ids__color-orange-500);
   --ids__code: var(--ids__color-navy-700);
   --ids__mark: var(--ids__color-yellow-300);
+  --ids__mark-text: var(--ids__color-navy-900);
   --ids__success: var(--ids__color-green-500);
   --ids__surface: var(--ids__color-gray-100);
   --ids__background: var(--ids__color-white);
 
   --ids__border: color-mix(in srgb, var(--ids__text) 20%, transparent);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --ids__text: var(--ids__color-slate-100);
+  --ids__link: var(--ids__text);
+  --ids__hover: var(--ids__color-orange-500);
+  --ids__code: var(--ids__color-gray-300);
+  --ids__surface: var(--ids__color-slate-700);
+  --ids__background: var(--ids__color-slate-900);
 }
 
 body {

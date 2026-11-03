@@ -2,7 +2,7 @@
    Цвет плашки задаётся инлайн-переменной --color. Работает в паре с /js/copy.js.
 
    <div class="ids__color-palette">
-     <div class="ids__color-plate [big] [wide] [main]">   (палитра с .four — плашки по 25%)
+     <div class="ids__color-plate [big] [wide] [main]">   (палитра с .four — плашки по 25%, с .three — по трети)
        <div class="ids__color-sample [light]" style="--color: rgb(255, 78, 0)">
          <div class="ids__color-sample-text">
            <p>Orange</p>
@@ -27,6 +27,21 @@
 
     @media (width < 768px) {
       width: 50%;
+    }
+  }
+
+  /* Три невысокие плашки в ряд на всю ширину колонки: оттенки под
+     основным цветом (.main) или фоны под тремя карточками */
+  &.three .ids__color-plate:not(.main) {
+    width: calc(100% / 3);
+
+    & .ids__color-sample {
+      aspect-ratio: auto;
+      height: 6em;
+
+      @media (width < 768px) {
+        height: 5em;
+      }
     }
   }
 }
