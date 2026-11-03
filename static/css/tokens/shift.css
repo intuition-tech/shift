@@ -1,7 +1,8 @@
 /* Семантические токены Shift — то, что не входит в семантику IDS.
    Тот же слой, что colors.css: цвета берутся из палитры. */
 
-:root {
+:root,
+.light {
   --shift__brand: var(--ids__color-orange-450);
   --shift__aside-background: var(--ids__color-gray-50);
   --shift__shadow-color: var(--ids__color-gray-300);
@@ -18,7 +19,7 @@
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
 }
 
-.dark {
+html.dark {
   --shift__aside-background: var(--ids__color-slate-700);
   --shift__shadow-color: var(--ids__color-slate-950);
 }

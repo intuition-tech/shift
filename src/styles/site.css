@@ -54,6 +54,11 @@ header {
       width: 4.9em;
       height: 1.55em;
 
+      @media (width < 768px) {
+        width: 4.1em;
+        height: 1.3em;
+      }
+
       & path {
         fill: var(--ids__text);
         transition: fill var(--ids__duration-base) var(--ids__easing-base);
@@ -95,8 +100,8 @@ header {
   @media (width < 768px) {
     flex-wrap: wrap;
     /* Гэпы плотнее — переключалка языка отделяется заметным отступом */
-    gap: 0.8em;
-    margin-left: 0.8em;
+    gap: 0.55em;
+    margin-left: 0.7em;
   }
 }
 
@@ -114,8 +119,10 @@ header {
     display: inline;
   }
 
-  /* Служебная ссылка на дизайн-систему в деве на мобильных мешает */
-  .nav-dev {
+  /* Служебная ссылка на дизайн-систему в деве на мобильных мешает;
+     «Подборки» убраны, чтобы «Люди» влезали в одну строку */
+  .nav-dev,
+  .nav-collections {
     display: none;
   }
 }
