@@ -143,6 +143,27 @@ searchIndex: false
       </div>
 
       <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label"><code>p.ids__statement</code></span>
+        <div class="guide-tokens__sample"><p class="ids__statement">Нет «лучшего» продукта, если он доступен по цене и удовлетворяет не только одного человека, но и его друзей и семью.</p></div>
+        <span class="guide-tokens__row-value">3em / 1.15<br />--shift__brand</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label"><code>.ids__highlight</code></span>
+        <div class="guide-tokens__sample"><p>Так «один, друзья, семья» в коммуникации превращается в «<span class="ids__highlight" style="--color: rgb(255, 198, 0)">для тебя</span>, <span class="ids__highlight" style="--color: rgb(186, 209, 73)">для друзей</span>, <span class="ids__highlight" style="--color: rgb(255, 105, 0)">для семьи</span>».</p></div>
+        <span class="guide-tokens__row-value">--color (инлайн)</span>
+      </div>
+
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label"><code>p.ids__icon-line</code><br /><code>+ p</code></span>
+        <div class="guide-tokens__sample">
+          <p class="ids__icon-line"><img src="/images/dubai-dodo-pizza-mena-2025/icons/simple.svg" alt="" /><strong>Простота</strong></p>
+          <p>Понятно, коротко, легко воспринимать. Без сложных слов. Без маркетингового жаргона.</p>
+        </div>
+        <span class="guide-tokens__row-value">иконка 1.4em<br />--ids__text</span>
+      </div>
+
+      <div class="guide-tokens__row">
         <span class="guide-tokens__row-label"><code>ul</code></span>
         <div class="guide-tokens__sample">
           <ul>
@@ -227,8 +248,8 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__media-group</code><br /><code>.S .M .L .XL</code><br /><code>.shadow .border</code></span>
-        <span class="guide-tokens__row-value">--shift__shadow-color<br />--ids__border-width-s</span>
+        <span class="guide-tokens__row-label"><code>.ids__media-group</code><br /><code>.S .M .L .XL</code><br /><code>.shadow .border</code><br /><code>figure.border.labeled</code> <code>data-label</code></span>
+        <span class="guide-tokens__row-value">--shift__shadow-color<br />--ids__border-width-s<br />--ids__text (30%)</span>
       </div>
       <div class="guide-component__sample">
         <div class="ids__media-group M shadow" style="margin-top: 0">
@@ -240,8 +261,13 @@ searchIndex: false
             <figcaption>Примеры названий слоёв</figcaption>
           </figure>
         </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>figure.border.labeled</code> с <code>data-label</code> — рамка с серой подписью в полосе над скриншотом (название сайта или программы).</p>
+        <figure class="border labeled" data-label="get-color.ru">
+          <img src="/images/hero-promo-block/16.webp" alt="" />
+        </figure>
       </div>
-      {{ ".ids__media-group" | usages | safe }}
+      {{ ".ids__media-group,figure.border" | usages | safe }}
     </div>
     <div class="ids__space L"></div>
 
@@ -296,11 +322,12 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__table-wrapper</code><br /><code>table</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__table-wrapper</code><br /><code>.rules</code> <code>--first-column</code><br /><code>.logos</code><br /><code>table</code></span>
         <span class="guide-tokens__row-value">.8em<br />--ids__text (15%)</span>
       </div>
       <div class="guide-component__sample">
-        <div class="ids__table-wrapper">
+        <p class="subdued"><code>.rules</code> — таблица «правило / Нет / Да»: воздух справа от колонок, ширина первой колонки инлайн-переменной <code>--first-column</code>, <code>&lt;br&gt;</code> в ячейке даёт абзацный отступ.</p>
+        <div class="ids__table-wrapper rules" style="--first-column: 50%">
           <table>
             <thead>
               <tr><th></th><th>Нет</th><th>Да</th></tr>
@@ -312,6 +339,24 @@ searchIndex: false
             </tbody>
           </table>
         </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>.logos</code> — логотипы в шапке одной высоты, без линии между логотипом и названием, первая строка тела полужирным.</p>
+        <div class="ids__table-wrapper logos">
+          <table>
+            <thead>
+              <tr>
+                <th><img src="/images/dubai-dodo-pizza-mena-2025/3/image_1.webp" alt="" /></th>
+                <th><img src="/images/dubai-dodo-pizza-mena-2025/3/image_2.webp" alt="" /></th>
+                <th><img src="/images/dubai-dodo-pizza-mena-2025/3/image_3.webp" alt="" /></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Pizza Hut</td><td>Papa Johns</td><td>Dominos</td></tr>
+              <tr><td>73 точки</td><td>47 точек</td><td>37 точек</td></tr>
+              <tr><td>Фокус на продукте</td><td>Качество</td><td>Цена и выгода</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       {{ ".ids__table-wrapper" | usages | safe }}
     </div>
@@ -319,7 +364,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__no-yes</code><br /><code>.right .wide .full</code><br /><code>.ids__no-yes--arrow---curve-L</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__no-yes</code><br /><code>.right .wide .full .center</code><br /><code>.ids__no-yes--arrow---curve-L</code><br /><code>.ids__no-yes--arrow---custom-text-R</code></span>
         <span class="guide-tokens__row-value">--ids__caption<br />--shift__brand<br />--shift__shadow-color</span>
       </div>
       <div class="guide-component__sample">
@@ -333,6 +378,14 @@ searchIndex: false
           <div class="ids__no-yes--wrap">
             <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-R" style="--top: 2.8em">ДА</div>
             <img class="ids__no-yes--img" src="/images/sms/13.webp" alt="" />
+          </div>
+        </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>.center</code> — одиночный блок по центру колонки; <code>---custom-text-R</code> — стрелка с произвольной подписью на правом поле.</p>
+        <div class="ids__no-yes center">
+          <div class="ids__no-yes--wrap">
+            <div class="ids__no-yes--arrow ids__no-yes--arrow---bottom-R ids__no-yes--arrow---custom-text-R" style="--top: 19.4em">Самый нижний последний пиксель</div>
+            <img class="ids__no-yes--img" src="/images/hero-promo-block/3.webp" alt="" />
           </div>
         </div>
       </div>
@@ -363,7 +416,7 @@ searchIndex: false
         <div class="ids__compare" style="--ratio: 1920 / 1235">
           <img src="/images/slow-and-fast-zones-qsr/2.3-o-on.webp" alt="" /><img src="/images/slow-and-fast-zones-qsr/2.2-o-off.webp" alt="" />
         </div>
-        <p class="subdued">Наведите: верхняя картинка гаснет (на тач-экранах — по тапу).</p>
+        <p class="subdued">Меняется по скроллу: пока центр блока ниже середины окна, видна вторая картинка; выше середины — остаётся первая. Тап (клик) переворачивает текущее состояние.</p>
       </div>
       {{ ".ids__compare" | usages | safe }}
     </div>
@@ -409,7 +462,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__color-palette</code> <code>.four</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__color-palette</code> <code>.four .three</code><br /><code>.ids__color-plate</code> <code>.big .wide .main</code><br /><code>.ids__color-sample</code> <code>.light</code><br /><code>.ids__copy</code></span>
         <span class="guide-tokens__row-value">--color (инлайн)<br />--ids__color-white<br />--ids__text</span>
       </div>
       <div class="guide-component__sample">
@@ -449,6 +502,40 @@ searchIndex: false
                 <button class="ids__copy" data-copy="0, 0, 0, 100">CMYK 0, 0, 0, 100</button>
                 <button class="ids__copy" data-copy="#000000">HEX #000000</button>
                 <button class="ids__copy" data-copy="Black">PANTONE Black</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>.three</code> — три невысокие плашки по трети колонки: оттенки под основным цветом (<code>.main</code>) или фоны под тремя карточками.</p>
+        <div class="ids__color-palette three">
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(192, 198, 204)">
+              <div class="ids__color-sample-text">
+                <button class="ids__copy" data-copy="RGB 192, 198, 204">RGB 192, 198, 204</button>
+                <button class="ids__copy" data-copy="RGB 170, 180, 189">RGB 170, 180, 189</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample light" style="--color: rgb(230, 193, 200)">
+              <div class="ids__color-sample-text">
+                <button class="ids__copy" data-copy="RGB 230, 193, 200">RGB 230, 193, 200</button>
+                <button class="ids__copy" data-copy="RGB 193, 152, 160">RGB 193, 152, 160</button>
+                <span class="ids__copy-hint">Copy colour</span>
+                <span class="ids__copy-done">Colour copied</span>
+              </div>
+            </div>
+          </div>
+          <div class="ids__color-plate">
+            <div class="ids__color-sample" style="--color: rgb(177, 152, 124)">
+              <div class="ids__color-sample-text">
+                <button class="ids__copy" data-copy="RGB 177, 152, 124">RGB 177, 152, 124</button>
+                <button class="ids__copy" data-copy="RGB 160, 135, 108">RGB 160, 135, 108</button>
                 <span class="ids__copy-hint">Copy colour</span>
                 <span class="ids__copy-done">Colour copied</span>
               </div>
@@ -549,7 +636,7 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
-        <span class="guide-tokens__row-label"><code>.ids__slide</code> <code>.flip .two-images</code><br /><code>.ids__slide-image</code> <code>.with-padding</code><br /><code>.ids__slide-text</code><br /><code>.ids__slide-pair</code></span>
+        <span class="guide-tokens__row-label"><code>.ids__slide</code> <code>.flip .two-images</code><br /><code>.ids__slide-image</code> <code>.with-padding .border</code><br /><code>.ids__slide-text</code><br /><code>.ids__slide-pair</code></span>
         <span class="guide-tokens__row-value">--ids__surface (50%)</span>
       </div>
       <div class="guide-component__sample">
@@ -564,6 +651,14 @@ searchIndex: false
             </ol>
           </div>
         </div>
+        <div class="ids__space S"></div>
+        <p class="subdued"><code>.ids__slide-pair</code> — две картинки в ряд; <code>.ids__slide-image.border</code> — кейлайн на белом кадре рядом с цветным.</p>
+        <figure>
+          <div class="ids__slide-pair">
+            <div class="ids__slide-image"><img src="/images/dodo-pizza-dubai-brandbook/49.webp" alt="" /></div>
+            <div class="ids__slide-image border"><img src="/images/dodo-pizza-dubai-brandbook/50.webp" alt="" /></div>
+          </div>
+        </figure>
       </div>
       {{ ".ids__slide,.ids__slide-pair" | usages | safe }}
     </div>

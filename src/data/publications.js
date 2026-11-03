@@ -28,8 +28,8 @@ export default [
   },
   {
     "slug": "hero-promo-block",
-    "title": "Готовим хиро-блок для меню в приложении",
-    "titleEn": "How to prepare a hero block for the application",
+    "title": "Готовим хиро-блок для меню в приложении",
+    "titleEn": "How to prepare a hero block for the application",
     "date": "2026-01-26",
     "authors": [
       "anna-gorokhova",
@@ -54,7 +54,7 @@ export default [
   {
     "slug": "how-to-save-layouts-for-replication",
     "title": "Как сохранять макеты при тиражировании",
-    "titleEn": "How to save layouts for replication",
+    "titleEn": "How to save layouts for replication",
     "date": "2024-12-12",
     "authors": [
       "dmitry-tumanov",
@@ -78,8 +78,8 @@ export default [
   },
   {
     "slug": "order-in-projects",
-    "title": "Порядок в проектах",
-    "titleEn": "How to keep order in projects",
+    "title": "Порядок в проектах",
+    "titleEn": "How to keep order in projects",
     "date": "2024-12-12",
     "authors": [
       "dmitry-tumanov",
@@ -103,7 +103,7 @@ export default [
   },
   {
     "slug": "preparing-pizzeria-facade-stickers-for-printing",
-    "title": "Готовим к печати наклейки на фасад пиццерии",
+    "title": "Готовим к печати наклейки на фасад пиццерии",
     "titleEn": "Preparing pizzeria facade stickers for printing",
     "date": "2024-12-12",
     "authors": [
@@ -156,8 +156,8 @@ export default [
   },
   {
     "slug": "how-to-create-an-instagram-profile",
-    "title": "Создаем страницу в Инстаграме",
-    "titleEn": "How to create an Instagram profile",
+    "title": "Создаем страницу в Инстаграме",
+    "titleEn": "How to create an Instagram profile",
     "date": "2024-12-12",
     "authors": [
       "ekaterina-shishkina",
@@ -182,8 +182,8 @@ export default [
   },
   {
     "slug": "technical-recommendations-for-a-shooting-organization",
-    "title": "Технические рекомендации по организации съемок",
-    "titleEn": "How to prepare for a photo shoot: technical recommendations",
+    "title": "Технические рекомендации по организации съемок",
+    "titleEn": "How to prepare for a photo shoot: technical recommendations",
     "date": "2024-12-12",
     "authors": [
       "kira-zykina",
@@ -209,7 +209,7 @@ export default [
   {
     "slug": "social-media-posts-examples",
     "title": "Примеры постов",
-    "titleEn": "Examples of social media posts",
+    "titleEn": "Examples of social media posts",
     "date": "2024-12-12",
     "authors": [
       "ekaterina-shishkina",
@@ -234,8 +234,8 @@ export default [
   },
   {
     "slug": "how-to-unlock-a-disabled-Instagram-account",
-    "title": "Разблокировка аккаунта в Инстаграме",
-    "titleEn": "How to unlock a disabled Instagram account",
+    "title": "Разблокировка аккаунта в Инстаграме",
+    "titleEn": "How to unlock a disabled Instagram account",
     "date": "2024-12-12",
     "authors": [
       "ekaterina-shishkina",
@@ -403,8 +403,8 @@ export default [
   },
   {
     "slug": "in-app-stories-visual-style",
-    "title": "Визуальный стиль сторис в приложении",
-    "titleEn": "Visual style of in-app stories",
+    "title": "Визуальный стиль сторис в приложении",
+    "titleEn": "Visual style of in-app stories",
     "date": "2024-12-20",
     "authors": [
       "anastasia-bazhanova",
@@ -431,8 +431,8 @@ export default [
   },
   {
     "slug": "types-of-in-app-stories",
-    "title": "Виды сторис в приложении",
-    "titleEn": "Types of in-app stories",
+    "title": "Виды сторис в приложении",
+    "titleEn": "Types of in-app stories",
     "date": "2026-07-24",
     "authors": [
       "anastasia-bazhanova",
@@ -460,7 +460,7 @@ export default [
   },
   {
     "slug": "widgets-for-in-app-stories",
-    "title": "Виджеты и механики геймификации",
+    "title": "Виджеты и механики геймификации",
     "titleEn": "Widgets and gamification mechanics",
     "date": "2024-12-12",
     "authors": [
@@ -489,7 +489,7 @@ export default [
   },
   {
     "slug": "exporting-layouts-for-in-app-stories",
-    "title": "Экспорт макетов для сторис в приложении",
+    "title": "Экспорт макетов для сторис в приложении",
     "titleEn": "Exporting layouts for in-app stories",
     "date": "2024-12-12",
     "authors": [
@@ -517,7 +517,7 @@ export default [
   },
   {
     "slug": "legal-information-for-the-in-app-stories",
-    "title": "Юридическая информация для сторис в приложении",
+    "title": "Юридическая информация для сторис в приложении",
     "titleEn": "Legal information for the in-app stories",
     "date": "2024-12-12",
     "authors": [
@@ -545,7 +545,7 @@ export default [
   {
     "slug": "how-to-compress-video-for-in-app-stories",
     "title": "Сжимаем видео для InAppStory",
-    "titleEn": "How to compress video for InAppStory",
+    "titleEn": "How to compress video for InAppStory",
     "date": "2024-12-12",
     "authors": [
       "ainaz-shaiakhmetov",
@@ -573,7 +573,7 @@ export default [
   },
   {
     "slug": "editorial-policy-for-in-app-stories",
-    "title": "Текст для сторис в приложении",
+    "title": "Текст для сторис в приложении",
     "titleEn": "In-app and website stories texts",
     "date": "2026-07-24",
     "authors": [
@@ -632,7 +632,7 @@ export default [
   {
     "slug": "how-to-configure-a-preset-for-saving-to-pdf",
     "title": "Как настроить пресет для сохранения PDF",
-    "titleEn": "How to configure a preset for saving to PDF",
+    "titleEn": "How to configure a preset for saving to PDF",
     "date": "2024-12-12",
     "authors": [
       "dmitry-tumanov",
@@ -660,8 +660,8 @@ export default [
   },
   {
     "slug": "slow-and-fast-zones-qsr",
-    "title": "Скоростные и медленные зоны в ресторанах быстрого питания",
-    "titleEn": "Slow and fast zones in fast food restaurants",
+    "title": "Скоростные и медленные зоны в ресторанах быстрого питания",
+    "titleEn": "Slow and fast zones in fast food restaurants",
     "date": "2024-12-12",
     "authors": [
       "ludwig-bistronovskiy"
@@ -682,8 +682,8 @@ export default [
   },
   {
     "slug": "prioritize-meanings-on-layout",
-    "title": "Приоритизируем смыслы на макете с помощью инфопланирования",
-    "titleEn": "How to prioritize meanings on the layout using informational planning",
+    "title": "Приоритизируем смыслы на макете с помощью инфопланирования",
+    "titleEn": "How to prioritize meanings on the layout using informational planning",
     "date": "2024-12-12",
     "authors": [
       "ludwig-bistronovskiy",
@@ -885,7 +885,7 @@ export default [
   {
     "slug": "how-to-prepare-an-image-for-the-catalog",
     "title": "Как сделать макет для комбо",
-    "titleEn": "How to make a combo layout",
+    "titleEn": "How to make a combo layout",
     "date": "2026-08-12",
     "authors": [
       "ivan-afanasiev",
@@ -909,8 +909,8 @@ export default [
   },
   {
     "slug": "adding-reflexes-to-layouts",
-    "title": "Добавляем рефлексы в макеты",
-    "titleEn": "Adding reflexes to layouts",
+    "title": "Добавляем рефлексы в макеты",
+    "titleEn": "Adding reflexes to layouts",
     "date": "2024-12-12",
     "authors": [
       "mike-semyonov",
@@ -962,7 +962,7 @@ export default [
   },
   {
     "slug": "dynamic-price-tags-for-tv-menus",
-    "title": "Динамические ценники в промомакетах для ТВ-меню",
+    "title": "Динамические ценники в промомакетах для ТВ-меню",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1021,7 +1021,7 @@ export default [
   },
   {
     "slug": "trade-media-features",
-    "title": "Трейд-маркетинг и его носители",
+    "title": "Трейд-маркетинг и его носители",
     "titleEn": null,
     "date": "2025-08-25",
     "authors": [
@@ -1101,7 +1101,7 @@ export default [
   },
   {
     "slug": "onboarding-for-agency-design-and-processes",
-    "title": "Онбординг для агентства: дизайн и процессы в Додо",
+    "title": "Онбординг для агентства: дизайн и процессы в Додо",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1155,7 +1155,7 @@ export default [
   },
   {
     "slug": "fishing-spots-with-references",
-    "title": "Рыбные места с референсами",
+    "title": "Рыбные места с референсами",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1253,7 +1253,7 @@ export default [
   },
   {
     "slug": "composition-in-layout",
-    "title": "Композиция в макете",
+    "title": "Композиция в макете",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1278,7 +1278,7 @@ export default [
   },
   {
     "slug": "dodo-combo-guide",
-    "title": "Додо Комбо: гайд по стилю",
+    "title": "Додо Комбо: гайд по стилю",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1301,7 +1301,7 @@ export default [
   },
   {
     "slug": "what-to-consider-when-replicating-layouts",
-    "title": "Рекомендации по тиражированию кей-вижуала",
+    "title": "Рекомендации по тиражированию кей-вижуала",
     "titleEn": null,
     "date": "2025-08-25",
     "authors": [
@@ -1353,7 +1353,7 @@ export default [
   },
   {
     "slug": "basics-of-catalog-photo-shoot-algorithm-and-common-mistakes",
-    "title": "Основы каталожной съемки: правила и типичные ошибки",
+    "title": "Основы каталожной съемки: правила и типичные ошибки",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1430,7 +1430,7 @@ export default [
   },
   {
     "slug": "how-to-make-a-brief-for-a-photo-shoot",
-    "title": "Составляем ТЗ для съемки",
+    "title": "Составляем ТЗ для съемки",
     "titleEn": null,
     "date": "2025-08-25",
     "authors": [
@@ -1455,7 +1455,7 @@ export default [
   },
   {
     "slug": "what-to-look-out-for-during-the-shoot",
-    "title": "На что обратить внимание во время съемки",
+    "title": "На что обратить внимание во время съемки",
     "titleEn": null,
     "date": "2025-08-25",
     "authors": [
@@ -1646,7 +1646,7 @@ export default [
   },
   {
     "slug": "making-dodo-style-photo-shoot",
-    "title": "Проводим фотосессию в стиле Додо",
+    "title": "Проводим фотосессию в стиле Додо",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -1785,7 +1785,7 @@ export default [
   },
   {
     "slug": "in-app-promotions",
-    "title": "Акции в приложении",
+    "title": "Акции в приложении",
     "titleEn": null,
     "date": "2025-05-15",
     "authors": [
@@ -1969,7 +1969,7 @@ export default [
   },
   {
     "slug": "designing-a-tv-menu-for-pizzerias",
-    "title": "Оформляем ТВ-меню в пиццерии",
+    "title": "Оформляем ТВ-меню в пиццерии",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2042,7 +2042,7 @@ export default [
   },
   {
     "slug": "video-brief",
-    "title": "Составляем бриф на съемку видеоролика",
+    "title": "Составляем бриф на съемку видеоролика",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2120,7 +2120,7 @@ export default [
   },
   {
     "slug": "introduction-to-video-process",
-    "title": "Создаем видеоролик: введение в процесс",
+    "title": "Создаем видеоролик: введение в процесс",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2218,7 +2218,7 @@ export default [
   },
   {
     "slug": "show-the-product-on-digital-layouts",
-    "title": "Показываем продукт на диджитал-макетах",
+    "title": "Показываем продукт на диджитал-макетах",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2243,7 +2243,7 @@ export default [
   },
   {
     "slug": "show-people-and-context",
-    "title": "Показываем людей и контекст",
+    "title": "Показываем людей и контекст",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2268,7 +2268,7 @@ export default [
   },
   {
     "slug": "marketing-mechanics-in-promotional-layouts",
-    "title": "Маркетинговые механики в промомакетах",
+    "title": "Маркетинговые механики в промомакетах",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
@@ -2296,7 +2296,7 @@ export default [
   },
   {
     "slug": "introduction-to-creative-techniques",
-    "title": "Введение в Креативные техники",
+    "title": "Введение в Креативные техники",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [

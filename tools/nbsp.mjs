@@ -112,8 +112,8 @@ if (!targets.length) {
 }
 
 let total = 0;
-function report(file, before, after) {
-  if (before === after) { console.log(`${file}: без изменений`); return; }
+function report(label, before, after, file) {
+  if (before === after) { console.log(`${label}: без изменений`); return; }
   const a = before.split("\n"), b = after.split("\n");
   let n = 0;
   for (let i = 0; i < a.length; i++) {
@@ -126,7 +126,7 @@ function report(file, before, after) {
     }
   }
   total += n;
-  console.log(`${file}: ${check || diff ? "не хватает" : "поставлено"} ${n}`);
+  console.log(`${label}: ${check || diff ? "не хватает" : "поставлено"} ${n}`);
   if (!check && !diff) fs.writeFileSync(file, after);
 }
 
@@ -134,14 +134,14 @@ for (const t of targets) {
   if (t.endsWith(".html")) {
     const file = path.resolve(t);
     const src = fs.readFileSync(file, "utf8");
-    report(path.relative(ROOT, file), src, processHtml(src));
+    report(path.relative(ROOT, file), src, processHtml(src), file);
     continue;
   }
   const page = path.join(ROOT, "src/pages", `${t}.html`);
   if (!fs.existsSync(page)) { console.error(`нет страницы ${page}`); process.exitCode = 2; continue; }
   const src = fs.readFileSync(page, "utf8");
-  report(path.relative(ROOT, page), src, processHtml(src));
+  report(path.relative(ROOT, page), src, processHtml(src), page);
   const data = fs.readFileSync(DATA, "utf8");
-  report(`publications.js (${t})`, data, processData(data, t));
+  report(`publications.js (${t})`, data, processData(data, t), DATA);
 }
 if (check && total) process.exit(1);

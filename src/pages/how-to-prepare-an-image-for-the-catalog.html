@@ -9,15 +9,15 @@ tags: publication
 <article class="ids__wrapper publication">
   <div class="publication__nav"><ids-navbar></ids-navbar></div>
 
-  <h1>{% if lang == 'ru' %}Как сделать макет для комбо{% else %}How to make a combo layout{% endif %}</h1>
+  <h1>{% if lang == 'ru' %}Как сделать макет для комбо{% else %}How to make a combo layout{% endif %}</h1>
   {% include "pub-meta.html" %}
 
   <p class="ids__description">
-    {% if lang == 'ru' %}Как собирать комбо из продуктовых компонентов в Фигме: структура файла, варианты, масштаб и обновление продуктов.{% else %}How to assemble combos from product components in Figma: file structure, variants, scale and product updates.{% endif %}
+    {% if lang == 'ru' %}Как собирать комбо из продуктовых компонентов в Фигме: структура файла, варианты, масштаб и обновление продуктов.{% else %}How to assemble combos from product components in Figma: file structure, variants, scale and product updates.{% endif %}
   </p>
 
   <p>
-    {% if lang == 'ru' %}Мы создали систему в Фигме, которая позволяет быстро собирать новые комбо и поддерживать единый визуальный стиль. Продукты не нужно создавать заново каждый раз — они живут как компоненты и переиспользуются в разных макетах. Так удобнее работать с разными странами, обновлять продукты и меньше ошибаться. Компоненты, Variants и Swap Instance держат порядок в большом файле. Если пользоваться ими правильно, комбо собираются и обновляются аккуратно, без ручной пересборки. Файл в Фигме устроен как система для сборки комбо из продуктовых компонентов.{% else %}We built a system in Figma that lets you assemble new combos quickly and keep a consistent visual style. Products do not need to be recreated every time — they live as components and are reused across layouts. That makes it easier to work with different countries, update products and make fewer mistakes. Components, Variants and Swap Instance keep a large file in order. Used correctly, they let you assemble and update combos neatly, without manual rebuilding. The file in Figma is set up as a system for assembling combos from product components.{% endif %}
+    {% if lang == 'ru' %}Мы создали систему в Фигме, которая позволяет быстро собирать новые комбо и поддерживать единый визуальный стиль. Продукты не нужно создавать заново каждый раз — они живут как компоненты и переиспользуются в разных макетах. Так удобнее работать с разными странами, обновлять продукты и меньше ошибаться. Компоненты, Variants и Swap Instance держат порядок в большом файле. Если пользоваться ими правильно, комбо собираются и обновляются аккуратно, без ручной пересборки. Файл в Фигме устроен как система для сборки комбо из продуктовых компонентов.{% else %}We built a system in Figma that lets you assemble new combos quickly and keep a consistent visual style. Products do not need to be recreated every time — they live as components and are reused across layouts. That makes it easier to work with different countries, update products and make fewer mistakes. Components, Variants and Swap Instance keep a large file in order. Used correctly, they let you assemble and update combos neatly, without manual rebuilding. The file in Figma is set up as a system for assembling combos from product components.{% endif %}
   </p>
 
   <p>
@@ -41,7 +41,7 @@ tags: publication
       </div>
     </div>
     <p>
-      {% if lang == 'ru' %}Каждый продукт существует как отдельный компонент. Компоненты нужны для того, чтобы один и тот же продукт можно было быстро использовать в разных комбо без повторной ручной сборки.{% else %}Every product must exist as a separate component. Components make it possible to reuse the same product in different combos without rebuilding it manually.{% endif %}
+      {% if lang == 'ru' %}Каждый продукт существует как отдельный компонент. Компоненты нужны для того, чтобы один и тот же продукт можно было быстро использовать в разных комбо без повторной ручной сборки.{% else %}Every product must exist as a separate component. Components make it possible to reuse the same product in different combos without rebuilding it manually.{% endif %}
     </p>
     <p>
       {% if lang == 'ru' %}<strong>Страницы стран.</strong> В файле есть две страницы для стран: Эмираты и Катар. Каждая страница соответствует отдельной стране и содержит набор комбо для этой страны.{% else %}<strong>Country pages.</strong> The file has two country pages: the UAE and Qatar. Each page corresponds to a separate country and contains a set of combos for that country.{% endif %}
@@ -56,10 +56,10 @@ tags: publication
     </ul>
     <aside>
       <p>
-        {% if lang == 'ru' %}<strong>Редактирование страниц.</strong> Изменения в файле затронут все макеты, в которых были использованы компоненты продуктов. Поэтому для создания комбо не редактируйте страницы стран напрямую, а создавайте новые макеты в файле.{% else %}<strong>Editing country pages.</strong> Changes in the file will affect all layouts where product components were used. So to create a combo, do not edit the country pages directly — create new layouts in the file.{% endif %}
+        {% if lang == 'ru' %}<strong>Редактирование страниц.</strong> Изменения в файле затронут все макеты, в которых были использованы компоненты продуктов. Поэтому для создания комбо не редактируйте страницы стран напрямую, а создавайте новые макеты в файле.{% else %}<strong>Editing country pages.</strong> Changes in the file will affect all layouts where product components were used. So to create a combo, do not edit the country pages directly — create new layouts in the file.{% endif %}
       </p>
       <p>
-        {% if lang == 'ru' %}Если какой-то продукт изменился и нужно обновить вообще все макеты — обновите компонент в библиотеке. Если изменение затрагивает только рынок одной страны — обновите страницу страны. Как обновить продукт — <a href="#update-component">рассказали ниже</a>.{% else %}If a product has changed and you need to update all layouts — update the component in the library. If the change affects only one country — update the country page. How to update a product — <a href="#update-component">see below</a>.{% endif %}
+        {% if lang == 'ru' %}Если какой-то продукт изменился и нужно обновить вообще все макеты — обновите компонент в библиотеке. Если изменение затрагивает только рынок одной страны — обновите страницу страны. Как обновить продукт — <a href="#update-component">рассказали ниже</a>.{% else %}If a product has changed and you need to update all layouts — update the component in the library. If the change affects only one country — update the country page. How to update a product — <a href="#update-component">see below</a>.{% endif %}
       </p>
     </aside>
   </ids-nav-item>
@@ -77,7 +77,7 @@ tags: publication
         {% if lang == 'ru' %}внутри фрейма размещены продуктовые компоненты,{% else %}product components are placed inside the frame,{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}один и тот же компонент может использоваться в нескольких разных комбо.{% else %}the same component can be used in several different combos.{% endif %}
+        {% if lang == 'ru' %}один и тот же компонент может использоваться в нескольких разных комбо.{% else %}the same component can be used in several different combos.{% endif %}
       </li>
     </ul>
     <h3>{% if lang == 'ru' %}Варианты продуктов{% else %}Product variants{% endif %}</h3>
@@ -108,10 +108,10 @@ tags: publication
       </figure>
     </div>
     <p>
-      {% if lang == 'ru' %}Поэтому при сборке комбо не всегда нужно ставить новый компонент. Если в комбо уже есть пицца, но не того вида, достаточно просто заменить её на нужный вариант. Эта версия продукта уже есть внутри текущего компонента, её можно выбрать через выпадающий список в правой панели Фигмы.{% else %}So when assembling a combo, you do not always need to add a new component. If a combo already has a pizza but not the right type, simply swap it for the needed variant. That version already exists inside the current component — you can select it from the dropdown in the right Figma panel.{% endif %}
+      {% if lang == 'ru' %}Поэтому при сборке комбо не всегда нужно ставить новый компонент. Если в комбо уже есть пицца, но не того вида, достаточно просто заменить её на нужный вариант. Эта версия продукта уже есть внутри текущего компонента, её можно выбрать через выпадающий список в правой панели Фигмы.{% else %}So when assembling a combo, you do not always need to add a new component. If a combo already has a pizza but not the right type, simply swap it for the needed variant. That version already exists inside the current component — you can select it from the dropdown in the right Figma panel.{% endif %}
     </p>
     <p>
-      {% if lang == 'ru' %}Перед тем как заменить компонент на другой, сначала проверьте, есть ли нужный вариант в Variants.{% else %}Before replacing a component with another one, first check whether the needed variant already exists in Variants.{% endif %}
+      {% if lang == 'ru' %}Перед тем как заменить компонент на другой, сначала проверьте, есть ли нужный вариант в Variants.{% else %}Before replacing a component with another one, first check whether the needed variant already exists in Variants.{% endif %}
     </p>
     <h3>{% if lang == 'ru' %}Масштаб продуктов{% else %}Product scale{% endif %}</h3>
     <p>
@@ -140,10 +140,10 @@ tags: publication
       </div>
     </div>
     <p>
-      {% if lang == 'ru' %}<strong>Базовая единица масштаба.</strong> За основу масштаба в комбо рекомендуется брать самый крупный продукт. Обычно это большая пицца или открытая коробка с пиццей.{% else %}<strong>Base unit of scale.</strong> Use the largest product in the combo as the scale base. Usually this is a large pizza or an open pizza box.{% endif %}
+      {% if lang == 'ru' %}<strong>Базовая единица масштаба.</strong> За основу масштаба в комбо рекомендуется брать самый крупный продукт. Обычно это большая пицца или открытая коробка с пиццей.{% else %}<strong>Base unit of scale.</strong> Use the largest product in the combo as the scale base. Usually this is a large pizza or an open pizza box.{% endif %}
     </p>
     <p>
-      {% if lang == 'ru' %}Этот продукт удобно считать базой масштаба — 100%. Все остальные продукты в этом же фрейме должны масштабироваться относительно него.{% else %}Treat this product as the 100% scale base. All other products in the same frame should be scaled relative to it.{% endif %}
+      {% if lang == 'ru' %}Этот продукт удобно считать базой масштаба — 100%. Все остальные продукты в этом же фрейме должны масштабироваться относительно него.{% else %}Treat this product as the 100% scale base. All other products in the same frame should be scaled relative to it.{% endif %}
     </p>
     <h3>{% if lang == 'ru' %}Шкала масштаба{% else %}Scale guide{% endif %}</h3>
     <p>
@@ -161,7 +161,7 @@ tags: publication
     <div class="ids__media-group XL shadow">
       <figure>
         <img src="/images/how-to-prepare-an-image-for-the-catalog/pizza-sizes.webp" alt="" />
-        <figcaption>{% if lang == 'ru' %}Размеры пиццы очень удобно измерять по бортикам{% else %}Pizza sizes are easy to compare by the crust edges{% endif %}</figcaption>
+        <figcaption>{% if lang == 'ru' %}Размеры пиццы очень удобно измерять по бортикам{% else %}Pizza sizes are easy to compare by the crust edges{% endif %}</figcaption>
       </figure>
     </div>
     <p>
@@ -216,13 +216,13 @@ tags: publication
       </div>
     </div>
     <p>
-      {% if lang == 'ru' %}<strong>Несколько одинаковых продуктов.</strong> Если в комбо несколько одинаковых продуктов, они должны быть одного масштаба. Не увеличивайте один и тот же продукт только потому, что он стоит ближе к центру композиции.{% else %}<strong>Several identical products.</strong> If a combo has several identical products, they must share the same scale. Do not enlarge the same product just because it is closer to the center.{% endif %}
+      {% if lang == 'ru' %}<strong>Несколько одинаковых продуктов.</strong> Если в комбо несколько одинаковых продуктов, они должны быть одного масштаба. Не увеличивайте один и тот же продукт только потому, что он стоит ближе к центру композиции.{% else %}<strong>Several identical products.</strong> If a combo has several identical products, they must share the same scale. Do not enlarge the same product just because it is closer to the center.{% endif %}
     </p>
     <div class="ids__sequence XL gap-M">
       <div class="ids__sequence-item">
         <figure class="ids__media shadow">
           <img src="/images/how-to-prepare-an-image-for-the-catalog/doubles.webp" alt="" />
-          <figcaption>{% if lang == 'ru' %}Два одинаковых продукта — один масштаб{% else %}Two identical products — one scale{% endif %}</figcaption>
+          <figcaption>{% if lang == 'ru' %}Два одинаковых продукта — один масштаб{% else %}Two identical products — one scale{% endif %}</figcaption>
         </figure>
       </div>
       <div class="ids__sequence-item">
@@ -233,7 +233,7 @@ tags: publication
       </div>
     </div>
     <p>
-      {% if lang == 'ru' %}<strong>Продукты с разным количеством.</strong> Количество лучше показывать через повтор продукта, стопку, бейдж ×2, ×3 и т. п.{% else %}<strong>Products with different quantity.</strong> Prefer showing quantity through product repetition, a stack, a badge like ×2, ×3, and so on.{% endif %}
+      {% if lang == 'ru' %}<strong>Продукты с разным количеством.</strong> Количество лучше показывать через повтор продукта, стопку, бейдж ×2, ×3 и т. п.{% else %}<strong>Products with different quantity.</strong> Prefer showing quantity through product repetition, a stack, a badge like ×2, ×3, and so on.{% endif %}
     </p>
     <div class="ids__sequence XL gap-M">
       <div class="ids__sequence-item">
@@ -245,7 +245,7 @@ tags: publication
       <div class="ids__sequence-item">
         <figure class="ids__media shadow">
           <img src="/images/how-to-prepare-an-image-for-the-catalog/numerous-2.webp" alt="" />
-          <figcaption>{% if lang == 'ru' %}Количество через бейджи ×2 и ×3{% else %}Quantity shown through ×2 and ×3 badges{% endif %}</figcaption>
+          <figcaption>{% if lang == 'ru' %}Количество через бейджи ×2 и ×3{% else %}Quantity shown through ×2 and ×3 badges{% endif %}</figcaption>
         </figure>
       </div>
     </div>
@@ -326,7 +326,7 @@ tags: publication
         {% if lang == 'ru' %}Выберите продуктовый компонент внутри фрейма.{% else %}Select the product component inside the frame.{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}Сначала проверьте, есть ли нужная версия продукта в Variants.{% else %}First check whether the needed product version exists in Variants.{% endif %}
+        {% if lang == 'ru' %}Сначала проверьте, есть ли нужная версия продукта в Variants.{% else %}First check whether the needed product version exists in Variants.{% endif %}
       </li>
       <li>
         {% if lang == 'ru' %}Если нужный размер, количество или тип уже есть внутри компонента, выберите его из выпадающего списка в правой панели Фигмы.{% else %}If the needed size, quantity or type already exists inside the component, select it from the dropdown in the right Figma panel.{% endif %}
@@ -346,23 +346,23 @@ tags: publication
       {% if lang == 'ru' %}У некоторых компонентов есть варианты по размеру, количеству или типу. Эти варианты выбираются через Variants в правой панели Фигмы.{% else %}Some components have variants by size, quantity or type. These variants are selected via Variants in the right Figma panel.{% endif %}
     </p>
     <p>
-      {% if lang == 'ru' %}Важно помнить: смена варианта не всегда автоматически меняет визуальный масштаб продукта. Например, если внутри одного компонента есть большая, средняя и маленькая пицца, при переключении варианта маленькая пицца может остаться такого же размера в пикселях, как большая.{% else %}Important: switching a variant does not always automatically change the visual scale of the product. For example, if one component contains large, medium and small pizza, after switching variants the small pizza may stay the same pixel size as the large one.{% endif %}
+      {% if lang == 'ru' %}Важно помнить: смена варианта не всегда автоматически меняет визуальный масштаб продукта. Например, если внутри одного компонента есть большая, средняя и маленькая пицца, при переключении варианта маленькая пицца может остаться такого же размера в пикселях, как большая.{% else %}Important: switching a variant does not always automatically change the visual scale of the product. For example, if one component contains large, medium and small pizza, after switching variants the small pizza may stay the same pixel size as the large one.{% endif %}
     </p>
     <p>
       {% if lang == 'ru' %}После каждой смены варианта нужно проверить:{% else %}After every variant switch, check:{% endif %}
     </p>
     <ul>
       <li>
-        {% if lang == 'ru' %}соответствует ли новый вариант реальному размеру продукта,{% else %}whether the new variant matches the real product size,{% endif %}
+        {% if lang == 'ru' %}соответствует ли новый вариант реальному размеру продукта,{% else %}whether the new variant matches the real product size,{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}не выглядит ли маленький продукт слишком большим,{% else %}whether a small product looks too large,{% endif %}
+        {% if lang == 'ru' %}не выглядит ли маленький продукт слишком большим,{% else %}whether a small product looks too large,{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}не выглядит ли большой продукт слишком маленьким,{% else %}whether a large product looks too small,{% endif %}
+        {% if lang == 'ru' %}не выглядит ли большой продукт слишком маленьким,{% else %}whether a large product looks too small,{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}не нарушился ли масштаб относительно остальных продуктов в этом же комбо.{% else %}whether the scale relative to the other products in the same combo is still correct.{% endif %}
+        {% if lang == 'ru' %}не нарушился ли масштаб относительно остальных продуктов в этом же комбо.{% else %}whether the scale relative to the other products in the same combo is still correct.{% endif %}
       </li>
     </ul>
     <h3>{% if lang == 'ru' %}Как собрать новое комбо{% else %}How to assemble a new combo{% endif %}</h3>
@@ -383,7 +383,7 @@ tags: publication
         {% if lang == 'ru' %}Проверьте композицию: продукты стоят корректно, ничего не съехало, все элементы относятся к нужной стране.{% else %}Check the composition: products are placed correctly, nothing is misaligned, and all elements belong to the right country.{% endif %}
       </li>
       <li>
-        {% if lang == 'ru' %}Переименуйте фрейм так, чтобы было понятно, какое это комбо, по структуре: <strong>[Страна] — [Название комбо] — 1875×1875 px</strong>. Должно получиться, например: <strong>AE — Meal for Me — 1875×1875 px</strong>. Важно использовать единый принцип нейминга во всём файле.{% else %}Rename the frame so it is clear which combo it is, using this structure: <strong>[Country] — [Combo name] — 1875×1875 px</strong>. For example: <strong>AE — Meal for Me — 1875×1875 px</strong>. Use the same naming principle throughout the file.{% endif %}
+        {% if lang == 'ru' %}Переименуйте фрейм так, чтобы было понятно, какое это комбо, по структуре: <strong>[Страна] — [Название комбо] — 1875×1875 px</strong>. Должно получиться, например: <strong>AE — Meal for Me — 1875×1875 px</strong>. Важно использовать единый принцип нейминга во всём файле.{% else %}Rename the frame so it is clear which combo it is, using this structure: <strong>[Country] — [Combo name] — 1875×1875 px</strong>. For example: <strong>AE — Meal for Me — 1875×1875 px</strong>. Use the same naming principle throughout the file.{% endif %}
       </li>
     </ol>
   </ids-nav-item>
