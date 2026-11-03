@@ -359,8 +359,11 @@
     background: color-mix(in srgb, var(--ids__code) 10%, transparent);
   }
 
+  /* Одиночная иллюстрация любой ширины: одинаковый воздух к тексту сверху
+     и снизу (вложенные фигуры — внутри групп, сеток, галерей — без него,
+     см. media.css) */
   & figure {
-    margin: 0 0 calc(var(--ids__density) * 0.5em) 0;
+    margin: var(--shift__illustration-gap) 0;
 
     &.XXS,
     &.ids__figure__XXS {
@@ -377,7 +380,7 @@
 
     & figcaption {
       margin-top: 0.7em;
-      margin-bottom: 1.3em;
+      margin-bottom: 0;
       font-size: 0.7em;
       line-height: var(--ids__density);
       color: var(--ids__caption);

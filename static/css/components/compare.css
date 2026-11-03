@@ -11,7 +11,8 @@
 .ids .ids__compare {
   position: relative;
   aspect-ratio: var(--ratio, 1920 / 1235);
-  margin-bottom: calc(var(--ids__density) * 0.5em);
+  margin-top: var(--shift__illustration-gap);
+  margin-bottom: var(--shift__illustration-gap);
   cursor: pointer;
 
   & img {

@@ -86,8 +86,8 @@
   }
 
   &.XL {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: var(--shift__illustration-gap);
+    margin-bottom: var(--shift__illustration-gap);
 
     & figure {
       max-width: none;
@@ -157,9 +157,42 @@
   width: 100%;
 }
 
-/* Подпись, относящаяся к группе картинок выше */
+/* Подпись, относящаяся к группе картинок выше: прижата к группе */
 .ids figure.ids__media-caption {
+  margin-top: 0;
+
   & figcaption {
     margin-top: -1em;
   }
+}
+
+/* --- Вертикальный воздух иллюстраций ---
+   Правило: иллюстрация ↔ текст — var(--shift__illustration-gap) с обеих сторон;
+   иллюстрация → заголовок — var(--shift__illustration-heading-gap); заголовок →
+   иллюстрация — поле самого заголовка. Группы S/M/L — со своими отступами.
+   Отступы самих блоков — в их компонентах (ids.css figure, layout.css
+   .ids__sequence, compare.css, no-yes.css); здесь — общие исключения. */
+
+/* Фигура внутри группы, ячейки сетки, галереи, шапки отчёта, карточки
+   скачивания и образцов витрины воздух не несёт — его даёт контейнер */
+.ids :is(.ids__media-group, .ids__sequence-item, .ids__gallery, .ids__report-header, .ids__download-item, .guide-component__sample, .guide-tokens__sample) figure {
+  margin-top: 0;
+  margin-bottom: calc(var(--ids__density) * 0.5em);
+}
+
+/* Группа внутри ячейки сетки: воздух даёт сетка, иначе он удвоился бы */
+.ids .ids__sequence-item > .ids__media-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Перед заголовком воздуха больше, чем перед текстом; малый спейсер между
+   картинкой и заголовком схлопывается в ноль (ids.css), поэтому учтён */
+.ids :is(figure, .ids__compare, .ids__sequence, .ids__media-group.XL):has(+ :is(h2, h3, h4), + .ids__space:not(.M, .L, .XL) + :is(h2, h3, h4)) {
+  margin-bottom: var(--shift__illustration-heading-gap);
+}
+
+/* После заголовка — поле заголовка, он прижат к своему содержимому */
+.ids :is(h2, h3, h4) + :is(figure, .ids__compare, .ids__sequence, .ids__media-group.XL) {
+  margin-top: 0;
 }

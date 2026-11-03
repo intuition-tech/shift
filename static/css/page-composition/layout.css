@@ -80,23 +80,28 @@
 .ids__sequence {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: calc(var(--ids__density) * 0.4rem);
+  /* Воздух к тексту сверху и снизу — как у одиночной иллюстрации
+     (--shift__illustration-gap); зазор между колонками — --gap */
+  margin-top: var(--shift__illustration-gap);
+  margin-bottom: var(--shift__illustration-gap);
   --gap: 0rem;
   gap: var(--gap);
 
   &.gap-L {
     --gap: var(--ids__gap-l);
-    margin-bottom: calc(var(--gap) * 1.5);
   }
 
   &.gap-M {
     --gap: var(--ids__gap-m);
-    margin-bottom: calc(var(--gap) * 1.5);
   }
 
   &.gap-S {
     --gap: var(--ids__gap-s);
-    margin-bottom: calc(var(--gap) * 1.5);
+  }
+
+  /* Ряд за рядом: между ними ровно один воздух, не два */
+  & + .ids__sequence {
+    margin-top: 0;
   }
 
   .ids__sequence-item {
@@ -130,9 +135,12 @@
   &.no-wrap.L .ids__sequence-item { --desktop-columns: 3; }
 
   /* Ряд, за которым сразу идёт следующий ряд (бывш. .no-bottom-space-grid):
-     вместо полуторного отступа — ровно зазор, как между колонками */
+     между рядами ровно зазор, как между колонками. Перед текстом или
+     заголовком .tight ничего не меняет — ряд ведёт себя как обычный */
   &.tight {
-    margin-bottom: var(--gap);
+    &:has(+ .ids__sequence) {
+      margin-bottom: var(--gap);
+    }
 
     .ids__sequence-item > :last-child {
       margin-bottom: 0;
@@ -140,7 +148,11 @@
   }
 
   /* Колонки «Додо / Не Додо»: первый абзац ячейки — серый капс,
-     в первой ячейке — оранжевый (бывш. .dodo-not-dodo) */
+     в первой ячейке — оранжевый (бывш. .dodo-not-dodo). Подпись — текст,
+     поэтому сверху у такой сетки обычный текстовый отступ, не иллюстративный */
+  &.labels {
+    margin-top: 0;
+  }
   &.labels .ids__sequence-item > p:first-of-type {
     font-size: 0.75em;
     font-weight: 570;

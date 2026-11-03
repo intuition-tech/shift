@@ -17,6 +17,12 @@
   --shift__promo-gray: var(--ids__color-gray-300);
 
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
+
+  /* Воздух вокруг иллюстраций: к тексту — с обеих сторон, к заголовку после
+     картинки — больше (правила — docs/content-markup.md, «Отступы»). Группы
+     .ids__media-group S/M/L живут со своими 4/3/2em */
+  --shift__illustration-gap: 1.5em;
+  --shift__illustration-heading-gap: 2.5em;
 }
 
 html.dark {

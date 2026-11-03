@@ -17,6 +17,9 @@
   display: inline-block;
   vertical-align: top;
   width: calc(50% - 0.5em);
+  /* Блок строчный, поля с соседями не схлопываются: сверху добираем
+     до --shift__illustration-gap с учётом нижнего поля абзаца перед ним */
+  margin-top: calc(var(--shift__illustration-gap) - var(--ids__density) * 0.6em);
   margin-bottom: 2.5em;
 
   @media (width < 768px) {
@@ -27,6 +30,14 @@
     @media (width >= 768px) {
       margin-left: 1em;
     }
+  }
+
+  /* Блочные варианты (.wide, .full, .center): поля схлопываются как обычно,
+     поэтому сверху — полный воздух иллюстрации */
+  &.wide,
+  &.full,
+  &.center {
+    margin-top: var(--shift__illustration-gap);
   }
 
   &.wide {
@@ -52,6 +63,12 @@
     display: block;
     margin-inline: auto;
   }
+}
+
+/* Перед заголовком: поле заголовка не схлопывается со строчным блоком,
+   поэтому гасим его — остаётся нижнее поле самого блока (2.5em) */
+.ids .ids__no-yes + :is(h2, h3, h4) {
+  margin-top: 0;
 }
 
 .ids .ids__no-yes--empty {
