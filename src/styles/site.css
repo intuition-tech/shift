@@ -32,6 +32,12 @@ header {
     padding: 0.8em 0.8em;
   }
 
+  /* Самые узкие экраны (360–390 px): весь хедер ещё на ступень мельче,
+     чтобы «Люди» не переносились на вторую строку */
+  @media (width < 400px) {
+    font-size: 0.81em;
+  }
+
   & .nav {
     display: flex;
     justify-content: space-between;
@@ -107,6 +113,7 @@ header {
     gap: 0.55em;
     margin-left: 0.7em;
   }
+
 }
 
 /* Короткие подписи пунктов — только на мобильных */
