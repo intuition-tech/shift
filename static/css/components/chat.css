@@ -1,0 +1,112 @@
+/* Экран переписки: примеры ответов в директ и переписка с блогером.
+   .open — длинный тред без рамки 9:16.
+
+   <div class="ids__chat [open]">
+     <p class="ids__chat-time">2:09 PM</p>
+     <p class="ids__chat-bubble in">…</p>
+     <p class="ids__chat-bubble out">…</p>
+     <p class="ids__chat-seen">Seen Friday</p>
+     <p class="ids__chat-bar">Message...</p>
+     <img class="ids__chat-photo out" src="…" alt="">
+   </div> */
+
+.ids .ids__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  aspect-ratio: 9 / 16;
+  box-sizing: border-box;
+  background: var(--ids__background);
+  border: var(--ids__border-width-s) solid color-mix(in srgb, var(--ids__text) 12%, transparent);
+  border-radius: 1.1em;
+  padding: 1.1em 0.75em 0.75em;
+
+  &.open {
+    aspect-ratio: auto;
+  }
+}
+
+.ids .ids__chat-time,
+.ids .ids__chat-seen,
+.ids .ids__chat-bar,
+.ids .ids__chat-bubble {
+  margin: 0;
+}
+
+.ids .ids__chat-time,
+.ids .ids__chat-seen {
+  font-size: 0.72em;
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--ids__text) 45%, transparent);
+  text-align: center;
+}
+
+.ids .ids__chat-seen {
+  align-self: flex-end;
+  padding-right: 0.4em;
+}
+
+.ids .ids__chat-bar {
+  margin-top: auto;
+  background: var(--shift__aside-background);
+  border-radius: 1.2em;
+  padding: 0.45em 0.8em;
+  color: var(--ids__caption);
+  font-size: 0.75em;
+}
+
+.ids .ids__chat-bubble {
+  max-width: 82%;
+  padding: 0.55em 0.85em;
+  border-radius: 1.15em;
+  font-size: 0.85em;
+  line-height: 1.35;
+
+  &.in {
+    align-self: flex-start;
+    background: var(--ids__surface);
+    border-bottom-left-radius: 0.35em;
+  }
+
+  &.out {
+    align-self: flex-end;
+    background: var(--shift__chat-out);
+    color: var(--shift__chat-out-text);
+    border-bottom-right-radius: 0.35em;
+  }
+
+  & p {
+    margin: 0 0 0.55em;
+    font-size: inherit;
+    line-height: 1.35;
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ids .ids__chat.open .ids__chat-bubble {
+  max-width: 100%;
+  font-size: 0.78em;
+
+  &.in {
+    max-width: 88%;
+  }
+}
+
+.ids .ids__chat-photo {
+  display: block;
+  width: 72%;
+  height: auto;
+  border-radius: 0.85em;
+
+  &.out {
+    align-self: flex-end;
+  }
+
+  &.in {
+    align-self: flex-start;
+    width: 58%;
+  }
+}

@@ -1,15 +1,19 @@
 ---
 title: Визуальный стиль Додо Пиццы — Shift
+titleEn: Dodo Pizza Visual Style — Shift
 description: "Константы фирменного стиля: логотип, цветовые палитры, описание фотостиля, графика и типографика."
 tags: publication
 ---
-{#- Переносится без перевода (решение Жени): русский текст без условий, EN-страница показывает его же. -#}
+{#- Английская страница — заглушка, как на старом сайте: перевод ещё не опубликован. -#}
 <div class="ids__space XL"></div>
 <article class="ids__wrapper publication">
-  <div class="publication__nav"><ids-navbar></ids-navbar></div>
+  {% if lang == 'ru' %}<div class="publication__nav"><ids-navbar></ids-navbar></div>{% endif %}
 
-  <h1>Визуальный стиль Додо Пиццы</h1>
+  <h1>{% if lang == 'ru' %}Визуальный стиль Додо Пиццы{% else %}Dodo Pizza Visual Style{% endif %}</h1>
   {% include "pub-meta.html" %}
+  {% if lang == 'en' %}
+  <h2>This guide is under translation.</h2>
+  {% else %}
   <p class="ids__description">Здесь константы фирменного стиля: логотип, цветовые палитры, описание фотостиля, графика и типографика. Гайд постоянно обновляется. Версия в формате презентации — <a href="https://www.figma.com/proto/DIxkMsM2ZcD5MbVdq2XYUM/ru---dodo-%E2%80%94-guidebook?node-id=5216-478" rel="noopener noreferrer">в Фигме</a>.</p>
 
   <div class="ids__space S"></div>
@@ -991,6 +995,7 @@ tags: publication
       <p><a href="https://shift.dodobrands.io/graphic-design/qr-generation">Гайд по оформлению кюар-кода</a></p>
     </aside>
   </ids-nav-item>
+  {% endif %}
 
   <div class="ids__space L"></div>
 </article>

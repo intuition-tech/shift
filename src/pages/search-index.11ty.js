@@ -134,8 +134,10 @@ export default {
 
     // Авторы с публикациями и число публикаций — та же логика, что у фильтра people
     const counts = new Map();
-    for (const p of publications)
+    for (const p of publications) {
+      if (p.status === "hidden") continue;
       for (const slug of p.authors || []) counts.set(slug, (counts.get(slug) || 0) + 1);
+    }
     const people = [...counts]
       .map(([slug, count]) => ({ slug, name: authors[slug]?.name || slug, count }))
       .sort((a, b) => a.name.localeCompare(b.name, "en"));
@@ -143,7 +145,7 @@ export default {
     const tags = [];
     for (const [dim, field] of DIMS)
       for (const t of taxonomy[field]) {
-        const count = publications.filter((p) => (p[field] || []).includes(t.slug)).length;
+        const count = publications.filter((p) => p.status !== "hidden" && (p[field] || []).includes(t.slug)).length;
         if (count) tags.push({ dim, slug: t.slug, ru: t.ru, en: t.en, count });
       }
 

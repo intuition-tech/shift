@@ -132,3 +132,84 @@
     border-bottom: 0;
   }
 }
+
+/* Плашка-ссылка: тот же вид, что у кнопки меню, но ведёт сразу на файл */
+.ids a.ids__download-plate {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Несколько макетов на одной плашке, клик скачивает архив
+   (бывш. .download-group).
+
+   <a class="ids__download-group" href="….zip" download>
+     <span class="ids__download-group-items">
+       <img src="…" alt="">
+       <img class="pill" src="…" alt="">
+     </span>
+     <span class="ids__download-group-caption">Download</span>
+   </a> */
+.ids a.ids__download-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 0.8em;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-0.2em);
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.ids .ids__download-group-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--shift__aside-background);
+  border-radius: 0.9em;
+  padding: 1.2em 1.4em;
+
+  & img {
+    height: 16em;
+    width: auto;
+    max-width: 24%;
+    object-fit: contain;
+  }
+
+  & img.pill {
+    height: 7em;
+    max-width: none;
+  }
+
+  @media (width < 768px) {
+    & img,
+    & img.pill {
+      height: auto;
+      max-height: 16em;
+      max-width: 70%;
+    }
+  }
+}
+
+.ids .ids__download-group-caption {
+  display: block;
+  width: 100%;
+  margin-top: 0.45em;
+  text-align: center;
+  color: var(--ids__caption);
+  font-size: 0.7em;
+  line-height: 1.2;
+}

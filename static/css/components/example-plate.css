@@ -1,0 +1,38 @@
+/* Серая подложка под ряд примеров: скрины, видео, переписки.
+   Как .example-plate / .examples-3 / .profile-examples на старом гайде.
+
+   <div class="ids__example-plate [wide]">
+     <div class="ids__sequence L gap-S">…</div>
+   </div>
+
+   .wide — один пример по центру, около трети ширины (прямой эфир). */
+
+.ids .ids__example-plate {
+  background-color: var(--ids__surface);
+  border-radius: 0.9em;
+  padding: 1.2em 1.4em 1.4em;
+  margin-top: var(--shift__illustration-gap);
+  /* После плашки всегда спейс S. Явный спейс S в разметке его не дублирует,
+     поле следующего заголовка к нему не прибавляется — media.css. */
+  margin-bottom: var(--ids__spacer-s);
+
+  & :is(.ids__sequence, .ids__media-group, figure) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.wide .ids__media-group {
+    align-items: center;
+
+    & figure {
+      width: calc(100% / 3);
+      max-width: none;
+    }
+  }
+
+  @media (width < 768px) {
+    &.wide .ids__media-group figure {
+      width: 70%;
+    }
+  }
+}

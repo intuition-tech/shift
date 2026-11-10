@@ -690,6 +690,94 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>a.ids__download-group</code><br /><code>.ids__download-group-items</code><br /><code>img.pill</code></span>
+        <span class="guide-tokens__row-value">--shift__aside-background<br />--ids__caption</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Несколько макетов на одной плашке: клик скачивает архив. <code>img.pill</code> — маленькая плашка-бейдж внутри ряда.</p>
+        <a class="ids__download-group" href="/images/social-media-guidelines/for-you-templates.zip" download="for-you-templates.zip">
+          <span class="ids__download-group-items">
+            <img src="/images/social-media-guidelines/template-for-you-side-badge.jpg" alt="" />
+            <img class="pill" src="/images/social-media-guidelines/badge-for-you.png" alt="" />
+            <img src="/images/social-media-guidelines/template-for-you-top-badge.jpg" alt="" />
+            <img src="/images/social-media-guidelines/template-for-you-top-empty.png" alt="" />
+          </span>
+          <span class="ids__download-group-caption">Download</span>
+        </a>
+      </div>
+      {{ "a.ids__download-group" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>.ids__chat</code> <code>.open</code><br /><code>.ids__chat-bubble</code> <code>.in</code> <code>.out</code><br /><code>.ids__chat-time</code> <code>.ids__chat-seen</code> <code>.ids__chat-bar</code><br /><code>.ids__chat-photo</code></span>
+        <span class="guide-tokens__row-value">--shift__chat-out<br />--shift__chat-out-text<br />--ids__surface<br />--ids__background</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Экран переписки. Без модификатора — пропорция 9:16, поле ввода прижато вниз. <code>.open</code> — длинный тред, высота по содержимому.</p>
+        <div class="ids__sequence L gap-S" style="margin-top: 0">
+          <div class="ids__sequence-item">
+            <div class="ids__chat">
+              <p class="ids__chat-time">2:09 PM</p>
+              <p class="ids__chat-bubble in">Hi, do you have location near Mirdif please</p>
+              <p class="ids__chat-bubble out">Hello! The nearest one is our Al Warqa branch 🙏</p>
+              <p class="ids__chat-bar">Message...</p>
+            </div>
+          </div>
+          <div class="ids__sequence-item">
+            <div class="ids__chat open">
+              <img class="ids__chat-photo in" src="/images/social-media-guidelines/chat-story-repost.jpg" alt="Story the creator posted" />
+              <div class="ids__chat-bubble out">
+                <p>Hi 🧡</p>
+                <p>Thank you so much for sharing such lovely content with us! We really appreciate your creativity and the effort you put into showcasing Dodo Pizza 🍕✨</p>
+                <p>It was a pleasure working with you, and we hope this is just the beginning of more exciting collaborations together! 😊</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ ".ids__chat" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>.ids__example-plate</code> <code>.wide</code></span>
+        <span class="guide-tokens__row-value">--ids__surface</span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Серая подложка под ряд примеров. <code>.wide</code> — один ролик или скрин по центру, около трети ширины.</p>
+        <div class="ids__example-plate">
+          <div class="ids__sequence L gap-S">
+            <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/post-400-aed.jpg" alt="" /></figure></div>
+            <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/buy-large-get-small-free.jpg" alt="" /></figure></div>
+            <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/for-friends-meal.jpg" alt="" /></figure></div>
+          </div>
+        </div>
+      </div>
+      {{ ".ids__example-plate" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>.ids__format-head</code><br /><code>h3.ids__format-title</code></span>
+        <span class="guide-tokens__row-value"></span>
+      </div>
+      <div class="guide-component__sample">
+        <p class="subdued">Подзаголовок раздела: мельче <code>h2.h3</code> и крупнее заголовка в подбор. Серая метка частоты стоит в той же строке.</p>
+        <div class="ids__format-head">
+          <h3>Reels</h3>
+          <p><code>3 per week, 15 per month</code></p>
+        </div>
+      </div>
+      {{ ".ids__format-head" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
         <span class="guide-tokens__row-label"><code>.ids__pill</code> <code>.outline</code><br /><code>.ids__pill-photo</code> <code>.initial</code><br /><code>.ids__pill-count</code></span>
         <span class="guide-tokens__row-value">--ids__pill-background<br />--ids__pill-border<br />--ids__caption<br />--ids__hover</span>
       </div>

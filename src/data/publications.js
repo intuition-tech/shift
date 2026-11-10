@@ -233,6 +233,33 @@ export default [
     "externalUrl": null
   },
   {
+    "slug": "social-media-guidelines",
+    "title": "СММ в регионах MENA",
+    "titleEn": "Dodo Pizza Social media",
+    "date": "2026-11-06",
+    "authors": [
+      "rita-el-bashir",
+      "anton-nikiforov"
+    ],
+    "contact": null,
+    "markets": [
+      "uae"
+    ],
+    "teams": [
+      "social-media"
+    ],
+    "areas": [
+      "smm"
+    ],
+    "collections": [
+      "social-media-launch"
+    ],
+    "isNew": false,
+    "status": "published",
+    "oldUrl": "https://shift.dodobrands.io/smm/social-media-guidelines",
+    "externalUrl": null
+  },
+  {
     "slug": "how-to-unlock-a-disabled-Instagram-account",
     "title": "Разблокировка аккаунта в Инстаграме",
     "titleEn": "How to unlock a disabled Instagram account",
@@ -857,7 +884,7 @@ export default [
   {
     "slug": "visual-style-dodo-pizza",
     "title": "Визуальный стиль Додо Пиццы",
-    "titleEn": null,
+    "titleEn": "Dodo Pizza Visual Style",
     "date": "2026-10-20",
     "authors": [
       "alina-afonkina",
@@ -1687,7 +1714,7 @@ export default [
     "areas": [],
     "collections": [],
     "isNew": false,
-    "status": "external",
+    "status": "hidden",
     "oldUrl": null,
     "externalUrl": "https://www.buildin.ai/81bb48d2-f05d-4bcc-bb85-0b883e596286"
   },

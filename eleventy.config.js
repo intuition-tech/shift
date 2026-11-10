@@ -108,7 +108,7 @@ export default function (conf) {
 
   // Все публикации по дате, новое сверху; без даты (внешние) — в конец
   conf.addFilter("byDateDesc", (publications) =>
-    [...publications].sort((a, b) => {
+    [...publications].filter((p) => p.status !== "hidden").sort((a, b) => {
       if (!a.date && !b.date) return 0;
       if (!a.date) return 1;
       if (!b.date) return -1;
@@ -123,7 +123,7 @@ export default function (conf) {
   // Число публикаций с тегом — для промоблоков главной
   conf.addFilter("countPubs", (publications, kind, slug) =>
     publications.filter((p) =>
-      (kind === "market" ? p.markets : p.collections).includes(slug)
+      p.status !== "hidden" && (kind === "market" ? p.markets : p.collections).includes(slug)
     ).length
   );
 
@@ -133,6 +133,7 @@ export default function (conf) {
   conf.addFilter("people", (publications, authors) => {
     const counts = new Map();
     for (const p of publications) {
+      if (p.status === "hidden") continue;
       for (const slug of p.authors || []) counts.set(slug, (counts.get(slug) || 0) + 1);
     }
     return [...counts]

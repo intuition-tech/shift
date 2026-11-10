@@ -18,6 +18,10 @@
 
   --shift__description-font: "Elma-Trio-Slanted-Web", monospace;
 
+  /* Исходящее сообщение в переписке соцсетей (фиолетовый Instagram) */
+  --shift__chat-out: var(--ids__color-violet-500);
+  --shift__chat-out-text: var(--ids__color-white);
+
   /* Воздух вокруг иллюстраций: к тексту — с обеих сторон, к заголовку после
      картинки — больше (правила — docs/content-markup.md, «Отступы»). Группы
      .ids__media-group S/M/L живут со своими 4/3/2em */

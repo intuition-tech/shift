@@ -167,11 +167,11 @@
 }
 
 /* --- Вертикальный воздух иллюстраций ---
-   Правило: иллюстрация ↔ текст — var(--shift__illustration-gap) с обеих сторон;
-   иллюстрация → заголовок — var(--shift__illustration-heading-gap); заголовок →
-   иллюстрация — поле самого заголовка. Группы S/M/L — со своими отступами.
-   Отступы самих блоков — в их компонентах (ids.css figure, layout.css
-   .ids__sequence, compare.css, no-yes.css); здесь — общие исключения. */
+   Сверху у картинки — var(--shift__illustration-gap). Снизу перед абзацем
+   или заголовком в подбор зазор всегда ровно спейс S (поле блока к явному
+   спейсу S не прибавляется). Спейс M перед новым разделом h2,
+   var(--shift__illustration-heading-gap) перед h3/h4. После палитры снизу
+   всегда спейс S. Короткий зазор — только между частями одной группы картинок. */
 
 /* Фигура внутри группы, ячейки сетки, галереи, шапки отчёта, карточки
    скачивания и образцов витрины воздух не несёт — его даёт контейнер */
@@ -186,13 +186,100 @@
   margin-bottom: 0;
 }
 
-/* Перед заголовком воздуха больше, чем перед текстом; малый спейсер между
-   картинкой и заголовком схлопывается в ноль (ids.css), поэтому учтён */
-.ids :is(figure, .ids__compare, .ids__sequence, .ids__media-group.XL):has(+ :is(h2, h3, h4), + .ids__space:not(.M, .L, .XL) + :is(h2, h3, h4)) {
+/* Перед подразделом h3/h4 воздуха больше, чем перед текстом; малый спейсер
+   между картинкой и заголовком схлопывается в ноль (ids.css), поэтому учтён.
+   Явный спейс S сразу после блока с картинками остаётся спейсом:
+   нижнее поле блока ему не дублирует. */
+.ids :is(figure, .ids__compare, .ids__sequence, .ids__media-group.XL):has(+ :is(h3, h4)) {
   margin-bottom: var(--shift__illustration-heading-gap);
+}
+
+/* Визуал и то, что идёт следом.
+   Обычный абзац, список или заголовок в подбор (тоже <p>) — спейс S.
+   Новый раздел h2 — спейс M. Поле самого заголовка при этом не добавляется.
+   Группы S/M/L перечислены отдельно: у них своё поле с более высокой специфичностью. */
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, .ids__checklist, table):has(+ :is(p, ul, ol, blockquote, .ids__with-note)),
+.ids a.ids__download-group:has(+ :is(p, ul, ol, blockquote, .ids__with-note)) {
+  margin-bottom: var(--ids__spacer-s);
+}
+
+.ids .ids__media-group:is(.S, .M, .L, .XL):has(+ :is(p, ul, ol, blockquote, .ids__with-note)) {
+  margin-bottom: var(--ids__spacer-s);
+}
+
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table):has(+ h2),
+.ids a.ids__download-group:has(+ h2) {
+  margin-bottom: var(--ids__spacer-m);
+}
+
+.ids .ids__media-group:is(.S, .M, .L, .XL):has(+ h2) {
+  margin-bottom: var(--ids__spacer-m);
+}
+
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table) + h2,
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table) + h2.h3,
+.ids a.ids__download-group + h2,
+.ids a.ids__download-group + h2.h3 {
+  margin-top: 0;
+}
+
+/* Последний визуал раздела: до h2 следующего раздела — спейс M */
+.ids ids-nav-item > :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table):last-child,
+.ids ids-nav-item > .ids__media-group:is(.S, .M, .L, .XL):last-child,
+.ids ids-nav-item > a.ids__download-group:last-child {
+  margin-bottom: 0;
+}
+
+.ids ids-nav-item:has(> :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table):last-child) + ids-nav-item > h2,
+.ids ids-nav-item:has(> :is(figure, .ids__sequence, .ids__media-group, .ids__slide-pair, .ids__compare, .ids__color-palette, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, table):last-child) + ids-nav-item > h2.h3,
+.ids ids-nav-item:has(> a.ids__download-group:last-child) + ids-nav-item > h2,
+.ids ids-nav-item:has(> a.ids__download-group:last-child) + ids-nav-item > h2.h3 {
+  margin-top: var(--ids__spacer-m);
+}
+
+/* Картинка и сразу следующая слайд-пара — одна группа, короткий зазор
+   (старый .background-examples), не иллюстрационный воздух */
+.ids figure:has(+ .ids__slide-pair) {
+  margin-bottom: calc(var(--ids__density) * 1em / 3);
+}
+
+/* Явный спейс S после картинки, видео, слайда или сетки сам задаёт зазор.
+   Поле блока обнуляется, иначе к спейсу прибавляется свой отступ компонента. */
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide, .ids__slide-pair, .ids__compare, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, .ids__checklist, table, .ids__with-note, a.ids__download-group):has(+ .ids__space.S) {
+  margin-bottom: 0;
+}
+
+.ids .ids__media-group:is(.S, .M, .L, .XL):has(+ .ids__space.S) {
+  margin-bottom: 0;
+}
+
+.ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide, .ids__slide-pair, .ids__compare, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, .ids__checklist, table, .ids__with-note) + .ids__space.S,
+.ids a.ids__download-group + .ids__space.S {
+  height: var(--ids__spacer-s);
 }
 
 /* После заголовка — поле заголовка, он прижат к своему содержимому */
 .ids :is(h2, h3, h4) + :is(figure, .ids__compare, .ids__sequence, .ids__media-group.XL) {
+  margin-top: 0;
+}
+
+/* После палитры зазор всегда спейс S — это нижнее поле палитры.
+   Явный спейс S следом не добавляется: перед заголовком он и так схлопывается,
+   перед текстом его высота обнуляется, чтобы не получилось два спейса.
+   Поле заголовка и верхний воздух картинки к зазору не прибавляются. */
+.ids .ids__color-palette + .ids__space:not(.M, .L, .XL) {
+  height: 0;
+}
+
+.ids .ids__color-palette + :is(h2, h3, h4, figure, .ids__sequence, .ids__slide-pair, .ids__media-group, .ids__video),
+.ids .ids__color-palette + .ids__space:not(.M, .L, .XL) + :is(h2, h3, h4) {
+  margin-top: 0;
+}
+
+/* После серой плашки с примерами зазор тоже всегда спейс S.
+   Спейс S в разметке уже даёт эту высоту, поэтому поле заголовка,
+   шапки формата и подзаголовка следом обнуляется. */
+.ids .ids__example-plate + :is(h2, h3, h4, .ids__format-head),
+.ids .ids__example-plate + .ids__space:not(.M, .L, .XL) + :is(h2, h3, h4, .ids__format-head) {
   margin-top: 0;
 }

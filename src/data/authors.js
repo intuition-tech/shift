@@ -226,6 +226,11 @@ export default {
     "name": "Murad Gammadov",
     "photo": "/images/authors/murad-gammadov.jpg"
   },
+  "rita-el-bashir": {
+    "slug": "rita-el-bashir",
+    "name": "Rita El Bashir",
+    "photo": "/images/authors/rita-el-bashir.jpg"
+  },
   "sergey-lapukhin": {
     "slug": "sergey-lapukhin",
     "name": "Sergey Lapukhin",

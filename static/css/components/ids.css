@@ -20,6 +20,11 @@
     }
   }
 
+  /* Звёздочка сноски — маркер, не ссылка в тексте */
+  & sup a {
+    text-decoration: none;
+  }
+
   & p {
     margin-top: 0;
     margin-bottom: calc(var(--ids__density) * 0.6em);
@@ -140,6 +145,34 @@
     @media (width < 768px) {
       font-size: 1.5em;
     }
+  }
+
+  /* Подраздел внутри раздела (Reels внутри Content formats):
+     мельче h2.h3 раздела и крупнее заголовка в подбор (<strong>).
+     Частота (code) стоит в той же строке и сохраняет свой кегль. */
+  & .ids__format-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.7em;
+    row-gap: 0.3em;
+    margin-top: 1.4em;
+    margin-bottom: 0.6em;
+
+    & h3 {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  & h3.ids__format-title {
+    font-size: 1.2em;
+    font-weight: 600;
   }
 
   /* Поле сверху у заголовка — своё: малый ручной спейсер непосредственно
