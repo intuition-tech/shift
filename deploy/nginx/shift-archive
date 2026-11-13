@@ -1,0 +1,75 @@
+# /etc/nginx/sites-available/shift-archive — старый Shift (Express на pm2 «prod»,
+# порт 3001, код в /var/www/prod, деплой из репозитория intuition-team/dbdt по тегу v*)
+# на shift-archive.intuition.team. Копия того, что стоит на сервере 5.53.124.232;
+# править здесь и переносить руками. TLS-строки добавляет certbot --nginx -d shift-archive.intuition.team.
+
+server {
+  server_name shift-archive.intuition.team;
+
+  access_log  /var/log/nginx/shift-archive.access.log;
+  error_log   /var/log/nginx/shift-archive.error.log;
+
+  error_page 404 = /404.html;
+
+  # Архив не индексируем: поиск должен переехать на shift.dodobrands.io
+  add_header X-Robots-Tag "noindex, nofollow" always;
+  location = /robots.txt {
+    alias /var/www/robots/disallow.txt;
+  }
+
+  location /cdn/ {
+    alias /var/www/cdn/;
+  }
+
+  location / {
+    proxy_pass http://127.0.0.1:3001;
+    proxy_set_header Host                $host;
+    proxy_set_header X-Real-IP           $remote_addr;
+    proxy_set_header X-Forwarded-For     $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto   $scheme;
+    proxy_set_header X-Forwarded-Host    $host;
+    proxy_set_header X-Forwarded-Port    $server_port;
+  }
+
+  gzip              on;
+  gzip_http_version 1.1;
+  gzip_vary         on;
+  gzip_min_length   128;
+  gzip_comp_level   6;
+  gzip_proxied      any;
+  gzip_types
+    application/javascript
+    application/json
+    application/xml
+    application/xhtml+xml
+    application/vnd.ms-fontobject
+    application/x-font-ttf
+    font/opentype
+    image/svg+xml
+    image/x-icon
+    text/css
+    text/plain
+    text/xml;
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/shift-archive.intuition.team/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/shift-archive.intuition.team/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+server {
+    if ($host = shift-archive.intuition.team) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+  server_name shift-archive.intuition.team;
+
+  listen 80;
+    return 404; # managed by Certbot
+
+
+}

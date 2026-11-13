@@ -94,8 +94,20 @@ site/                # результат сборки (в гитигноре)
 
 ## Двуязычность
 
-Каждая страница в `src/pages` собирается дважды через pagination по `locales` (`pages.11tydata.js`): русская в корень, английская с префиксом `/en`. Внутри шаблона язык переключается инлайново: `{% if lang == 'ru' %} … {% endif %}`. Переключатель языка в шапке ведёт на парную страницу (`otherLangUrl`) и запоминает выбор в куке `_int_locale`.
+Каждая страница в `src/pages` собирается дважды через pagination по `locales` (`pages.11tydata.js`): русская в корень, английская с префиксом `/en`. Внутри шаблона язык переключается инлайново: `{% if lang == 'ru' %} … {% endif %}`. Переключатель языка в шапке ведёт на парную страницу (`otherLangUrl`) и запоминает выбор в куке `_int_locale`; редирект по куке делает nginx (см. ниже), статика сама этого не умеет.
 
-## Деплой
+Служебные одиночные файлы — `404.html` (один на оба языка: под `/en/` текст переключает скрипт по пути; ссылка «в архиве» ведёт на тот же путь старого сайта) и `sitemap.xml` (`sitemap.njk`, без 404, витрины и скрытых публикаций) — собираются одним проходом: `override:locales: [ru]` во фронтматтере. В `<head>` у всех страниц абсолютные `canonical`, `og:url` и `hreflang` (глобальная `siteUrl` в `eleventy.config.js`); у 404 — `noindex`. Google Tag Manager (`GTM-5ZXBQ6GK`, контейнер старого сайта) подключается только в продовой сборке (`isDev` = false).
 
-GitHub Pages: пуш в `main` запускает `.github/workflows/deploy.yml` — сборка Eleventy и публикация `site/` через `actions/deploy-pages`. В настройках репозитория Pages должен быть в режиме «GitHub Actions».
+## Хостинг и деплой
+
+Сайт живёт на VPS 5.53.124.232 (nginx, тот же сервер, где старый Shift) под `shift.dodobrands.io` — DNS домена указывал на этот сервер ещё при старом сайте, поэтому переезд сделан целиком на сервере. Старый сайт (репозиторий intuition-team/dbdt, Express) остался там же под `shift-archive.intuition.team`; на него ведут `oldUrl` в `publications.js` и ссылка с 404.
+
+Пуш в `main` → `.github/workflows/deploy.yml`: `npm ci`, `npm run build`, rsync `site/` от root в `/var/www/shift/` (секрет `SSH_KEY` — отдельный ключ ed25519 для деплоя, его публичная половина в `/root/.ssh/authorized_keys`). Туда же едет карта редиректов; если она изменилась, nginx перечитывает конфиг.
+
+Конфиги nginx — в `deploy/nginx/`, это копии того, что стоит на сервере; править здесь и переносить руками (`nginx -t && systemctl reload nginx`):
+
+- `shift` → `/etc/nginx/sites-available/shift` — статика из `/var/www/shift`, `error_page 404`, зипы логотипов из `/var/www/cdn/` (на них ведут абсолютные ссылки `shift.dodobrands.io/cdn/…` из гайдов), кэш статики на неделю, две строки с `if`: редирект старых адресов и редирект по куке языка;
+- `shift-archive` → `/etc/nginx/sites-available/shift-archive` — прокси на старый Express (порт 3001), `noindex` и `Disallow: /`, чтобы поиск переехал на новый домен;
+- `shift-locale.conf` → `/etc/nginx/conf.d/` — карты `map` для редиректа по куке `_int_locale` (перенос из arutyunov.info с обратным префиксом: там `/ru`, здесь `/en`): en-кука на странице без `/en` → `/en` + путь, ru-кука под `/en` → без префикса; файлы с расширением не трогаются;
+- `00-map-hash.conf` → `/etc/nginx/conf.d/` — `map_hash_bucket_size 128` для карты редиректов; отдельным файлом с `00-`, потому что nginx принимает директиву только до первого `map` в `http {}`;
+- `shift-redirects.conf` → `/etc/nginx/conf.d/` — **генерируется** `node tools/make-redirects.mjs`, не править руками, коммитится, кладёт CI. Карта `$uri → $shift_redirect`: старые адреса `/раздел/slug` → `/slug/` из `oldUrl` в `publications.js` (заглушка и перенесённый гайд живут по одному адресу, так что перенос гайда карту не меняет), `/author/<slug>` → `/publications/?author=…`, `/topic/<тема>` → фильтр новой таксономии (ручная карта в генераторе), `/glossary/*` → `/glossary/`; всё в четырёх вариантах — с `/en` и без, со слэшем и без. Что в карту не попало, получает 404 со ссылкой на архив.

@@ -97,6 +97,19 @@ export default function (conf) {
   // static/ повторяет корень сайта: css и js дизайн-системы, fonts, favicon
   conf.addPassthroughCopy({ static: "/" });
 
+  // Абсолютный адрес сайта — для canonical, og:url, hreflang и sitemap.xml
+  conf.addGlobalData("siteUrl", "https://shift.dodobrands.io");
+
+  // Страницы для sitemap.xml: без служебных (404, витрина) и без скрытых публикаций
+  conf.addFilter("sitemapPages", (pages) =>
+    pages.filter((item) => {
+      const stem = item.data.page.filePathStem;
+      if (stem === "/404" || stem === "/sitemap" || stem === "/design-system") return false;
+      const pub = publications.find((p) => p.slug === item.data.page.fileSlug);
+      return !(pub && pub.status === "hidden");
+    })
+  );
+
   // Дев-режим (--serve/--watch): в продовой сборке isDev = false.
   // Функция — чтобы ELEVENTY_RUN_MODE читался в момент сборки данных
   conf.addGlobalData("isDev", () => process.env.ELEVENTY_RUN_MODE !== "build");

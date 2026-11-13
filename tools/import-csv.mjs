@@ -249,7 +249,8 @@ for (const r of rows) {
     collections,
     isNew: false,
     status,
-    oldUrl: external ? null : url,
+    // Старый сайт переехал в архив: ссылки «по старому адресу» ведут туда
+    oldUrl: external ? null : url.replace("https://shift.dodobrands.io", "https://shift-archive.intuition.team"),
     externalUrl: external ? url : null
   });
 }

@@ -13,6 +13,14 @@
     <meta property="og:site_name" content="Shift" />
     <meta property="og:title" content="{{ metaTitle }}" />
     {% if metaDescription %}<meta property="og:description" content="{{ metaDescription }}" />{% endif %}
+    {%- if noindex %}<meta name="robots" content="noindex" />{% endif %}
+    {%- if canonical %}
+    <link rel="canonical" href="{{ siteUrl }}{{ canonical }}" />
+    <meta property="og:url" content="{{ siteUrl }}{{ canonical }}" />
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ siteUrl }}{{ canonical }}" />
+    <link rel="alternate" hreflang="{{ 'en' if lang == 'ru' else 'ru' }}" href="{{ siteUrl }}{{ otherLangUrl }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ siteUrl }}{{ canonical if lang == 'ru' else otherLangUrl }}" />
+    {%- endif %}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preload" href="/fonts/Pragmatica.ttf" as="font" type="font/ttf" crossorigin />
     <!-- Порядок подключения IDS нормативный: tokens → settings → reset → page-composition → components -->
@@ -50,8 +58,15 @@
     <link rel="stylesheet" href="/css/components/promo-grid.css" />
     <link rel="stylesheet" href="/css/components/search.css" />
     <link rel="stylesheet" href="/assets/site.css" />
+    {%- if not isDev %}
+    <!-- Google Tag Manager: контейнер со старого сайта, только в продовой сборке -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5ZXBQ6GK');</script>
+    {%- endif %}
   </head>
   <body class="ids">
+    {%- if not isDev %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZXBQ6GK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {%- endif %}
     {% include "header.html" %}
     <main>{{ content | safe }}</main>
     {% include "footer.html" %}

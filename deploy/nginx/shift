@@ -1,0 +1,75 @@
+# /etc/nginx/sites-available/shift — новый Shift (статика Eleventy) на shift.dodobrands.io.
+# Копия того, что стоит на сервере 5.53.124.232; править здесь и переносить руками
+# (nginx -t && systemctl reload nginx). Карты $shift_redirect и $locale_redirect —
+# в /etc/nginx/conf.d/ (shift-redirects.conf кладёт CI, shift-locale.conf — руками).
+# Строки «managed by Certbot» — как были у старого конфига: сертификат общий с design.dodobrands.io.
+
+server {
+  server_name shift.dodobrands.io;
+
+  root        /var/www/shift;
+  index       index.html;
+  access_log  /var/log/nginx/shift.access.log;
+  error_log   /var/log/nginx/shift.error.log;
+
+  # Старые адреса → новые (карта из publications.js). Раньше куки, чтобы
+  # старая ссылка сразу вела на новый адрес, а язык довыбирался следующим шагом.
+  if ($shift_redirect) { return 301 $shift_redirect; }
+
+  # Выбранный язык из куки _int_locale
+  if ($locale_redirect) { return 302 $locale_redirect$is_args$args; }
+
+  error_page 404 /404.html;
+
+  # Зипы логотипов: на них ведут абсолютные ссылки shift.dodobrands.io/cdn/… из гайдов
+  location /cdn/ {
+    alias /var/www/cdn/;
+  }
+
+  # Шрифты, стили, скрипты и картинки живут по стабильным путям — кэш на неделю
+  location ~* \.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|avif|mp4|webm|ico)$ {
+    expires 7d;
+    add_header Cache-Control "public";
+    try_files $uri =404;
+  }
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  gzip              on;
+  gzip_http_version 1.1;
+  gzip_vary         on;
+  gzip_min_length   128;
+  gzip_comp_level   6;
+  gzip_proxied      any;
+  gzip_types
+    application/javascript
+    application/json
+    application/xml
+    application/xhtml+xml
+    application/vnd.ms-fontobject
+    application/x-font-ttf
+    font/opentype
+    image/svg+xml
+    image/x-icon
+    text/css
+    text/plain
+    text/xml;
+
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/design.dodobrands.io/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/design.dodobrands.io/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+  if ($host = shift.dodobrands.io) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+  server_name shift.dodobrands.io;
+  listen 80;
+  return 404; # managed by Certbot
+}

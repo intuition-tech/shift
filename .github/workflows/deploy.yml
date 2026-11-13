@@ -1,41 +1,55 @@
-name: Deploy to GitHub Pages
+# Пуш в main → сборка Eleventy → rsync site/ на сервер в /var/www/shift,
+# откуда nginx отдаёт shift.dodobrands.io (конфиг — deploy/nginx/shift).
+# Карта редиректов deploy/nginx/shift-redirects.conf едет в /etc/nginx/conf.d/;
+# если она изменилась, nginx перечитывает конфиг. Секрет SSH_KEY — приватный
+# ключ ed25519 только для этого деплоя, его публичная половина в
+# /root/.ssh/authorized_keys на сервере (комментарий github-actions-shift).
+name: Deploy
 
 on:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: [main]
 
 concurrency:
-  group: "pages"
+  group: deploy
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      HOST: 5.53.124.232
+      USER: root
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npm run build
 
-      - name: Build
-        run: npm run build
+      - name: SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
+      - name: Upload site
+        run: |
+          rsync -e "ssh -i ~/.ssh/key" --archive --compress --delete \
+            site/ "$USER@$HOST:/var/www/shift/"
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      - name: Upload redirects and reload nginx if changed
+        run: |
+          changed=$(rsync -e "ssh -i ~/.ssh/key" --archive --itemize-changes \
+            deploy/nginx/shift-redirects.conf "$USER@$HOST:/etc/nginx/conf.d/shift-redirects.conf")
+          if [ -n "$changed" ]; then
+            echo "Карта редиректов изменилась — перечитываем nginx"
+            ssh -i ~/.ssh/key "$USER@$HOST" 'nginx -t && systemctl reload nginx'
+          else
+            echo "Карта редиректов не менялась"
+          fi

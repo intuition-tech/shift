@@ -23,7 +23,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/glossary",
+    "oldUrl": "https://shift-archive.intuition.team/glossary",
     "externalUrl": null
   },
   {
@@ -48,7 +48,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/hero-promo-block",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/hero-promo-block",
     "externalUrl": null
   },
   {
@@ -73,7 +73,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/how-to-save-layouts-for-replication",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/how-to-save-layouts-for-replication",
     "externalUrl": null
   },
   {
@@ -98,7 +98,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/order-in-projects",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/order-in-projects",
     "externalUrl": null
   },
   {
@@ -125,7 +125,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/preparing-pizzeria-facade-stickers-for-printing",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/preparing-pizzeria-facade-stickers-for-printing",
     "externalUrl": null
   },
   {
@@ -151,7 +151,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/saving-printed-layouts",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/saving-printed-layouts",
     "externalUrl": null
   },
   {
@@ -177,7 +177,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/smm/how-to-create-an-instagram-profile",
+    "oldUrl": "https://shift-archive.intuition.team/smm/how-to-create-an-instagram-profile",
     "externalUrl": null
   },
   {
@@ -203,7 +203,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/technical-recommendations-for-a-shooting-organization",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/technical-recommendations-for-a-shooting-organization",
     "externalUrl": null
   },
   {
@@ -229,7 +229,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/smm/social-media-posts-examples",
+    "oldUrl": "https://shift-archive.intuition.team/smm/social-media-posts-examples",
     "externalUrl": null
   },
   {
@@ -256,7 +256,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/smm/social-media-guidelines",
+    "oldUrl": "https://shift-archive.intuition.team/smm/social-media-guidelines",
     "externalUrl": null
   },
   {
@@ -282,7 +282,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/smm/how-to-unlock-a-disabled-Instagram-account",
+    "oldUrl": "https://shift-archive.intuition.team/smm/how-to-unlock-a-disabled-Instagram-account",
     "externalUrl": null
   },
   {
@@ -306,7 +306,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/sms",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/sms",
     "externalUrl": null
   },
   {
@@ -331,7 +331,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/product-descriptions",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/product-descriptions",
     "externalUrl": null
   },
   {
@@ -356,7 +356,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/product-names",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/product-names",
     "externalUrl": null
   },
   {
@@ -379,7 +379,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/pizza-slice-poster",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/pizza-slice-poster",
     "externalUrl": null
   },
   {
@@ -402,7 +402,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/pizza-twist-poster",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/pizza-twist-poster",
     "externalUrl": null
   },
   {
@@ -425,7 +425,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/tomatoes-poster",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/tomatoes-poster",
     "externalUrl": null
   },
   {
@@ -453,7 +453,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/in-app-stories-visual-style",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/in-app-stories-visual-style",
     "externalUrl": null
   },
   {
@@ -482,7 +482,7 @@ export default [
     ],
     "isNew": true,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/types-of-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/types-of-in-app-stories",
     "externalUrl": null
   },
   {
@@ -511,7 +511,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/widgets-for-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/widgets-for-in-app-stories",
     "externalUrl": null
   },
   {
@@ -539,7 +539,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/exporting-layouts-for-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/exporting-layouts-for-in-app-stories",
     "externalUrl": null
   },
   {
@@ -566,7 +566,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/legal-aspects/legal-information-for-the-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/legal-aspects/legal-information-for-the-in-app-stories",
     "externalUrl": null
   },
   {
@@ -595,7 +595,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/how-to-compress-video-for-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/how-to-compress-video-for-in-app-stories",
     "externalUrl": null
   },
   {
@@ -631,7 +631,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/editorial-policy-for-in-app-stories",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/editorial-policy-for-in-app-stories",
     "externalUrl": null
   },
   {
@@ -682,7 +682,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/how-to-configure-a-preset-for-saving-to-pdf",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/how-to-configure-a-preset-for-saving-to-pdf",
     "externalUrl": null
   },
   {
@@ -704,7 +704,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/infoplanning/slow-and-fast-zones-qsr",
+    "oldUrl": "https://shift-archive.intuition.team/infoplanning/slow-and-fast-zones-qsr",
     "externalUrl": null
   },
   {
@@ -727,7 +727,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/infoplanning/prioritize-meanings-on-layout",
+    "oldUrl": "https://shift-archive.intuition.team/infoplanning/prioritize-meanings-on-layout",
     "externalUrl": null
   },
   {
@@ -747,7 +747,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dodo-global-meme-park/meme-park-S01",
+    "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S01",
     "externalUrl": null
   },
   {
@@ -767,7 +767,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dodo-global-meme-park/meme-park-S02",
+    "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S02",
     "externalUrl": null
   },
   {
@@ -787,7 +787,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dodo-global-meme-park/meme-park-S03",
+    "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S03",
     "externalUrl": null
   },
   {
@@ -807,7 +807,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dodo-global-meme-park/meme-park-S04",
+    "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S04",
     "externalUrl": null
   },
   {
@@ -827,7 +827,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dodo-global-meme-park/meme-park-S05",
+    "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S05",
     "externalUrl": null
   },
   {
@@ -853,7 +853,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dubai/dodo-pizza-dubai-brandbook",
+    "oldUrl": "https://shift-archive.intuition.team/dubai/dodo-pizza-dubai-brandbook",
     "externalUrl": null
   },
   {
@@ -878,7 +878,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/dubai/dubai-dodo-pizza-mena-2025",
+    "oldUrl": "https://shift-archive.intuition.team/dubai/dubai-dodo-pizza-mena-2025",
     "externalUrl": null
   },
   {
@@ -906,7 +906,7 @@ export default [
     "collections": [],
     "isNew": true,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/visual-style-dodo-pizza",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/visual-style-dodo-pizza",
     "externalUrl": null
   },
   {
@@ -931,7 +931,7 @@ export default [
     "collections": [],
     "isNew": true,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/how-to-prepare-an-image-for-the-catalog",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/how-to-prepare-an-image-for-the-catalog",
     "externalUrl": null
   },
   {
@@ -958,7 +958,7 @@ export default [
     ],
     "isNew": false,
     "status": "published",
-    "oldUrl": "https://shift.dodobrands.io/retouching/adding-reflexes-to-layouts",
+    "oldUrl": "https://shift-archive.intuition.team/retouching/adding-reflexes-to-layouts",
     "externalUrl": null
   },
   {
@@ -984,7 +984,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/assembling-digital-layout",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/assembling-digital-layout",
     "externalUrl": null
   },
   {
@@ -1013,7 +1013,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/dynamic-price-tags-for-tv-menus",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/dynamic-price-tags-for-tv-menus",
     "externalUrl": null
   },
   {
@@ -1043,7 +1043,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/cropping-layouts-for-cashier-displays",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/cropping-layouts-for-cashier-displays",
     "externalUrl": null
   },
   {
@@ -1073,7 +1073,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/trade-media-features",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/trade-media-features",
     "externalUrl": null
   },
   {
@@ -1101,7 +1101,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/texts/shift-editorial-policies",
+    "oldUrl": "https://shift-archive.intuition.team/texts/shift-editorial-policies",
     "externalUrl": null
   },
   {
@@ -1123,7 +1123,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/how-to-publish-your-guide-on-shift",
+    "oldUrl": "https://shift-archive.intuition.team/how-to-publish-your-guide-on-shift",
     "externalUrl": null
   },
   {
@@ -1150,7 +1150,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/design-team-managment/onboarding-for-agency-design-and-processes",
+    "oldUrl": "https://shift-archive.intuition.team/design-team-managment/onboarding-for-agency-design-and-processes",
     "externalUrl": null
   },
   {
@@ -1177,7 +1177,7 @@ export default [
     ],
     "isNew": true,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/typography",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/typography",
     "externalUrl": null
   },
   {
@@ -1200,7 +1200,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/fishing-spots-with-references",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/fishing-spots-with-references",
     "externalUrl": null
   },
   {
@@ -1225,7 +1225,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/assembling-a-master-layout",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/assembling-a-master-layout",
     "externalUrl": null
   },
   {
@@ -1250,7 +1250,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/layout-checklist",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/layout-checklist",
     "externalUrl": null
   },
   {
@@ -1275,7 +1275,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/looking-for-references",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/looking-for-references",
     "externalUrl": null
   },
   {
@@ -1300,7 +1300,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/composition-in-layout",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/composition-in-layout",
     "externalUrl": null
   },
   {
@@ -1323,7 +1323,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/dodo-combo-guide",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/dodo-combo-guide",
     "externalUrl": null
   },
   {
@@ -1350,7 +1350,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/what-to-consider-when-replicating-layouts",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/what-to-consider-when-replicating-layouts",
     "externalUrl": null
   },
   {
@@ -1375,7 +1375,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/product-proportions",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/product-proportions",
     "externalUrl": null
   },
   {
@@ -1400,7 +1400,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/basics-of-catalog-photo-shoot-algorithm-and-common-mistakes",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/basics-of-catalog-photo-shoot-algorithm-and-common-mistakes",
     "externalUrl": null
   },
   {
@@ -1425,7 +1425,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/preparing-pizza-for-a-catalog-shoot",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/preparing-pizza-for-a-catalog-shoot",
     "externalUrl": null
   },
   {
@@ -1452,7 +1452,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/shooting-a-pizza-for-a-catalog",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/shooting-a-pizza-for-a-catalog",
     "externalUrl": null
   },
   {
@@ -1477,7 +1477,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/how-to-make-a-brief-for-a-photo-shoot",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/how-to-make-a-brief-for-a-photo-shoot",
     "externalUrl": null
   },
   {
@@ -1505,7 +1505,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/what-to-look-out-for-during-the-shoot",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/what-to-look-out-for-during-the-shoot",
     "externalUrl": null
   },
   {
@@ -1536,7 +1536,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/retouching/retouching-pizza-for-catalogue",
+    "oldUrl": "https://shift-archive.intuition.team/retouching/retouching-pizza-for-catalogue",
     "externalUrl": null
   },
   {
@@ -1564,7 +1564,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/smm/how-to-engage-your-audience",
+    "oldUrl": "https://shift-archive.intuition.team/smm/how-to-engage-your-audience",
     "externalUrl": null
   },
   {
@@ -1590,7 +1590,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/smm/how-to-make-stories",
+    "oldUrl": "https://shift-archive.intuition.team/smm/how-to-make-stories",
     "externalUrl": null
   },
   {
@@ -1616,7 +1616,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/smm/how-to-create-highlights",
+    "oldUrl": "https://shift-archive.intuition.team/smm/how-to-create-highlights",
     "externalUrl": null
   },
   {
@@ -1642,7 +1642,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/smm/what-to-talk-about-before-opening-a-pizzeria",
+    "oldUrl": "https://shift-archive.intuition.team/smm/what-to-talk-about-before-opening-a-pizzeria",
     "externalUrl": null
   },
   {
@@ -1668,7 +1668,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/smm/writing-posts",
+    "oldUrl": "https://shift-archive.intuition.team/smm/writing-posts",
     "externalUrl": null
   },
   {
@@ -1694,7 +1694,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/photoshoot/making-dodo-style-photo-shoot",
+    "oldUrl": "https://shift-archive.intuition.team/photoshoot/making-dodo-style-photo-shoot",
     "externalUrl": null
   },
   {
@@ -1741,7 +1741,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/developing-package-design",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/developing-package-design",
     "externalUrl": null
   },
   {
@@ -1763,7 +1763,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/release-notes",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/release-notes",
     "externalUrl": null
   },
   {
@@ -1785,7 +1785,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/missions",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/missions",
     "externalUrl": null
   },
   {
@@ -1807,7 +1807,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/push-messages",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/push-messages",
     "externalUrl": null
   },
   {
@@ -1829,7 +1829,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/in-app-promotions",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/in-app-promotions",
     "externalUrl": null
   },
   {
@@ -1851,7 +1851,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/notifications",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/notifications",
     "externalUrl": null
   },
   {
@@ -1873,7 +1873,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/editorial-policy",
+    "oldUrl": "https://shift-archive.intuition.team/editorial-policy",
     "externalUrl": null
   },
   {
@@ -1895,7 +1895,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/tov-dodo-pizza",
+    "oldUrl": "https://shift-archive.intuition.team/tov-dodo-pizza",
     "externalUrl": null
   },
   {
@@ -1922,7 +1922,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/channels-and-media/radio-commercials",
+    "oldUrl": "https://shift-archive.intuition.team/channels-and-media/radio-commercials",
     "externalUrl": null
   },
   {
@@ -1945,7 +1945,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/kids-parties-visual-style",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/kids-parties-visual-style",
     "externalUrl": null
   },
   {
@@ -1968,7 +1968,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/neon",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/neon",
     "externalUrl": null
   },
   {
@@ -1991,7 +1991,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/paper-cup",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/paper-cup",
     "externalUrl": null
   },
   {
@@ -2018,7 +2018,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/designing-a-tv-menu-for-pizzerias",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/designing-a-tv-menu-for-pizzerias",
     "externalUrl": null
   },
   {
@@ -2041,7 +2041,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/global-pizza-box",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/global-pizza-box",
     "externalUrl": null
   },
   {
@@ -2064,7 +2064,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/global-kv-packs/pizzeria-interior-stickers-signs-and-boards",
+    "oldUrl": "https://shift-archive.intuition.team/global-kv-packs/pizzeria-interior-stickers-signs-and-boards",
     "externalUrl": null
   },
   {
@@ -2089,7 +2089,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/producing/video-brief",
+    "oldUrl": "https://shift-archive.intuition.team/producing/video-brief",
     "externalUrl": null
   },
   {
@@ -2114,7 +2114,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/producing/basic-video-filming-day",
+    "oldUrl": "https://shift-archive.intuition.team/producing/basic-video-filming-day",
     "externalUrl": null
   },
   {
@@ -2142,7 +2142,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/producing/basic-video-postproduction",
+    "oldUrl": "https://shift-archive.intuition.team/producing/basic-video-postproduction",
     "externalUrl": null
   },
   {
@@ -2167,7 +2167,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/producing/introduction-to-video-process",
+    "oldUrl": "https://shift-archive.intuition.team/producing/introduction-to-video-process",
     "externalUrl": null
   },
   {
@@ -2192,7 +2192,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/producing/basic-video-preproduction",
+    "oldUrl": "https://shift-archive.intuition.team/producing/basic-video-preproduction",
     "externalUrl": null
   },
   {
@@ -2215,7 +2215,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/motion-design/making-animation",
+    "oldUrl": "https://shift-archive.intuition.team/motion-design/making-animation",
     "externalUrl": null
   },
   {
@@ -2240,7 +2240,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/work-with-files/how-to-name-files",
+    "oldUrl": "https://shift-archive.intuition.team/work-with-files/how-to-name-files",
     "externalUrl": null
   },
   {
@@ -2265,7 +2265,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/show-the-product-on-digital-layouts",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/show-the-product-on-digital-layouts",
     "externalUrl": null
   },
   {
@@ -2290,7 +2290,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/show-people-and-context",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/show-people-and-context",
     "externalUrl": null
   },
   {
@@ -2318,7 +2318,7 @@ export default [
     ],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/graphic-design/marketing-mechanics-in-promotional-layouts",
+    "oldUrl": "https://shift-archive.intuition.team/graphic-design/marketing-mechanics-in-promotional-layouts",
     "externalUrl": null
   },
   {
@@ -2342,7 +2342,7 @@ export default [
     "collections": [],
     "isNew": false,
     "status": "stub",
-    "oldUrl": "https://shift.dodobrands.io/creative-techniques/introduction-to-creative-techniques",
+    "oldUrl": "https://shift-archive.intuition.team/creative-techniques/introduction-to-creative-techniques",
     "externalUrl": null
   }
 ];

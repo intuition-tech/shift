@@ -15,6 +15,12 @@ export default {
     permalink(data) {
       const stem = data.page.filePathStem; // "/index", "/sms"
       const prefix = data.lang === "en" ? "/en" : "";
+      // Одиночные файлы вне двуязычной схемы: 404.html отдаёт nginx на любой
+      // язык (текст переключается скриптом по пути), sitemap.xml один на сайт.
+      // У них во фронтматтере locales: [ru] — один проход (permalink: false
+      // для en-прохода гасил бы оба файла: у страниц пагинации общий флаг записи)
+      if (stem === "/404") return "/404.html";
+      if (stem === "/sitemap") return "/sitemap.xml";
       return stem === "/index"
         ? `${prefix}/index.html`
         : `${prefix}${stem}/index.html`;
@@ -22,6 +28,7 @@ export default {
     // Канонический URL страницы
     canonical(data) {
       const stem = data.page.filePathStem;
+      if (stem === "/404" || stem === "/sitemap") return null; // служебные, без canonical/hreflang
       const path = stem === "/index" ? "/" : `${stem}/`;
       return data.lang === "en" ? `/en${path === "/" ? "/" : path}` : path;
     },

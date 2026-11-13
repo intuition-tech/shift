@@ -1,0 +1,43 @@
+---
+title: Страница не найдена — Shift
+titleEn: Page not found — Shift
+override:locales: [ru]
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{#- Отдаётся nginx на любой несуществующий путь (error_page 404), поэтому
+    собирается один файл на оба языка: оба текста в разметке, под /en/ скрипт
+    показывает английский. Старые адреса, не попавшие в карту редиректов,
+    ведут в архив старого сайта по тому же пути -#}
+<div class="ids__space XL"></div>
+<article class="ids__wrapper publication not-found">
+  <div class="not-found__ru">
+    <h1>Нет такой страницы</h1>
+    <p class="lead">Возможно, она переехала или называлась иначе.</p>
+    <p>Старые адреса живут в архиве прежнего сайта: <a class="not-found__archive" href="https://shift-archive.intuition.team/">shift-archive.intuition.team</a>.</p>
+    <p>Или начните с <a href="/publications/">списка всех публикаций</a>.</p>
+  </div>
+  <div class="not-found__en" hidden>
+    <h1>Page not found</h1>
+    <p class="lead">It may have moved or been renamed.</p>
+    <p>Old addresses live in the archive of the previous site: <a class="not-found__archive" href="https://shift-archive.intuition.team/">shift-archive.intuition.team</a>.</p>
+    <p>Or start from <a href="/en/publications/">the list of all publications</a>.</p>
+  </div>
+  <div class="ids__space L"></div>
+</article>
+<script>
+  (function () {
+    var path = location.pathname;
+    var en = /^\/en(\/|$)/.test(path);
+    if (en) {
+      document.documentElement.lang = "en";
+      document.querySelector(".not-found__ru").hidden = true;
+      document.querySelector(".not-found__en").hidden = false;
+    }
+    // Тот же путь в архиве: старый сайт тоже держал английский под /en
+    document.querySelectorAll(".not-found__archive").forEach(function (a) {
+      a.href = "https://shift-archive.intuition.team" + path + location.search;
+      a.textContent = "shift-archive.intuition.team" + path;
+    });
+  })();
+</script>
