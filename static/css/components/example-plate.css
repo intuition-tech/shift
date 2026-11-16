@@ -5,7 +5,7 @@
      <div class="ids__sequence L gap-S">…</div>
    </div>
 
-   .wide — один пример по центру, около трети ширины (прямой эфир). */
+   .wide — один пример в левой трети, как первая колонка из трёх (прямой эфир). */
 
 .ids .ids__example-plate {
   background-color: var(--ids__surface);
@@ -22,7 +22,7 @@
   }
 
   &.wide .ids__media-group {
-    align-items: center;
+    align-items: flex-start;
 
     & figure {
       width: calc(100% / 3);

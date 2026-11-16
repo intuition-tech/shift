@@ -14,7 +14,7 @@ function readSources() {
   if (sourcesCache) return sourcesCache;
   const list = [];
   for (const file of fs.readdirSync(PAGES_DIR)) {
-    if (!file.endsWith(".html") || file === "design-system.html") continue;
+    if (!file.endsWith(".html") || file === "design-system.html" || file === "visual-style-shift.html") continue;
     const slug = file.replace(/\.html$/, "");
     const text = fs.readFileSync(path.join(PAGES_DIR, file), "utf8");
     const pub = publications.find((p) => p.slug === slug);
@@ -104,7 +104,7 @@ export default function (conf) {
   conf.addFilter("sitemapPages", (pages) =>
     pages.filter((item) => {
       const stem = item.data.page.filePathStem;
-      if (stem === "/404" || stem === "/sitemap" || stem === "/design-system") return false;
+      if (stem === "/404" || stem === "/sitemap" || stem === "/design-system" || stem === "/visual-style-shift") return false;
       const pub = publications.find((p) => p.slug === item.data.page.fileSlug);
       return !(pub && pub.status === "hidden");
     })

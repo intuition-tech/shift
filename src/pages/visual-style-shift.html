@@ -1,0 +1,554 @@
+---
+title: Визуальный стиль шифта — Shift
+titleEn: Shift visual style — Shift
+description: Правила вёрстки Shift и живые образцы компонентов. Структура как у IDS.
+tags: ''
+searchIndex: false
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>{% if lang == 'ru' %}Визуальный стиль шифта{% else %}Shift visual style{% endif %}</h1>
+  <p class="ids__description">Страница одновременно инструкция и образец. Разделы идут в том же порядке, что на странице IDS. Чего в Шифте нет — прочерк. Что есть сверх IDS — свой раздел ниже.</p>
+
+  <ids-nav-item id="setup" label="Настройка">
+    <h2 class="h3">Настройка</h2>
+    <p>Базовые параметры задаются в <code>static/css/settings.css</code>. Цвет — в <code>tokens/palette.css</code>, <code>tokens/colors.css</code> и <code>tokens/shift.css</code>.</p>
+
+    <h3>Шрифт</h3>
+    <p>Основной шрифт — Pragmatica, вариативный. Им набран текст страницы. Описание под заголовком публикации — Elma Trio Slanted, токен <code>--shift__description-font</code>. Elma Trio Bold Italic подключён в том же файле.</p>
+    <p>Насыщенность основного текста — 500, заголовков — 570–650. Число в <code>font-weight</code> должно попадать в диапазон подключённого файла, иначе браузер дорисовывает жирность обводкой.</p>
+
+    <h3>Плотность</h3>
+    <p><code>--ids__density</code> сейчас <code>1.3</code>. От неё считаются интерлиньяж, поля абзацев и высота спейсеров. Сначала подбирается плотность, потом отдельные отступы.</p>
+
+    <h3>Адаптивность</h3>
+    <p>Два режима: уже 768 px — мобильный, шире — десктоп. Кегль корня считается от ширины окна.</p>
+    <ul>
+      <li>Мобильный: от 17 px на 320 px до 26 px на 768 px.</li>
+      <li>Десктоп: от 13 px на 768 px до 23 px на 1500 px. Дальше кегль не растёт.</li>
+    </ul>
+    <p>Поля, отступы и размеры компонентов — в <code>em</code> и <code>rem</code>, поэтому они едут вместе с кеглем. Толщина обводки остаётся в своих токенах.</p>
+
+    <h3>Цвет</h3>
+    <p>Два слоя. Палитра — сырые значения, в вёрстке напрямую не используются. Семантические цвета ссылаются на палитру: <code>--ids__text</code>, <code>--ids__link</code>, <code>--ids__hover</code>, <code>--ids__surface</code>, <code>--ids__background</code>. Токены Шифта — <code>--shift__brand</code>, фон врезки, тень, цвет переписки. Тёмная тема — <code>html.dark</code>, включается у публикации фронтматтером <code>theme: dark</code>. Переключателя для читателя нет.</p>
+    <p class="subdued">Базовая палитра</p>
+    <div data-tokens-prefix="color" data-tokens-exclude="color-orange-4,color-yellow-4,color-pink,color-teal,color-brown" data-tokens-render="swatch"></div>
+    <div class="ids__space S"></div>
+    <div data-tokens-prefix="color" data-tokens-exclude="color-navy,color-gray,color-white,color-blue,color-orange-5,color-yellow-3" data-tokens-render="swatch"></div>
+    <div class="ids__space M"></div>
+    <p class="subdued">Семантическая</p>
+    <div data-tokens-prefix="" data-tokens-exclude="color-,spacer-,gap-,radius,border-width-,duration-,easing-,density,border" data-tokens-render="swatch"></div>
+    <div class="ids__space S"></div>
+    <div data-tokens-namespace="--shift__" data-tokens-prefix="" data-tokens-exclude="description-font,illustration" data-tokens-render="swatch"></div>
+
+    <h4>Зачем так</h4>
+    <p>Полупрозрачность не хранится отдельной переменной. Она считается на месте: <code>color-mix(in srgb, var(--ids__text) 50%, transparent)</code>. Тёмная тема меняет семантический цвет, и смесь меняется вместе с ним.</p>
+  </ids-nav-item>
+
+  <div class="ids__space M"></div>
+  <ids-nav-item id="frame" label="Каркас">
+    <h2 class="h3">Каркас страницы</h2>
+    <p>Страница собрана из этажей на всю доступную ширину. Внутри этажа может быть сетка. Этажи не зависят друг от друга.</p>
+
+    <h3>Обёртки</h3>
+    <p><code>.ids__wrapper</code> — колонка текста, доля <code>--ids__column</code> (0.63). На мобильном — на всю ширину с полем 0.8em. Публикации живут в <code>.ids__wrapper.publication</code>: слева остаётся место под оглавление.</p>
+    <ul>
+      <li><code>.ids__wrapper.M</code> — 82%. Промоблоки главной.</li>
+      <li><code>.ids__wrapper.L</code> — 85%.</li>
+      <li><code>.ids__wrapper.XL</code> — на всю ширину с небольшим полем. Подвал.</li>
+      <li><code>.ids__wrapper.XXL</code> — на всю ширину без полей, в том числе на мобильном.</li>
+    </ul>
+    <p><code>.ids__text-width</code> внутри обёртки сужает текст до 85% на десктопе и оставляет справа поле. На мобильном — снова полная ширина.</p>
+
+    <h3>Система вертикальных отступов</h3>
+    <p>У большинства элементов задано нижнее поле, чтобы их можно было ставить потоком. Заметный воздух — спейсер <code>.ids__space</code>.</p>
+    <div data-tokens-prefix="spacer" data-tokens-render="space"></div>
+    <ul>
+      <li><code>S</code> — <code>--ids__spacer-s</code>, плотность × 0.7rem.</li>
+      <li><code>M</code> — плотность × 1.4rem.</li>
+      <li><code>L</code> — плотность × 2.4rem.</li>
+      <li><code>XL</code> — плотность × 4rem.</li>
+    </ul>
+    <p>Спейсер S прямо перед <code>h2</code>, <code>h3</code> или <code>ids-nav-item</code> схлопывается в ноль: у заголовка своё верхнее поле, и оно больше нижнего. M, L и XL не схлопываются.</p>
+    <p>Вокруг иллюстраций спейсерами воздух не добивают. Сверху у картинки <code>--shift__illustration-gap</code> (1.5em). Снизу зазор зависит от того, что идёт следом:</p>
+    <ul>
+      <li>картинка, сетка, слайд, видео, схема или таблица, а потом абзац, список или врезка — спейс S. Это нижнее поле самого блока. Отдельный спейсер S следом не ставится: он обнулит поле и даст ту же высоту.</li>
+      <li>палитра перед абзацем — два поля: нижнее поле палитры и явный спейсер S, они складываются. Перед заголовком спейсер S схлопывается, остаётся одно поле;</li>
+      <li>серая плашка с примерами — один спейс S всегда, в том числе перед заголовком;</li>
+      <li>визуал, а потом новый раздел <code>h2</code> — спейс M;</li>
+      <li>визуал, а потом <code>h3</code> или <code>h4</code> — <code>--shift__illustration-heading-gap</code> (2.5em);</li>
+      <li>картинка сразу за картинкой той же группы — короткий зазор, плотность × 1em / 3.</li>
+    </ul>
+
+    <h3>Гэпы, радиусы, границы, анимация</h3>
+    <p class="subdued">Гэпы</p>
+    <div data-tokens-prefix="gap" data-tokens-render="gap"></div>
+    <div class="ids__space M"></div>
+    <p class="subdued">Радиусы</p>
+    <div data-tokens-prefix="radius" data-tokens-render="radius"></div>
+    <div class="guide-tokens__rows">
+      <div class="guide-tokens__row">
+        <span class="guide-tokens__row-label"><code>.ids__rounded</code></span>
+        <div class="guide-tokens__sample">
+          <div class="guide-rounded-samples">
+            <div class="ids__rounded" style="--ids__radius: 0.75em"><span>0.75em</span></div>
+            <div class="ids__rounded" style="--ids__radius: 1.5em"><span>1.5em</span></div>
+            <div class="ids__rounded" style="--ids__radius: 3em"><span>3em</span></div>
+          </div>
+        </div>
+        <span class="guide-tokens__row-value">--ids__radius<br />corner-shape: squircle</span>
+      </div>
+    </div>
+    <p>Скругление суперэллипсом. Радиус задаётся <code>--ids__radius</code> глобально или на элементе. В Хроме работает <code>corner-shape: squircle</code>, в остальных браузерах — своя реализация для заливок, не для обводок.</p>
+    <div class="ids__space M"></div>
+    <p class="subdued">Границы</p>
+    <div data-tokens-prefix="border-width" data-tokens-render="border-width"></div>
+    <div class="ids__space M"></div>
+    <p class="subdued">Анимация</p>
+    <div data-tokens-prefix="duration" data-tokens-render="motion"></div>
+    <div class="ids__space S"></div>
+    <div data-tokens-prefix="easing" data-tokens-render="motion"></div>
+  </ids-nav-item>
+
+  <div class="ids__space M"></div>
+  <ids-nav-item id="tags" label="Теги">
+    <h2 class="h3">Стилизация тегов</h2>
+    <p>Теги стилизуются только внутри <code>.ids</code>. На Шифте этот класс висит на <code>body</code>. В публикации три уровня: <code>h1</code> — название, <code>h2</code> — раздел в оглавлении, <code>h3</code> — подраздел. Глубже в гайдах не используется.</p>
+
+    <h3><code>h1</code></h3>
+    <h1>Порядок в проектах</h1>
+    <p>3.23em / 650. На мобильном 2.25em.</p>
+    <p><code>h1.S</code> — 2.4em / 650.</p>
+    <h1 class="S">Главный заголовок, уменьшенный</h1>
+    <p><code>h1.XS</code> — 1.5em / 600.</p>
+    <h1 class="XS">Главный заголовок, уменьшенный ещё сильнее</h1>
+
+    <h3><code>h2</code></h3>
+    <h2>Принципы сторителлинга</h2>
+    <p>2.5em / 570. На мобильном 1.8em.</p>
+    <p><code>h2.XS</code> — 1.5em / 600.</p>
+    <h2 class="XS">Заголовок второго уровня, уменьшенный</h2>
+    <p><code>h2.h3</code> — раздел, который попадает в оглавление, но размером как <code>h3</code>: 1.4em / 570. Так набраны заголовки разделов этой страницы.</p>
+    <p><code>h2.special</code> — серый капс, 0.85em.</p>
+    <h2 class="special">Рынок</h2>
+
+    <h3><code>h3</code></h3>
+    <h3>Классический логотип</h3>
+    <p>1.4em / 570. На мобильном 1.5em.</p>
+
+    <h3><code>h4</code></h3>
+    <h4>Не берем фотографии с фотостоков, если:</h4>
+    <p>1.01em / 600.</p>
+
+    <h3><code>h5</code></h3>
+    <h5>Заголовок пятого уровня</h5>
+    <p>1em, вес как у остальных заголовков. В публикациях не используется.</p>
+
+    <h3><code>h6</code></h3>
+    <h6>Заголовок шестого уровня</h6>
+    <p>0.8em, капс. В публикациях не используется.</p>
+
+    <h3><code>hgroup</code></h3>
+    <p>—</p>
+
+    <h3><code>p.loud</code></h3>
+    <p class="loud">Дизайнеру стоит быть самостоятельным, разносторонним, мультидисциплинарным и сложным.</p>
+    <p>2em / 1.2.</p>
+
+    <h3><code>p.huge</code></h3>
+    <p class="huge">Я передумал.</p>
+    <p>6em. На узком экране 3.2em, ещё уже — 2.8em.</p>
+
+    <h3><code>mark</code> и <code>code</code></h3>
+    <p>Используются, чтобы <mark>выделить важную мысль</mark> или кусок <code>фрагмента кода</code>.</p>
+
+    <h3>Иллюстрация</h3>
+    <p><code>figure</code> и <code>figcaption</code>. Подпись — 0.7em, цвет <code>--ids__caption</code>.</p>
+    <figure>
+      <img src="/images/order-in-projects/2.webp" alt="" />
+      <figcaption>Примеры названий слоёв</figcaption>
+    </figure>
+    <p>Ширина медиа — ряд XXS…XL, не произвольное число. <code>figure.ids__media</code> с модификаторами <code>.XXS .XS .S .M .L</code> и <code>.shadow</code>.</p>
+    <figure class="ids__media S shadow">
+      <img src="/images/how-to-unlock-a-disabled-Instagram-account/6.webp" alt="" />
+    </figure>
+    <p><code>.ids__media-group</code> — несколько кадров одной группой, размеры <code>.S .M .L .XL</code>, модификаторы <code>.shadow</code> и <code>.border</code>. <code>figure.border.labeled</code> с <code>data-label</code> — рамка и серая полоса с названием.</p>
+    <div class="ids__media-group M shadow">
+      <figure>
+        <img src="/images/order-in-projects/2.webp" alt="" />
+      </figure>
+      <figure>
+        <img src="/images/order-in-projects/3.webp" alt="" />
+        <figcaption>Примеры названий слоёв</figcaption>
+      </figure>
+    </div>
+    <figure class="border labeled" data-label="get-color.ru">
+      <img src="/images/hero-promo-block/16.webp" alt="" />
+    </figure>
+
+    <h3>Список</h3>
+    <ul>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Process,</li>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Edit,</li>
+      <li>RU — Pepperoni — Cashier Display — 720 × 1080 px — Publish.</li>
+    </ul>
+    <ol>
+      <li>Скачайте шаблон и удалите папки с носителями, которые не используются в вашем проекте.</li>
+      <li>В папку [Master Layout] положите мастер-макет и используйте его при тиражировании.</li>
+    </ol>
+
+    <h3>Ссылка</h3>
+    <p>Обычная ссылка подчёркнута и красится в <code>--ids__hover</code> по наведению. <a href="/order-in-projects/">Шаблон папки проекта</a>.</p>
+    <p><code>a.ids__promo-link</code> — заметная ссылка на файл. Стоит в своём абзаце.</p>
+    <p><a class="ids__promo-link" href="/order-in-projects/">Смотреть файл</a></p>
+
+    <h3>Дополнительный текст</h3>
+    <blockquote>
+      <p>Иногда смотришь на свой дизайн и думаешь: всё честно придумано, а результат не штырит. Выпускай этот, начинай следующий.</p>
+    </blockquote>
+    <p><code>blockquote</code> — 1.4em, слева поле. Врезка с серой подложкой — компонент <code>aside</code>, он в разделе компонентов Шифта.</p>
+
+    <h3>Сетка</h3>
+    <p><code>.ids__sequence</code> — ряд через flex. Ячейка — <code>.ids__sequence-item</code>. В ячейку кладётся свой контейнер, саму ячейку не красят.</p>
+    <p>Крупность: без модификатора — 4 колонки, <code>.L</code> — 3, <code>.XL</code> — 2, <code>.S</code> — 6. На мобильном колонок меньше. Зазор: <code>.gap-S</code>, <code>.gap-M</code>, <code>.gap-L</code>.</p>
+    <div class="ids__sequence XL gap-M">
+      <div class="ids__sequence-item"><figure><img src="/images/adding-reflexes-to-layouts/7.webp" alt="" /></figure></div>
+      <div class="ids__sequence-item"><figure><img src="/images/adding-reflexes-to-layouts/8.webp" alt="" /></figure></div>
+    </div>
+    <figure class="ids__media-caption">
+      <figcaption>На первом примере стакан не вписывается в цветной фон. На втором — учли все цвета, добавили рефлексы и дымок</figcaption>
+    </figure>
+    <p><code>.labels</code> — первый абзац ячейки становится меткой-капсом: первая оранжевая, остальные серые. <code>.labels.yes-green</code> — «Нет / Да»: первая серая, вторая зелёная. <code>.tight</code> сжимает отступ только до следующего ряда. <code>.no-wrap</code> не даёт колонкам перенестись на мобильном.</p>
+    <div class="ids__sequence XL gap-M labels yes-green">
+      <div class="ids__sequence-item">
+        <p>Нет</p>
+        <figure class="ids__media shadow">
+          <img src="/images/how-to-prepare-an-image-for-the-catalog/no-new.webp" alt="" />
+          <figcaption>Слишком большая банка пепси</figcaption>
+        </figure>
+      </div>
+      <div class="ids__sequence-item">
+        <p>Да</p>
+        <figure class="ids__media shadow">
+          <img src="/images/how-to-prepare-an-image-for-the-catalog/yes-new.webp" alt="" />
+          <figcaption>Все продукты реалистичных размеров</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h3>Таблица</h3>
+    <p><code>table</code> внутри <code>.ids__table-wrapper</code>. Шапка липнет к верху окна. <code>.rules</code> — «правило / Нет / Да», ширина первой колонки в <code>--first-column</code>. <code>.logos</code> — логотипы в шапке одной высоты.</p>
+    <div class="ids__table-wrapper rules" style="--first-column: 50%">
+      <table>
+        <thead>
+          <tr><th></th><th>Нет</th><th>Да</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Валюты пишем знаком, а не символом.</td><td>200 рублей</td><td>200 ₽</td></tr>
+          <tr><td>Сантиметры отбиваем пробелами.</td><td>25см</td><td>25 см</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Текст Шифта сверх набора IDS</h3>
+    <p><code>p.ids__description</code> — лид под названием, шрифт Elma.</p>
+    <p class="ids__description">Ссылка на шаблон папки проекта и инструкция, как им пользоваться.</p>
+    <p><code>p.lead</code> — 1.5em, слева поле.</p>
+    <p class="lead">Размещайте в скоростных зонах только самую необходимую и простую информацию.</p>
+    <p><code>p.ids__statement</code> — тезис, 3em, цвет бренда.</p>
+    <p class="ids__statement">Нет «лучшего» продукта, если он доступен по цене и удовлетворяет не только одного человека, но и его друзей и семью.</p>
+    <p><code>.ids__highlight</code> — подложка цветом из <code>--color</code>.</p>
+    <p>Так «один, друзья, семья» превращается в «<span class="ids__highlight" style="--color: rgb(255, 198, 0)">для тебя</span>, <span class="ids__highlight" style="--color: rgb(186, 209, 73)">для друзей</span>, <span class="ids__highlight" style="--color: rgb(255, 105, 0)">для семьи</span>».</p>
+    <p><code>p.ids__icon-line</code> — иконка 1.4em и заголовок в одну строку. Следующий абзац сдвигается под текст.</p>
+    <p class="ids__icon-line"><img src="/images/dubai-dodo-pizza-mena-2025/icons/simple.svg" alt="" /><strong>Простота</strong></p>
+    <p>Понятно, коротко, легко воспринимать. Без сложных слов.</p>
+    <p><code>.ids__billet.under</code> — мелкая бирка капсом.</p>
+    <div class="ids__billet under">Функция</div>
+    <p><code>.ids__format-head</code> — подзаголовок формата и частота в одной строке. Заголовок мельче <code>h2.h3</code>.</p>
+    <div class="ids__format-head">
+      <h3>Reels</h3>
+      <p><code>3 per week, 15 per month</code></p>
+    </div>
+    <p><code>p.subdued</code> — приглушённый текст, непрозрачность 0.55. Им набраны подписи к образцам на этой странице.</p>
+  </ids-nav-item>
+
+  <div class="ids__space M"></div>
+  <ids-nav-item id="components" label="Компоненты">
+    <h2 class="h3">Компоненты</h2>
+    <p>Ниже — компоненты из набора IDS. Образец — живой фрагмент публикации Шифта.</p>
+
+    <h3><code>.ids__sleepy</code></h3>
+    <p>—</p>
+    <p>Файл <code>static/js/sleepy.js</code> лежит в репозитории и не подключён к страницам. Живого образца нет.</p>
+
+    <h3><code>ids-footnote</code></h3>
+    <p>Сноска: ссылка <code>ids-footnote-link</code> и текст <code>ids-footnote</code>. Номер ставится сам, по порядку в разметке. На десктопе открывается рядом со ссылкой, на мобильном — снизу. Закрывается кликом мимо и клавишей Escape.</p>
+    <p>Хорошая сноска не прерывает <ids-footnote-link></ids-footnote-link> чтение, а дополняет его.</p>
+    <ids-footnote><p>Сноска — место для термина, источника или отступления, которому не место в основном тексте.</p></ids-footnote>
+
+    <h3><code>ids-navbar</code></h3>
+    <p>Оглавление собирается из <code>ids-nav-item</code> с атрибутами <code>id</code> и <code>label</code>. Образец — слева на этой странице. На мобильном оно скрыто. Черта у текущего пункта едет по скроллу.</p>
+
+    <h3><code>ids-gallery</code></h3>
+    <p>Превью в <code>src</code>, полный кадр в <code>href</code>. Если размеры полного кадра другие, их пишут в <code>data-pswp-width</code> и <code>data-pswp-height</code>. Подпись из <code>figcaption</code> видна и в сетке, и в окне.</p>
+    <ids-gallery>
+      <figure><a href="https://res.cloudinary.com/intuition-design-bureau/image/upload/v1718958067/meme-park-reports/s1/dgmp-slide_vtzagq.png" data-pswp-width="3000" data-pswp-height="1686" target="_blank"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/dgmp-slide_vtzagq.png" alt="" /></a></figure>
+      <figure><a href="https://res.cloudinary.com/intuition-design-bureau/image/upload/v1718644587/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.43_gi6l5j.png" data-pswp-width="2880" data-pswp-height="1800" target="_blank"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/s01-screenshots/1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2024-06-17_%D0%B2_19.07.43_gi6l5j.png" alt="" /></a></figure>
+    </ids-gallery>
+
+    <h3><code>.ids__inline-gallery</code></h3>
+    <p>—</p>
+
+    <h3><code>.ids__rounded</code></h3>
+    <p>Образец трёх радиусов — в разделе «Каркас», рядом с токеном радиуса. Класс стоит на переключателе языка и на промо-плашках главной.</p>
+
+    <h3><code>ids-gen-cover</code></h3>
+    <p>—</p>
+  </ids-nav-item>
+
+  <div class="ids__space M"></div>
+  <ids-nav-item id="shift" label="Компоненты Шифта">
+    <h2 class="h3">Компоненты Шифта</h2>
+    <p>Этого в наборе IDS нет. Образцы взяты из гайдов.</p>
+
+    <h3><code>aside</code></h3>
+    <aside>
+      <p>Фотографии из папки проекта дизайнеры используют для разных задач. Поэтому мы всегда копируем общий файл — и работаем с копией отдельно.</p>
+    </aside>
+
+    <h3><code>.ids__with-note</code></h3>
+    <div class="ids__with-note">
+      <p>Название — это уникальное, осмысленное и запоминающееся слово или словосочетание, которое закреплено за продуктом.</p>
+      <div class="ids__note">
+        <p><a href="https://www.buildin.ai/0137f5df-0544-4058-89d7-e5920e464abd#85aee688-4aa7-4bb3-909f-44c2cc0859b1" target="_blank">Словарь названий из меню</a></p>
+      </div>
+    </div>
+
+    <h3><code>.ids__color-palette</code></h3>
+    <p>Живой фрагмент из «Визуального стиля Додо Пиццы». <code>.big</code> и <code>.wide</code> собирают палитру в три колонки. Перед абзацем после палитры — два поля.</p>
+    <div class="ids__color-palette">
+      <div class="ids__color-plate big">
+        <div class="ids__color-sample" style="--color: rgb(255, 78, 0)">
+          <div class="ids__color-sample-text">
+            <p><strong>Жгучий оранжевый</strong></p>
+            <p>Это цвет Додо Пиццы. Наша визуальная коммуникация стремится быть максимально оранжевой.</p>
+            <button class="ids__copy" data-copy="255, 78, 0">RGB 255, 78, 0</button>
+            <button class="ids__copy" data-copy="0, 75, 100, 0">CMYK 0, 75, 100, 0</button>
+            <button class="ids__copy" data-copy="#ff4e00">HEX #ff4e00</button>
+            <button class="ids__copy" data-copy="1505">PANTONE 1505</button>
+            <span class="ids__copy-hint">Copy colour</span>
+            <span class="ids__copy-done">Colour copied</span>
+          </div>
+        </div>
+      </div>
+      <div class="ids__color-plate wide">
+        <div class="ids__color-sample light" style="--color: rgb(251, 243, 230)">
+          <div class="ids__color-sample-text">
+            <p><strong>Лайтовый бежевый</strong></p>
+            <p>Теплый фоновый цвет. Используем там, где нужен уютный и нейтральный фон.</p>
+            <button class="ids__copy" data-copy="251, 243, 230">RGB 251, 243, 230</button>
+            <button class="ids__copy" data-copy="#FBF3E6">HEX #FBF3E6</button>
+            <span class="ids__copy-hint">Copy colour</span>
+            <span class="ids__copy-done">Colour copied</span>
+          </div>
+        </div>
+      </div>
+      <div class="ids__color-plate wide">
+        <div class="ids__color-sample" style="--color: rgb(0, 0, 0)">
+          <div class="ids__color-sample-text">
+            <p><strong>Черный</strong></p>
+            <p>Базовый цвет. Набираем им текст, используем в навигации.</p>
+            <button class="ids__copy" data-copy="0, 0, 0">RGB 0, 0, 0</button>
+            <button class="ids__copy" data-copy="0, 0, 0, 100">CMYK 0, 0, 0, 100</button>
+            <button class="ids__copy" data-copy="#000000">HEX #000000</button>
+            <button class="ids__copy" data-copy="Black">PANTONE Black</button>
+            <span class="ids__copy-hint">Copy colour</span>
+            <span class="ids__copy-done">Colour copied</span>
+          </div>
+        </div>
+      </div>
+      <div class="ids__color-plate wide">
+        <div class="ids__color-sample light" style="--color: rgb(242, 242, 246)">
+          <div class="ids__color-sample-text">
+            <p><strong>Туманный белый</strong></p>
+            <p>Цвет нейтрального фона и пониженного контраста.</p>
+            <button class="ids__copy" data-copy="242, 242, 246">RGB 242, 242, 246</button>
+            <button class="ids__copy" data-copy="#F2F2F6">HEX #F2F2F6</button>
+            <span class="ids__copy-hint">Copy colour</span>
+            <span class="ids__copy-done">Colour copied</span>
+          </div>
+        </div>
+      </div>
+      <div class="ids__color-plate wide">
+        <div class="ids__color-sample light" style="--color: rgb(255, 255, 255)">
+          <div class="ids__color-sample-text">
+            <p><strong>Белый-белый</strong></p>
+            <p>Главный белый для текста на оранжевом и темных фонах.</p>
+            <button class="ids__copy" data-copy="255, 255, 255">RGB 255, 255, 255</button>
+            <button class="ids__copy" data-copy="#FFFFFF">HEX #FFFFFF</button>
+            <span class="ids__copy-hint">Copy colour</span>
+            <span class="ids__copy-done">Colour copied</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ids__space S"></div>
+    <p>А еще мы добавили несколько дополнительных цветов, чтобы разнообразить визуальную коммуникацию.</p>
+    <h3><code>.ids__no-yes</code></h3>
+    <p>Пара «нет / да» со стрелками. Модификаторы <code>.right</code>, <code>.wide</code>, <code>.full</code>, <code>.center</code>. Между двумя блоками в строке нет пробела: его съедает комментарий.</p>
+    <div class="ids__no-yes">
+      <div class="ids__no-yes--wrap">
+        <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-L" style="--top: 6.8em">НЕТ</div>
+        <img class="ids__no-yes--img" src="/images/sms/14.webp" alt="" />
+      </div>
+    </div><!--
+    --><div class="ids__no-yes right">
+      <div class="ids__no-yes--wrap">
+        <div class="ids__no-yes--arrow ids__no-yes--arrow---curve-R" style="--top: 2.8em">ДА</div>
+        <img class="ids__no-yes--img" src="/images/sms/13.webp" alt="" />
+      </div>
+    </div>
+
+    <h3><code>.ids__video</code></h3>
+    <p>Ролик 16:9. <code>.vertical</code> — вертикальный.</p>
+    <div class="ids__video">
+      <iframe src="https://www.youtube.com/embed/lgG-pGej_Fk" title="Видео" allowfullscreen></iframe>
+    </div>
+
+    <h3><code>.ids__compare</code></h3>
+    <p>Две картинки друг на друге. Пока центр блока ниже середины окна, видна вторая. Выше середины остаётся первая. Клик переворачивает текущее состояние.</p>
+    <div class="ids__compare" style="--ratio: 1920 / 1235">
+      <img src="/images/slow-and-fast-zones-qsr/2.3-o-on.webp" alt="" /><img src="/images/slow-and-fast-zones-qsr/2.2-o-off.webp" alt="" />
+    </div>
+
+    <h3><code>.ids__slide</code></h3>
+    <p>Картинка и текст рядом. <code>.flip</code> меняет их местами. <code>.ids__slide-pair</code> — две картинки в ряд. <code>.ids__slide-image.border</code> — кейлайн на белом кадре. Углы прямые.</p>
+    <div class="ids__slide flip">
+      <div class="ids__slide-image"><img src="/images/dubai-dodo-pizza-mena-2025/2/image_1.webp" alt="" /></div>
+      <div class="ids__slide-text">
+        <ol>
+          <li>Додо пицца растет в регионе.</li>
+          <li>Мультикультурный и конкурентный рынок.</li>
+          <li>Нужен простой и понятный бренд месседж.</li>
+        </ol>
+      </div>
+    </div>
+    <figure>
+      <div class="ids__slide-pair">
+        <div class="ids__slide-image"><img src="/images/dodo-pizza-dubai-brandbook/49.webp" alt="" /></div>
+        <div class="ids__slide-image border"><img src="/images/dodo-pizza-dubai-brandbook/50.webp" alt="" /></div>
+      </div>
+    </figure>
+
+    <h3><code>.ids__example-plate</code></h3>
+    <p>Серая подложка под ряд примеров. <code>.wide</code> — один кадр в левой трети, как первая колонка из трёх. После плашки всегда один спейс S.</p>
+    <div class="ids__example-plate">
+      <div class="ids__sequence L gap-S">
+        <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/post-400-aed.jpg" alt="" /></figure></div>
+        <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/buy-large-get-small-free.jpg" alt="" /></figure></div>
+        <div class="ids__sequence-item"><figure><img src="/images/social-media-guidelines/for-friends-meal.jpg" alt="" /></figure></div>
+      </div>
+    </div>
+
+    <h3><code>.ids__chat</code></h3>
+    <p>Экран переписки. Без модификатора — пропорция 9:16. <code>.open</code> — длинный тред, высота по содержимому.</p>
+    <div class="ids__sequence L gap-S">
+      <div class="ids__sequence-item">
+        <div class="ids__chat">
+          <p class="ids__chat-time">2:09 PM</p>
+          <p class="ids__chat-bubble in">Hi, do you have location near Mirdif please</p>
+          <p class="ids__chat-bubble out">Hello! The nearest one is our Al Warqa branch</p>
+          <p class="ids__chat-bar">Message...</p>
+        </div>
+      </div>
+      <div class="ids__sequence-item">
+        <div class="ids__chat open">
+          <div class="ids__chat-bubble out">
+            <p>Hi</p>
+            <p>Thank you so much for sharing such lovely content with us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3><code>.ids__download</code></h3>
+    <p>Плашка логотипа со ссылками на файлы. <code>a.ids__download-group</code> — несколько макетов, клик скачивает архив.</p>
+    <div class="ids__download">
+      <div class="ids__download-item">
+        <figure>
+          <div class="ids__download-plate">
+            <img src="/images/dodo-pizza-dubai-brandbook/EN.webp" alt="" />
+            <span class="ids__download-caption">Скачать</span>
+          </div>
+          <figcaption>Английский</figcaption>
+        </figure>
+        <div class="ids__download-menu">
+          <p><a href="https://shift.dodobrands.io/cdn/Dubai-English-RGB.zip">Для экрана<span> ⋅ RGB ⋅ EN</span></a></p>
+          <p><a href="https://shift.dodobrands.io/cdn/Dubai-English-CMYK.zip">Для печати<span> ⋅ CMYK ⋅ EN</span></a></p>
+        </div>
+      </div>
+    </div>
+    <a class="ids__download-group" href="/images/social-media-guidelines/for-you-templates.zip" download="for-you-templates.zip">
+      <span class="ids__download-group-items">
+        <img src="/images/social-media-guidelines/template-for-you-side-badge.jpg" alt="" />
+        <img class="pill" src="/images/social-media-guidelines/badge-for-you.png" alt="" />
+        <img src="/images/social-media-guidelines/template-for-you-top-badge.jpg" alt="" />
+      </span>
+      <span class="ids__download-group-caption">Download</span>
+    </a>
+
+    <h3><code>.ids__icon-set</code></h3>
+    <p>Ряд иконок. Кнопка копирует SVG.</p>
+    <div class="ids__icon-set">
+      <button class="ids__icon-copy" type="button"><img src="/images/dodo-pizza-dubai-brandbook/s_heart.svg" alt="heart" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+      <button class="ids__icon-copy" type="button"><img src="/images/dodo-pizza-dubai-brandbook/s_fire.svg" alt="fire" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+      <button class="ids__icon-copy" type="button"><img src="/images/dodo-pizza-dubai-brandbook/s_pepper.svg" alt="pepper" /><span class="ids__copy-hint">Copy SVG</span><span class="ids__copy-done">Copied SVG</span></button>
+    </div>
+
+    <h3><code>.ids__checklist</code></h3>
+    <div class="ids__checklist">
+      <label class="ids__check"><input type="checkbox" /><span>Пропорции картинки верные: для мобильной версии 351×306, для десктопа 233×233.</span></label>
+      <label class="ids__check"><input type="checkbox" checked /><span>Белый текст хорошо видно на фоне плашки.</span></label>
+    </div>
+
+    <h3><code>.ids__report-header</code></h3>
+    <div class="ids__report-header">
+      <h2>S01E01</h2>
+      <figure>
+        <div class="ids__portraits">
+          <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-01_zupsyz.jpg" alt="" /></div>
+          <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-02_swlldl.jpg" alt="" /></div>
+          <div class="ids__portrait"><img src="https://res.cloudinary.com/intuition-design-bureau/image/upload/f_auto,q_auto,w_200/meme-park-reports/s1/portrait/01-01-03_k4oiuv.jpg" alt="" /></div>
+        </div>
+        <figcaption>22.05.2023, Женя Арутюнов, Кира Зыкина, Женя Хайидова</figcaption>
+      </figure>
+    </div>
+
+    <h3><code>.ids__pill</code> и мета публикации</h3>
+    <p>Пилюля — общий формфактор тегов, даты, людей и промо-ссылки. Нет фото — заглушка с первой буквой. <code>.ids__pub-meta</code> собирает дату и теги под названием публикации. Оунер помечен.</p>
+    <div class="ids__pub-meta">
+      <a class="ids__pill ids__pub-meta--tag contact" href="/publications/?author=rita-el-bashir"><img class="ids__pill-photo" src="/images/authors/rita-el-bashir.jpg" alt="" />Rita El Bashir <span class="ids__pub-meta--contact-label">Оунер</span></a>
+      <a class="ids__pill ids__pub-meta--tag" href="/publications/?market=russia">Россия</a>
+      <span class="ids__pill outline ids__pub-meta--date">21 мая 2025</span>
+    </div>
+
+    <h3>Якоря</h3>
+    <p>У блоков тела статьи слева появляется цепь. Скрипт <code>js/anchor.js</code> даёт блоку адрес по хэшу содержимого. Правка текста меняет адрес.</p>
+
+    <h3>Компоненты сайта</h3>
+    <p>Шапка, поиск, таблица публикаций, люди и промо-плашки живут на главной, не в теле гайда.</p>
+    <ul>
+      <li><a href="/">Поиск</a> — <code>.search</code>, на главной крупный <code>.search--large</code>.</li>
+      <li><a href="/publications/">Таблица публикаций</a> — <code>.ids__pubs</code>. Булавки читателя хранятся в браузере.</li>
+      <li><a href="/people/">Люди</a> — пилюли авторов с числом публикаций.</li>
+      <li><a href="/">Промо-плашки</a> — <code>.ids__promo-grid</code> и <code>.ids__promo-card</code>.</li>
+      <li>Переключатель языка — в шапке, <code>.ids__rounded</code> на текущем языке.</li>
+    </ul>
+  </ids-nav-item>
+
+  <div class="ids__space L"></div>
+</article>
+<script src="/js/tokens-dump.js"></script>
