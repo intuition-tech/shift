@@ -34,7 +34,7 @@ if (!force && (fs.existsSync(outPubs) || fs.existsSync(outAuthors))) {
 
 // ---------- карты нормализации (слаги = src/data/taxonomy.js) ----------
 
-const MARKETS = { Россия: "russia", Евразия: "eurasia", ОАЭ: "uae" };
+const MARKETS = { Россия: "russia", MENA: "mena", ОАЭ: "mena" };
 
 const AREAS = {
   "Графический дизайн": "graphic-design",
@@ -46,7 +46,6 @@ const AREAS = {
   "Юридические аспекты": "legal-aspects",
   texts: "texts",
   Инфопланирование: "infoplanning",
-  "Meme park": "meme-park",
   Ретушь: "retouching",
   Автоматизация: "automation",
   "Менеджмент в дизайн команде": "design-team-management",
@@ -61,6 +60,8 @@ const COLLECTIONS = {
   "Адаптация макетов от УК": "hq-layouts-adaptation",
   "Запуск соцсетей в новой стране": "social-media-launch",
   "Сторис в приложении": "in-app-stories",
+  "Meme Park": "meme-park",
+  "Meme park": "meme-park",
   "Макеты для диджитал рекламы": "digital-ad-layouts",
   "Основы дизайна в контексте Додо": "dodo-design-basics",
   "Редполитика (архив)": "editorial-policy-archive",

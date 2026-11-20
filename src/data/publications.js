@@ -3,6 +3,7 @@
 // Заголовки здесь — без суффикса « — Shift»; фронтматтер страниц остаётся для <title>/OG,
 // слаг связывает запись со страницей src/pages/<slug>.html.
 // Слаги тегов — из taxonomy.js, авторов — из authors.js. isNew — ручной флаг «новое».
+// Оунер (contact) в authors — первым; в мета-блоке всё равно выводится первым.
 export default [
   {
     "slug": "glossary",
@@ -241,9 +242,9 @@ export default [
       "rita-el-bashir",
       "anton-nikiforov"
     ],
-    "contact": null,
+    "contact": "rita-el-bashir",
     "markets": [
-      "uae"
+      "mena"
     ],
     "teams": [
       "social-media"
@@ -254,7 +255,7 @@ export default [
     "collections": [
       "social-media-launch"
     ],
-    "isNew": false,
+    "isNew": true,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/smm/social-media-guidelines",
     "externalUrl": null
@@ -544,8 +545,8 @@ export default [
   },
   {
     "slug": "legal-information-for-the-in-app-stories",
-    "title": "Юридическая информация для сторис в приложении",
-    "titleEn": "Legal information for the in-app stories",
+    "title": "Юридические нюансы работы с фотографиями",
+    "titleEn": "Legal info for the in-app stories",
     "date": "2024-12-12",
     "authors": [
       "anastasia-bazhanova",
@@ -650,7 +651,9 @@ export default [
       "brand-design"
     ],
     "areas": [],
-    "collections": [],
+    "collections": [
+      "in-app-stories"
+    ],
     "isNew": false,
     "status": "external",
     "oldUrl": null,
@@ -667,9 +670,7 @@ export default [
       "anatoly-malakhov"
     ],
     "contact": "anatoly-malakhov",
-    "markets": [
-      "eurasia"
-    ],
+    "markets": [],
     "teams": [
       "brand-design"
     ],
@@ -695,9 +696,7 @@ export default [
     ],
     "contact": null,
     "markets": [],
-    "teams": [
-      "digital"
-    ],
+    "teams": [],
     "areas": [
       "infoplanning"
     ],
@@ -741,10 +740,10 @@ export default [
     "teams": [
       "brand-design"
     ],
-    "areas": [
+    "areas": [],
+    "collections": [
       "meme-park"
     ],
-    "collections": [],
     "isNew": false,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S01",
@@ -761,10 +760,10 @@ export default [
     "teams": [
       "brand-design"
     ],
-    "areas": [
+    "areas": [],
+    "collections": [
       "meme-park"
     ],
-    "collections": [],
     "isNew": false,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S02",
@@ -781,10 +780,10 @@ export default [
     "teams": [
       "brand-design"
     ],
-    "areas": [
+    "areas": [],
+    "collections": [
       "meme-park"
     ],
-    "collections": [],
     "isNew": false,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S03",
@@ -801,10 +800,10 @@ export default [
     "teams": [
       "brand-design"
     ],
-    "areas": [
+    "areas": [],
+    "collections": [
       "meme-park"
     ],
-    "collections": [],
     "isNew": false,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S04",
@@ -821,10 +820,10 @@ export default [
     "teams": [
       "brand-design"
     ],
-    "areas": [
+    "areas": [],
+    "collections": [
       "meme-park"
     ],
-    "collections": [],
     "isNew": false,
     "status": "published",
     "oldUrl": "https://shift-archive.intuition.team/dodo-global-meme-park/meme-park-S05",
@@ -842,7 +841,7 @@ export default [
     ],
     "contact": null,
     "markets": [
-      "uae"
+      "mena"
     ],
     "teams": [
       "brand-design"
@@ -867,7 +866,7 @@ export default [
     ],
     "contact": null,
     "markets": [
-      "uae"
+      "mena"
     ],
     "teams": [
       "brand-design"
@@ -918,9 +917,9 @@ export default [
       "ivan-afanasiev",
       "maria-mikhailova"
     ],
-    "contact": null,
+    "contact": "maria-mikhailova",
     "markets": [
-      "uae"
+      "mena"
     ],
     "teams": [
       "brand-design"
@@ -1905,8 +1904,7 @@ export default [
     "date": "2025-08-21",
     "authors": [
       "katya-maksimova",
-      "alexey-polpudnikov",
-      "anastasia-bazhanova"
+      "alexey-polpudnikov"
     ],
     "contact": "katya-maksimova",
     "markets": [],
@@ -1914,12 +1912,9 @@ export default [
       "digital"
     ],
     "areas": [
-      "channels-and-media",
-      "graphic-design"
+      "channels-and-media"
     ],
-    "collections": [
-      "in-app-stories"
-    ],
+    "collections": [],
     "isNew": false,
     "status": "stub",
     "oldUrl": "https://shift-archive.intuition.team/channels-and-media/radio-commercials",
@@ -2323,7 +2318,7 @@ export default [
   },
   {
     "slug": "introduction-to-creative-techniques",
-    "title": "Введение в Креативные техники",
+    "title": "Правила проведения брейншторма",
     "titleEn": null,
     "date": "2024-12-12",
     "authors": [
