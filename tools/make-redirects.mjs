@@ -31,7 +31,7 @@ const TOPICS = {
   "adaptation-of-layouts": ["collection", "hq-layouts-adaptation"],
   "dodo-pizzas-brand-identity": ["collection", "dodo-pizzas-brand-identity"],
   // рынки
-  dubai: ["market", "uae"],
+  dubai: ["market", "mena"],
   // области
   infoplanning: ["area", "infoplanning"],
   "work-with-files": ["area", "work-with-files"],
@@ -39,7 +39,7 @@ const TOPICS = {
   smm: ["area", "smm"],
   retouching: ["area", "retouching"],
   "creative-techniques": ["area", "creative-techniques"],
-  "dodo-global-meme-park": ["area", "meme-park"],
+  "dodo-global-meme-park": ["collection", "meme-park"],
   "motion-design": ["area", "motion-design"],
   "global-kv-packs": ["area", "kv-packs"],
   producing: ["area", "producing"],

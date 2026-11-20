@@ -4,8 +4,7 @@
 export default {
   markets: [
     { slug: "russia", ru: "Россия", en: "Russia" },
-    { slug: "eurasia", ru: "Евразия", en: "Eurasia" },
-    { slug: "uae", ru: "ОАЭ", en: "UAE" }
+    { slug: "mena", ru: "MENA", en: "MENA" }
   ],
 
   // Плейсхолдеры: реальных данных о командах нет, публикации разложены
@@ -27,7 +26,6 @@ export default {
     { slug: "legal-aspects", ru: "Юридические аспекты", en: "Legal aspects" },
     { slug: "texts", ru: "Тексты", en: "Texts" },
     { slug: "infoplanning", ru: "Инфопланирование", en: "Infoplanning" },
-    { slug: "meme-park", ru: "Meme park", en: "Meme park" },
     { slug: "retouching", ru: "Ретушь", en: "Retouching" },
     { slug: "automation", ru: "Автоматизация", en: "Automation" },
     { slug: "design-team-management", ru: "Менеджмент в дизайн-команде", en: "Design team management" },
@@ -42,6 +40,7 @@ export default {
     { slug: "hq-layouts-adaptation", ru: "Адаптация макетов от УК", en: "Adapting HQ layouts" },
     { slug: "social-media-launch", ru: "Запуск соцсетей в новой стране", en: "Launching social media in a new country" },
     { slug: "in-app-stories", ru: "Сторис в приложении", en: "In-app stories" },
+    { slug: "meme-park", ru: "Meme Park", en: "Meme Park" },
     { slug: "digital-ad-layouts", ru: "Макеты для диджитал рекламы", en: "Digital ad layouts" },
     { slug: "dodo-design-basics", ru: "Основы дизайна в контексте Додо", en: "Design basics in the Dodo context" },
     { slug: "editorial-policy-archive", ru: "Редполитика (архив)", en: "Editorial policy (archive)" },

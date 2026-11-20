@@ -51,6 +51,13 @@ export default [
       }
     },
     {
+      kind: "collection", slug: "meme-park", size: "S", color: "orange",
+      description: {
+        ru: "Отчёты дизайн-лаборатории в прямом эфире: сезоны Dodo Global Meme Park с работами команд из разных стран.",
+        en: "Live design lab reports: seasons of Dodo Global Meme Park with work from teams across countries."
+      }
+    },
+    {
       kind: "collection", slug: "video", size: "XS", color: "pink",
       description: {
         ru: "Этапы работы над роликом: продюсирование, пред- и постпродакшн, проведение съемок.",
@@ -95,11 +102,11 @@ export default [
       }
     },
     {
-      kind: "market", slug: "uae", size: "S", color: "orange",
+      kind: "market", slug: "mena", size: "S", color: "orange",
       title: { ru: "Додо Пицца MENA", en: "Dodo Pizza MENA" },
       description: {
-        ru: "Материалы для креативных команд сети Додо Пицца в ОАЭ.",
-        en: "Materials for the creative teams of the Dodo Pizza network in UAE."
+        ru: "Материалы для креативных команд сети Додо Пицца в регионе MENA.",
+        en: "Materials for the creative teams of the Dodo Pizza network in the MENA region."
       }
     }
   ]
