@@ -85,6 +85,8 @@ for (const [topic, [dim, slug]] of Object.entries(TOPICS)) {
   rules.push([`/topic/${topic}`, `/publications/?${dim}=${slug}`]);
 }
 for (const topic of OTHER_TOPICS) rules.push([`/topic/${topic}`, "/publications/"]);
+// Подборка коллабораций не в таксономии — только по ссылке; старый /topic ведёт на интро.
+rules.push(["/topic/collaborations", "/collaborations-intro/"]);
 
 // Проверка на дубли старых путей
 const seen = new Set();

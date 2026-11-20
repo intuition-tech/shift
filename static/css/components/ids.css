@@ -461,6 +461,61 @@
     }
   }
 
+  /* Таблица сценариев с колонками Да/Нет (коллаборации) */
+  & .ids__table-wrapper.yn {
+    & table {
+      table-layout: fixed;
+      width: 100%;
+      min-width: 50em;
+    }
+
+    & thead th {
+      font-weight: 600;
+    }
+
+    & th.yn,
+    & td.yn {
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 500;
+      padding-left: 0.45em;
+      padding-right: 0.7em;
+      white-space: nowrap;
+    }
+
+    & th.yn {
+      white-space: normal;
+      hyphens: manual;
+      line-height: 1.15;
+    }
+
+    & .yn__mark {
+      font-size: 1.15em;
+      line-height: 1;
+    }
+
+    & .yn__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    & td.yn--yes {
+      background-color: color-mix(in srgb, var(--ids__success) 10%, transparent);
+      color: #1b7a2b;
+    }
+
+    & td.yn--no {
+      background-color: color-mix(in srgb, #f01900 6%, transparent);
+      color: #c41200;
+    }
+  }
+
   /* Таблица с логотипами в шапке: логотипы одной высоты, без линии между
      логотипом и названием, первая строка тела — названия полужирным */
   & .ids__table-wrapper.logos {

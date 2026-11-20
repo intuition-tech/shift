@@ -216,6 +216,11 @@ export default {
     "name": "Marina Potapova",
     "photo": "/images/authors/marina-potapova.jpg"
   },
+  "natali": {
+    "slug": "natali",
+    "name": "Natali",
+    "photo": "/images/authors/natali.jpg"
+  },
   "mike-semyonov": {
     "slug": "mike-semyonov",
     "name": "Mike Semyonov",

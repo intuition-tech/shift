@@ -1,0 +1,252 @@
+---
+title: Постанализ — Коллаборации — Shift
+titleEn: Post-analysis — Collaborations — Shift
+tags: publication
+searchIndex: false
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>
+      {% if lang == 'ru' %}Постанализ{% else %}Post-analysis{% endif %}
+    </h1>
+      {% include "pub-meta.html" %}
+
+<p class="ids__description">
+      {% if lang == 'ru' %}После запуска: считаем пост-эффект, собираем отчёт, проводим ретро и разбираемся с остатками.{% else %}After launch: we calculate the post-effect, put the report together, run a retro and deal with leftovers.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}После запуска сверяемся с прогнозом, который аналитики собирали до старта: насколько точно он сработал и как разошёлся продукт. Если остатки остались, их нужно распродать или списать. И отдельно проводим ретро — обсуждаем сложные кейсы, удачные решения и моменты, которые бьют по доверию к бренду. Следующие запуски строим на выводах из уже проведённых коллабораций.{% else %}After launch we check the forecast analysts built before the start: how accurately it worked and how the product sold through. If leftovers remain, they have to be sold through or written off. And separately we run a retro: we discuss difficult cases, decisions that worked, and moments that hit trust in the brand. We build the next launches on the conclusions from collaborations we have already run.{% endif %}
+    </p>
+    <ids-nav-item id="check-the-forecast-and-calculate-the-post-effect" label="{% if lang == 'ru' %}Сверяемся с прогнозом и считаем пост-эффект{% else %}Check the forecast and calculate the post-effect{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Сверяемся с прогнозом и считаем пост-эффект{% else %}Check the forecast and calculate the post-effect{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Менеджер ставит аналитикам задачу посчитать пост-эффект. Папка с методологией лежит у аналитиков, в разделе акций: там коллаборации и промо. Доступ через команду аналитики.{% else %}The manager briefs analytics to calculate the post-effect. The method folder sits with analytics, in the promotions section: collaborations and promo. Access is through the analytics team.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Оцениваем инкрементальный эффект: дополнительные продажи, которых не было бы без коллаборации. Внутри него смотрим сегменты. Как акция повлияла на новых клиентов, на отток и на постоянных. Отдельно смотрим новых пользователей, которые пришли на коллаборацию, и как они вели себя дальше.{% else %}We evaluate the incremental effect: extra sales that would not have happened without the collaboration. Inside it we look at segments. How the campaign affected new customers, churn and regulars. Separately we look at new users who came for the collaboration, and how they behaved afterwards.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Что тестируем.</strong> Сначала выбираем, что именно оцениваем. От этого зависит, можно ли провести тест на пользователях.{% else %}<strong>What we are testing.</strong> First we choose what we are evaluating. That decides whether we can run a test on users.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Новинка в меню или изменение состава меню{% else %}A new item on the menu, or a change to the menu mix{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Спрашиваем, можем ли провести тест на пользователях.{% else %}We ask whether we can run a test on users.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Если да, проводим А/Б-тест на пользователях.</strong> Тест запускается на любую заданную географию. Новинку сохраняем для тестовой группы в мобильном приложении. Отмечать новинку на кассе и в киоске или нет, решает бизнес.{% else %}<strong>If yes, we run an A/B test on users.</strong> The test can launch in any geography we set. We keep the new item for the test group in the mobile app. Whether the cashier and the kiosk also mark the new item is a business decision.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Плюсы такого теста:{% else %}The advantages of this test:{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Выше репрезентативность.{% else %}Higher representativeness.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Выше чувствительность.{% else %}Higher sensitivity.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Теоретически проще оценить каннибализацию.{% else %}In theory it is easier to estimate cannibalisation.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Проще подводить итог.{% else %}It is easier to sum up.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Нет сложностей с выбором географии.{% else %}No difficulty choosing the geography.{% endif %}
+      </li>
+    </ul>
+    <p>
+      {% if lang == 'ru' %}Минус один. Результаты смотрим только по заказам из мобильного приложения. Эффект можно экстраполировать на кассу и на киоск.{% else %}There is one drawback. We only read results from mobile-app orders. The effect can be extrapolated to the cashier and the kiosk.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Если теста на пользователях нет, проводим офлайн-тест на пиццериях.</strong> Условия такие. Тест и контроль запускаем одновременно. Берём часть пиццерий в городах. Не берём одновременно все пиццерии Москвы или Санкт-Петербурга: контроль к ним хорошо не подбирается.{% else %}<strong>If there is no test on users, we run an offline test on pizzerias.</strong> The conditions are these. Test and control start at the same time. We take some of the pizzerias in the cities. We do not take every pizzeria in Moscow or St. Petersburg at once: a control group cannot be matched to them well.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Минусы офлайн-теста:{% else %}The drawbacks of the offline test:{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Тест идёт по всем источникам и типам заказа.{% else %}The test runs across every source and order type.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Мощность меньше, эффект сложнее поймать. Чтобы увидеть эффект в 2%, нужно около 50 пиццерий в тесте и в контроле. На совсем малых эффектах выборка вырастает ещё сильнее.{% else %}Power is lower, so the effect is harder to catch. To see a 2% effect we need about 50 pizzerias in the test and in the control. For very small effects the sample grows further.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Оценка занимает больше времени.{% else %}The estimate takes longer.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Сложно учесть кварталы и каннибализацию.{% else %}Quarters and cannibalisation are hard to account for.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Хорошую контрольную группу можно не найти, и тогда оценку не сделать.{% else %}A good control group may be impossible to find, and then the estimate cannot be made.{% endif %}
+      </li>
+    </ul>
+    <p>
+      {% if lang == 'ru' %}Тест ведём через А/Б-платформу. Для каждой пиццерии подбираем похожие. Если метрик несколько, контрольную группу переподбираем под каждую метрику.{% else %}We run the test through the A/B platform. For each pizzeria we match similar ones. If there are several metrics, we rematch the control group for each metric.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Какие данные отдаём{% else %}What data we hand over{% endif %}
+    </h3>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Условия акции: период, география, требования к операционной системе и версии приложения.{% else %}Campaign conditions: period, geography, requirements for the operating system and app version.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Целевое действие. Это отдельное событие в мобильном приложении, покупка акционного продукта или заказ.{% else %}The target action. A separate event in the mobile app, a purchase of the promo product, or an order.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Расходы на проведение акции.{% else %}The cost of running the campaign.{% endif %}
+        <ul>
+          <li>
+            {% if lang == 'ru' %}Прямые расходы на организацию: разработка функционала, покупка лицензий.{% else %}Direct costs of organising it: feature development, license purchases.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Реклама и медийное сопровождение.{% else %}Advertising and media support.{% endif %}
+          </li>
+          <li>
+            {% if lang == 'ru' %}Расходы и списания промотоваров в рамках акции.{% else %}Costs and write-offs of promo goods within the campaign.{% endif %}
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </ids-nav-item>
+  <ids-nav-item id="test-a-change-inside-the-pizzeria" label="{% if lang == 'ru' %}Тестируем внедрение новшества в пиццерии{% else %}Test a change inside the pizzeria{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Тестируем внедрение новшества в пиццерии{% else %}Test a change inside the pizzeria{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Сюда относится новый продукт, который готовится на уникальном оборудовании, и изменение рецепта. Тест на пользователях здесь провести нельзя. Выбираем пиццерии, которые участвуют в тесте. Велика вероятность, что эффект не увидим: чувствительность такого теста невысокая. Дизайн делает аналитик.{% else %}This covers a new product that is prepared on unique equipment, and a recipe change. A test on users cannot be run here. We choose the pizzerias that take part. There is a high chance we will not see the effect: the sensitivity of this test is low. An analyst designs it.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Что важно:{% else %}What matters:{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Запускать тест в один день.{% else %}Launch the test on a single day.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Не брать одновременно все пиццерии Санкт-Петербурга или Москвы. Контроль к ним хорошо не подбирается.{% else %}Do not take every pizzeria in St. Petersburg or Moscow at once. A control group cannot be matched to them well.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}По возможности разнести нововведение по пиццериям с разной географией, если это не мешает самому внедрению.{% else %}Where possible, spread the change across pizzerias in different geographies, if that does not get in the way of the rollout itself.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}На 2–3 пиццериях статистически значимый результат не получить.{% else %}Two or three pizzerias will not produce a statistically significant result.{% endif %}
+      </li>
+    </ul>
+    <p>
+      {% if lang == 'ru' %}При дизайне аналитик согласовывает число пиццерий в тесте, гипотезу, ключевые метрики, MDE, длительность и географию.{% else %}In the design the analyst agrees the number of pizzerias in the test, the hypothesis, the key metrics, the MDE, the duration and the geography.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="test-a-federal-promo-campaign" label="{% if lang == 'ru' %}Тестируем федеральную промокампанию{% else %}Test a federal promo campaign{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Тестируем федеральную промокампанию{% else %}Test a federal promo campaign{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Коллаборация обычно идёт как федеральная акция. Первый вопрос: она проходила только в приложении?{% else %}A collaboration usually runs as a federal campaign. The first question: did it run only in the app?{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Только в приложении, и клиентов можно разделить.</strong> В момент кампании сплитуем пользователей и выделяем небольшую контрольную группу. Размер обговариваем с аналитиком, сейчас это около 1–5%. Эта группа промо не видит. Здесь можно провести честный А/Б-тест, его результатам доверяем.{% else %}<strong>Only in the app, and customers can be split.</strong> During the campaign we split users and set aside a small control group. We agree the size with an analyst. Right now that is about 1–5%. This group does not see the promo. Here we can run an honest A/B test, and we trust its results.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Проверяем метрики: ARPU, AMPU, возвращаемость, привлечение новых клиентов, инкремент заказов, инкремент выручки.{% else %}We check these metrics: ARPU, AMPU, return rate, new customers acquired, order increment, revenue increment.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Плюсы: честное сплитование, более надёжная оценка, эффект считается быстрее. Минус: сплитование нужно реализовать в мобильном приложении.{% else %}Advantages: an honest split, a more reliable estimate, and the effect is calculated faster. The drawback: the split has to be built into the mobile app.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Только в приложении, но разделить клиентов нельзя. Или акция шире приложения, но контрольную группу выделить можно.</strong> Пример — Многоприззы: можно явно сказать, что человек видел промо-подборку. Эффект оцениваем на трёх сегментах: новые, активные, из оттока. Для активных подбираем контроль методом PSM. Для остальных считаем Diff-in-Diff с бакетами.{% else %}<strong>Only in the app, but customers cannot be split. Or the campaign goes beyond the app, but a control group can still be isolated.</strong> Mnogoprizy is the example: we can say outright that a person saw the promo collection. We estimate the effect on three segments: new, active, and churned. For active customers we match a control with PSM. For the others we calculate diff-in-diff with buckets.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Метрики те же: ARPU, AMPU, возвращаемость, привлечение новых клиентов, инкремент заказов, инкремент выручки. Нужен предтестовый период, исторические данные и для теста, и для контроля.{% else %}The metrics are the same: ARPU, AMPU, return rate, new customers acquired, order increment, revenue increment. We need a pre-test period, historical data for both the test and the control.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Плюсы: результаты можно показать и понять, видна динамика эффекта. Минусы: считать трудоёмко, результатам доверяем меньше. С аналитиком заранее согласуем, кто является участником акции и как это трекается в данных.{% else %}Advantages: the results can be shown and understood, and the movement of the effect is visible. Drawbacks: the calculation is laborious, and we trust the results less. With the analyst we agree in advance who counts as a participant and how that is tracked in the data.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}<strong>Контрольную группу выделить нельзя.</strong> Пример — Genshin. Нельзя точно сказать, на какую группу кампания повлияла, а на какую нет. Часть эффекта из‑за этого не диагностируется, надёжность оценки ниже. Акция проходит по всем источникам продаж, поэтому эффект на неавторизованных клиентов не оценить. Считаем Diff-in-Diff с бакетами.{% else %}<strong>A control group cannot be isolated.</strong> Genshin is the example. We cannot say exactly which group the campaign affected and which it did not. Part of the effect cannot be diagnosed because of that, and the estimate is less reliable. The campaign runs through every sales source, so the effect on unauthorised customers cannot be estimated. We calculate diff-in-diff with buckets.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Плюсы те же: результаты можно показать, видна динамика. Минусы: считать трудоёмко, результатам доверяем меньше, выводов по неавторизованным клиентам не даём.{% else %}The advantages are the same: the results can be shown, and the movement is visible. Drawbacks: the calculation is laborious, we trust the results less, and we draw no conclusions about unauthorised customers.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="how-the-estimate-is-calculated" label="{% if lang == 'ru' %}Алгоритм расчёта оценки{% else %}How the estimate is calculated{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Алгоритм расчёта оценки{% else %}How the estimate is calculated{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда тест и контроль делятся по наличию целевого действия, а не случайным сплитом, аналитики считают так.{% else %}When test and control are split by whether the target action happened, rather than by a random split, analytics calculates it like this.{% endif %}
+    </p>
+    <ol>
+      <li>
+        {% if lang == 'ru' %}В периоде теста делим клиентов на тест и контроль по наличию целевого действия.{% else %}In the test period we split customers into test and control by whether the target action happened.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Каждому клиенту тестовой группы подбираем контрольного методом PSM.{% else %}For each customer in the test group we match a control customer with PSM.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Бакет клиента определяем по hash(ClientUUid). В контроле и в тесте число бакетов одинаковое.{% else %}We assign the customer’s bucket by hash(ClientUUid). The test and the control have the same number of buckets.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}В каждом бакете считаем среднее по выручке и по заказам.{% else %}In each bucket we calculate the average revenue and the average orders.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Для каждой метрики строим регрессию Diff-in-Diff.{% else %}For each metric we build a diff-in-diff regression.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}На пересечении периода и группы смотрим коэффициент beta, p-value и доверительный интервал.{% else %}At the intersection of period and group we read the beta coefficient, the p-value and the confidence interval.{% endif %}
+      </li>
+    </ol>
+    <p>
+      {% if lang == 'ru' %}По Winx полный пост-эффект ещё собираем. Данные по инкременту и продажам, которые отслеживали уже в процессе, есть. Отдельно нужно сверить поведение новых пользователей, которые пришли на коллаборацию.{% else %}For Winx the full post-effect is still being assembled. Data on increment and sales, already tracked in process, is there. Separately we still need to check the behaviour of new users who came for the collaboration.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="put-the-report-presentation-together" label="{% if lang == 'ru' %}Собираем отчётную презентацию{% else %}Put the report presentation together{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Собираем отчётную презентацию{% else %}Put the report presentation together{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Помимо экономического эффекта готовим отчётную презентацию со всеми командами, кто запускал проект.{% else %}On top of the economic effect we prepare a report presentation with every team that launched the project.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Сбор запускаем так. В канале проекта заводим отдельный тред и пишем сообщение: в такие-то сроки просим собрать отчётную презентацию. В основную презентацию о проекте добавляем раздел «Постанализ». В него кладём пустые слайды с названиями разделов, чтобы команда видела навигацию: что было в SMM, что было в медиа. Все нужные разделы отмечаем сами. На слайдах конкретно пишем имена тех, кто должен их заполнить, — чтобы файл не открыли все сразу и не зависли. Ставим конкретную дату, к которой готовим отчёт, и просим слайды заполнить к этому сроку.{% else %}We start the collection like this. In the project channel we open a separate thread and write a message: we ask for the report presentation to be collected by such-and-such date. We add a “Post-analysis” section to the main project presentation. Into it we drop empty slides with section titles so the team can see the map: what happened in SMM, what in media. We mark all the sections we need ourselves. On the slides we write the specific names of who must fill them in — so the file is not opened by everyone at once and no one freezes. We set a concrete date the report is due and ask for the slides to be filled in by then.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Пока отчётная презентация собирается, параллельно готовимся к ретро по проекту.{% else %}While the report presentation is being put together, we prepare for the project retro in parallel.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="run-a-retro" label="{% if lang == 'ru' %}Проводим ретро{% else %}Run a retro{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Проводим ретро{% else %}Run a retro{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}В ретро обязательно участвуют все команды, которые были в запуске. Время закладываем от размера проекта. Если проект был очень большой и проблем было много, времени потребуется много: на такие запуски выделяем слоты под каждую команду. Например, логистику обсуждаем час, с юристами сидим 30 минут — только юристов — и так по каждому блоку проекта.{% else %}Every team that was on the launch must join the retro. We set aside time by the size of the project. If the project was very large and there were many problems, a lot of time will be needed: for those launches we book slots per team. For example we discuss logistics for an hour, sit with legal for 30 minutes — legal only — and so on for every block of the project.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Чтобы понять, сколько времени уйдёт, и всё распланировать, в холсте готовим доску для ретро. Проект разбит по командам и каналам. У каждого блока — описание, ответственный и сколько времени выделено на обсуждение. Формат свободный, кому как удобно: главное, чтобы блоки были понятны и было куда писать. На Winx первый блок — продукт: описание, дальше можно дробить. Холст скидываем всем, чтобы заполнили до встречи. К ретро должно быть понятно, какие пункты для обсуждения есть у всех команд, не только у менеджера, — чтобы не тратить время на сбор с нуля и на встрече разбирать уже конкретные вещи.{% else %}To see how long this will take and to plan it, we prepare a retro board on a canvas. The project is split by teams and channels. Each block has a description, an owner and how much time is set aside for the discussion. The format is free, whichever is convenient: the blocks just need to be clear and have space to write. On Winx the first block is product: a description, then it can be broken down further. We send the canvas to everyone so they fill it in before the meeting. By the retro it should be clear what points every team has for discussion, not only the manager — so we do not spend time collecting from scratch and the meeting is already about specific things.{% endif %}
+    </p>
+
+    <p>
+      {% if lang == 'ru' %}Команда должна заполнить доску до встречи. По факту этого часто не происходит: многие приносят боли уже на созвон, и мы разбираем их там. Даже если так выходит, доску всё равно просим заполнить заранее.{% else %}The team should fill the board before the meeting. In practice this often does not happen: many people bring pain to the call itself, and we unpack it there. Even when that happens, we still ask for the board to be filled in in advance.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Встречу записываем в Teems. Запись кладём в сообщение про ретро в канале проекта, в открытый доступ: любой менеджер может посмотреть, даже если этот проект не вёл.{% else %}We record the meeting in Teems. The recording goes into the retro message in the project channel, open to everyone: any manager can watch it, even if they did not run this project.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Самое важное начинается после ретро. Это не только табличка «что было плохо», а что с этим сделать. Часто после встречи мы уходим с конкретными задачами для некоторых команд: что улучшить и учесть в следующих проектах, какие инструкции подготовить. Так было, например, с командой поддержки. Этой работой делимся открыто со всеми, особенно с менеджерами, которые запускают похожие проекты, даже если они не запускали этот.{% else %}The most important part starts after the retro. It is not only a table of “what went badly”, but what we do about it. After the meeting we often leave with concrete tasks for some of the teams: what to improve and carry into the next projects, which instructions to prepare. That happened, for example, with the support team. We share this work openly with everyone, especially with managers who launch similar projects, even if they did not launch this one.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="write-off-leftovers" label="{% if lang == 'ru' %}Списываем остатки{% else %}Write off leftovers{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Списываем остатки{% else %}Write off leftovers{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Сценарии для пиццерий — что делать, если закончилась только упаковка, закончился весь продукт, закончился только мерч или мерч остался, а упаковки нет — живут в <a href="/collaborations-launch/">запуске</a>, в таблице, которую делали на Winx. Здесь то, что делать, если эти сценарии не помогли.{% else %}The pizzeria scenarios — what to do if only packaging has run out, the whole product has run out, only merch has run out, or merch is left but packaging is gone — live in <a href="/collaborations-launch/">launch</a>, in the table made for Winx. Here is what to do if those scenarios did not help.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Если все сценарии не сработали и остатки мерча или упаковки всё равно слишком большие, например лежат на РЦ, а не в пиццериях, списываем их за счёт бюджета управляющей компании, из маркетинг-фонда. Процесс списания запускает команда логистики.{% else %}If all the scenarios fail and leftovers of merch or packaging are still too large, for example sitting at the distribution centre rather than in pizzerias, we write them off against the management company’s budget, from the marketing fund. The logistics team starts the write-off process.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Если остался не мерч, а продукт — ингредиент, который можно использовать в других блюдах, — решение исходит от продуктовой команды, не от менеджера коллаборации. Например, шарики на пицце у кого-то закончились, у кого-то остались, применить их нельзя — продукт говорит списать. Если остался соус, продуктовая команда может предложить другое блюдо для реализации с этим соусом. Если и оно не разошлось — тоже списываем. Решения должны быть, но они приходят от продукта, а не от менеджера коллаборации.{% else %}If what is left is not merch but a product — an ingredient that can go into other dishes — the decision comes from the product team, not from the collaboration manager. For example the pizza toppings ran out in some places and were left in others, they cannot be used — product says write them off. If a sauce is left, the product team may propose another dish to sell through with that sauce. If that does not sell through either — we write it off as well. There should be decisions, but they come from product, not from the collaboration manager.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}По Winx списание ещё в работе. Инструмента, который чётко считает остатки у всех, нет: опираемся на продажи и на то, что есть на складе или в доступе у логистики. После ещё одного раунда допродажи смотрим снова. Общий процесс такой: списываем из маркетинг-фонда, запускает логистика.{% else %}For Winx write-off is still in progress. There is no tool that clearly counts leftovers for everyone: we rely on sales and on what is in the warehouse or available to logistics. After another round of extra sales we look again. The general process is this: we write off from the marketing fund, logistics starts it.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}У лицензии есть срок действия. Если заказать слишком много и не успеть продать, остатки списывать всё равно придётся — это прямой убыток. Поэтому списание — часть работы после запуска, а не только расчёт на этапе прогноза.{% else %}The license has an expiry date. If we order too much and do not sell it in time, leftovers still have to be written off — a direct loss. So write-off is part of the work after launch, not only a calculation at the forecast stage.{% endif %}
+    </p>
+    </ids-nav-item>
+  <div class="ids__space L"></div>
+</article>

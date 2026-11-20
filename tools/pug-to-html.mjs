@@ -87,6 +87,21 @@ mixin author-tag(x)
   - void 0
 mixin meta(x)
   - void 0
+mixin read-next-block(x)
+  - void 0
+mixin collab-yn(yes)
+  if yes
+    td.collab-yn.collab-yn--yes
+      span.collab-yn__mark(aria-hidden="true") ✓
+      span.collab-yn__label
+        +ru Да
+        +en Yes
+  else
+    td.collab-yn.collab-yn--no
+      span.collab-yn__mark(aria-hidden="true") ✕
+      span.collab-yn__label
+        +ru Нет
+        +en No
 `;
 
 let html = pug.render(prelude + src, { basedir, filename: file, pretty: true, doctype: "html" });

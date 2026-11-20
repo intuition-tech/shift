@@ -2339,5 +2339,95 @@ export default [
     "status": "stub",
     "oldUrl": "https://shift-archive.intuition.team/creative-techniques/introduction-to-creative-techniques",
     "externalUrl": null
+  },
+  {
+    "slug": "collaborations-intro",
+    "title": "Интро",
+    "titleEn": "Intro",
+    "date": "2026-10-14",
+    "authors": [
+      "natali"
+    ],
+    "contact": "natali",
+    "markets": [],
+    "teams": [],
+    "areas": [],
+    "collections": [],
+    "isNew": false,
+    "status": "hidden",
+    "oldUrl": "https://shift-archive.intuition.team/collaborations/intro",
+    "externalUrl": null
+  },
+  {
+    "slug": "collaborations-preparation",
+    "title": "Подготовительный этап",
+    "titleEn": "Preparation stage",
+    "date": "2026-10-14",
+    "authors": [
+      "natali"
+    ],
+    "contact": "natali",
+    "markets": [],
+    "teams": [],
+    "areas": [],
+    "collections": [],
+    "isNew": false,
+    "status": "hidden",
+    "oldUrl": "https://shift-archive.intuition.team/collaborations/preparation",
+    "externalUrl": null
+  },
+  {
+    "slug": "collaborations-implementation",
+    "title": "Реализация проекта",
+    "titleEn": "Project implementation",
+    "date": "2026-10-14",
+    "authors": [
+      "natali"
+    ],
+    "contact": "natali",
+    "markets": [],
+    "teams": [],
+    "areas": [],
+    "collections": [],
+    "isNew": false,
+    "status": "hidden",
+    "oldUrl": "https://shift-archive.intuition.team/collaborations/implementation",
+    "externalUrl": null
+  },
+  {
+    "slug": "collaborations-launch",
+    "title": "Запуск",
+    "titleEn": "Launch",
+    "date": "2026-10-15",
+    "authors": [
+      "natali"
+    ],
+    "contact": "natali",
+    "markets": [],
+    "teams": [],
+    "areas": [],
+    "collections": [],
+    "isNew": false,
+    "status": "hidden",
+    "oldUrl": "https://shift-archive.intuition.team/collaborations/launch",
+    "externalUrl": null
+  },
+  {
+    "slug": "collaborations-post-analysis",
+    "title": "Постанализ",
+    "titleEn": "Post-analysis",
+    "date": "2026-10-15",
+    "authors": [
+      "natali"
+    ],
+    "contact": "natali",
+    "markets": [],
+    "teams": [],
+    "areas": [],
+    "collections": [],
+    "isNew": false,
+    "status": "hidden",
+    "oldUrl": "https://shift-archive.intuition.team/collaborations/post-analysis",
+    "externalUrl": null
   }
 ];

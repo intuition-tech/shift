@@ -9,7 +9,7 @@
    Playwright берётся из соседнего проекта; если его нет — поставьте
    `npm i -D playwright-core` и поправьте путь импорта. */
 
-import { chromium } from "/Users/arutyunov/pndlnk-site/node_modules/playwright-core/index.mjs";
+import { chromium } from "playwright-core";
 import fs from "fs";
 
 const PORT = process.env.PORT || 8091;

@@ -438,6 +438,31 @@ searchIndex: false
 
     <div class="guide-component">
       <div class="guide-component__meta">
+        <span class="guide-tokens__row-label"><code>ids-gallery.covers</code></span>
+        <span class="guide-tokens__row-value">сетка 3×N с подписями</span>
+      </div>
+      <div class="guide-component__sample">
+        <ids-gallery class="covers">
+          <figure>
+            <a href="/images/collaborations/intro/gallery/cyberpunk.jpg" data-pswp-width="1600" data-pswp-height="900" target="_blank"><img src="/images/collaborations/intro/gallery/cyberpunk.jpg" alt="" /></a>
+            <figcaption>Cyberpunk 2077, 2020</figcaption>
+          </figure>
+          <figure>
+            <a href="/images/collaborations/intro/gallery/minecraft.jpg" data-pswp-width="1600" data-pswp-height="900" target="_blank"><img src="/images/collaborations/intro/gallery/minecraft.jpg" alt="" /></a>
+            <figcaption>Minecraft, 2022</figcaption>
+          </figure>
+          <figure>
+            <a href="/images/collaborations/intro/example-genshin.jpg" data-pswp-width="1200" data-pswp-height="674" target="_blank"><img src="/images/collaborations/intro/example-genshin.jpg" alt="" /></a>
+            <figcaption>Genshin Impact, 2024</figcaption>
+          </figure>
+        </ids-gallery>
+      </div>
+      {{ "ids-gallery.covers, .ids__gallery.covers" | usages | safe }}
+    </div>
+    <div class="ids__space L"></div>
+
+    <div class="guide-component">
+      <div class="guide-component__meta">
         <span class="guide-tokens__row-label"><code>.ids__report-header</code><br /><code>.ids__portraits</code><br /><code>.ids__portrait</code></span>
         <span class="guide-tokens__row-value">--ids__background<br />--ids__caption</span>
       </div>

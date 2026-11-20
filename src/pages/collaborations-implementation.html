@@ -1,0 +1,584 @@
+---
+title: Реализация проекта — Коллаборации — Shift
+titleEn: Project implementation — Collaborations — Shift
+tags: publication
+searchIndex: false
+---
+<div class="ids__space XL"></div>
+<article class="ids__wrapper publication">
+  <div class="publication__nav"><ids-navbar></ids-navbar></div>
+
+  <h1>
+      {% if lang == 'ru' %}Реализация проекта{% else %}Project implementation{% endif %}
+    </h1>
+      {% include "pub-meta.html" %}
+
+<p class="ids__description">
+      {% if lang == 'ru' %}Как собрать команду, продукт и логистику так, чтобы коллаборация доехала до пиццерий и не встала на старте.{% else %}How to assemble the team, product and logistics so the collaboration reaches pizzerias and does not stall at launch.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Когда партнёр выбран и рамки проекта ясны, начинается реализация. Команды собирают продукт, упаковку и мерч, запускают продакшен, выстраивают логистику и продвижение и готовят сеть к старту.{% else %}Once the partner is chosen and the project frame is clear, implementation begins. Teams assemble the product, packaging and merch, start production, set up logistics and promotion, and prepare the network for launch. At this stage the idea becomes a concrete offer that must reach pizzerias and sell without surprises.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Такой запуск всегда кросскомандный и идёт несколько месяцев. Им управляет менеджер проекта: он держит темп, зоны ответственности и единый контекст — кто за что отвечает, где мы сейчас и к чему идём. От этого зависит, соберутся ли блоки вовремя и не разъедутся ли команды по разным версиям плана.{% else %}Such a launch is always cross-team and runs for several months. A project manager runs it: they hold the pace, areas of responsibility and a shared context — who owns what, where we are now and what we are heading towards. That determines whether the blocks come together on time and whether teams stay on the same version of the plan.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}В работе менеджера опираемся на несколько правил:{% else %}In the manager’s work we rely on several rules.{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}Ясная рабочая группа с прозрачными зонами ответственности.{% else %}A clear working group with transparent areas of responsibility.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Единый контекст у всей команды: в какой точке мы сейчас и к чему идём.{% else %}A shared context for the whole team: where we are now and what we are heading towards.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}Адекватный темп: сроки должны оставлять время подумать, как сделать лучше, чем в прошлый раз, при этом проект динамичный и требует фокуса от рабочей группы.{% else %}An adequate pace. Timelines should leave room to think about how to do better than last time. At the same time the project is dynamic and needs focus from the working group.{% endif %}
+      </li>
+    </ul>
+    <ids-nav-item id="create-the-project-channel-and-share-the-setup-with-teams" label="{% if lang == 'ru' %}Создаём канал проекта и описываем командам сетап{% else %}Create the project channel and share the setup with teams{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Создаём канал проекта и описываем командам сетап{% else %}Create the project channel and share the setup with teams{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}На этапе подготовки мы уже определили, что будет в коллаборации: партнёр, рамки проекта, тайминг и прогноз. Реализация начинается с того, что менеджер собирает эту информацию в одно место и создаёт канал проекта — чтобы все внутренние команды подключились из одной логики.{% else %}At preparation we have already defined what the collaboration will be: the partner, the project frame, timing and forecast. Implementation starts with the manager gathering that information in one place and creating a project channel — so all internal teams join from the same logic.{% endif %}
+    </p>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Менеджер создаёт канал в Time. Если проект под строгим NDA, канал закрытый. Если нет — открытый, и туда приглашают все команды.{% else %}The manager creates a channel in Time. If the project is under a strict NDA, the channel is closed. If not — it is open, and all teams are invited.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}Time — корпоративный мессенджер.{% else %}Time is the corporate messenger.{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Над коллаборацией работают несколько команд: аналитика, маркетинг, креатив, продукт, логистика, медиа, операционка. Просим лидеров выделить конкретных людей на проект: кто из стратегов, какой арт-директор.{% else %}Several teams work on a collaboration: analytics, marketing, creative, product, logistics, media, operations. We ask leads to assign specific people to the project: which strategist, which art director.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}В канале пишем вводное сообщение: даты запуска, следующие шаги, дата вводной встречи. Тегаем ответственных, прикладываем ссылку на тайминги проекта и на презентацию запуска. Так все видят и сроки, и как будет выглядеть запуск. Сообщение закрепляется. Вся коммуникация по проекту идёт через этот канал — единое окно для всех команд.{% else %}In the channel we post an intro message: launch dates, next steps, kickoff meeting date. We tag the people in charge and attach links to project timings and the launch presentation. That way everyone can see both the schedule and what the launch will look like. The message is pinned. All project communication goes through this channel — a single window for every team.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}По крупным темам создаём отдельные треды: запуски в других странах, дегустации, конкретный продукт. В крупном проекте в одном канале легко набирается около 50 тредов. После старта появляются новые треды под срочные вопросы.{% else %}For major topics we create separate threads: launches in other countries, tastings, a specific product. In a large project one channel easily gathers around 50 threads. After launch, new threads appear for urgent issues.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Кик-офф{% else %}Kick-off{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Когда канал заведён и ответственные люди выделены, собираем кик-офф — общую встречу всех команд с презентацией запуска. На ней все получают одну и ту же картину: для какой аудитории запускаемся, какой продукт возможен, какие цели у проекта, что планируем и в какие сроки. Так команда выходит в разработку стратегии из единого контекста.{% else %}Once the channel is set up and the people responsible are assigned, we hold a kick-off — a meeting of all teams with the launch presentation. Everyone gets the same picture: which audience we are launching for, what product is possible, what the project goals are, what we are planning and on what timeline. That way the team moves into strategy work from a shared context.{% endif %}
+    </p>
+    <div class="ids__with-note">
+      <ids-gallery class="covers">
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-02.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-02.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-06.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-06.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-07.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-07.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-08.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-08.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-09.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-09.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/setup-winx/slide-10.jpg" data-pswp-width="1440" data-pswp-height="810" target="_blank"><img src="/images/collaborations/implementation/setup-winx/slide-10.jpg" alt="" /></a>
+          </figure>
+      </ids-gallery>
+      <div class="ids__note">
+        <p><a href="https://docs.google.com/presentation/d/1QQsiKpOTa-h5p9Zu250UDPF1rBBQ2hSVOGUhMzuqg3k/edit?slide=id.g3d9f170d19a_2_13#slide=id.g3d9f170d19a_2_13" target="_blank" rel="noopener noreferrer">
+            {% if lang == 'ru' %}Вся презентация запуска коллаборации Винкс{% else %}Full Winx collaboration launch presentation{% endif %}</a></p>
+      </div>
+    </div>
+    </ids-nav-item>
+  <ids-nav-item id="preparing-the-brief" label="{% if lang == 'ru' %}Готовим бриф{% else %}Preparing the brief{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Готовим бриф{% else %}Preparing the brief{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда команды ознакомились с сетапом коллаборации на кик-оффе, команда проекта собирает вводные и брифует стратегов. Параллельно подключаем арт-дирекшн и лидера маркетинга: в арт-дирекшне обычно работают арт-директор и копирайтер, а у нас креативщики и копирайтеры часто совмещают эти роли.{% else %}Once the teams have taken in the collaboration setup at the kick-off, the project team gathers the inputs and briefs the strategists. In parallel we bring in art direction and the marketing lead: art direction usually means an art director and a copywriter, and here creatives and copywriters often combine both roles.{% endif %}
+    </p>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Стратеги закрывают свою часть: выделяют RTB — критерии, за счёт которых аудитория сможет купить продукт, — и прорабатывают позиционирование коллаборации и самого продукта: о каких смыслах говорить, что откликнется у аудитории, с каким лозунгом выйти.{% else %}Strategists close their part: they define RTB — the reasons that will make the audience buy the product — and work through the positioning of the collaboration and of the product itself: which meanings to communicate, what will resonate with the audience, what slogan to use.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}RTB (англ. reason to believe) — причина верить: то, почему аудитория должна купить продукт{% else %}RTB (reason to believe) — why the audience should buy the product{% endif %}
+        </p>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Менеджер склеивает вводные по проекту и работу стратегов в один большой бриф — им потом брифуют команду креатива на Big Idea.{% else %}The manager stitches the project inputs and the strategists’ work into one big brief — that is what we then use to brief creative on the Big Idea.{% endif %}
+    </p>
+    <div class="ids__with-note">
+      <ids-gallery class="covers">
+          <figure><a href="/images/collaborations/implementation/brief-winx/context.jpg" data-pswp-width="1024" data-pswp-height="573" target="_blank"><img src="/images/collaborations/implementation/brief-winx/context.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/brief-winx/why.jpg" data-pswp-width="1024" data-pswp-height="577" target="_blank"><img src="/images/collaborations/implementation/brief-winx/why.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/brief-winx/audience.jpg" data-pswp-width="1024" data-pswp-height="575" target="_blank"><img src="/images/collaborations/implementation/brief-winx/audience.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/brief-winx/concept.jpg" data-pswp-width="1024" data-pswp-height="567" target="_blank"><img src="/images/collaborations/implementation/brief-winx/concept.jpg" alt="" /></a>
+          </figure>
+          <figure><a href="/images/collaborations/implementation/brief-winx/product.jpg" data-pswp-width="1024" data-pswp-height="578" target="_blank"><img src="/images/collaborations/implementation/brief-winx/product.jpg" alt="" /></a>
+          </figure>
+      </ids-gallery>
+      <div class="ids__note">
+        <p><a href="https://docs.google.com/presentation/d/12Ud5k7mSMUL9PX4eRgemJ5uLzwG091MWBNxbRPzsp8E/edit?slide=id.g3add5457f21_0_0#slide=id.g3add5457f21_0_0" target="_blank" rel="noopener noreferrer">
+            {% if lang == 'ru' %}Весь бриф коллаборации Winx{% else %}Full brief for the Winx collaboration{% endif %}</a></p>
+      </div>
+    </div>
+    </ids-nav-item>
+  <ids-nav-item id="briefing-the-creative-team-to-develop-the-big-idea" label="{% if lang == 'ru' %}Брифуем креативную команду на разработку Big Idea{% else %}Briefing the creative team to develop the Big Idea{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Брифуем креативную команду на разработку Big Idea{% else %}Briefing the creative team to develop the Big Idea{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда большой бриф собран, брифуем креативную команду на разработку Big Idea. Им дают контекст партнёра и задачи проекта — не готовую большую идею коллаборации, по которой осталось нарисовать макеты. Креатив упаковывает это в одну большую идею: о чём запуск, как он звучит и выглядит.{% else %}Once the big brief is ready, we brief the creative team to develop the Big Idea. They get the partner context and the project tasks — not a ready-made collaboration idea they only need to draw layouts from. Creative packs that into one big idea: what the launch is about, how it sounds and how it looks.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Результат этапа — утверждённая идея, которую потом воплощают в упаковке, мерче, макетах и других носителях. В идеале продукт идёт следом за идеей. На практике потоки часто идут параллельно, и идеи по продуктам нередко появляются раньше концепции — например, так было в коллаборации Winx: идея продукта появилась раньше брифинга креативной команды.{% else %}The outcome of this stage is an approved idea, which is then embodied in packaging, merch, layouts and other carriers. Ideally the product follows the idea. In practice the streams often run in parallel, and product ideas often appear before the concept — for example, in the Winx collaboration the product idea came before the creative team briefing.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="developing-the-product" label="{% if lang == 'ru' %}Разрабатываем продукт{% else %}Developing the product{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Разрабатываем продукт{% else %}Developing the product{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда большая идея определена — или пока креатив ещё над ней работает — переходим к продукту. Над ним работают команды меню, продуктового маркетинга и R&D (лаборатория): менеджер передаёт вводные по направлению франшизы, вкусам и странам, команды собирают варианты рецептуры и форм-фактора.{% else %}Once the big idea is set — or while creative is still working on it — we move to the product. The menu, product marketing and R&D (lab) teams work on it: the manager passes on inputs on franchise direction, flavours and countries, and the teams assemble recipe and form-factor options.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Цель этапа — разработать продукт, который отвечает коллаборации и будет продаваться в пиццериях. У нас есть ограничения: загруженность сети, нехватка сотрудников в пиццериях, другие новинки в меню, которые тоже нужно учитывать. Коллаборация должна вписаться в общую картину, а не усложнить работу на местах.{% else %}The goal of this stage is to develop a product that fits the collaboration and will sell in pizzerias. We have constraints: network workload, staff shortages in pizzerias, other menu launches that also need to be accounted for. The collaboration has to fit the overall picture, not make work harder on the ground.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}На брифинги обязательно зовём команду операционки — она сразу подсвечивает риски. Например, «такой напиток не возится в доставку — нет крышек» или «это блюдо слишком сложное для кухни». Всё, что придумываем, обсуждаем с ней: важно понимать, как продукт будет готовиться, храниться и доставляться, а не только как он будет выглядеть в рекламных макетах и на витрине.{% else %}We always bring the operations team to briefings — they flag risks right away. For example, “this kind of drink won't work for delivery — no lids” or “this dish is too complex for the kitchen”. Everything we come up with is discussed with them: it matters how the product will be prepared, stored and delivered, not only how it will look in advertising layouts and on the counter.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Вот несколько обязательных правил, которым мы следуем при разработке продукта.{% else %}Here are several mandatory rules we follow when developing the product.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Собираем из того, что уже есть{% else %}Build from what is already there{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Стараемся собирать продукт из того, что уже есть в пиццериях: взять текущие ингредиенты, добавить один новый соус — и уже получился новый продукт, который легче запустить.{% else %}We try to build the product from what pizzerias already have: take current ingredients, add one new sauce — and you already have a new product that is easier to launch.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Ограничиваем число уникальных составляющих{% else %}Limit the number of unique components{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Есть правило: не больше трёх уникальных составляющих. Сюда входит не только сам продукт, но и упаковка, и мерч. Каждая составляющая — это то, что курьер должен положить в сумку, не забыть, правильно пробить и положить в нужную коробку.{% else %}There is a rule: no more than three unique components. This includes not only the product itself, but packaging and merch too. Each component is something the courier must put in the bag, not forget, ring up correctly and put in the right box.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Учитываем халяль-регионы{% else %}Account for halal regions{% endif %}
+    </h3>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Есть халяль-регионы: если ингредиент нельзя заменить на халяльный, для этих пиццерий заводим похожий продукт с другим составом — например, куриная ветчина халяль вместо курицы без сертификата.{% else %}There are halal regions: if an ingredient can't be replaced with a halal one, we launch a similar product with a different composition for those pizzerias — for example, halal chicken ham instead of chicken without certification.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}Халяльное мясо — это мясо здорового животного, забитого по исламским правилам с произнесением имени Бога и с полным спуском крови{% else %}Halal meat is meat from a healthy animal, slaughtered according to Islamic rules with the name of God spoken and with the blood fully drained{% endif %}
+        </p>
+      </div>
+    </div>
+    <h3>
+      {% if lang == 'ru' %}Согласовываем продукт с юристами{% else %}Align with legal{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Юристы подсказывают правила акций и отдельно готовят юридические правила для клиентов: механику акции и ограничения на покупку — например, что нельзя купить два продукта в одни руки. Если у акции есть ограничения, правила должны быть доступны клиентам заранее.{% else %}Lawyers advise on promotion rules and separately prepare legal rules for customers: the promotion mechanic and purchase limits — for example, that you can't buy two products in one order. If the promotion has limits, the rules should be available to customers in advance.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Когда идея, состав и подход к продвижению согласованы, переходим к следующему этапу.{% else %}When the idea, composition and promotion approach are aligned, we move to the next stage.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="developing-packaging" label="{% if lang == 'ru' %}Разрабатываем упаковку{% else %}Developing packaging{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Разрабатываем упаковку{% else %}Developing packaging{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда идея продукта ясна, идём в упаковку. Цель этапа — уникальная упаковка и комплексное предложение, которое выделяется на полке и в доставке.{% else %}Once the product idea is clear, we move into packaging. The goal of this stage is unique packaging and a comprehensive offer that stands out on the shelf and in delivery.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Если мы уже в начале знаем, что хотим делать сложную упаковку, предупреждаем команду упаковки об этом ещё на кик-офф-встрече. Говорим, что будем делать уникальную упаковку, а конкретные решения принесём позже.{% else %}If we already know at the start that we want complex packaging, we warn the packaging team about it as early as the kick-off meeting. We say we will make unique packaging and bring the concrete decisions later.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Выбираем подход{% else %}Choose the approach{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Подход зависит от сроков и креатива. Есть два основных сценария.{% else %}The approach depends on timelines and creative. There are two main scenarios.{% endif %}
+    </p>
+    <ul>
+      <li>
+        {% if lang == 'ru' %}<strong>Только дизайн.</strong> Ориентир — примерно 3–6 месяцев. На срок влияют тип упаковки и регионы запуска: обновить дизайн стаканов проще и быстрее, чем дизайн коробок для пиццы. Если новый дизайн едет на всю Россию, включая Дальний Восток, логистика растягивается. В коллаборации отдельно закладываем время на согласование с партнёром.{% else %}<strong>Design only.</strong> The guide is roughly 3–6 months. Timelines depend on the packaging type and launch regions: updating cup design is simpler and faster than pizza box design. If the new design goes across all of Russia, including the Far East, logistics stretches out. In a collaboration we separately build in time for partner approval.{% endif %}
+      </li>
+      <li>
+        {% if lang == 'ru' %}<strong>Форма и дизайн.</strong> Ориентир — около 4–8 месяцев: сюда добавляется разработка конструкции. На срок влияют сложность идеи и то, есть ли у поставщика похожий вариант на складе — тогда разработка идёт быстрее. На Winx, например, меняли форму упаковки, чтобы сильнее выделить предложение.{% else %}<strong>Form and design.</strong> The guide is about 4–8 months: construction development is added here. Timelines depend on how complex the idea is and whether the supplier already has a similar option in stock — then development goes faster. On Winx, for example, we changed the packaging form to make the offer stand out more.{% endif %}
+      </li>
+    </ul>
+    <h3>
+      {% if lang == 'ru' %}Брифуем команду{% else %}Brief the team{% endif %}
+    </h3>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Брифуем команду упаковки. Ответственный за задачу собирает бриф, техническая сторона дополняет требования. Вместе оцениваем задачу, сроки и приоритет, затем брифуем подрядчика: смогут ли сделать и есть ли готовые варианты под наше техническое задание.{% else %}We brief the packaging team. The person responsible for the task puts the brief together, and the technical side adds requirements. Together we assess the task, timelines and priority, then brief the contractor: can they do it and are there ready options for our technical brief.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p><a href="https://app.holst.so/share/b/82e57e28-25e5-47df-9ae2-4dc6be46aa1c?objectId=09fe6280-9eca-4e0c-aafc-d1dff9de5f9b" target="_blank" rel="noopener noreferrer">
+            {% if lang == 'ru' %}Процесс разработки упаковки в Holst{% else %}Packaging development process in Holst{% endif %}</a></p>
+      </div>
+    </div>
+    <h3>
+      {% if lang == 'ru' %}Разрабатываем конструкцию и дизайн{% else %}Develop construction and design{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Параллельно идут конструкция и дизайн: получаем первые макеты и образцы. Дизайн опирается на брендбук партнёра — тот, что запрашивали ещё на этапе <a href="/collaborations-preparation/">подготовки</a>, — на креативную концепцию и на ограничения производства. Например, на упаковке пиццы можно использовать только четыре цвета.{% else %}Construction and design run in parallel: we get the first layouts and samples. Design builds on the partner’s brandbook — the one we requested during <a href="/collaborations-preparation/">preparation</a> — on the creative concept and on production constraints. For example, pizza packaging can use only four colours.{% endif %}
+    </p>
+    <figure><img src="/images/producing/collaborations/winx-cup-print.png" alt="" />
+      <figcaption>
+        {% if lang == 'ru' %}Разработка печатного макета для стакана в коллаборации Winx{% else %}Developing the print layout for the cup in the Winx collaboration{% endif %}
+      </figcaption>
+    </figure>
+    <h3>
+      {% if lang == 'ru' %}Проверяем образцы и ищем поставщиков{% else %}Check samples and find suppliers{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Образцы проверяем на безопасность, на то, как ведёт себя продукт в упаковке, и на удобство сборки в пиццерии. Если образец не сходится с техническим заданием — дорабатываем. Когда вариант финальный, ищем поставщиков, запрашиваем образцы, отбираем, с кем идём дальше, и смотрим стоимость, возможности и сроки.{% else %}We check samples for safety, how the product behaves in the packaging and how easy it is to assemble in the pizzeria. If the sample does not match the technical brief — we iterate. When the option is final, we look for suppliers, request samples, choose who we go with and check cost, capabilities and timelines.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Согласовываем{% else %}Get approval{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Сначала согласовываем макет внутри, потом отправляем лицензиару. Время на согласование с партнёром закладываем в тайминг отдельно. Финальное решение принимает лидер маркетинга.{% else %}First we approve the layout internally, then we send it to the licensor. Time for partner approval goes into the timeline separately. The marketing lead makes the final decision.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Упаковка и мерч часто идут параллельно — когда конструкция и дизайн упаковки в работе, уже можно переходить к мерчу.{% else %}Packaging and merch often run in parallel — once packaging construction and design are underway, we can already move to merch.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="developing-merch" label="{% if lang == 'ru' %}Разрабатываем мерч{% else %}Developing merch{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Разрабатываем мерч{% else %}Developing merch{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Параллельно с упаковкой — или следом за ней — разрабатываем мерч. Цель этапа — выбрать форм-фактор и довести дизайн до согласования с лицензиаром.{% else %}In parallel with packaging — or right after it — we develop the merch. The goal of this stage is to choose the form factor and take the design through to licensor approval.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Если мерч производит агентство, оно присылает варианты в рамках креативной концепции. По бюджету и срокам выбираем форму. Всё согласовывают креативная команда и менеджер. Параллельно прорабатываем дизайн и отправляем лицензиару на согласование.{% else %}If an agency produces the merch, it sends options within the creative concept. We choose the form by budget and timeline. The creative team and the manager approve everything. In parallel we work through the design and send it to the licensor for approval.{% endif %}
+    </p>
+    <aside>
+      <p>
+        {% if lang == 'ru' %}Если есть механика выдачи мерча за покупку, все коммуникации про подарок должны содержать юридический лигал.{% else %}<strong>Legal note.</strong> If there's a mechanic for giving merch with a purchase, all communications about the gift must include legal copy.{% endif %}
+      </p>
+    </aside>
+    <p>
+      {% if lang == 'ru' %}Когда упаковка и мерч согласованы, переходим к продакшену.{% else %}Once packaging and merch are approved, we move to production.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="starting-production" label="{% if lang == 'ru' %}Запускаем продакшен{% else %}Starting production{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Запускаем продакшен{% else %}Starting production{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Запускаем производство материалов кампании: упаковку, мерч, макеты и остальные носители. План продаж к этому моменту уже посчитан на этапе подготовки — здесь его не считаем заново, а брифуем производителей и ведём производство по утверждённым решениям.{% else %}Once the product, packaging and merch are ready, we start producing the campaign materials: packaging, merch, layouts and the rest of the carriers. The sales plan by this point is already calculated during preparation — we do not recalculate it here, we brief manufacturers and run production on the approved decisions.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Базовый набор коллаборации — уникальная пицца, напиток и физический мерч. В игровых проектах дополнительно запрашиваем у лицензиара промокод на возможность в игре: пользователь вводит код и получает, например, крылья. Выдаём в подарок при покупке. Главное — маркетинговые решения, которые помогают продать съедобный продукт.{% else %}The basic collaboration set is a unique pizza, a drink and physical merch. In gaming projects we additionally ask the licensor for a promo code for an in-game reward: the user enters the code and gets, for example, wings. We give it as a gift with purchase. The main thing is marketing decisions that help sell the edible product.{% endif %}
+    </p>
+    <figure><img src="/images/producing/collaborations/3-things-combo.jpg" alt="" />
+      <figcaption>
+        {% if lang == 'ru' %}Набор коллаборации с Winx: пицца энчантикс, молочный коктейль и брелок{% else %}Winx collaboration set: Enchantix pizza, milkshake and keychain{% endif %}
+      </figcaption>
+    </figure>
+    <p>
+      {% if lang == 'ru' %}За счёт того, что мы по максимуму опираемся на то, что уже есть в пиццериях, и работаем с проверенными поставщиками, коллаборацию можно собрать в рамках года. У многих других брендов цикл занимает полтора–два года.{% else %}Because we rely as much as possible on what pizzerias already have and work with trusted suppliers, a collaboration can be put together within a year. For many other brands the cycle takes a year and a half to two years.{% endif %}
+    </p>
+    <aside>
+      <p>
+        {% if lang == 'ru' %}На этапе продакшена юристы помогают с формулировками в коммуникациях. Готовые правила публикуют на сайте в разделе «Правовая информация», в блоке полных юридических правил.{% else %}In production, lawyers help with wording in communications. Finished rules are published on the website under “Legal information”, in the full legal rules block.{% endif %}
+      </p>
+    </aside>
+    <p>
+      {% if lang == 'ru' %}Когда материалы в производстве и объёмы понятны, переходим к логистике — как всё доедет до пиццерий и не встанет на старте.{% else %}Once materials are in production and volumes are clear, we move to logistics — how everything will reach pizzerias and not stall at launch.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="setting-up-logistics" label="{% if lang == 'ru' %}Настраиваем логистику{% else %}Setting up logistics{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Настраиваем логистику{% else %}Setting up logistics{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда материалы в производстве и объёмы понятны, настраиваем логистику. Цель этапа — довезти продукт, упаковку и мерч до пиццерий так, чтобы запуск не встал из‑за склада, поставки или недоступности в сети.{% else %}Once materials are in production and volumes are clear, we set up logistics. The goal of this stage is to get the product, packaging and merch to pizzerias so the launch does not stall because of storage, delivery or lack of availability across the network.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Ниже — принципы, которые важно учесть.{% else %}Below are the principles that matter.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Не связываем продукты в комбо{% else %}Do not tie products into a combo{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Продукты лучше не объединять в комбо. Если закончились стаканы для напитка, напиток просто не продаётся, а пицца продолжает. Если напиток и пицца связаны в комбо и один компонент уходит в стоп, встаёт всё предложение, и целевая аудитория ничего не купит.{% else %}It is better not to bundle products into a combo. If cups for the drink run out, the drink simply stops selling while pizza continues. If the drink and pizza are tied into a combo and one component goes on stop, the whole offer stops, and the target audience can buy nothing.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Думаем о хранении{% else %}Think about storage{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}У пиццерий мало места на складе и в холодильниках. Однажды хотели сделать сборную коробку для пиццы и отказались: её было некуда складировать. Поэтому упаковку и мерч делаем компактными.{% else %}Pizzerias have little space in storage and refrigerators. We once wanted a modular pizza box and dropped it: there was nowhere to store it. So we keep packaging and merch compact.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Готовим распределительный центр заранее{% else %}Prepare the distribution centre in advance{% endif %}
+    </h3>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}К старту на ИВЛ всё должно быть готово примерно за два месяца: оттуда упаковка, мерч и уникальные ингредиенты едут в пиццерии. Логистика до Дальнего Востока и Владивостока занимает много времени. Самолёт иногда используют, но это дорого. Продукты, которые могут испортиться за два месяца, в коллаборацию не берём.{% else %}By launch, everything at IVL should be ready about two months ahead: from there packaging, merch and unique ingredients go to pizzerias. Logistics to the Far East and Vladivostok take a long time. Air freight is sometimes used, but it is expensive. We do not take products that could spoil within two months into a collaboration.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}ИВЛ — логистический распределительный центр, откуда упаковка, мерч и ингредиенты едут в пиццерии и франшизы СНГ{% else %}IVL is the logistics distribution centre that supplies pizzerias and CIS franchises{% endif %}
+        </p>
+      </div>
+    </div>
+    <h3>
+      {% if lang == 'ru' %}Обеспечиваем старт{% else %}Cover the start{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}У коллабораций лавинообразный спрос в первые дни, а не ровно на весь период. К запуску пиццерии должны быть обеспечены как минимум на 60% от всего плана, если позволяет хранение. Если можно отгрузить больше — лучше. В геймерских коллаборациях это особенно важно: если продукта нет, фанатская аудитория может обрушить рейтинг на картах.{% else %}Collaborations have avalanche demand in the first days, not evenly across the whole period. By launch, pizzerias should be supplied with at least 60% of the full plan if storage allows. If more can be shipped — even better. In gaming collaborations this is especially important: if the product is missing, a devoted audience can tank map ratings.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Учитываем страны{% else %}Account for countries{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Около 90% производства идёт в России. Исключения бывают — например, в коллаборации с Winx Турция сама делала коробки. Когда ясен состав стран, отдельно решаем: мерч и упаковка едут с ИВЛ из России или делаются локально. Соседние страны чаще забирают поставки в России.{% else %}About 90% of production is in Russia. Exceptions happen — for example, in the Winx collaboration Turkey made the boxes itself. When the set of countries is clear, we decide separately: merch and packaging ship from IVL in Russia or are made locally. Neighbouring countries more often take shipments in Russia.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Когда логистика заложена, переходим к продвижению — как донести идею коллаборации до аудитории.{% else %}Once logistics is in place, we move to promotion — how to carry the collaboration idea to the audience.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="building-promotion" label="{% if lang == 'ru' %}Строим продвижение{% else %}Building promotion{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Строим продвижение{% else %}Building promotion{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда логистика заложена, строим продвижение. Цель этапа — донести идею и концепцию коллаборации до аудитории на каждом шаге контакта с брендом. Продвижение строится вокруг полного раскрытия идеи проекта.{% else %}Once logistics is in place, we build promotion. The goal of this stage is to carry the collaboration idea and concept to the audience at every step of contact with the brand. Promotion is built around fully revealing the idea of the project.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Выбор каналов и контента зависит от проекта. Всегда возвращаемся к вопросу, для кого делаем коллаборацию: только целевая аудитория поймёт предложение и сможет купить продукт. Параллельно с производством брифуем команду медиа: у неё есть годовой бюджет, она смотрит на цели коллаборации и предлагает набор каналов.{% else %}The choice of channels and content depends on the project. Always return to who we are doing the collaboration for: only the target audience will get the offer and be able to buy the product. In parallel with production we brief the media team: it has an annual budget, looks at the collaboration goals and proposes a channel mix.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Логика работы с воронкой коммуникации{% else %}Communication funnel logic{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Воронка коммуникации — это путь аудитории от первого знакомства с коллаборацией до покупки или визита. Мы выстраиваем смыслы на каждом уровне этого пути, а не просто раскладываем каналы.{% else %}The communication funnel is the audience’s path from first contact with the collaboration to a purchase or a visit. We build meanings at every level of that path, rather than just laying out channels.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+        <div class="ids__sequence-item">
+          <p>
+          {% if lang == 'ru' %}<strong>Верхний уровень (охват).</strong> Цель — широкое знание на крупном анонсе, донесение смыслов и первичный импульс знакомства. Инструменты: работа с агентством для проработки медиасплита. Если концепция предполагает пользовательский контент, его стимулирование закладываем на этом этапе в брифы и охватные креативы.{% else %}<strong>Top of funnel (reach).</strong> The goal is broad awareness at a major announcement, delivering meanings and a first impulse to get acquainted. Tools: working with an agency on the media split. If the concept involves user-generated content, we build that stimulation into briefs and reach creatives at this stage.{% endif %}
+        </p>
+        </div>
+        <div class="ids__sequence-item">
+          <p>
+          {% if lang == 'ru' %}<strong>Средний и нижний уровни (активации и конверсия).</strong> Цель — углубить контакт с брендом, вовлечь и перевести внимание в покупку или визит. Инструменты: точечные каналы и специализированные форматы продвижения.{% else %}<strong>Mid and lower funnel (activations and conversion).</strong> The goal is to deepen contact with the brand, involve the audience and turn attention into a purchase or a visit. Tools: targeted channels and specialised promotion formats.{% endif %}
+        </p>
+        </div>
+      </div>
+    <h3>
+      {% if lang == 'ru' %}Виральный охват{% else %}Viral reach{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Перед запуском менеджеры оценивают, насколько проект может «разойтись» сам — без больших вложений в рекламу. Бывают коллаборации с очень активной аудиторией: геймерские проекты, аниме. Там хорошо работает прогрев, и люди сами разносят новость — как было с Genshin или, неожиданно сильно, с Winx, когда информация утекла из тестовой пиццерии.{% else %}Before launch, managers assess how much the project can spread on its own — without heavy ad spend. Some collaborations have a very active audience: gaming projects, anime. Pre-launch buzz works well there, and people spread the news themselves — as with Genshin, or unexpectedly strongly with Winx, when information leaked from a test pizzeria.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}В таких коллаборациях масштабная медиаподдержка часто не нужна. В Genshin мы договаривались с лицензиаром, что он расскажет о коллаборации в своих соцсетях, а мы — у себя, без раскрытия деталей. За две недели до старта выложили в ВК пост с надписью «Genshin» без подробностей — активная аудитория подхватила, унесла в фан-сообщества, и нам не пришлось инвестировать в медиапродвижение.{% else %}In such collaborations, large-scale media support is often unnecessary. For Genshin, we agreed with the licensor that they would announce the collaboration in their social media, and we would too — without revealing details. Two weeks before launch we posted in VK with just “Genshin” and no details — the active audience picked it up, spread it to fan communities, and we did not have to invest in media promotion.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}В игровых коллаборациях можно просить интеграцию в саму игру: например, в Zenless Zone Zero добавили наш додстер в мини-геймификацию к обновлению — тот же продукт потом продавался в пиццерии.{% else %}In gaming collabs, you can ask for in-game integration: for example, in Zenless Zone Zero we added our dodster to a mini-game tied to an update — the same product was then sold in pizzerias.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+        <div class="ids__sequence-item">
+          <figure><img src="/images/producing/collaborations/zzz/zzz-special-dishes.jpg" alt="" />
+          <figcaption>
+            {% if lang == 'ru' %}Специальные блюда коллаборации и подарки{% else %}Special collaboration dishes and gifts{% endif %}
+          </figcaption>
+        </figure>
+        </div>
+        <div class="ids__sequence-item">
+          <figure><img src="/images/producing/collaborations/zzz/zzz-taste-hunt.jpg" alt="" />
+          <figcaption>
+            {% if lang == 'ru' %}Охота за вкусом: награды коллаборации{% else %}Taste Hunt: collaboration rewards{% endif %}
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+    <p>
+      {% if lang == 'ru' %}Бывают и более спокойные коллаборации — например, LadyBug: целевая аудитория есть, но маловероятно, что люди сами понесут новость в соцсети. Тогда закладываем больше бюджета на продвижение и привлечение клиентов. Единой методички с процентным распределением по каналам нет — для каждого проекта план свой, исходя из того, насколько аудитория активна и готова сама разносить новость.{% else %}There are also calmer collaborations — for example, LadyBug: there is a target audience, but it is unlikely people will spread the news on their own. Then we allocate more budget to promotion and customer acquisition. There is no single guide with percentage splits across channels — each project has its own plan, based on how active the audience is and how ready it is to spread the news itself.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Внешние каналы{% else %}External channels{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Внешние каналы — это площадки за пределами наших собственных: соцсети, блогеры, медиа, телевидение, радио. Медиастратегия собирает их в один план, и под него выстраиваем все коммуникации и продвижение коллаборации.{% else %}External channels are platforms outside our own: social media, bloggers, media, television, radio. The media strategy brings them into one plan, and we align all communications and collaboration promotion to it.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}С 2026 года в России Instagram недоступен, а YouTube используем с осторожностью — поэтому опираемся на ВК, где запуски хорошо заходят. В Telegram закупать рекламу нельзя, но анонсы во внутренних каналах продолжаем.{% else %}Since 2026 Instagram is unavailable in Russia and we use YouTube with caution — so we rely on VK, where launches land well. Paid ads in Telegram are not allowed, but we keep announcing in internal channels.{% endif %}
+    </p>
+    <div class="ids__with-note">
+      <p>
+        {% if lang == 'ru' %}Чем пользуемся: закупаем рекламу у блогеров, для аниме- и геймерских коллабораций подключаем стримеров на Twitch. Из стандартных каналов — перформанс-баннеры, OLV, радио и нативные посевы. Телевидение очень дорогое и подходит не всем аудиториям: последняя коллаборация на ТВ была LadyBug, после неё на телевизор не ходили — это не наша целевая аудитория.{% else %}What we use: we buy ads from bloggers, and for anime and gaming collaborations we bring in streamers on Twitch. Among standard channels — performance banners, OLV, radio and native seeding. Television is very expensive and not right for every audience: the last collaboration on TV was LadyBug, and after that we did not go back to TV — it is not our target audience.{% endif %}
+      </p>
+      <div class="ids__note">
+        <p>
+          {% if lang == 'ru' %}OLV (online video) — видеоролик в интернете, перед или в середине другого видео. Нативные посевы — посты без пометки «реклама», как будто канал сам решил рассказать{% else %}OLV (online video) is a pre-roll or mid-roll online video. Native seeding is posts without an “ad” label, as if the channel decided to share on its own{% endif %}
+        </p>
+      </div>
+    </div>
+    <h3>
+      {% if lang == 'ru' %}Внутренние каналы{% else %}Internal channels{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Помимо внешних задействуем внутренние: приложение, сайт, соцсети, трейд-маркетинг, push и email. Push и email — дополнительная точка контакта, но не стоит слишком давить на клиентов. Стараемся выстроить продвижение на весь пул каналов, который у нас есть, и оценивать примерный эффект и стоимость вместе с медиакомандой.{% else %}Besides external ones we use internal channels: the app, website, social media, trade marketing, push and email. Push and email are an extra touchpoint, but we should not push customers too hard. We aim to promote across the full pool of channels we have and estimate the expected effect and cost with the media team.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Спецпроекты{% else %}Special projects{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Помимо стандартных каналов придумываем спецпроекты — часто из целей продукта. Если цель — трафик в приложение, делаем мини-геймификацию только там: не просто лендинг в посевах, а механику, которая работает в приложении и ведёт к продукту. Бывают и спецпроекты на площадках вроде Пикабу или Яндекса.{% else %}Beyond standard channels, we create special projects — often driven by product goals. If the goal is app traffic, we build mini-gamification only there: not just a landing page in paid posts, but a mechanic that lives in the app and leads to the product. There are also special projects on platforms like Pikabu or Yandex.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Например, в Genshin в приложении каждый день в разных местах появлялся персонаж игры — нужно было кликнуть и «поймать» его. За неделю собирали персонажей. Среди тех, кто нашёл всех за день, разыгрывали уникальный мерч, который нельзя было купить.{% else %}For example, in Genshin a game character appeared in different places in the app each day — you had to tap and “catch” them. Over a week you collected characters. Among those who found them all each day, we raffled unique merch that could not be bought.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/promo-1.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/promo-2.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/promo-3.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <div class="ids__video">
+          <video controls playsinline preload="metadata">
+            <source src="/video/collaborations/promo-Dodo-Genshin.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Сторис и промо ролик коллаборации Genshin{% else %}Genshin collaboration stories and promo video{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}В Winx в промоподборке запускали тест «кто ты из Винкс» — в конце можно поделиться красивой анкетой. Такие спецпроекты хорошо работают на продажу продукта через приложение и сайт.{% else %}In Winx, the promo collection ran a “which Winx are you” test — at the end you could share a nice result card. Such special projects work well for selling the product through the app and website.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/winx-ask.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/winx-ask-2.jpg" alt="" /></figure>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Ещё вариант — офлайн-мероприятие: закрыть пиццерию на ночь, устроить встречу, пригласить СМИ и лидеров мнений — косплееров, блогеров по теме коллаборации, — дать обычным клиентам шанс попасть через розыгрыш билетов. Такие встречи объединяют сообщество.{% else %}Another option is an offline event: close a pizzeria for the night, hold a meetup, invite media and opinion leaders — cosplayers, bloggers on the collaboration topic — and give regular customers a chance to get in via a ticket raffle. Such meetups unite the community.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+        <div class="ids__sequence-item">
+          <figure><img src="/images/producing/collaborations/zzz/cosplay-1.jpg" alt="" /></figure>
+        </div>
+        <div class="ids__sequence-item">
+          <figure><img src="/images/producing/collaborations/zzz/cosplay-2.jpg" alt="" /></figure>
+        </div>
+      </div>
+    <p>
+      {% if lang == 'ru' %}Но важно помнить, что мероприятие локальное, а маркетинг федеральный: если делаем его только в Москве, для остальных регионов и стран нужно что-то ещё — например, механика в приложении с призами. Иначе аудитория в других городах чувствует себя обделённой.{% else %}But it is important to remember that an event is local, while marketing is federal: if we run it only in Moscow, we need something else for other regions and countries — for example, an in-app mechanic with prizes. Otherwise audiences in other cities feel left out.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Чем креативнее спецпроект, тем выше шанс, что продвижение пойдёт органически.{% else %}The more creative the special project, the higher the chance that promotion will spread organically.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="preparing-trade-marketing-in-pizzerias" label="{% if lang == 'ru' %}Готовим трейд-маркетинг в пиццериях{% else %}Preparing trade marketing in pizzerias{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Готовим трейд-маркетинг в пиццериях{% else %}Preparing trade marketing in pizzerias{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Когда медиаплан и спецпроекты собраны, готовим трейд-маркетинг — носители и оформление на местах продаж. Цель этапа — чтобы гость в пиццерии увидел коллаборацию и понял, что заказывать.{% else %}Once the media plan and special projects are in place, we prepare trade marketing — the media and décor at the points of sale. The goal of this stage is for the guest in the pizzeria to see the collaboration and understand what to order.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Есть стандартный набор носителей и нестандартное оформление — его подключают по желанию пиццерии.{% else %}There is a standard set of media and optional décor — pizzerias connect it if they want.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Стандартные носители{% else %}Standard media{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Стандартный набор — тейбл-тенты на столах, лайтбоксы на фасадах, цифровые экраны и ТВ-борды, радио в зале.{% else %}The standard set is table tents on the tables, lightboxes on the facades, digital screens and TV boards, and radio in the dining room.{% endif %}
+    </p>
+    <div class="ids__sequence XL gap-S">
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/winx-poster.jpg" alt="" /></figure>
+      </div>
+      <div class="ids__sequence-item">
+        <figure><img src="/images/producing/collaborations/winx-lightbox.jpg" alt="" /></figure>
+      </div>
+    </div>
+    <p>
+      {% if lang == 'ru' %}Трейд-маркетинг в пиццерии на примере Winx{% else %}Trade marketing in a pizzeria: Winx example{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Оформление пиццерии{% else %}Pizzeria décor{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Нестандартный вариант — оформление пиццерии. Можно подготовить пакет материалов, которые пиццерии распечатают и разместят сами. Такое оформление опционально: если у пиццерии есть бюджет — хорошо, если нет — тоже нормально.{% else %}A non-standard option is pizzeria décor. We can prepare a pack of materials that pizzerias print and place themselves. Such décor is optional: if a pizzeria has the budget — good, if not — that is fine too.{% endif %}
+    </p>
+    <div class="ids__media-group XL shadow"><figure><img src="/images/producing/collaborations/stand-1.jpg" alt="" /></figure></div>
+    <div class="ids__media-group XL shadow"><figure><img src="/images/producing/collaborations/stand-2.jpg" alt="" /><figcaption>
+        {% if lang == 'ru' %}Оформление стендов для Genshin{% else %}Stand design for Genshin{% endif %}
+      </figcaption></figure></div>
+    <p>
+      {% if lang == 'ru' %}В коллаборациях с высоким ожидаемым виральным охватом печатные носители — лайтбоксы, тейбл-тенты, листовки — лучше не ставить. Партнёры потратят деньги на печать, а продукт может распродаться слишком быстро. Тогда всю печатку придётся убирать — и это лишние расходы.{% else %}In collaborations with high expected viral reach it is better not to put up printed media — lightboxes, table tents, leaflets. Partners will spend money on printing, and the product may sell out too quickly. Then all the print would have to come down — and that is wasted spend.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Когда трейд-маркетинг готов, переходим к операционке — чтобы пиццерии и смежные команды могли стартовать без сюрпризов.{% else %}Once trade marketing is ready, we move to operations — so pizzerias and adjacent teams can start without surprises.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="preparing-operations" label="{% if lang == 'ru' %}Готовим операционку{% else %}Preparing operations{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Готовим операционку{% else %}Preparing operations{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Цель этапа — подготовить всё, без чего пиццерии и смежные команды не запустят коллаборацию: статью для пиццерий, стандарты приготовления, брифинг клиентской поддержки и поддержки партнёров, адаптацию под разные страны.{% else %}The goal of this stage is to prepare everything without which pizzerias and adjacent teams cannot launch the collaboration: the article for pizzerias, preparation standards, briefings for customer support and partner support, and adaptation for different countries.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Статья и стандарты{% else %}Launch article and standards{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Готовим статью для пиццерий: план продаж, зачем делаем проект, пошаговые инструкции для старта. Отдельно — стандарты приготовления и комплектации на местах продаж: как полить соус, что положить из мерча, как завести продукты в меню, как пробивать на кассе. Управляющая компания не может нажать одну кнопку и запустить у всех — это делают пиццерии на местах, поэтому инструкции должны быть максимально развёрнутыми.{% else %}We prepare an article for pizzerias: the sales plan, why we are doing the project, step-by-step launch instructions. Separately — preparation and assembly standards at the points of sale: how to add sauce, what merch to include, how to add products to the menu, how to ring them up. The management company cannot press one button and launch everywhere — pizzerias do it on the ground, so the instructions must be as detailed as possible.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Клиентская поддержка{% else %}Customer support{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Готовим документ для клиентской поддержки: вся информация по коллаборации и ответы на прогнозируемые вопросы клиентов — например, «в Анапе привезли, а нам в Кыргызстан нет». Поддержка готовит скрипты на частые вопросы: в коллаборациях их много — соцсети, почта, звонки. Исходя из плана продаж, команда понимает примерный эффект и готовит линии. Документ обычно делают параллельно со статьёй для пиццерий: на это уходит несколько часов, плюс возможна встреча для уточнений.{% else %}We prepare a document for customer support: all collaboration information and answers to predictable customer questions — for example, “they delivered in Anapa, but not to us in Kyrgyzstan”. Support prepares scripts for frequent questions: in collaborations there are many — social media, email, calls. Based on the sales plan, the team understands the expected effect and prepares lines. The document is usually made in parallel with the pizzeria article: it takes a few hours, plus a possible meeting for clarifications.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Поддержка партнёров{% else %}Partner support{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Параллельно брифуем контактный центр для партнёров — для управляющих, закупщиков и кассиров в пиццериях. Он обрабатывает запросы с мест и особенно важен в запусках с новым продуктом и высоким спросом — коллаборации как раз из таких.{% else %}In parallel we brief the partner contact centre — for pizzeria managers, purchasers and cashiers. It handles requests from the field and is especially important for launches with a new product and high demand — collaborations are exactly that kind of project.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Процесс такой же, как с клиентской поддержкой: передаём все вводные по проекту, проводим брифинг, заводим отдельный тред для массовых запросов. Этот шаг нужно закладывать в тайминг и роадмап — так проще снять нагрузку с локальных чатов и не потерять вопросы из пиццерий.{% else %}The process mirrors customer support: we share all project inputs, run a briefing and set up a separate thread for mass requests. This step should go into the timeline and roadmap — it helps take pressure off local chats and makes sure pizzeria questions do not get lost.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Запуск в нескольких странах{% else %}Multiple countries{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Если коллаборация идёт не в одной стране, страны СНГ берут нашу статью как черновик и адаптируют под себя. Дубай и другие рынки с другими процессами пишут свою статью и на нашу не ориентируются.{% else %}If the collaboration runs in more than one country, CIS countries take our article as a draft and adapt it. Dubai and other markets with different processes write their own article and do not rely on ours.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Менеджер РФ готовит основной комплект материалов проекта и передаёт дальше. Менеджеры стран перекладывают его на себя и учитывают особенности — например, в Дубае нет своей доставки, только агрегаторы, и это нужно прописать в договоре с лицензиаром.{% else %}The Russia manager prepares the main set of project materials and hands it over. Country managers adapt it and account for specifics — for example, in Dubai there is no own delivery, only aggregators, and this must be written into the licensor contract.{% endif %}
+    </p>
+    <div class="ids__media-group XL shadow"><figure><img src="/images/producing/collaborations/countries.png" alt="" /><figcaption>
+        {% if lang == 'ru' %}Распределение тиражей по странам на примере Winx{% else %}Circulation by country: Winx example{% endif %}
+      </figcaption></figure></div>
+    <p>
+      {% if lang == 'ru' %}Когда операционка собрана, готовимся к старту проекта.{% else %}Once operations are ready, we prepare for the project start.{% endif %}
+    </p>
+    </ids-nav-item>
+  <ids-nav-item id="preparing-for-the-project-start" label="{% if lang == 'ru' %}Готовимся к старту проекта{% else %}Preparing for the project start{% endif %}">
+      <h2 class="h3">{% if lang == 'ru' %}Готовимся к старту проекта{% else %}Preparing for the project start{% endif %}</h2>
+  <p>
+      {% if lang == 'ru' %}Перед днём продаж проверяем, что продукт можно запускать в продажу и что на местах есть всё для этого необходимое.{% else %}Before sales day we check that the product can be switched on and that the field has everything without which the start will not run. We do not inflate the process here — only what we cannot go on sale without. The launch itself and working with the actuals are the next guide.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Готовим мини-статью на пик{% else %}Prepare a mini-article for the peak{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Если ожидаем большой эффект и пики продаж, готовим дополнительную мини-статью: как работать в пике — например, с дополнительным курьером и талончиками по номерам для очередей. В статью включаем подсказки на случай кризисных ситуаций. Что-то точно пойдёт не так — в крупных кросс-командных проектах это нормально. Важно, чтобы команды были готовы быстро реагировать в первые дни запуска.{% else %}If we expect a big effect and sales peaks, we prepare an extra mini-article: how to work during the peak — for example with an extra courier and numbered tickets for queues. The article includes tips for crisis situations. Something will go wrong — in large cross-team projects that is normal. What matters is that teams are ready to react quickly in the first days after launch.{% endif %}
+    </p>
+    <h3>
+      {% if lang == 'ru' %}Учитываем риск утечек{% else %}Account for leak risk{% endif %}
+    </h3>
+    <p>
+      {% if lang == 'ru' %}Утечки информации о коллаборации до старта — проблема, так быть не должно. Сотрудники иногда делают скрины из материалов статьи, воруют мерч и выставляют его на продажу. Жёстких мер пока нет, но это периодически случается — важно учитывать при планировании.{% else %}Leaks about a collaboration before launch are a problem and should not happen. Staff sometimes take screenshots from the article materials, steal merch and put it up for sale. There are no strict controls yet, but it happens from time to time — worth factoring into planning.{% endif %}
+    </p>
+    <p>
+      {% if lang == 'ru' %}Когда к старту всё готово, переходим к запуску — первому дню продаж и работе с фактом.{% else %}Once everything is ready for the start, we move to launch — the first day of sales and working with the actuals.{% endif %}
+    </p>
+    </ids-nav-item>
+  <div class="ids__space L"></div>
+</article>

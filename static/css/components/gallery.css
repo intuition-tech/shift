@@ -42,6 +42,43 @@ ids-gallery, .ids__gallery {
     }
 }
 
+/* Сетка обложек 3×N с подписями (подборка коллабораций) */
+ids-gallery.covers, .ids__gallery.covers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.9em 0.7em;
+    margin-bottom: calc(var(--ids__density, 1.5) * 1em);
+
+    @media (width < 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        flex: none;
+        width: auto;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    figcaption {
+        margin-top: 0.4em;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+}
+
 /* PhotoSwipe lightbox caption */
 .pswp .pswp__caption {
     position: absolute;
