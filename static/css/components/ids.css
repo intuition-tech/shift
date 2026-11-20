@@ -105,7 +105,7 @@
       font-weight: 600;
     }
 
-    /* Раздел в оглавлении, мельче полного h2 */
+    /* h2, выглядящий как h3 (попадает в оглавление, но мельче) */
     &.h3 {
       font-size: 1.4em;
       font-weight: 570;
@@ -135,14 +135,16 @@
     }
   }
 
-  /* Подраздел: тот же кегль, что у текста, только жирнее.
-     Крупный «как h3» у раздела в оглавлении — это h2.h3 (1.4em). */
   & h3 {
-    font-size: 1.01em;
-    font-weight: 600;
-    line-height: var(--ids__density);
+    font-size: 1.4em;
+    font-weight: 570;
+    line-height: calc(var(--ids__density) / 1.1);
     margin-top: 1.4em;
-    margin-bottom: calc(var(--ids__density) * 0.75em);
+    margin-bottom: 0.6em;
+
+    @media (width < 768px) {
+      font-size: 1.5em;
+    }
   }
 
   /* Подраздел внутри раздела (Reels внутри Content formats):
