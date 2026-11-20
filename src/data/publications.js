@@ -2345,10 +2345,8 @@ export default [
     "title": "Интро",
     "titleEn": "Intro",
     "date": "2026-10-14",
-    "authors": [
-      "natali"
-    ],
-    "contact": "natali",
+    "authors": [],
+    "contact": null,
     "markets": [],
     "teams": [],
     "areas": [],
@@ -2363,10 +2361,8 @@ export default [
     "title": "Подготовительный этап",
     "titleEn": "Preparation stage",
     "date": "2026-10-14",
-    "authors": [
-      "natali"
-    ],
-    "contact": "natali",
+    "authors": [],
+    "contact": null,
     "markets": [],
     "teams": [],
     "areas": [],
@@ -2381,10 +2377,8 @@ export default [
     "title": "Реализация проекта",
     "titleEn": "Project implementation",
     "date": "2026-10-14",
-    "authors": [
-      "natali"
-    ],
-    "contact": "natali",
+    "authors": [],
+    "contact": null,
     "markets": [],
     "teams": [],
     "areas": [],
@@ -2399,10 +2393,8 @@ export default [
     "title": "Запуск",
     "titleEn": "Launch",
     "date": "2026-10-15",
-    "authors": [
-      "natali"
-    ],
-    "contact": "natali",
+    "authors": [],
+    "contact": null,
     "markets": [],
     "teams": [],
     "areas": [],
@@ -2417,10 +2409,8 @@ export default [
     "title": "Постанализ",
     "titleEn": "Post-analysis",
     "date": "2026-10-15",
-    "authors": [
-      "natali"
-    ],
-    "contact": "natali",
+    "authors": [],
+    "contact": null,
     "markets": [],
     "teams": [],
     "areas": [],

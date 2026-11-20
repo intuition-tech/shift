@@ -18,6 +18,8 @@ function readSources() {
     const slug = file.replace(/\.html$/, "");
     const text = fs.readFileSync(path.join(PAGES_DIR, file), "utf8");
     const pub = publications.find((p) => p.slug === slug);
+    // Скрытые публикации не светятся в «использованиях» на /design-system/
+    if (pub?.status === "hidden") continue;
     const fm = text.match(/^title:\s*(.+)$/m);
     const title = pub?.title || (fm ? fm[1].replace(/\s*[—-]\s*Shift\s*$/, "").trim() : slug);
     list.push({ kind: "page", slug, text, url: slug === "index" ? "/" : `/${slug}/`, title: slug === "index" ? "Главная" : title });
