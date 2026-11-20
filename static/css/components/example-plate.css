@@ -12,8 +12,8 @@
   border-radius: 0.9em;
   padding: 1.2em 1.4em 1.4em;
   margin-top: var(--shift__illustration-gap);
-  /* После плашки всегда спейс S. Явный спейс S в разметке его не дублирует,
-     поле следующего заголовка к нему не прибавляется — media.css. */
+  /* После плашки всегда спейс S. Явный спейс S в разметке его не дублирует
+     (media.css обнуляет поле); с M поля складываются. */
   margin-bottom: var(--ids__spacer-s);
 
   & :is(.ids__sequence, .ids__media-group, figure) {

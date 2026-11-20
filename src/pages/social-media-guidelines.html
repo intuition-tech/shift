@@ -18,10 +18,11 @@ tags: publication
   </h1>
   {% include "pub-meta.html" %}
   <p class="ids__description">
-    This guide helps partners run social media in line with Dodo Pizza’s global
-    identity, and adapt it to the local culture. <sup>*</sup>The activities
-    of Meta Platforms Inc. and its products Instagram and Facebook are
-    prohibited in the Russian Federation.
+    {% if lang == 'ru' %}Этот гайд помогает партнёрам вести соцсети
+    в соответствии с глобальной идентичностью Додо Пиццы и адаптировать её
+    под местную культуру.{% else %}This guide helps partners run social media
+    in line with Dodo Pizza’s global identity, and adapt it to the local
+    culture.{% endif %}
   </p>
 
   {% if lang == 'ru' %}
@@ -408,6 +409,7 @@ tags: publication
         </div>
       </div>
     </div>
+    <div class="ids__space M"></div>
     <p>
       This is how colors for positioning show up in Dubai and Qatar. Keep the
       colour roles and adapt the offer to your market.
@@ -471,7 +473,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       You can download these templates and adapt them to your market. Click a
       plate and the file downloads.
@@ -574,9 +576,8 @@ tags: publication
     <h2 class="h3">Fonts</h2>
     <p>
       We make posts and some stories outside the app, and then we use these two
-      fonts. Some story lines are typed inside Instagram<sup
-        ><a href="#meta-footnote">*</a></sup
-      >, where our fonts cannot be uploaded. For consistency we always use the
+      fonts. Some story lines are typed inside Instagram, where our fonts
+      cannot be uploaded. For consistency we always use the
       ones in the examples.
     </p>
     <div class="ids__with-note">
@@ -659,11 +660,11 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       <strong>Fonts in Stories.</strong> Directional is the font for text set
-      inside Instagram<sup><a href="#meta-footnote">*</a></sup
-      >. Use it with or without a background. The line has to stay easy to read.
+      inside Instagram. Use it with or without a background. The line has to stay
+      easy to read.
     </p>
     <div class="ids__example-plate">
       <div class="ids__sequence XL gap-S">
@@ -693,8 +694,7 @@ tags: publication
     <h2 class="h3">Logo usage</h2>
     <p>
       Usually we don’t put a logo in every video. It happens in two cases:
-      to show brand identity, and if we focus on Dodo App exclusively. This
-      video as an example of brand identity ending.
+      to show brand identity, and if we focus on Dodo App exclusively.
     </p>
     <div class="ids__download">
       <div class="ids__download-item">
@@ -728,7 +728,7 @@ tags: publication
         </figure>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <div class="ids__with-note">
       <p>
         This is how the logo looks in animated packshots. The packshots can be
@@ -882,40 +882,26 @@ tags: publication
           rel="noopener noreferrer"
           target="_blank"
           >Dubai</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >,
         <a
           href="https://www.instagram.com/dodoacademy.uae/"
           rel="noopener noreferrer"
           target="_blank"
           >Dubai Academy</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >,
         <a
           href="https://www.instagram.com/dodopizza.iraq/"
           rel="noopener noreferrer"
           target="_blank"
           >Iraq</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >, and
         <a
           href="https://www.instagram.com/dodopizza_qa/"
           rel="noopener noreferrer"
           target="_blank"
           >Qatar</a
-        ><sup><a href="#meta-footnote">*</a></sup
-        >. The screenshots are Dubai, Iraq, and Qatar. Adapt the bio and the
-        highlights to your market.
+        >. Adapt the bio and the highlights to your market.
       </p>
-      <div class="ids__note" id="meta-footnote">
-        <p>
-          <sup>*</sup>
-          {% if lang == 'ru' %}Деятельность организации Meta Platforms Inc и ее
-          продуктов Instagram и Facebook запрещена в Российской Федерации.{% else
-          %}The activities of Meta Platforms Inc. and its products Instagram and
-          Facebook are prohibited in the Russian Federation.{% endif %}
-        </p>
-      </div>
     </div>
     <div class="ids__example-plate">
       <div class="ids__sequence L gap-S">
@@ -971,9 +957,9 @@ tags: publication
   <ids-nav-item id="feed-aesthetics" label="Feed aesthetics">
     <h2 class="h3">Feed aesthetics</h2>
     <p>
-      The Dubai feed is the example. The grid reads as one picture: live photos
-      and designed layouts, Reels, posts, and carousels, close-ups and long
-      shots, with pizza as the product.
+      This is an example of a well-organized feed. The grid reads as one
+      picture: live photos and designed layouts, Reels, posts, and carousels,
+      close-ups and long shots, with pizza as the product.
     </p>
     <div class="ids__media-group L">
       <figure>
@@ -1026,10 +1012,8 @@ tags: publication
       energy, and a bit of feeling. Humor is welcome when it stays light,
       friendly, and inclusive.
     </p>
-    <p>
-      The traits stay fixed. What changes is the job of the post, and with it
-      the tone.
-    </p>
+    <p>The traits stay fixed. What changes is the job of the post.</p>
+    <div class="ids__space M"></div>
     <h3>Educational content</h3>
     <p>
       Helpful, clear, and encouraging. Used in app features, how to order,
@@ -1066,7 +1050,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3>Brand culture</h3>
     <p>
       Open, friendly, and human. Used in stories about the team, franchise life,
@@ -1124,7 +1108,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3>Promotions and offers</h3>
     <p>
       Playful, fun, and a bit cheeky. Used in special deals, limited-time
@@ -1182,7 +1166,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3>Kids and family</h3>
     <p>
       Caring, warm, and super sweet. Used in kids’ meals, family combos, and
@@ -1230,7 +1214,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3>Cultural sensitivity and local relevance</h3>
     <p>The line follows the local calendar and the people in the market.</p>
     <ul>
@@ -1299,6 +1283,7 @@ tags: publication
       Dodo App. A flexible day is there when a launch, a holiday, or a local
       event needs the space.
     </p>
+    <div class="ids__space S"></div>
     <div class="ids__table-wrapper">
       <table>
         <colgroup>
@@ -1597,7 +1582,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <div class="ids__format-head">
       <h3>Static posts</h3>
       <p><code>2–3 per month</code></p>
@@ -1646,7 +1631,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       Captions for posts and Reels start with a lowercase letter. Written this
       way, the text looks cleaner.
@@ -1682,7 +1667,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <div class="ids__format-head">
       <h3>Carousels</h3>
       <p><code>1–2 per month</code></p>
@@ -1726,7 +1711,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3 class="ids__format-title">Live streams</h3>
     <ul>
       <li>Used during giveaways or major community activations.</li>
@@ -1750,7 +1735,7 @@ tags: publication
         </figure>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <h3 class="ids__format-title">Forbidden content</h3>
     <ul>
       <li>Political or religious content.</li>
@@ -1780,6 +1765,7 @@ tags: publication
         </p>
       </div>
     </div>
+    <div class="ids__space S"></div>
     <p><code>Week 1</code></p>
     <div class="ids__table-wrapper">
       <table>
@@ -1880,6 +1866,7 @@ tags: publication
         </tbody>
       </table>
     </div>
+    <div class="ids__space M"></div>
     <p><code>Week 2</code></p>
     <div class="ids__table-wrapper">
       <table>
@@ -1993,6 +1980,7 @@ tags: publication
       We aim to build real, human relationships with our audience
       through consistent and respectful communication.
     </p>
+    <div class="ids__space S"></div>
     <p>
       <strong>Responding to comments and DMs.</strong> A reply should feel like
       a person at the counter.
@@ -2036,7 +2024,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       <strong>Handling complaints or sensitive messages.</strong> A public reply
       stays short, and the details move into a DM.
@@ -2079,7 +2067,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       <strong>Cultural etiquette and sensitivity.</strong> A greeting follows
       the local calendar, and the reply stays inside it.
@@ -2272,11 +2260,13 @@ tags: publication
       already trust. The notes below cover who we choose and how a collaboration
       is set up.
     </p>
+    <div class="ids__space S"></div>
     <p>
       <strong>Why we work with influencers.</strong> Influencers help us reach
       new audiences, build trust, and generate authentic word-of-mouth
       through content that feels personal and local.
     </p>
+    <div class="ids__space S"></div>
     <p>
       <strong>Who to work with.</strong> We look for creators whose audience
       already eats with us.
@@ -2345,7 +2335,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       <strong>Collaboration format.</strong> A collaboration can stay simple. We
       offer something useful, and we do not pay for the post.
@@ -2362,6 +2352,7 @@ tags: publication
       After that, the shape of the content is up to the creator. We stay clear
       about what the collaboration is.
     </p>
+    <div class="ids__space S"></div>
     <p>
       <strong>Flexible, creator-led content.</strong> The creator picks the
       shape of the post.
@@ -2374,6 +2365,7 @@ tags: publication
       <li>We do not hand them a script.</li>
       <li>Authenticity comes first. We trust their voice and creativity.</li>
     </ul>
+    <div class="ids__space S"></div>
     <p>
       <strong>Transparent collaboration.</strong> The post should sound like
       them, and it should happen again.
@@ -2382,6 +2374,7 @@ tags: publication
       <li>Creators are free to highlight what they genuinely enjoy.</li>
       <li>We aim for repeat collaborations, rather than one-time posts.</li>
     </ul>
+    <div class="ids__space S"></div>
     <p>
       <strong>How we talk to influencers.</strong> A collaboration usually takes
       three messages: the first note, the details once they say yes, and a
@@ -2460,7 +2453,7 @@ tags: publication
         </div>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <div class="ids__with-note">
       <p>These are collaborations we have already run.</p>
 
@@ -2557,6 +2550,7 @@ tags: publication
         <p>Track the total number and the quality. Are they engaging?</p>
       </div>
     </div>
+    <div class="ids__space M"></div>
     <p>
       The monthly report is where these numbers sit together. You can copy the
       template and fill it for your market.
@@ -2581,7 +2575,7 @@ tags: publication
         </p>
       </div>
     </div>
-    <div class="ids__space S"></div>
+    <div class="ids__space M"></div>
     <p>
       <strong>Benchmarks.</strong> These ranges describe a healthy month for the
       Dubai and Qatar accounts.
@@ -2676,28 +2670,24 @@ tags: publication
           rel="noopener noreferrer"
           target="_blank"
           >Dubai</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >,
         <a
           href="https://www.instagram.com/dodoacademy.uae/"
           rel="noopener noreferrer"
           target="_blank"
           >Dubai Academy</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >,
         <a
           href="https://www.instagram.com/dodopizza.iraq/"
           rel="noopener noreferrer"
           target="_blank"
           >Iraq</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >,
         <a
           href="https://www.instagram.com/dodopizza_qa/"
           rel="noopener noreferrer"
           target="_blank"
           >Qatar</a
-        ><sup><a href="#meta-footnote">*</a></sup
         >: Live profiles to adapt for your market.
       </p>
       <p>
@@ -2767,11 +2757,6 @@ tags: publication
         a Claude account.
       </p>
     </aside>
-    <div class="ids__space M"></div>
-    <p>
-      <sup>*</sup> The activities of Meta Platforms Inc. and its products
-      Instagram and Facebook are prohibited in the Russian Federation.
-    </p>
   </ids-nav-item>
 
   {% endif %}

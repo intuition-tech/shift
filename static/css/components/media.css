@@ -244,7 +244,8 @@
 }
 
 /* Явный спейс S после картинки, видео, слайда или сетки сам задаёт зазор.
-   Поле блока обнуляется, иначе к спейсу прибавляется свой отступ компонента. */
+   Поле блока обнуляется, иначе к спейсу прибавляется свой отступ компонента.
+   Со спейсом M поле не трогаем — марджин и спейс складываются. */
 .ids :is(figure, .ids__sequence, .ids__media-group, .ids__slide, .ids__slide-pair, .ids__compare, .ids__example-plate, .ids__video, .ids__download, .ids__gallery, .ids__checklist, table, .ids__with-note, a.ids__download-group):has(+ .ids__space.S) {
   margin-bottom: 0;
 }
